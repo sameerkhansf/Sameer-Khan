@@ -9,7 +9,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       <div className="container max-w-3xl mx-auto px-4 py-16 md:py-24">
         <header className="flex justify-between items-center mb-16">
-          <h1 className="text-xl font-medium">amirkhan.me</h1>
+          <h1 className="text-xl font-medium">./amirkhan.me</h1>
           <ThemeToggle />
         </header>
 
