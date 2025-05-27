@@ -23,21 +23,21 @@ export default function Home() {
             <div className="flex items-center space-x-2">
               <Link
                 href="https://amirkhan177.medium.com/"
-                className="footer-link hover:text-foreground transition-colors"
+                className=" hover:text-blue-600 hover:decoration-wavy hover:underline"
               >
                 @amirkhan177
               </Link>
               <span>·</span>
               <Link
                 href="https://linkedin.com/in/amirkhan177"
-                className="footer-link hover:text-foreground transition-colors"
+                className="hover:text-blue-600 hover:decoration-wavy hover:underline"
               >
                 linkedin
               </Link>
               <span>·</span>
               <Link
                 href="https://github.com/amirkhan"
-                className="footer-link hover:text-foreground transition-colors"
+                className="hover:text-blue-600 hover:decoration-wavy hover:underline"
               >
                 github
               </Link>
