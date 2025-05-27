@@ -13,7 +13,7 @@ export default function IntroSection() {
             <Link
               href="https://marlvc.com"
               target="_blank"
-              className="text-blue-500 hover:text-blue-600"
+              className="hover:text-blue-600 hover:decoration-wavy hover:underline"
             >
               MARL 5G Accelerator
             </Link>
@@ -28,22 +28,24 @@ export default function IntroSection() {
           height={400}
           className="w-full rounded-lg mb-4"
         />
-        <p className="text-base text-muted-foreground leading-relaxed">
+        <p className="text-base leading-relaxed">
+          Before this, I was in venture and fintech, founded{" "}
+          <span className="text-muted-foreground">
+            <Link
+              href="https://lendtech.co"
+              target="_blank"
+              className=" hover:text-blue-600 hover:decoration-wavy hover:underline"
+            >
+              LendTech
+            </Link>
+          </span>{" "}
+          to shake up banking, and helped turn around companies as a consultant.
+          I like big ideas and even bigger challenges.
+        </p>
+        <p className="text-base  leading-relaxed">
           I live in sunny and foggy San Francisco, CA. You can find me wine
           tasting in Sonoma, park hopping in SF, or chasing views up in the
           North Bay.
-        </p>
-        <p className="text-base leading-relaxed">
-          Before this, I was in venture and fintech, founded{" "}
-          <Link
-            href="https://lendtech.co"
-            target="_blank"
-            className="text-blue-500 hover:text-blue-600"
-          >
-            LendTech
-          </Link>{" "}
-          to shake up banking, and helped turn around companies as a consultant.
-          I like big ideas and even bigger challenges.
         </p>
       </div>
     </section>
