@@ -9,8 +9,16 @@ export default function IntroSection() {
       <div className="space-y-6 text-left">
         <p className="text-base leading-relaxed">
           Welcome to my little piece of the internet. I'm the founder of{" "}
-          <span className="text-muted-foreground">MARL 5G Accelerator</span>,
-          where we bring together startups, investors, and industry giants
+          <span className="text-muted-foreground">
+            <Link
+              href="https://marlvc.com"
+              target="_blank"
+              className="text-blue-500 hover:text-blue-600"
+            >
+              MARL 5G Accelerator
+            </Link>
+          </span>
+          , where we bring together startups, investors, and industry giants
           building the future of Mobility, Autonomy, Robotics, and Logistics.
         </p>
         <Image
