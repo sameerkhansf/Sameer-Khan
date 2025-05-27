@@ -47,7 +47,7 @@ export default function Home() {
               <Link
                 href="https://leerob.io"
                 target="_blank"
-                className="footer-link hover:text-foreground transition-colors"
+                className="hover:text-blue-600 hover:decoration-wavy hover:underline"
               >
                 Lee Robinson
               </Link>
