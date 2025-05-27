@@ -22,25 +22,28 @@ export default function Home() {
           <div className="flex flex-col items-center space-y-4 text-sm text-muted-foreground">
             <div className="flex items-center space-x-2">
               <Link
-                href="https://amirkhan177.medium.com/"
+                href="https://x.com/Amirk177"
+                target="_blank"
                 className=" hover:text-blue-600 hover:decoration-wavy hover:underline"
               >
-                @amirkhan177
+                @Amirk177
               </Link>
               <span>·</span>
               <Link
                 href="https://linkedin.com/in/amirkhan177"
+                target="_blank"
                 className="hover:text-blue-600 hover:decoration-wavy hover:underline"
               >
                 linkedin
               </Link>
               <span>·</span>
-              <Link
+              {/* <Link
                 href="https://github.com/amirkhan"
+                target="_blank"
                 className="hover:text-blue-600 hover:decoration-wavy hover:underline"
               >
                 github
-              </Link>
+              </Link> */}
             </div>
             <p className="text-center">
               This website design was inspired by{" "}

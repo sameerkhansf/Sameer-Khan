@@ -10,7 +10,8 @@ const writings = [
     source: "Business Insider",
   },
   {
-    title: "The Future of Mobility and 5G",
+    title:
+      "The $50 AI Revolution: How Main Street Will Finally Beat Silicon Valley at Its Own Game",
     url: "https://link.medium.com/TUh635omzPb",
     source: "Medium",
   },
