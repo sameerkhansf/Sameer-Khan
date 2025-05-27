@@ -20,6 +20,16 @@ export default function IntroSection() {
           </span>
           , where we bring together startups, investors, and industry giants
           building the future of Mobility, Autonomy, Robotics, and Logistics.
+          Visionaries i have backed can be found{" "}
+          <span className="text-muted-foreground">
+            <Link
+              href="https://marlvc.com/our-portfolio/"
+              target="_blank"
+              className="hover:text-blue-600 hover:decoration-wavy hover:underline"
+            >
+              here
+            </Link>
+          </span>
         </p>
         <Image
           src="/panel-event.jpg"
