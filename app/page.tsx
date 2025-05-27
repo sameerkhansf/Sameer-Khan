@@ -7,7 +7,7 @@ import IntroSection from "@/components/intro-section";
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="container max-w-3xl mx-auto px-4 py-16 md:py-24">
+      <div className="container max-w-lg mx-auto px-4 py-12">
         <header className="flex justify-between items-center mb-16">
           <h1 className="text-xl font-medium">./amirkhan.me</h1>
           <ThemeToggle />
