@@ -15,7 +15,7 @@ export default function IntroSection() {
         <h2 className="text-3xl md:text-4xl font-bold leading-tight">
           Hey, I'm Amir
         </h2>
-        <div className="text-lg md:text-xl text-muted-foreground space-y-4 leading-relaxed">
+        <div className="text-base text-muted-foreground space-y-4 leading-relaxed">
           <p>
             Founder of{" "}
             <Link
@@ -33,8 +33,8 @@ export default function IntroSection() {
           <Image
             src="https://media.licdn.com/dms/image/v2/C5603AQG26O6ReKYQYA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1554737506744?e=1753920000&v=beta&t=uqob31VIUMpDMe1lP71I7-raar67TTiZHZQ_PH9yYyA"
             alt="Amir Khan"
-            width={600}
-            height={400}
+            width={100}
+            height={100}
           />
 
           <p>

@@ -83,6 +83,15 @@ const config: Config = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      fontFamily: {
+        sans: ['Inter', 'Inter Fallback', 'sans-serif'],
+      },
+      fontSize: {
+        lg: '1rem',
+        md: '1rem',
+        sm: '0.875rem',
+        xs: '0.75rem',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],
