@@ -22,10 +22,10 @@ export default function Home() {
           <div className="flex flex-col items-center space-y-4 text-sm text-muted-foreground">
             <div className="flex items-center space-x-2">
               <Link
-                href="https://twitter.com/learnwdaniel"
+                href="https://amirkhan177.medium.com/"
                 className="footer-link hover:text-foreground transition-colors"
               >
-                @learnwdaniel
+                @amirkhan177
               </Link>
               <span>·</span>
               <Link
