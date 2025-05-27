@@ -46,15 +46,11 @@ export default function Home() {
               </Link> */}
             </div>
             <p className="text-center">
-              This website design was inspired by{" "}
-              <Link
-                href="https://leerob.io"
-                target="_blank"
-                className="hover:text-blue-600 hover:decoration-wavy hover:underline"
-              >
-                Lee Robinson
-              </Link>
-              's website.
+              Made with{" "}
+              <span role="img" aria-label="love">
+                ❤️
+              </span>{" "}
+              in San Francisco, CA
             </p>
           </div>
         </footer>
