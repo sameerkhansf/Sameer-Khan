@@ -13,12 +13,12 @@ export default function Home() {
           <ThemeToggle />
         </header>
 
-        <main className="space-y-16">
+        <main className="space-y-8">
           <IntroSection />
           <WritingsSection />
         </main>
 
-        <footer className="mt-24 pt-8 border-t border-border">
+        <footer className="mt-8 pt-8 border-t border-border">
           <div className="flex flex-col items-center space-y-4 text-sm text-muted-foreground">
             <div className="flex items-center space-x-2">
               <Link
