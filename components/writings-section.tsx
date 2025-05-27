@@ -28,7 +28,7 @@ export default function WritingsSection() {
                 href={writing.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
+                className="hover:text-blue-600 hover:decoration-wavy hover:underline"
               >
                 {writing.title}
               </Link>
