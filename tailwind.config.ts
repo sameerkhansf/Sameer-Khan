@@ -20,6 +20,18 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+        // ResumeX specific colors
+        resumx: {
+          bg: '#fbfbfb',
+          text: '#465156',
+          purple: '#a59ec3',
+          orange: '#fbb384',
+          red: '#962b25',
+          yellow: '#e9af3d',
+          gray: '#c9c8ce',
+          lightOrange: '#f4c58c',
+          pink: '#e9d0da',
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -78,10 +90,25 @@ const config: Config = {
             height: '0',
           },
         },
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideUp: {
+          '0%': { opacity: '0', transform: 'translateY(30px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'fade-in': 'fadeIn 0.6s ease-in-out',
+        'slide-up': 'slideUp 0.8s ease-out',
+        'float': 'float 6s ease-in-out infinite',
       },
       fontFamily: {
         sans: ['Inter', 'Inter Fallback', 'sans-serif'],

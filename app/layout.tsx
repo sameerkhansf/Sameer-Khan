@@ -8,13 +8,13 @@ import Confetti from "@/components/ui/Confetti";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://amirkhan.me"),
+  metadataBase: new URL("https://sameerkhan.me"),
   alternates: {
     canonical: "/",
   },
   title: {
-    default: "Amir Khan",
-    template: "%s | Amir Khan",
+    default: "Sameer Khan",
+    template: "%s | Sameer Khan",
   },
   description:
     "Founder of MARL 5G Accelerator, bringing together startups, investors, and industry giants building the future of Mobility, Autonomy, Robotics, and Logistics.",
@@ -35,12 +35,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Confetti />
-          <div className="min-h-screen flex flex-col justify-between pt-0 md:pt-8 p-8 dark:bg-zinc-950 bg-white text-gray-900 dark:text-zinc-200">
-            <main className="max-w-[60ch] mx-auto w-full space-y-6">
-              {children}
-            </main>
-            <Analytics />
-          </div>
+          {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

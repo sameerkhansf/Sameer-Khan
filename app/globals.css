@@ -1,20 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 
 @layer base {
   :root {
@@ -76,8 +64,21 @@
   * {
     @apply border-border;
   }
+  
+  html {
+    scroll-behavior: smooth;
+    font-size: 15px;
+  }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    line-height: 1.6;
+  }
+
+  /* Resume-specific body styles */
+  .resume-body {
+    @apply bg-resumx-bg text-resumx-text font-sans;
+    background: linear-gradient(135deg, #fbfbfb 0%, #f7f7f7 100%);
   }
 }
 
@@ -102,4 +103,74 @@
 
 .footer-link:hover::after {
   opacity: 1;
+}
+
+@layer components {
+  .section-container {
+    @apply py-4;
+    width: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .section-container {
+      @apply py-4;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\\:nav-desktop {
+      left: var(--lg-left, calc(384px + 40%));
+      transform: var(--lg-transform, translateX(-50%));
+    }
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-in-out hover:transform hover:-translate-y-2 shadow-sm hover:shadow-xl;
+  }
+
+  .nav-link {
+    @apply text-sm font-medium text-resumx-text/70 hover:text-resumx-text transition-colors duration-200;
+  }
+
+  .section-title {
+    @apply mb-8;
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4em;
+    letter-spacing: 0.02em;
+    color: var(--token-4ed8c69a-230d-4c07-af1f-2e5cbb244f43, rgb(126, 126, 126));
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .skill-tag {
+    @apply inline-block px-3 py-1 text-sm bg-white rounded-full border border-resumx-gray/30 text-resumx-text hover:bg-resumx-purple hover:text-white hover:border-resumx-purple transition-all duration-200;
+  }
+
+  .framer-heading {
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5em;
+    letter-spacing: 0em;
+    color: var(--extracted-r6o4lv, var(--token-c688907e-c440-4ba5-8234-4183c55006d7, rgb(41, 41, 41)));
+    text-decoration: none;
+    text-transform: none;
+    margin: 0;
+  }
+
+  .framer-section-heading {
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4em;
+    letter-spacing: 0.02em;
+    color: var(--token-4ed8c69a-230d-4c07-af1f-2e5cbb244f43, rgb(126, 126, 126));
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
 }

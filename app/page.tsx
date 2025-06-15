@@ -9,8 +9,16 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       <div className="container max-w-lg mx-auto px-4 py-12">
         <header className="flex justify-between items-center mb-16">
-          <h1 className="text-xl font-medium">./amirkhan.me</h1>
-          <ThemeToggle />
+          <h1 className="text-xl font-medium">./sameerkhan.me</h1>
+          <div className="flex items-center gap-4">
+            <Link 
+              href="/resume" 
+              className="text-sm hover:text-blue-600 hover:decoration-wavy hover:underline"
+            >
+              Resume
+            </Link>
+            <ThemeToggle />
+          </div>
         </header>
 
         <main className="space-y-8">
@@ -22,28 +30,28 @@ export default function Home() {
           <div className="flex flex-col items-center space-y-4 text-sm text-muted-foreground">
             <div className="flex items-center space-x-2">
               <Link
-                href="https://x.com/Amirk177"
+                href="https://x.com/sameerkhansf"
                 target="_blank"
                 className=" hover:text-blue-600 hover:decoration-wavy hover:underline"
               >
-                @Amirk177
+                @sameerkhansf
               </Link>
               <span>·</span>
               <Link
-                href="https://linkedin.com/in/amirkhan177"
+                href="https://linkedin.com/in/sameerkhansf"
                 target="_blank"
                 className="hover:text-blue-600 hover:decoration-wavy hover:underline"
               >
                 linkedin
               </Link>
               <span>·</span>
-              {/* <Link
-                href="https://github.com/amirkhan"
+              <Link
+                href="https://github.com/sameerkhansf"
                 target="_blank"
                 className="hover:text-blue-600 hover:decoration-wavy hover:underline"
               >
                 github
-              </Link> */}
+              </Link>
             </div>
             <p className="text-center">
               Made with{" "}

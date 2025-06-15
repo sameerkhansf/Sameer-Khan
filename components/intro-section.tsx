@@ -8,28 +8,17 @@ export default function IntroSection() {
     <section>
       <div className="space-y-6 text-left">
         <p className="text-base leading-relaxed">
-          Welcome to my little piece of the internet. I'm the founder of{" "}
+          Welcome to my little piece of the internet. I'm a Computer Science student at{" "}
           <span className="text-muted-foreground">
             <Link
-              href="https://marlvc.com"
+              href="https://www.sonoma.edu"
               target="_blank"
               className="hover:text-blue-600 hover:decoration-wavy hover:underline"
             >
-              MARL 5G Accelerator
+              Sonoma State University
             </Link>
           </span>
-          , where we bring together startups, investors, and industry giants
-          building the future of Mobility, Autonomy, Robotics, and Logistics.
-          Visionaries i have backed can be found{" "}
-          <span className="text-muted-foreground">
-            <Link
-              href="https://marlvc.com/our-portfolio/"
-              target="_blank"
-              className="hover:text-blue-600 hover:decoration-wavy hover:underline"
-            >
-              here
-            </Link>
-          </span>
+          {" "}graduating in May 2025. I specialize in full-stack development, AI/ML, and building innovative web and mobile applications that solve real-world problems.
         </p>
         <Image
           src="/panel-event.jpg"
@@ -39,15 +28,11 @@ export default function IntroSection() {
           className="w-full rounded-lg mb-4"
         />
         <p className="text-base leading-relaxed">
-          Before this, I was in venture and fintech, founded{" "}
-          <span className="text-muted-foreground">LendTech</span> (acquired) to
-          shake up banking, and helped turn around companies as a consultant. I
-          like big ideas and even bigger challenges.
+          My journey spans from research in explainable AI for cancer diagnosis to building AI-powered bookkeeping platforms at{" "}
+          <span className="text-muted-foreground">PomJuice</span>, where I architected systems that reduced manual effort by 80% and achieved 95%+ classification accuracy.
         </p>
-        <p className="text-base  leading-relaxed">
-          I live in sunny and foggy San Francisco, CA. You can find me wine
-          tasting in Sonoma, park hopping in SF, or chasing views up in the
-          North Bay.
+        <p className="text-base leading-relaxed">
+          When I'm not coding, you can find me exploring the beautiful Bay Area, working on side projects, or diving deep into the latest tech trends. I believe in building technology that makes a meaningful impact.
         </p>
       </div>
     </section>
