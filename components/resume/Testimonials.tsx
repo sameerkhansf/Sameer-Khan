@@ -26,27 +26,46 @@ const Testimonials = () => {
             className="animate-fade-in bg-[rgb(252,252,252)] rounded-2xl p-4 border border-[rgba(18,18,18,0.07)] hover:shadow-lg transition-shadow duration-300"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
-            <div className="flex items-start space-x-4 mb-6">
-              <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
-                <img
-                  src={testimonial.photo}
-                  alt={testimonial.name}
-                  className="w-full h-full object-cover"
-                />
+            {/* Desktop Layout */}
+            <div className="hidden md:block">
+              <div className="flex items-start space-x-4 mb-6">
+                <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+                  <img
+                    src={testimonial.photo}
+                    alt={testimonial.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="framer-heading mb-1">{testimonial.name}</h3>
+                  <p className="text-sm leading-relaxed" style={{color: "var(--token-c688907e-c440-4ba5-8234-4183c55006d7, rgb(41, 41, 41))"}}>
+                    {testimonial.role}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="framer-heading mb-1">
-                  {testimonial.name}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{color: "var(--token-c688907e-c440-4ba5-8234-4183c55006d7, rgb(41, 41, 41))"}}>
-                  {testimonial.role}
+              <div className="ml-20">
+                <p className="leading-relaxed" style={{color: "var(--token-c688907e-c440-4ba5-8234-4183c55006d7, rgb(41, 41, 41))"}}>
+                  {testimonial.quote}
                 </p>
               </div>
             </div>
-            <div className="ml-20">
-              <p className="leading-relaxed" style={{color: "var(--token-c688907e-c440-4ba5-8234-4183c55006d7, rgb(41, 41, 41))"}}>
-                {testimonial.quote}
-              </p>
+
+            {/* Mobile Layout */}
+            <div className="md:hidden">
+              <div className="flex items-start gap-3 mb-3">
+                <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
+                  <img
+                    src={testimonial.photo}
+                    alt={testimonial.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-lg text-gray-900 mb-1">{testimonial.name}</h3>
+                  <p className="text-sm text-gray-600">{testimonial.role}</p>
+                </div>
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed">{testimonial.quote}</p>
             </div>
           </div>
         ))}

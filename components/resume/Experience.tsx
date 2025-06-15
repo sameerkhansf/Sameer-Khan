@@ -46,45 +46,78 @@ const Experience = () => {
             className="animate-fade-in bg-[rgb(252,252,252)] rounded-2xl p-4 border border-[rgba(18,18,18,0.07)] hover:shadow-lg transition-shadow duration-300"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
-            <div className="flex items-start gap-4 mb-3">
-              <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg viewBox="0 0 20 20" className="w-5 h-5 text-white" fill="currentColor">
-                  <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm3 2a1 1 0 011-1h4a1 1 0 011 1v1a1 1 0 01-1 1H8a1 1 0 01-1-1V6zm6 4a1 1 0 100-2 1 1 0 000 2zm-7 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H14a1 1 0 01-1-1zm-7 2a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd"/>
-                </svg>
-              </div>
-              <div className="flex-1">
-                <h3 className="framer-heading mb-2">
-                  {exp.title}
-                </h3>
-                <div className="flex flex-wrap items-center gap-6 text-sm text-resumx-text/60">
-                  <div className="flex items-center gap-2">
-                    <svg viewBox="0 0 20 20" className="w-4 h-4" fill="currentColor">
-                      <path d="M17 4h-4V2a1 1 0 00-2 0v2H9V2a1 1 0 00-2 0v2H3a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V5a1 1 0 00-1-1zM4 16V7h12v9H4z"/>
-                      <path d="M6 9h2v2H6zM9 9h2v2H9zM12 9h2v2h-2zM6 12h2v2H6zM9 12h2v2H9zM12 12h2v2h-2z"/>
-                    </svg>
-                    {exp.period}
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <svg viewBox="0 0 20 20" className="w-4 h-4" fill="currentColor">
-                      <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm3 2a1 1 0 011-1h4a1 1 0 011 1v1a1 1 0 01-1 1H8a1 1 0 01-1-1V6zm6 4a1 1 0 100-2 1 1 0 000 2zm-7 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H14a1 1 0 01-1-1zm-7 2a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd"/>
-                    </svg>
-                    {exp.company}
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 flex items-center justify-center">
-                      <svg viewBox="0 0 20 20" className="w-full h-full" fill="currentColor" style={{imageRendering: 'pixelated', flexShrink: 0}}>
-                        <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z"/>
+            {/* Desktop Layout */}
+            <div className="hidden md:block">
+              <div className="flex items-start gap-4 mb-3">
+                <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg viewBox="0 0 20 20" className="w-5 h-5 text-white" fill="currentColor">
+                    <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm3 2a1 1 0 011-1h4a1 1 0 011 1v1a1 1 0 01-1 1H8a1 1 0 01-1-1V6zm6 4a1 1 0 100-2 1 1 0 000 2zm-7 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H14a1 1 0 01-1-1zm-7 2a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd"/>
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h3 className="framer-heading mb-2">{exp.title}</h3>
+                  <div className="flex flex-wrap items-center gap-6 text-sm text-resumx-text/60">
+                    <div className="flex items-center gap-2">
+                      <svg viewBox="0 0 20 20" className="w-4 h-4" fill="currentColor">
+                        <path d="M17 4h-4V2a1 1 0 00-2 0v2H9V2a1 1 0 00-2 0v2H3a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V5a1 1 0 00-1-1zM4 16V7h12v9H4z"/>
+                        <path d="M6 9h2v2H6zM9 9h2v2H9zM12 9h2v2h-2zM6 12h2v2H6zM9 12h2v2H9zM12 12h2v2h-2z"/>
                       </svg>
+                      {exp.period}
                     </div>
-                    {exp.location}
+                    <div className="flex items-center gap-2">
+                      <svg viewBox="0 0 20 20" className="w-4 h-4" fill="currentColor">
+                        <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm3 2a1 1 0 011-1h4a1 1 0 011 1v1a1 1 0 01-1 1H8a1 1 0 01-1-1V6zm6 4a1 1 0 100-2 1 1 0 000 2zm-7 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H14a1 1 0 01-1-1zm-7 2a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd"/>
+                      </svg>
+                      {exp.company}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-4 flex items-center justify-center">
+                        <svg viewBox="0 0 20 20" className="w-full h-full" fill="currentColor" style={{imageRendering: 'pixelated', flexShrink: 0}}>
+                          <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z"/>
+                        </svg>
+                      </div>
+                      {exp.location}
+                    </div>
                   </div>
                 </div>
               </div>
+              <div className="ml-14">
+                <p className="leading-relaxed" style={{color: "var(--extracted-r6o4lv, var(--token-4ed8c69a-230d-4c07-af1f-2e5cbb244f43, rgb(126, 126, 126)))"}}>
+                  {exp.description}
+                </p>
+              </div>
             </div>
-            <div className="ml-14">
-              <p className="leading-relaxed" style={{color: "var(--extracted-r6o4lv, var(--token-4ed8c69a-230d-4c07-af1f-2e5cbb244f43, rgb(126, 126, 126)))"}}>
-                {exp.description}
-              </p>
+
+            {/* Mobile Layout */}
+            <div className="md:hidden">
+              <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center mb-2">
+                <svg viewBox="0 0 20 20" className="w-5 h-5 text-white" fill="currentColor">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h3 className="framer-heading mb-1">{exp.title}</h3>
+              <div className="flex items-center gap-4 text-xs" style={{ color: "rgb(126, 126, 126)" }}>
+                <div className="flex items-center gap-1">
+                  <svg viewBox="0 0 20 20" className="w-6 h-6" fill="currentColor">
+                    <path d="M17 4h-4V2a1 1 0 00-2 0v2H9V2a1 1 0 00-2 0v2H3a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V5a1 1 0 00-1-1zM4 16V7h12v9H4z"/>
+                    <path d="M6 9h2v2H6zM9 9h2v2H9zM12 9h2v2h-2zM6 12h2v2H6zM9 12h2v2H9zM12 12h2v2h-2z"/>
+                  </svg>
+                  <span>{exp.period}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <svg viewBox="0 0 20 20" className="w-6 h-6" fill="currentColor">
+                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                  </svg>
+                  <span>{exp.company}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <svg viewBox="0 0 20 20" className="w-6 h-6" fill="currentColor">
+                    <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z"/>
+                  </svg>
+                  <span>{exp.location}</span>
+                </div>
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed mt-4">{exp.description}</p>
             </div>
           </div>
         ))}
