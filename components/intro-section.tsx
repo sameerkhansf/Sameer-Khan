@@ -1,8 +1,8 @@
 "use client";
-
 import { motion } from "@/components/motion";
 import Link from "next/link";
 import Image from "next/image";
+
 export default function IntroSection() {
   return (
     <section>
@@ -10,26 +10,37 @@ export default function IntroSection() {
         <p className="text-base leading-relaxed">
           Welcome to my little piece of the internet. I'm a new grad Software
           Engineer with a passion for building innovative web and mobile
+          applications that solve real-world problems. I specialize in
+          full-stack development, AI/ML, and building innovative web and mobile
           applications that solve real-world problems.
-          {/* <span className="text-muted-foreground">
+        </p>
+        <div className="space-y-2">
+          <Image
+            src="/panel-event.jpg"
+            alt="ASES x NFX Ventures dinner with Stanford entrepreneurs"
+            width={600}
+            height={400}
+            className="w-full rounded-lg"
+          />
+          <p className="text-sm text-muted-foreground text-center">
             <Link
-              href="https://www.sonoma.edu"
+              href="https://ases.stanford.edu"
               target="_blank"
               className="hover:text-blue-600 hover:decoration-wavy hover:underline"
             >
-              Sonoma State University
-            </Link>
-          </span>{" "} */}
-          I specialize in full-stack development, AI/ML, and building innovative
-          web and mobile applications that solve real-world problems.
-        </p>
-        <Image
-          src="/panel-event.jpg"
-          alt="Panel Event"
-          width={600}
-          height={400}
-          className="w-full rounded-lg mb-4"
-        />
+              ASES
+            </Link>{" "}
+            x{" "}
+            <Link
+              target="_blank"
+              href="https://www.nfx.com/team/anna-pinol"
+              className="hover:text-blue-600 hover:decoration-wavy hover:underline"
+            >
+              NFX Ventures
+            </Link>{" "}
+            dinner with Stanford's next generation of entrepreneurs!
+          </p>
+        </div>
         <p className="text-base leading-relaxed">
           My journey spans from research in explainable AI for cancer diagnosis
           to building AI-powered bookkeeping platforms at{" "}
