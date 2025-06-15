@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { ArrowUpRight } from "lucide-react";
-import WritingsSection from "@/components/writings-section";
+// import WritingsSection from "@/components/writings-section";
 import IntroSection from "@/components/intro-section";
 
 export default function Home() {
@@ -11,8 +11,8 @@ export default function Home() {
         <header className="flex justify-between items-center mb-16">
           <h1 className="text-xl font-medium">./sameerkhan.me</h1>
           <div className="flex items-center gap-4">
-            <Link 
-              href="/resume" 
+            <Link
+              href="/resume"
               className="text-sm hover:text-blue-600 hover:decoration-wavy hover:underline"
             >
               Resume
@@ -23,7 +23,7 @@ export default function Home() {
 
         <main className="space-y-8">
           <IntroSection />
-          <WritingsSection />
+          {/* <WritingsSection /> */}
         </main>
 
         <footer className="mt-8 pt-8 border-t border-border">

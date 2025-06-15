@@ -8,8 +8,8 @@ const Projects = () => {
       date: "Dec 2024",
       role: "Full Stack Developer",
       category: "Web Application",
-      image: "https://ext.same-assets.com/3285526825/2735089040.png",
-      url: "https://github.com/sameerkhan",
+      image: "https://xptrglblnutotevffhpd.supabase.co/storage/v1/object/public/temp//ExpenseTracker.png",
+      url: "https://expense-tracker-mocha-three.vercel.app",
     },
     {
       id: 2,

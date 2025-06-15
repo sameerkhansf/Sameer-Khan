@@ -7,7 +7,7 @@ import Projects from "@/components/resume/Projects";
 import Experience from "@/components/resume/Experience";
 import Education from "@/components/resume/Education";
 import Certifications from "@/components/resume/Certifications";
-import Testimonials from "@/components/resume/Testimonials";
+// import Testimonials from "@/components/resume/Testimonials";
 import Contact from "@/components/resume/Contact";
 import Link from "next/link";
 
@@ -267,7 +267,7 @@ export default function ResumePage() {
             <Experience />
             <Education />
             <Certifications />
-            <Testimonials />
+            {/* <Testimonials /> */}
             <Contact />
             {/* Footer */}
             <footer className="section-container">

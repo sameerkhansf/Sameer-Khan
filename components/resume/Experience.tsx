@@ -1,39 +1,50 @@
-import AnimatedSection from './AnimatedSection';
+import AnimatedSection from "./AnimatedSection";
 
 const Experience = () => {
   const experiences = [
     {
       id: 1,
-      title: 'Software Developer',
-      period: 'Mar 25 - May 25',
-      company: 'PomJuice — AI Bookkeeping Platform',
-      location: 'San Francisco, CA',
-      description: 'Architected and built "Books Done Right": AI bookkeeping app using Next.js, React, Node.js, Python, LLM tool calling, and QuickBooks API. Implemented LLM-based natural language interface, reducing manual effort by 80%, improving classification accuracy to 95%+.'
+      title: "Software Developer",
+      period: "Mar 25 - May 25",
+      company: "PomJuice — AI Bookkeeping Platform",
+      location: "San Francisco, CA",
+      description:
+        'Architected and built "Books Done Right": AI bookkeeping app using Next.js, React, Node.js, Python, LLM tool calling, and QuickBooks API. Implemented LLM-based natural language interface, reducing manual effort by 80%, improving classification accuracy to 95%+.',
     },
     {
       id: 2,
-      title: 'Research Intern, Explainable AI for Cancer Diagnosis',
-      period: 'Jun 24 - Aug 24',
-      company: 'MESA Research Program, Sonoma State University',
-      location: 'Rohnert Park, CA',
-      description: 'Worked with Dr. Gill on integrating explainable AI into CNNs, improving model interpretability and predictive accuracy for cancer diagnosis applications.'
+      title: "Research Intern, Explainable AI for Cancer Diagnosis",
+      period: "Jun 24 - Aug 24",
+      company: "MESA Research Program, Sonoma State University",
+      logo: (
+        <img
+          src="https://media.licdn.com/dms/image/v2/C560BAQGH-ZCZOx0eoA/company-logo_100_100/company-logo_100_100/0/1630659812752/mesa_at_ssu_logo?e=1755734400&v=beta&t=xFwrMvBY1gEXWkGgA8-jd5JhVuCfxXU0IDGFa878Qek"
+          alt="Sonoma State University"
+          className="w-full h-full object-cover"
+        />
+      ),
+      location: "Rohnert Park, CA",
+      description:
+        "Worked with Dr. Gill on integrating explainable AI into CNNs, improving model interpretability and predictive accuracy for cancer diagnosis applications.",
     },
     {
       id: 3,
-      title: 'Full Stack Software Developer Intern',
-      period: 'Apr 24 - Aug 24',
-      company: 'Stealth (Startup)',
-      location: 'San Francisco, CA',
-      description: 'Developed user authentication and onboarding using TypeScript. Designed AWS CodePipeline CI/CD pipelines, cutting deployment time and errors. Collaborated on full-stack development (TypeScript, CSS, Python/Django) and deployed via AWS.'
+      title: "Full Stack Software Developer Intern",
+      period: "Apr 24 - Aug 24",
+      company: "Stealth (Startup)",
+      location: "San Francisco, CA",
+      description:
+        "Developed user authentication and onboarding using TypeScript. Designed AWS CodePipeline CI/CD pipelines, cutting deployment time and errors. Collaborated on full-stack development (TypeScript, CSS, Python/Django) and deployed via AWS.",
     },
     {
       id: 4,
-      title: 'Undergraduate Teaching Assistant',
-      period: 'Aug 22 - Dec 23',
-      company: 'Sonoma State University',
-      location: 'Rohnert Park, CA',
-      description: 'CS 215 Labs: Guided 80 students through C++/OOP labs and assignments. CSE 315: Mentored 60 students in data structures and algorithms. Created a coding best-practices module with 90%+ positive feedback.'
-    }
+      title: "Undergraduate Teaching Assistant",
+      period: "Aug 22 - Dec 23",
+      company: "Sonoma State University",
+      location: "Rohnert Park, CA",
+      description:
+        "CS 215 Labs: Guided 80 students through C++/OOP labs and assignments. CSE 315: Mentored 60 students in data structures and algorithms. Created a coding best-practices module with 90%+ positive feedback.",
+    },
   ];
 
   return (
@@ -50,30 +61,45 @@ const Experience = () => {
             <div className="hidden md:block">
               <div className="flex items-start gap-4 mb-3">
                 <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg viewBox="0 0 20 20" className="w-5 h-5 text-white" fill="currentColor">
-                    <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm3 2a1 1 0 011-1h4a1 1 0 011 1v1a1 1 0 01-1 1H8a1 1 0 01-1-1V6zm6 4a1 1 0 100-2 1 1 0 000 2zm-7 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H14a1 1 0 01-1-1zm-7 2a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd"/>
-                  </svg>
+                  {exp.logo}
                 </div>
                 <div className="flex-1">
                   <h3 className="framer-heading mb-2">{exp.title}</h3>
                   <div className="flex flex-wrap items-center gap-6 text-sm text-resumx-text/60">
                     <div className="flex items-center gap-2">
-                      <svg viewBox="0 0 20 20" className="w-4 h-4" fill="currentColor">
-                        <path d="M17 4h-4V2a1 1 0 00-2 0v2H9V2a1 1 0 00-2 0v2H3a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V5a1 1 0 00-1-1zM4 16V7h12v9H4z"/>
-                        <path d="M6 9h2v2H6zM9 9h2v2H9zM12 9h2v2h-2zM6 12h2v2H6zM9 12h2v2H9zM12 12h2v2h-2z"/>
+                      <svg
+                        viewBox="0 0 20 20"
+                        className="w-4 h-4"
+                        fill="currentColor"
+                      >
+                        <path d="M17 4h-4V2a1 1 0 00-2 0v2H9V2a1 1 0 00-2 0v2H3a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V5a1 1 0 00-1-1zM4 16V7h12v9H4z" />
+                        <path d="M6 9h2v2H6zM9 9h2v2H9zM12 9h2v2h-2zM6 12h2v2H6zM9 12h2v2H9zM12 12h2v2h-2z" />
                       </svg>
                       {exp.period}
                     </div>
                     <div className="flex items-center gap-2">
-                      <svg viewBox="0 0 20 20" className="w-4 h-4" fill="currentColor">
-                        <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm3 2a1 1 0 011-1h4a1 1 0 011 1v1a1 1 0 01-1 1H8a1 1 0 01-1-1V6zm6 4a1 1 0 100-2 1 1 0 000 2zm-7 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H14a1 1 0 01-1-1zm-7 2a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd"/>
+                      <svg
+                        viewBox="0 0 20 20"
+                        className="w-4 h-4"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm3 2a1 1 0 011-1h4a1 1 0 011 1v1a1 1 0 01-1 1H8a1 1 0 01-1-1V6zm6 4a1 1 0 100-2 1 1 0 000 2zm-7 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H14a1 1 0 01-1-1zm-7 2a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm4 0a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       {exp.company}
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-4 h-4 flex items-center justify-center">
-                        <svg viewBox="0 0 20 20" className="w-full h-full" fill="currentColor" style={{imageRendering: 'pixelated', flexShrink: 0}}>
-                          <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z"/>
+                        <svg
+                          viewBox="0 0 20 20"
+                          className="w-full h-full"
+                          fill="currentColor"
+                          style={{ imageRendering: "pixelated", flexShrink: 0 }}
+                        >
+                          <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" />
                         </svg>
                       </div>
                       {exp.location}
@@ -82,7 +108,13 @@ const Experience = () => {
                 </div>
               </div>
               <div className="ml-14">
-                <p className="leading-relaxed" style={{color: "var(--extracted-r6o4lv, var(--token-4ed8c69a-230d-4c07-af1f-2e5cbb244f43, rgb(126, 126, 126)))"}}>
+                <p
+                  className="leading-relaxed"
+                  style={{
+                    color:
+                      "var(--extracted-r6o4lv, var(--token-4ed8c69a-230d-4c07-af1f-2e5cbb244f43, rgb(126, 126, 126)))",
+                  }}
+                >
                   {exp.description}
                 </p>
               </div>
@@ -91,33 +123,54 @@ const Experience = () => {
             {/* Mobile Layout */}
             <div className="md:hidden">
               <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center mb-2">
-                <svg viewBox="0 0 20 20" className="w-5 h-5 text-white" fill="currentColor">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                <svg
+                  viewBox="0 0 20 20"
+                  className="w-5 h-5 text-white"
+                  fill="currentColor"
+                >
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
               <h3 className="framer-heading mb-1">{exp.title}</h3>
-              <div className="flex items-center gap-4 text-xs" style={{ color: "rgb(126, 126, 126)" }}>
+              <div
+                className="flex items-center gap-4 text-xs"
+                style={{ color: "rgb(126, 126, 126)" }}
+              >
                 <div className="flex items-center gap-1">
-                  <svg viewBox="0 0 20 20" className="w-6 h-6" fill="currentColor">
-                    <path d="M17 4h-4V2a1 1 0 00-2 0v2H9V2a1 1 0 00-2 0v2H3a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V5a1 1 0 00-1-1zM4 16V7h12v9H4z"/>
-                    <path d="M6 9h2v2H6zM9 9h2v2H9zM12 9h2v2h-2zM6 12h2v2H6zM9 12h2v2H9zM12 12h2v2h-2z"/>
+                  <svg
+                    viewBox="0 0 20 20"
+                    className="w-6 h-6"
+                    fill="currentColor"
+                  >
+                    <path d="M17 4h-4V2a1 1 0 00-2 0v2H9V2a1 1 0 00-2 0v2H3a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V5a1 1 0 00-1-1zM4 16V7h12v9H4z" />
+                    <path d="M6 9h2v2H6zM9 9h2v2H9zM12 9h2v2h-2zM6 12h2v2H6zM9 12h2v2H9zM12 12h2v2h-2z" />
                   </svg>
                   <span>{exp.period}</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <svg viewBox="0 0 20 20" className="w-6 h-6" fill="currentColor">
-                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                  <svg
+                    viewBox="0 0 20 20"
+                    className="w-6 h-6"
+                    fill="currentColor"
+                  >
+                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
                   </svg>
                   <span>{exp.company}</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <svg viewBox="0 0 20 20" className="w-6 h-6" fill="currentColor">
-                    <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z"/>
+                  <svg
+                    viewBox="0 0 20 20"
+                    className="w-6 h-6"
+                    fill="currentColor"
+                  >
+                    <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" />
                   </svg>
                   <span>{exp.location}</span>
                 </div>
               </div>
-              <p className="text-sm text-gray-600 leading-relaxed mt-4">{exp.description}</p>
+              <p className="text-sm text-gray-600 leading-relaxed mt-4">
+                {exp.description}
+              </p>
             </div>
           </div>
         ))}
