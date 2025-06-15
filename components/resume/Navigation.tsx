@@ -107,11 +107,7 @@ const Navigation = () => {
   };
 
   return (
-    <>
-      {/* Blur effect below navigation */}
-      <div className="absolute left-0 right-0 h-16 bg-gradient-to-t from-white/90 to-transparent backdrop-blur-sm -z-10" style={{bottom: "0px", top: "auto"}}></div>
-      
-      <div className="mb-8">
+    <div className="mb-8">
         <div
           className="flex gap-1 px-2 py-2 rounded-[44px] border border-[rgba(18,18,18,0.07)] bg-[rgb(252,252,252)] shadow-lg"
           data-border="true"
@@ -135,8 +131,7 @@ const Navigation = () => {
           </a>
         ))}
         </div>
-      </div>
-    </>
+    </div>
   );
 };
 

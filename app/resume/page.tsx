@@ -293,8 +293,10 @@ export default function ResumePage() {
           {/* Sidebar spacer */}
           <div className="hidden md:block w-80 lg:w-96 flex-shrink-0"></div>
           {/* Main content area */}
-          <div className="flex-1 flex justify-center">
-            <div className="pointer-events-auto">
+          <div className="flex-1 flex justify-center relative">
+            {/* Blur effect only for main content area */}
+            <div className="absolute left-0 right-0 bottom-0 h-16 bg-gradient-to-t from-white/90 to-transparent backdrop-blur-sm"></div>
+            <div className="pointer-events-auto relative z-10">
               <Navigation />
             </div>
           </div>
