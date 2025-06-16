@@ -4,6 +4,33 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
+      title: "BioSoundSCape",
+      date: "Spring 2025",  
+      role: "Computer Vision Researcher",
+      category: "Computer Vision Project",
+      image: "https://xptrglblnutotevffhpd.supabase.co/storage/v1/object/public/temp//Land-Cover.png",
+      url: "https://github.com/sameerkhansf/BioSoundSCape_SSU_Computer_Science",
+    },
+    {
+      id: 2,
+      title: "DFA/NFA Builder",
+      date: "Fall 2024",
+      role: "Automata Theory Project",
+      category: "Automata Theory",
+      image: "https://xptrglblnutotevffhpd.supabase.co/storage/v1/object/public/temp//JflapAutomatoBuilder.png",
+      url: "https://github.com/sameerkhansf/JFLAPAutomataBuilder/tree/bb307977f4c3b30ead8571a1dd8c2f32c864f558",
+    },
+    {
+      id: 3,
+      title: "C++ Interpreter",
+      date: "Spring 2025",
+      role: "C++ Compiler Project",
+      category: "C++",
+      image: "https://xptrglblnutotevffhpd.supabase.co/storage/v1/object/public/temp//C++%20Interpreter.jpg",
+      url: "https://github.com/sameerkhansf/Interpreter",
+    },
+    {
+      id: 4,
       title: "Expense Tracker Application",
       date: "Dec 2024",
       role: "Full Stack Developer",
@@ -12,32 +39,15 @@ const Projects = () => {
       url: "https://expense-tracker-mocha-three.vercel.app",
     },
     {
-      id: 2,
-      title: "Wallet App",
-      date: "Nov 2024",
-      role: "iOS Developer",
-      category: "Mobile App",
-      image: "https://ext.same-assets.com/3285526825/4148502180.png",
-      url: "https://github.com/sameerkhan",
-    },
-    {
-      id: 3,
-      title: "Health Management System",
-      date: "Oct 2024",
-      role: "Frontend Developer",
-      category: "Healthcare",
-      image: "https://ext.same-assets.com/3285526825/2633280164.png",
-      url: "https://github.com/sameerkhan",
-    },
-    {
-      id: 4,
-      title: "Survival Game",
-      date: "Sep 2024",
-      role: "Game Developer",
-      category: "Game Development",
-      image: "https://ext.same-assets.com/3285526825/2735089040.png",
-      url: "https://github.com/sameerkhan",
-    },
+      id: 5,
+      title: "See more projects",
+      date: "View all projects",
+      role: "Github",
+      category: "Github",
+      image: "https://xptrglblnutotevffhpd.supabase.co/storage/v1/object/public/temp//github.jpg",
+      url: "https://github.com/sameerkhansf",
+    }
+
   ];
 
   return (

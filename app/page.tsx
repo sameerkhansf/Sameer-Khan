@@ -30,7 +30,7 @@ export default function Home() {
           <div className="flex flex-col items-center space-y-4 text-sm text-muted-foreground">
             <div className="flex items-center space-x-2">
               <Link
-                href="https://x.com/sameerkhansf"
+                href="https://x.com/sameerkhan_sf"
                 target="_blank"
                 className=" hover:text-blue-600 hover:decoration-wavy hover:underline"
               >
