@@ -37,6 +37,18 @@ Sameer Khan is a new grad Software Engineer passionate about building innovative
 - [C++ Interpreter](https://github.com/sameerkhansf/Interpreter): A compiler/interpreter implementation demonstrating programming language theory concepts including lexical analysis, parsing, and execution. Built with C++. (Spring 2025)
 - [Expense Tracker](https://expense-tracker-mocha-three.vercel.app): Full-stack web application for tracking personal expenses with data visualization and categorization. Built with React, Node.js, MongoDB. (Dec 2024)
 
+## Blog
+
+Technical articles on AI, React, Next.js, TypeScript, and software development.
+
+- [Blog](https://sameerkhan.me/blog): All articles
+
+### Recent Articles
+
+- [GPT-5.2 for Developers: First Look](https://sameerkhan.me/blog/gpt-5-2-developer-review): Comprehensive review of OpenAI's GPT-5.2 released December 2025, comparing Instant, Thinking, and Pro variants with benchmarks and pricing.
+- [Cursor vs Copilot vs Claude Code](https://sameerkhan.me/blog/ai-coding-tools-comparison-2025): Complete comparison of AI coding assistants in 2025 with features, pricing, and recommendations for different workflows.
+- [How I Built This Portfolio](https://sameerkhan.me/blog/building-this-portfolio): Technical deep dive into building a Next.js 16 portfolio with MDX, SEO optimization, and accessibility.
+
 ## Contact
 
 - [Website](https://sameerkhan.me): Personal portfolio and resume
