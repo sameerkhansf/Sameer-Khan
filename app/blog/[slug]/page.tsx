@@ -36,7 +36,9 @@ export async function generateMetadata({
     title: `${post.title} | Sameer Khan`,
     description: post.description,
     keywords: post.tags,
-    authors: [{ name: post.author }],
+    authors: [{ name: post.author, url: "https://sameerkhan.me" }],
+    creator: post.author,
+    publisher: "Sameer Khan",
     openGraph: {
       title: post.title,
       description: post.description,
@@ -45,16 +47,34 @@ export async function generateMetadata({
       modifiedTime: post.updated || post.date,
       authors: [post.author],
       tags: post.tags,
-      images: post.image ? [{ url: post.image, alt: post.imageAlt }] : [],
+      section: post.category,
+      locale: "en_US",
+      images: post.image
+        ? [{ url: post.image, alt: post.imageAlt || post.title, width: 1200, height: 630 }]
+        : [{ url: "/og-image.jpg", alt: post.title, width: 1200, height: 630 }],
+      url: `https://sameerkhan.me/blog/${slug}`,
+      siteName: "Sameer Khan",
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images: post.image ? [post.image] : [],
+      creator: "@sameerkhan_sf",
+      images: post.image ? [post.image] : ["/og-image.jpg"],
     },
     alternates: {
-      canonical: `/blog/${slug}`,
+      canonical: `https://sameerkhan.me/blog/${slug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }
@@ -69,32 +89,91 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const relatedPosts = getRelatedPosts(slug, 3);
 
-  // Article Schema for SEO
+  // Article Schema for SEO/AEO - Enhanced
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     "@id": `https://sameerkhan.me/blog/${slug}#article`,
     headline: post.title,
     description: post.description,
-    image: post.image ? `https://sameerkhan.me${post.image}` : undefined,
+    image: post.image
+      ? {
+          "@type": "ImageObject",
+          url: `https://sameerkhan.me${post.image}`,
+          alt: post.imageAlt || post.title,
+          width: 1200,
+          height: 630,
+        }
+      : {
+          "@type": "ImageObject",
+          url: "https://sameerkhan.me/og-image.jpg",
+          alt: post.title,
+          width: 1200,
+          height: 630,
+        },
     datePublished: post.date,
     dateModified: post.updated || post.date,
     author: {
       "@type": "Person",
       "@id": "https://sameerkhan.me/#person",
       name: post.author,
+      url: "https://sameerkhan.me",
     },
     publisher: {
       "@type": "Person",
       "@id": "https://sameerkhan.me/#person",
+      name: post.author,
+      url: "https://sameerkhan.me",
     },
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `https://sameerkhan.me/blog/${slug}`,
+      url: `https://sameerkhan.me/blog/${slug}`,
     },
     keywords: post.tags.join(", "),
     wordCount: post.wordCount,
     articleSection: post.category,
+    inLanguage: "en-US",
+    isPartOf: {
+      "@type": "Blog",
+      "@id": "https://sameerkhan.me/blog#blog",
+      name: "Sameer Khan's Blog",
+      url: "https://sameerkhan.me/blog",
+    },
+    about: post.tags.map((tag) => ({
+      "@type": "Thing",
+      name: tag,
+    })),
+    mentions: post.tags.map((tag) => ({
+      "@type": "Thing",
+      name: tag,
+    })),
+  };
+
+  // BreadcrumbList Schema for navigation
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://sameerkhan.me",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://sameerkhan.me/blog",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `https://sameerkhan.me/blog/${slug}`,
+      },
+    ],
   };
 
   return (
@@ -102,6 +181,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <div className="min-h-screen bg-background text-foreground">
         <ReadingProgress />
@@ -139,7 +222,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         <main className="max-w-4xl mx-auto px-6 py-12">
           {/* Article Content */}
-          <article>
+          <article itemScope itemType="https://schema.org/Article">
             <header className="mb-12">
               {/* Category */}
               <div className="mb-6">
@@ -149,7 +232,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
 
               {/* Title */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-8 leading-tight tracking-tight">
+              <h1 itemProp="headline" className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-8 leading-tight tracking-tight">
                 {post.title}
               </h1>
 
@@ -169,12 +252,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                       d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                     />
                   </svg>
-                  <span className="font-medium text-gray-700 dark:text-gray-300">
-                    {post.author}
+                  <span itemProp="author" itemScope itemType="https://schema.org/Person" className="font-medium text-gray-700 dark:text-gray-300">
+                    <span itemProp="name">{post.author}</span>
                   </span>
                 </div>
                 <span className="hidden sm:block text-gray-300 dark:text-gray-600">·</span>
-                <time dateTime={post.date} className="flex items-center gap-1">
+                <time itemProp="datePublished" dateTime={post.date} className="flex items-center gap-1">
                   <svg
                     className="w-4 h-4"
                     fill="none"
@@ -197,7 +280,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 {post.updated && post.updated !== post.date && (
                   <>
                     <span className="hidden sm:block text-gray-300 dark:text-gray-600">·</span>
-                    <span className="flex items-center gap-1">
+                    <time itemProp="dateModified" dateTime={post.updated} className="flex items-center gap-1">
                       <svg
                         className="w-4 h-4"
                         fill="none"
@@ -217,7 +300,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         month: "long",
                         day: "numeric",
                       })}
-                    </span>
+                    </time>
                   </>
                 )}
                 <span className="hidden sm:block text-gray-300 dark:text-gray-600">·</span>

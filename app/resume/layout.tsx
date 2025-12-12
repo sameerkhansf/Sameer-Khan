@@ -1,17 +1,31 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Resume",
+  title: "Resume | Sameer Khan",
   description:
     "Sameer Khan's professional resume - Software Engineer with expertise in full-stack development, AI/ML, React, Next.js, TypeScript, and AWS.",
+  keywords: [
+    "Sameer Khan Resume",
+    "Software Engineer Resume",
+    "Full Stack Developer",
+    "React Developer",
+    "Next.js Developer",
+    "TypeScript Developer",
+    "AI/ML Engineer",
+  ],
+  authors: [{ name: "Sameer Khan", url: "https://sameerkhan.me" }],
+  creator: "Sameer Khan",
   alternates: {
-    canonical: "/resume",
+    canonical: "https://sameerkhan.me/resume",
   },
   openGraph: {
     title: "Sameer Khan - Resume",
     description:
       "Software Engineer with expertise in full-stack development, AI/ML, and modern web technologies.",
+    type: "profile",
     url: "https://sameerkhan.me/resume",
+    siteName: "Sameer Khan",
+    locale: "en_US",
     images: [
       {
         url: "/og-image.jpg",
@@ -26,7 +40,19 @@ export const metadata: Metadata = {
     title: "Sameer Khan - Resume",
     description:
       "Software Engineer with expertise in full-stack development, AI/ML, and modern web technologies.",
+    creator: "@sameerkhan_sf",
     images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
