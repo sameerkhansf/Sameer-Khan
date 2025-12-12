@@ -12,6 +12,12 @@ export default function Home() {
           <h1 className="text-xl font-medium">./sameerkhan.me</h1>
           <div className="flex items-center gap-4">
             <Link
+              href="/blog"
+              className="text-sm hover:text-blue-600 hover:decoration-wavy hover:underline"
+            >
+              Blog
+            </Link>
+            <Link
               href="/resume"
               className="text-sm hover:text-blue-600 hover:decoration-wavy hover:underline"
             >

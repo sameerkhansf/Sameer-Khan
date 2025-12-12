@@ -58,26 +58,6 @@ const navItems = [
       </svg>
     ),
   },
-  {
-    id: "testimonials",
-    label: "Testimonials",
-    icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" className="text-gray-600 dark:text-gray-300" aria-hidden="true">
-        <path d="M21 6H3a1 1 0 00-1 1v10a1 1 0 001 1h5l4 4 4-4h5a1 1 0 001-1V7a1 1 0 00-1-1z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-        <path d="M7 10h2m4 0h4" stroke="currentColor" strokeWidth="1.5"/>
-      </svg>
-    ),
-  },
-  {
-    id: "contact",
-    label: "Contact",
-    icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" className="text-gray-600 dark:text-gray-300" aria-hidden="true">
-        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-        <circle cx="12" cy="10" r="3" fill="currentColor"/>
-      </svg>
-    ),
-  },
 ];
 
 const Navigation = () => {
