@@ -69,12 +69,11 @@ const Sidebar = () => {
           <div className="flex flex-col items-start gap-3">
             <div className="w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden animate-float">
               <Image
-                src="https://media.licdn.com/dms/image/v2/D5603AQEGVvJL1lNOdw/profile-displayphoto-shrink_400_400/B56ZW1dWncGQAs-/0/1742506128155?e=1755734400&v=beta&t=D-rQ5kLROJKetC45vatp-po9wQZDzbfOfFrPdpc9FmI"
+                src="/profile.jpg"
                 alt="Sameer Khan - Software Engineer"
                 width={64}
                 height={64}
                 className="w-full h-full object-cover"
-                unoptimized
               />
             </div>
             <div className="flex flex-col items-start">
@@ -177,27 +176,6 @@ const Sidebar = () => {
                   <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                 </svg>
                 sameerkhan.me
-              </a>
-              <a
-                href="tel:+14154103335"
-                className="flex items-center gap-3 transition-colors"
-                style={{
-                  fontSize: "15px",
-                  color:
-                    "var(--token-c688907e-c440-4ba5-8234-4183c55006d7, rgb(41, 41, 41))",
-                }}
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-4 h-4 text-resumx-text/60 flex-shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-                  <line x1="12" y1="18" x2="12.01" y2="18" />
-                </svg>
-                (415) 410-3335
               </a>
             </div>
           </div>
