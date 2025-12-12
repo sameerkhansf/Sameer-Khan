@@ -1,7 +1,7 @@
 "use client";
 
 import Navigation from "@/components/resume/Navigation";
-import Sidebar from "@/components/resume/Header";
+import Header from "@/components/resume/Header";
 import MobileHeader from "@/components/resume/MobileHeader";
 import Intro from "@/components/resume/Intro";
 import Projects from "@/components/resume/Projects";
@@ -9,14 +9,16 @@ import Experience from "@/components/resume/Experience";
 import Education from "@/components/resume/Education";
 import Certifications from "@/components/resume/Certifications";
 import Contact from "@/components/resume/Contact";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 import Link from "next/link";
 
 export default function ResumePage() {
   return (
     <div className="min-h-screen flex flex-col md:flex-row md:gap-x-8 bg-background text-foreground">
+      <ScrollProgress />
       {/* Sidebar - Desktop only, as a sibling */}
       <div className="hidden md:block h-screen sticky top-0">
-        <Sidebar />
+        <Header />
       </div>
 
       <div className="flex-1 flex flex-col">
@@ -48,7 +50,6 @@ export default function ResumePage() {
             <Experience />
             <Education />
             <Certifications />
-            {/* <Testimonials /> */}
             <Contact />
             {/* Footer */}
             <footer className="section-container">

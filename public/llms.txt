@@ -8,11 +8,18 @@ Sameer Khan is a new grad Software Engineer passionate about building innovative
 
 ## Skills
 
-- **Frontend**: React, Next.js, TypeScript, JavaScript, HTML, CSS, Tailwind CSS
-- **Backend**: Node.js, Python, Java, C++
-- **Cloud & DevOps**: AWS, Docker, Git
-- **Databases**: MongoDB
-- **Other**: AI/ML, Computer Vision, Data Structures & Algorithms
+- **Frontend**: React (Advanced), Next.js (Advanced), TypeScript (Advanced), JavaScript (Advanced), HTML, CSS, Tailwind CSS
+- **Backend**: Node.js (Advanced), Python (Advanced), Java (Intermediate), C++ (Intermediate)
+- **Cloud & DevOps**: AWS (Intermediate), Docker (Intermediate), Git (Advanced), CI/CD
+- **Databases**: MongoDB (Advanced)
+- **Other**: AI/ML, Computer Vision, LLM Integration, Data Structures & Algorithms
+
+## Work Experience
+
+- **Software Developer at PomJuice** (Mar 2025 - May 2025): Built "Books Done Right" AI bookkeeping app using Next.js, React, Node.js, Python, LLM tool calling, and QuickBooks API. Reduced manual effort by 80%, achieved 95%+ classification accuracy.
+- **Research Intern at MESA Program, Sonoma State University** (Jun 2024 - Aug 2024): Explainable AI for cancer diagnosis - integrated explainable AI into CNNs, improving model interpretability and predictive accuracy.
+- **Full Stack Developer Intern at Stealth Startup** (Apr 2024 - Aug 2024): Built user authentication, designed AWS CodePipeline CI/CD, full-stack development with TypeScript, Python/Django, and AWS deployment.
+- **Undergraduate Teaching Assistant at Sonoma State University** (Aug 2022 - Dec 2023): Guided 140+ students in C++, OOP, data structures, and algorithms. Created coding best-practices module with 90%+ positive feedback.
 
 ## Education
 
@@ -25,10 +32,10 @@ Sameer Khan is a new grad Software Engineer passionate about building innovative
 
 ## Projects
 
-- [BioSoundSCape](https://github.com/sameerkhansf/BioSoundSCape_SSU_Computer_Science): Computer Vision research project for land cover classification using machine learning. Built with Python. (Spring 2025)
+- [BioSoundSCape](https://github.com/sameerkhansf/BioSoundSCape_SSU_Computer_Science): Computer Vision research project for land cover classification using machine learning. Built with Python, TensorFlow. (Spring 2025)
 - [DFA/NFA Builder](https://github.com/sameerkhansf/JFLAPAutomataBuilder): Automata theory project for building and visualizing deterministic and non-deterministic finite automata. Built with Java. (Fall 2024)
-- [C++ Interpreter](https://github.com/sameerkhansf/Interpreter): A compiler/interpreter implementation demonstrating programming language theory concepts. Built with C++. (Spring 2025)
-- [Expense Tracker](https://expense-tracker-mocha-three.vercel.app): Full-stack web application for tracking personal expenses with data visualization. (Dec 2024)
+- [C++ Interpreter](https://github.com/sameerkhansf/Interpreter): A compiler/interpreter implementation demonstrating programming language theory concepts including lexical analysis, parsing, and execution. Built with C++. (Spring 2025)
+- [Expense Tracker](https://expense-tracker-mocha-three.vercel.app): Full-stack web application for tracking personal expenses with data visualization and categorization. Built with React, Node.js, MongoDB. (Dec 2024)
 
 ## Contact
 

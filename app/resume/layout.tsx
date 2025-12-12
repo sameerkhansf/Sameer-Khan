@@ -149,6 +149,110 @@ const educationSchema = {
     "Graduated with Honors. Relevant coursework: Database Management System Design, Data Structures & Algorithms, Computer Architecture, Software Design & Development, Computer Networking, Analysis of Algorithms.",
 };
 
+// WorkExperience Schema - Structured employment history for AI answer engines
+const workExperienceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Sameer Khan's Work Experience",
+  description: "Professional work experience and internships",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      item: {
+        "@type": "OrganizationRole",
+        roleName: "Software Developer",
+        startDate: "2025-03",
+        endDate: "2025-05",
+        description:
+          "Architected and built 'Books Done Right': AI bookkeeping app using Next.js, React, Node.js, Python, LLM tool calling, and QuickBooks API. Implemented LLM-based natural language interface, reducing manual effort by 80%, improving classification accuracy to 95%+.",
+        memberOf: {
+          "@type": "Organization",
+          name: "PomJuice",
+          description: "AI Bookkeeping Platform",
+          url: "https://pomjuice.com",
+          industry: "FinTech",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "San Francisco",
+            addressRegion: "CA",
+            addressCountry: "US",
+          },
+        },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      item: {
+        "@type": "OrganizationRole",
+        roleName: "Research Intern, Explainable AI for Cancer Diagnosis",
+        startDate: "2024-06",
+        endDate: "2024-08",
+        description:
+          "Worked with Dr. Gill on integrating explainable AI into CNNs, improving model interpretability and predictive accuracy for cancer diagnosis applications.",
+        memberOf: {
+          "@type": "Organization",
+          name: "MESA Research Program, Sonoma State University",
+          url: "https://www.sonoma.edu",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Rohnert Park",
+            addressRegion: "CA",
+            addressCountry: "US",
+          },
+        },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      item: {
+        "@type": "OrganizationRole",
+        roleName: "Full Stack Software Developer Intern",
+        startDate: "2024-04",
+        endDate: "2024-08",
+        description:
+          "Developed user authentication and onboarding using TypeScript. Designed AWS CodePipeline CI/CD pipelines, cutting deployment time and errors. Collaborated on full-stack development (TypeScript, CSS, Python/Django) and deployed via AWS.",
+        memberOf: {
+          "@type": "Organization",
+          name: "Stealth Startup",
+          industry: "Technology",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "San Francisco",
+            addressRegion: "CA",
+            addressCountry: "US",
+          },
+        },
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      item: {
+        "@type": "OrganizationRole",
+        roleName: "Undergraduate Teaching Assistant",
+        startDate: "2022-08",
+        endDate: "2023-12",
+        description:
+          "CS 215 Labs: Guided 80 students through C++/OOP labs and assignments. CSE 315: Mentored 60 students in data structures and algorithms. Created a coding best-practices module with 90%+ positive feedback.",
+        memberOf: {
+          "@type": "CollegeOrUniversity",
+          name: "Sonoma State University",
+          url: "https://www.sonoma.edu",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Rohnert Park",
+            addressRegion: "CA",
+            addressCountry: "US",
+          },
+        },
+      },
+    },
+  ],
+};
+
 export default function ResumeLayout({
   children,
 }: {
@@ -167,6 +271,12 @@ export default function ResumeLayout({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(educationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(workExperienceSchema),
+        }}
       />
       {children}
     </>

@@ -7,6 +7,8 @@ const Education = () => {
       id: 1,
       degree: "Bachelor of Science in Computer Science",
       period: "Aug 21 - May 25",
+      startDate: "2021-08",
+      endDate: "2025-05",
       institution: "Sonoma State University",
       location: "Rohnert Park, CA",
       description:
@@ -21,7 +23,7 @@ const Education = () => {
         {educationData.map((edu, index) => (
           <div
             key={edu.id}
-            className="animate-fade-in bg-card rounded-2xl p-4 border border-border hover:shadow-lg transition-shadow duration-300"
+            className="animate-fade-in bg-card rounded-2xl p-4 border border-border hover:shadow-lg hover:scale-[1.01] transition-all duration-300"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             {/* Desktop Layout */}
@@ -44,17 +46,21 @@ const Education = () => {
                         viewBox="0 0 20 20"
                         className="w-4 h-4"
                         fill="currentColor"
+                        aria-hidden="true"
                       >
                         <path d="M17 4h-4V2a1 1 0 00-2 0v2H9V2a1 1 0 00-2 0v2H3a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V5a1 1 0 00-1-1zM4 16V7h12v9H4z" />
                         <path d="M6 9h2v2H6zM9 9h2v2H9zM12 9h2v2h-2zM6 12h2v2H6zM9 12h2v2H9zM12 12h2v2h-2z" />
                       </svg>
-                      {edu.period}
+                      <time dateTime={`${edu.startDate}/${edu.endDate}`}>
+                        {edu.period}
+                      </time>
                     </div>
                     <div className="flex items-center gap-2">
                       <svg
                         viewBox="0 0 20 20"
                         className="w-4 h-4"
                         fill="currentColor"
+                        aria-hidden="true"
                       >
                         <path d="M12 3l10 5-10 5L2 8l10-5z" />
                         <path d="M2 13l10 5 10-5M2 18l10 5 10-5" />
@@ -67,7 +73,7 @@ const Education = () => {
                           viewBox="0 0 20 20"
                           className="w-full h-full"
                           fill="currentColor"
-                          style={{ imageRendering: "pixelated", flexShrink: 0 }}
+                          aria-hidden="true"
                         >
                           <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" />
                         </svg>
@@ -102,17 +108,19 @@ const Education = () => {
                     viewBox="0 0 20 20"
                     className="w-6 h-6"
                     fill="currentColor"
+                    aria-hidden="true"
                   >
                     <path d="M17 4h-4V2a1 1 0 00-2 0v2H9V2a1 1 0 00-2 0v2H3a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V5a1 1 0 00-1-1zM4 16V7h12v9H4z" />
                     <path d="M6 9h2v2H6zM9 9h2v2H9zM12 9h2v2h-2zM6 12h2v2H6zM9 12h2v2H9zM12 12h2v2h-2z" />
                   </svg>
-                  <span>{edu.period}</span>
+                  <time dateTime={`${edu.startDate}/${edu.endDate}`}>{edu.period}</time>
                 </div>
                 <div className="flex items-center gap-1">
                   <svg
                     viewBox="0 0 20 20"
                     className="w-6 h-6"
                     fill="currentColor"
+                    aria-hidden="true"
                   >
                     <path d="M12 3l10 5-10 5L2 8l10-5z" />
                     <path d="M2 13l10 5 10-5M2 18l10 5 10-5" />
@@ -124,6 +132,7 @@ const Education = () => {
                     viewBox="0 0 20 20"
                     className="w-6 h-6"
                     fill="currentColor"
+                    aria-hidden="true"
                   >
                     <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" />
                   </svg>
