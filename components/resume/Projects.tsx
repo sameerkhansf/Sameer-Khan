@@ -68,9 +68,11 @@ const Projects = () => {
             <div className="flex flex-col items-start gap-2 p-4 md:hidden">
               {/* Project image above */}
               <div className="w-10 h-10 rounded-full overflow-hidden mb-2">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
+                  width={40}
+                  height={40}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -125,11 +127,12 @@ const Projects = () => {
                   boxShadow: "rgba(0, 0, 0, 0.05) 0px 4px 28px 0px",
                 }}
               >
-                <div className="aspect-video">
-                  <img
+                <div className="aspect-video relative">
+                  <Image
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -137,9 +140,11 @@ const Projects = () => {
               {/* Content below image */}
               <div className="flex items-center gap-3 p-1">
                 <div className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
+                    width={40}
+                    height={40}
                     className="w-full h-full object-cover"
                   />
                 </div>
