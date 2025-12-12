@@ -89,6 +89,70 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const relatedPosts = getRelatedPosts(slug, 3);
 
+  // Determine if this is a review post or tutorial post
+  const isReviewPost = post.category === "AI" && 
+    (post.title.toLowerCase().includes("review") || 
+     post.title.toLowerCase().includes("vs") ||
+     post.title.toLowerCase().includes("comparison"));
+  
+  const isTutorialPost = post.category === "Web Development" || 
+    post.title.toLowerCase().includes("guide") ||
+    post.title.toLowerCase().includes("how to") ||
+    post.title.toLowerCase().includes("complete");
+
+  // Review Schema for AI model reviews
+  const reviewSchema = isReviewPost ? {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "@id": `https://sameerkhan.me/blog/${slug}#review`,
+    itemReviewed: {
+      "@type": "SoftwareApplication",
+      name: post.title.replace(/Review|Complete|Developer|Technical/gi, "").trim(),
+      applicationCategory: "AI Language Model",
+    },
+    author: {
+      "@type": "Person",
+      "@id": "https://sameerkhan.me/#person",
+      name: post.author,
+    },
+    publisher: {
+      "@type": "Person",
+      "@id": "https://sameerkhan.me/#person",
+      name: post.author,
+    },
+    reviewBody: post.description,
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "8.5", // Default, can be customized per post
+      bestRating: "10",
+      worstRating: "1",
+    },
+    datePublished: post.date,
+    dateModified: post.updated || post.date,
+  } : null;
+
+  // HowTo Schema for tutorial posts
+  const howToSchema = isTutorialPost ? {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "@id": `https://sameerkhan.me/blog/${slug}#howto`,
+    name: post.title,
+    description: post.description,
+    image: {
+      "@type": "ImageObject",
+      url: `https://sameerkhan.me/og-image.jpg`,
+      alt: post.title,
+    },
+    totalTime: `PT${Math.ceil(post.wordCount / 200)}M`, // Estimate: 200 words per minute
+    author: {
+      "@type": "Person",
+      "@id": "https://sameerkhan.me/#person",
+      name: post.author,
+    },
+    datePublished: post.date,
+    dateModified: post.updated || post.date,
+  } : null;
+
   // Article Schema for SEO/AEO - Enhanced
   const articleSchema = {
     "@context": "https://schema.org",
@@ -182,6 +246,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
+      {reviewSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
+        />
+      )}
+      {howToSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
@@ -224,6 +300,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           {/* Article Content */}
           <article itemScope itemType="https://schema.org/Article">
             <header className="mb-12">
+              {/* Quick Answer Section - AEO Optimization */}
+              <div className="mb-8 p-6 bg-blue-50 dark:bg-blue-950/30 border-l-4 border-blue-500 dark:border-blue-400 rounded-r-lg">
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                  Quick Answer
+                </h2>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  <strong>{post.title.replace(/Review|Complete|Developer|Technical|Guide/gi, "").trim()}</strong>{" "}
+                  {post.description.split(".")[0]}.
+                </p>
+              </div>
+
               {/* Category */}
               <div className="mb-6">
                 <span className="px-4 py-1.5 bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 rounded-full text-sm font-semibold tracking-wide">
@@ -335,6 +422,38 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
             </header>
 
+            {/* Last Updated Badge - Prominent Display */}
+            {post.updated && post.updated !== post.date && (
+              <div className="mb-8 p-4 bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800 rounded-lg">
+                <div className="flex items-center gap-2 text-sm text-green-800 dark:text-green-300">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                    />
+                  </svg>
+                  <span className="font-semibold">Last Updated:</span>
+                  <time dateTime={post.updated}>
+                    {new Date(post.updated).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                  <span className="text-green-600 dark:text-green-400">
+                    ({Math.floor((new Date().getTime() - new Date(post.updated).getTime()) / (1000 * 60 * 60 * 24))} days ago)
+                  </span>
+                </div>
+              </div>
+            )}
+
             {/* Article Content */}
             <div className="prose prose-lg prose-gray dark:prose-invert max-w-none prose-headings:scroll-mt-24 prose-headings:font-bold prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline prose-code:text-pink-600 dark:prose-code:text-pink-400 prose-pre:bg-gray-900 dark:prose-pre:bg-gray-950 prose-pre:border prose-pre:border-gray-800 dark:prose-pre:border-gray-700 prose-blockquote:border-l-4 prose-blockquote:border-blue-500 dark:prose-blockquote:border-blue-400 prose-blockquote:pl-6 prose-blockquote:italic prose-img:rounded-xl prose-img:shadow-lg">
               <MDXContent source={post.content} />
@@ -364,9 +483,40 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
           </article>
 
+          {/* Internal Links Section - AEO Optimization */}
+          <section className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+              Related Articles
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              {relatedPosts.slice(0, 5).map((relatedPost) => (
+                <Link
+                  key={relatedPost.slug}
+                  href={`/blog/${relatedPost.slug}`}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm font-medium"
+                >
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                  {relatedPost.title}
+                </Link>
+              ))}
+            </div>
+          </section>
+
           {/* Related Posts */}
           {relatedPosts.length > 0 && (
-            <section className="mt-20 pt-12 border-t border-gray-200 dark:border-gray-700">
+            <section className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
               <div className="flex items-center gap-3 mb-8">
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent" />
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100">
