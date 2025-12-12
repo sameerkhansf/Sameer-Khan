@@ -51,14 +51,14 @@ const MobileHeader = () => {
               <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100">
                 {profileData.name}
               </h1>
-              <div className="w-6 h-6 bg-[rgb(46,144,250)] rounded-full flex items-center justify-center">
-                <svg
-                  viewBox="0 0 20 21"
-                  className="w-3 h-3 text-white fill-current"
-                >
-                  <path d="M 5.454 11.969 L 7.618 14.161 C 7.981 14.517 8.554 14.517 8.927 14.161 L 14.309 8.737 C 14.663 8.381 14.663 7.806 14.309 7.45 L 14.245 7.386 C 13.89 7.03 13.309 7.03 12.954 7.386 L 8.272 12.097 L 6.809 10.618 C 6.454 10.262 5.872 10.262 5.518 10.618 L 5.454 10.682 C 5.1 11.038 5.1 11.613 5.454 11.969 Z" />
-                </svg>
-              </div>
+              {/* Bootstrap patch-check-fill - Verified Badge */}
+              <svg
+                viewBox="0 0 16 16"
+                className="w-6 h-6"
+                fill="#3b82f6"
+              >
+                <path fillRule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+              </svg>
             </div>
             <p className="text-sm text-gray-500 dark:text-gray-400">
               {profileData.pronouns}
