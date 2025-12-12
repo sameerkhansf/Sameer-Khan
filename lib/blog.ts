@@ -91,12 +91,25 @@ export function getAllPosts(): BlogPostMeta[] {
         return null;
       }
 
-      // Return only metadata (not content)
+      // Get file modification time for secondary sorting
+      const filePath = path.join(POSTS_PATH, file);
+      const stats = fs.statSync(filePath);
+      const mtime = stats.mtime.getTime();
+
+      // Return metadata with modification time
       const { content, wordCount, ...meta } = post;
-      return meta;
+      return { ...meta, _mtime: mtime };
     })
-    .filter((post): post is BlogPostMeta => post !== null)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .filter((post): post is BlogPostMeta & { _mtime: number } => post !== null)
+    .sort((a, b) => {
+      // Primary sort: by date (newest first)
+      const dateDiff = new Date(b.date).getTime() - new Date(a.date).getTime();
+      if (dateDiff !== 0) return dateDiff;
+      
+      // Secondary sort: by file modification time (newest first) for same date
+      return b._mtime - a._mtime;
+    })
+    .map(({ _mtime, ...meta }) => meta); // Remove _mtime before returning
 
   return posts;
 }
