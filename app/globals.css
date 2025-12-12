@@ -205,3 +205,74 @@
     @apply text-gray-400;
   }
 }
+
+/* Print styles for resume */
+@media print {
+  /* Hide non-essential elements */
+  .fixed,
+  nav,
+  footer,
+  button,
+  [role="progressbar"] {
+    display: none !important;
+  }
+
+  /* Reset background and colors for printing */
+  body,
+  .bg-card,
+  .bg-background {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Ensure text is readable */
+  * {
+    color: black !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Ensure links show their URLs */
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666 !important;
+  }
+
+  /* Don't show URLs for internal links */
+  a[href^="#"]::after,
+  a[href^="/"]::after {
+    content: "";
+  }
+
+  /* Avoid page breaks inside cards */
+  .rounded-2xl {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Remove shadows and borders for cleaner print */
+  .shadow-lg,
+  .shadow-md,
+  .shadow-sm {
+    box-shadow: none !important;
+  }
+
+  /* Ensure sections don't break awkwardly */
+  section,
+  .section-container {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Show full page width */
+  .max-w-4xl {
+    max-width: 100% !important;
+  }
+
+  /* Adjust padding for print */
+  .px-8 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
