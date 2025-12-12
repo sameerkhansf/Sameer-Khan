@@ -62,7 +62,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <aside className="w-80 lg:w-96 h-screen bg-resumx-bg dark:bg-gray-900 border-r border-resumx-gray/20 dark:border-gray-700 p-6 lg:p-8 overflow-y-auto flex-shrink-0">
+    <aside className="w-80 lg:w-96 h-screen bg-background border-r border-border p-6 lg:p-8 overflow-y-auto flex-shrink-0">
       <div className="h-full flex flex-col">
         <div className="space-y-6 flex-1">
           {/* Profile */}
@@ -78,23 +78,10 @@ const Sidebar = () => {
             </div>
             <div className="flex flex-col items-start">
               <div className="flex items-center gap-2 mb-1">
-                <h1
-                  className="text-2xl md:text-3xl"
-                  style={{
-                    color:
-                      "var(--token-c688907e-c440-4ba5-8234-4183c55006d7, rgb(41, 41, 41))",
-                  }}
-                >
+                <h1 className="text-2xl md:text-3xl text-foreground font-medium">
                   Sameer Khan
                 </h1>
-                <div
-                  className="w-5 h-5 md:w-6 md:h-6 bg-[rgb(46,144,250)] rounded-full flex items-center justify-center"
-                  style={{
-                    mask: "url('https://framerusercontent.com/images/hxlv6ghDGJi7x5RjjyITyC3eBQw.svg') center center / contain no-repeat alpha",
-                    boxShadow:
-                      "rgba(255, 255, 255, 0.18) 0px 0.602187px 0.602187px -1.25px inset, rgba(255, 255, 255, 0.16) 0px 2.28853px 2.28853px -2.5px inset, rgba(255, 255, 255, 0.063) 0px 10px 10px -3.75px inset",
-                  }}
-                >
+                <div className="w-5 h-5 md:w-6 md:h-6 bg-blue-500 rounded-full flex items-center justify-center">
                   <svg
                     viewBox="0 0 20 21"
                     className="w-3 h-3 text-white fill-current"
@@ -103,13 +90,7 @@ const Sidebar = () => {
                   </svg>
                 </div>
               </div>
-              <p
-                className="text-resumx-text/60 text-xs md:text-sm mt-0"
-                style={{
-                  color:
-                    "var(--token-4ed8c69a-230d-4c07-af1f-2e5cbb244f43, rgb(126, 126, 126))",
-                }}
-              >
+              <p className="text-muted-foreground text-xs md:text-sm mt-0">
                 he/him
               </p>
             </div>
@@ -118,14 +99,7 @@ const Sidebar = () => {
           {/* About */}
           <div>
             <h3 className="framer-section-heading">ABOUT</h3>
-            <p
-              className="leading-relaxed"
-              style={{
-                fontSize: "15px",
-                color:
-                  "var(--token-c688907e-c440-4ba5-8234-4183c55006d7, rgb(41, 41, 41))",
-              }}
-            >
+            <p className="leading-relaxed text-[15px] text-foreground">
               New grad Software Engineer with a B.S. in Computer Science from Sonoma State University. Expertise in full-stack development, AI/ML, and modern web technologies.
             </p>
           </div>
@@ -136,16 +110,11 @@ const Sidebar = () => {
             <div className="space-y-2 text-sm">
               <a
                 href="mailto:khansam@sonoma.edu"
-                className="flex items-center gap-3 transition-colors"
-                style={{
-                  fontSize: "15px",
-                  color:
-                    "var(--token-c688907e-c440-4ba5-8234-4183c55006d7, rgb(41, 41, 41))",
-                }}
+                className="flex items-center gap-3 transition-colors text-[15px] text-foreground hover:text-blue-500"
               >
                 <svg
                   viewBox="0 0 24 24"
-                  className="w-4 h-4 text-resumx-text/60 flex-shrink-0"
+                  className="w-4 h-4 text-muted-foreground flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
@@ -157,16 +126,11 @@ const Sidebar = () => {
               </a>
               <a
                 href="https://sameerkhan.me"
-                className="flex items-center gap-3 transition-colors"
-                style={{
-                  fontSize: "15px",
-                  color:
-                    "var(--token-c688907e-c440-4ba5-8234-4183c55006d7, rgb(41, 41, 41))",
-                }}
+                className="flex items-center gap-3 transition-colors text-[15px] text-foreground hover:text-blue-500"
               >
                 <svg
                   viewBox="0 0 24 24"
-                  className="w-4 h-4 text-resumx-text/60 flex-shrink-0"
+                  className="w-4 h-4 text-muted-foreground flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
@@ -199,7 +163,7 @@ const Sidebar = () => {
               {languages.map((language) => (
                 <span
                   key={language.name}
-                  className="inline-flex items-center gap-2 px-3 py-1 text-sm bg-white rounded-full border border-resumx-gray/30 text-resumx-text hover:bg-resumx-purple hover:text-white hover:border-resumx-purple transition-all duration-200"
+                  className="inline-flex items-center gap-2 px-3 py-1 text-sm bg-card rounded-full border border-border text-foreground hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all duration-200"
                 >
                   <span className="text-base">{language.flag}</span>
                   {language.name}
@@ -219,7 +183,7 @@ const Sidebar = () => {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-resumx-text/60 hover:text-resumx-text dark:text-gray-400 dark:hover:text-gray-200 transition-colors duration-200 text-xl"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-xl"
               title={link.name}
               aria-label={`Visit my ${link.name} profile`}
             >
