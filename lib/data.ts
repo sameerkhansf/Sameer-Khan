@@ -29,7 +29,7 @@ export const profileData = {
   socialLinks: [
     {
       name: "X (Twitter)",
-      url: "https://x.com/sameerkhansf",
+      url: "https://x.com/sameerkhan_sf",
     },
     {
       name: "Instagram",
