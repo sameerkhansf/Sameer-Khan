@@ -1,4 +1,5 @@
 import AnimatedSection from "./AnimatedSection";
+import Image from "next/image";
 
 const Projects = () => {
   const projects = [
@@ -60,7 +61,7 @@ const Projects = () => {
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full md:w-[320px] md:flex-shrink-0 bg-[rgb(252,252,252)] rounded-2xl border border-[rgba(18,18,18,0.07)] hover:shadow-lg transition-shadow duration-300 group"
+            className="w-full md:w-[320px] md:flex-shrink-0 bg-[rgb(252,252,252)] dark:bg-gray-800 rounded-2xl border border-[rgba(18,18,18,0.07)] dark:border-gray-700 hover:shadow-lg transition-shadow duration-300 group"
             style={{ animationDelay: `${index * 100}ms` }}
           >
             {/* Mobile Layout */}

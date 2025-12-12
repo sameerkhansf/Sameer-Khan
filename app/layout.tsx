@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | Sameer Khan",
   },
   description:
-    "Founder of MARL 5G Accelerator, bringing together startups, investors, and industry giants building the future of Mobility, Autonomy, Robotics, and Logistics.",
+    "Software Engineer passionate about building innovative web and mobile applications. Specializing in full-stack development, AI/ML, and modern web technologies.",
 };
 
 export default function RootLayout({

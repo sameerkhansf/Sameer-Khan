@@ -80,6 +80,12 @@
     @apply bg-resumx-bg text-resumx-text font-sans;
     background: linear-gradient(135deg, #fbfbfb 0%, #f7f7f7 100%);
   }
+
+  /* Dark mode for resume */
+  .dark .resume-body {
+    @apply text-gray-100;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+  }
 }
 
 .footer-link {
@@ -146,7 +152,7 @@
   }
 
   .skill-tag {
-    @apply inline-block px-3 py-1 text-sm bg-white rounded-full border border-resumx-gray/30 text-resumx-text hover:bg-resumx-purple hover:text-white hover:border-resumx-purple transition-all duration-200;
+    @apply inline-block px-3 py-1 text-sm bg-white dark:bg-gray-800 rounded-full border border-resumx-gray/30 dark:border-gray-600 text-resumx-text dark:text-gray-200 hover:bg-resumx-purple hover:text-white hover:border-resumx-purple transition-all duration-200;
   }
 
   .framer-heading {
@@ -159,6 +165,10 @@
     text-decoration: none;
     text-transform: none;
     margin: 0;
+  }
+
+  .dark .framer-heading {
+    color: rgb(229, 231, 235);
   }
 
   .framer-section-heading {

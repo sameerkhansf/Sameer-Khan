@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "@/components/motion";
 import Link from "next/link";
 import Image from "next/image";
 

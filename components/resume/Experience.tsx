@@ -54,7 +54,7 @@ const Experience = () => {
         {experiences.map((exp, index) => (
           <div
             key={exp.id}
-            className="animate-fade-in bg-[rgb(252,252,252)] rounded-2xl p-4 border border-[rgba(18,18,18,0.07)] hover:shadow-lg transition-shadow duration-300"
+            className="animate-fade-in bg-[rgb(252,252,252)] dark:bg-gray-800 rounded-2xl p-4 border border-[rgba(18,18,18,0.07)] dark:border-gray-700 hover:shadow-lg transition-shadow duration-300"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             {/* Desktop Layout */}
@@ -168,7 +168,7 @@ const Experience = () => {
                   <span>{exp.location}</span>
                 </div>
               </div>
-              <p className="text-sm text-gray-600 leading-relaxed mt-4">
+              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mt-4">
                 {exp.description}
               </p>
             </div>
