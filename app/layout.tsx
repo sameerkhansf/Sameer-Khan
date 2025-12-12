@@ -129,6 +129,46 @@ const faqSchema = {
         text: "Sameer Khan has worked on projects including BioSoundSCape (Computer Vision research), DFA/NFA Builder (Automata Theory), C++ Interpreter, and an Expense Tracker web application. His projects demonstrate expertise in full-stack development, computer science theory, and AI/ML.",
       },
     },
+    {
+      "@type": "Question",
+      name: "What is Sameer Khan's experience with React?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sameer Khan has extensive experience with React and Next.js. He built 'Books Done Right', an AI bookkeeping application using React and Next.js at PomJuice, and developed the Expense Tracker full-stack web application using React. He also uses React for his personal portfolio website.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is Sameer Khan AWS certified?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, Sameer Khan is an AWS Certified Cloud Practitioner. He has hands-on experience with AWS services including CodePipeline for CI/CD, and has deployed production applications using AWS infrastructure.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What AI/ML projects has Sameer Khan worked on?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sameer Khan has worked on multiple AI/ML projects: (1) BioSoundSCape - a computer vision research project for land cover classification using machine learning, (2) Explainable AI for Cancer Diagnosis - research on integrating explainable AI into CNNs at Sonoma State's MESA program, and (3) Books Done Right - an AI bookkeeping app using LLM tool calling that achieved 95%+ classification accuracy.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is Sameer Khan's work experience?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sameer Khan's work experience includes: Software Developer at PomJuice (AI bookkeeping startup), Research Intern at MESA Program (Explainable AI for cancer diagnosis), Full Stack Developer Intern at a stealth startup (authentication, CI/CD, AWS deployment), and Undergraduate Teaching Assistant at Sonoma State University (teaching C++, OOP, and data structures to 140+ students).",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What internships has Sameer Khan completed?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sameer Khan has completed internships at: (1) MESA Research Program at Sonoma State University (Summer 2024) - Explainable AI research for cancer diagnosis, and (2) Stealth Startup in San Francisco (Spring-Summer 2024) - Full stack development with TypeScript, Python/Django, and AWS. He also worked as a Software Developer at PomJuice building an AI bookkeeping platform.",
+      },
+    },
   ],
 };
 
@@ -144,6 +184,90 @@ const websiteSchema = {
   publisher: {
     "@id": "https://sameerkhan.me/#person",
   },
+};
+
+// BreadcrumbList Schema for navigation structure
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://sameerkhan.me",
+    },
+  ],
+};
+
+// Projects Schema - SoftwareSourceCode for portfolio projects
+const projectsSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      item: {
+        "@type": "SoftwareSourceCode",
+        name: "BioSoundSCape",
+        description:
+          "Research project focused on land cover classification using machine learning and computer vision techniques for environmental analysis.",
+        programmingLanguage: ["Python", "TensorFlow"],
+        codeRepository:
+          "https://github.com/sameerkhansf/BioSoundSCape_SSU_Computer_Science",
+        author: { "@id": "https://sameerkhan.me/#person" },
+        dateCreated: "2025-05",
+        applicationCategory: "Computer Vision",
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      item: {
+        "@type": "SoftwareSourceCode",
+        name: "DFA/NFA Builder",
+        description:
+          "Tool for creating and visualizing deterministic and non-deterministic finite automata, implementing core concepts from automata theory.",
+        programmingLanguage: ["Java"],
+        codeRepository:
+          "https://github.com/sameerkhansf/JFLAPAutomataBuilder",
+        author: { "@id": "https://sameerkhan.me/#person" },
+        dateCreated: "2024-12",
+        applicationCategory: "Automata Theory",
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      item: {
+        "@type": "SoftwareSourceCode",
+        name: "C++ Interpreter",
+        description:
+          "Interpreter implementation demonstrating programming language theory concepts including lexical analysis, parsing, and execution.",
+        programmingLanguage: ["C++"],
+        codeRepository: "https://github.com/sameerkhansf/Interpreter",
+        author: { "@id": "https://sameerkhan.me/#person" },
+        dateCreated: "2025-05",
+        applicationCategory: "Compilers",
+      },
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      item: {
+        "@type": "WebApplication",
+        name: "Expense Tracker Application",
+        description:
+          "Full-stack web application for personal expense tracking with data visualization and expense categorization features.",
+        url: "https://expense-tracker-mocha-three.vercel.app",
+        applicationCategory: "FinanceApplication",
+        operatingSystem: "Web Browser",
+        author: { "@id": "https://sameerkhan.me/#person" },
+        dateCreated: "2024-12",
+      },
+    },
+  ],
 };
 
 export const metadata: Metadata = {
@@ -215,6 +339,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.className}`} suppressHydrationWarning>
       <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#1a1a1a" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Sameer Khan" />
+        <link rel="apple-touch-icon" href="/profile.jpg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
@@ -226,6 +356,14 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(projectsSchema) }}
         />
       </head>
       <body className="antialiased tracking-tight">

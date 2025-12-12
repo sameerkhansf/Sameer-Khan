@@ -1,3 +1,16 @@
+export interface Skill {
+  name: string;
+  category: "Frontend" | "Backend" | "Cloud" | "Database" | "Tools" | "Languages";
+  proficiency: "Expert" | "Advanced" | "Intermediate";
+}
+
+export interface Expertise {
+  area: string;
+  level: "Expert" | "Advanced" | "Intermediate";
+  technologies: string[];
+  relatedProjects?: string[];
+}
+
 export const profileData = {
   name: "Sameer Khan",
   pronouns: "he/him",
@@ -7,6 +20,7 @@ export const profileData = {
     email: "khansam@sonoma.edu",
     website: "sameerkhan.me",
   },
+  // Flat skills array for backward compatibility
   skills: [
     "C++",
     "Python",
@@ -21,10 +35,52 @@ export const profileData = {
     "MongoDB",
     "Git",
   ],
+  // Enhanced skills with categories and proficiency
+  skillsDetailed: [
+    { name: "React", category: "Frontend", proficiency: "Advanced" },
+    { name: "Next.js", category: "Frontend", proficiency: "Advanced" },
+    { name: "TypeScript", category: "Languages", proficiency: "Advanced" },
+    { name: "JavaScript", category: "Languages", proficiency: "Advanced" },
+    { name: "Node.js", category: "Backend", proficiency: "Advanced" },
+    { name: "Python", category: "Languages", proficiency: "Advanced" },
+    { name: "Java", category: "Languages", proficiency: "Intermediate" },
+    { name: "C++", category: "Languages", proficiency: "Intermediate" },
+    { name: "AWS", category: "Cloud", proficiency: "Intermediate" },
+    { name: "Docker", category: "Cloud", proficiency: "Intermediate" },
+    { name: "MongoDB", category: "Database", proficiency: "Advanced" },
+    { name: "Git", category: "Tools", proficiency: "Advanced" },
+  ] as Skill[],
+  // Areas of expertise
+  expertise: [
+    {
+      area: "Full-Stack Development",
+      level: "Advanced",
+      technologies: ["React", "Next.js", "Node.js", "TypeScript", "MongoDB"],
+      relatedProjects: ["Expense Tracker", "Books Done Right"],
+    },
+    {
+      area: "AI/ML & Computer Vision",
+      level: "Intermediate",
+      technologies: ["Python", "TensorFlow", "CNN", "LLM"],
+      relatedProjects: ["BioSoundSCape", "Explainable AI Research"],
+    },
+    {
+      area: "Cloud & DevOps",
+      level: "Intermediate",
+      technologies: ["AWS", "Docker", "CI/CD", "CodePipeline"],
+      relatedProjects: ["Stealth Startup Infrastructure"],
+    },
+    {
+      area: "Systems Programming",
+      level: "Intermediate",
+      technologies: ["C++", "Compilers", "Interpreters"],
+      relatedProjects: ["C++ Interpreter", "DFA/NFA Builder"],
+    },
+  ] as Expertise[],
   languages: [
-    { name: "English", flag: "🇺🇸" },
-    { name: "Urdu", flag: "🇵🇰" },
-    { name: "Hindi", flag: "🇮🇳" },
+    { name: "English", flag: "🇺🇸", proficiency: "Native" },
+    { name: "Urdu", flag: "🇵🇰", proficiency: "Native" },
+    { name: "Hindi", flag: "🇮🇳", proficiency: "Fluent" },
   ],
   socialLinks: [
     {
@@ -42,6 +98,18 @@ export const profileData = {
     {
       name: "GitHub",
       url: "https://www.github.com/sameerkhansf",
+    },
+  ],
+  certifications: [
+    {
+      name: "AWS Certified Cloud Practitioner",
+      issuer: "Amazon Web Services",
+      date: "2024",
+    },
+    {
+      name: "CodePath Technical Interview Prep",
+      issuer: "CodePath",
+      date: "2024",
     },
   ],
 };

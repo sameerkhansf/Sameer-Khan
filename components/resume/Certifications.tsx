@@ -30,7 +30,7 @@ const Certifications = () => {
         {certifications.map((cert, index) => (
           <div
             key={cert.id}
-            className="animate-fade-in bg-card rounded-2xl p-4 border border-border hover:shadow-lg transition-shadow duration-300"
+            className="animate-fade-in bg-card rounded-2xl p-4 border border-border hover:shadow-lg hover:scale-[1.01] transition-all duration-300"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <div className="flex items-center gap-4">

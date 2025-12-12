@@ -1,5 +1,6 @@
 import AnimatedSection from "./AnimatedSection";
 import Image from "next/image";
+import { experiences } from "@/lib/experiences";
 
 // Pomegranate icon for PomJuice
 const PomJuiceLogo = () => (
@@ -21,48 +22,6 @@ const StealthLogo = () => (
 );
 
 const Experience = () => {
-  const experiences = [
-    {
-      id: 1,
-      title: "Software Developer",
-      period: "Mar 25 - May 25",
-      company: "PomJuice — AI Bookkeeping Platform",
-      location: "San Francisco, CA",
-      logoType: "pomjuice" as const,
-      description:
-        'Architected and built "Books Done Right": AI bookkeeping app using Next.js, React, Node.js, Python, LLM tool calling, and QuickBooks API. Implemented LLM-based natural language interface, reducing manual effort by 80%, improving classification accuracy to 95%+.',
-    },
-    {
-      id: 2,
-      title: "Research Intern, Explainable AI for Cancer Diagnosis",
-      period: "Jun 24 - Aug 24",
-      company: "MESA Research Program, Sonoma State University",
-      logoType: "ssu" as const,
-      location: "Rohnert Park, CA",
-      description:
-        "Worked with Dr. Gill on integrating explainable AI into CNNs, improving model interpretability and predictive accuracy for cancer diagnosis applications.",
-    },
-    {
-      id: 3,
-      title: "Full Stack Software Developer Intern",
-      period: "Apr 24 - Aug 24",
-      company: "Stealth (Startup)",
-      location: "San Francisco, CA",
-      logoType: "stealth" as const,
-      description:
-        "Developed user authentication and onboarding using TypeScript. Designed AWS CodePipeline CI/CD pipelines, cutting deployment time and errors. Collaborated on full-stack development (TypeScript, CSS, Python/Django) and deployed via AWS.",
-    },
-    {
-      id: 4,
-      title: "Undergraduate Teaching Assistant",
-      period: "Aug 22 - Dec 23",
-      company: "Sonoma State University",
-      location: "Rohnert Park, CA",
-      logoType: "ssu" as const,
-      description:
-        "CS 215 Labs: Guided 80 students through C++/OOP labs and assignments. CSE 315: Mentored 60 students in data structures and algorithms. Created a coding best-practices module with 90%+ positive feedback.",
-    },
-  ];
 
   const renderLogo = (logoType: string) => {
     switch (logoType) {
@@ -105,7 +64,7 @@ const Experience = () => {
         {experiences.map((exp, index) => (
           <div
             key={exp.id}
-            className="animate-fade-in bg-card rounded-2xl p-4 border border-border hover:shadow-lg transition-shadow duration-300"
+            className="animate-fade-in bg-card rounded-2xl p-4 border border-border hover:shadow-lg hover:scale-[1.01] transition-all duration-300"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             {/* Desktop Layout */}
@@ -122,17 +81,21 @@ const Experience = () => {
                         viewBox="0 0 20 20"
                         className="w-4 h-4"
                         fill="currentColor"
+                        aria-hidden="true"
                       >
                         <path d="M17 4h-4V2a1 1 0 00-2 0v2H9V2a1 1 0 00-2 0v2H3a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V5a1 1 0 00-1-1zM4 16V7h12v9H4z" />
                         <path d="M6 9h2v2H6zM9 9h2v2H9zM12 9h2v2h-2zM6 12h2v2H6zM9 12h2v2H9zM12 12h2v2h-2z" />
                       </svg>
-                      {exp.period}
+                      <time dateTime={`${exp.startDate}/${exp.endDate}`}>
+                        {exp.period}
+                      </time>
                     </div>
                     <div className="flex items-center gap-2">
                       <svg
                         viewBox="0 0 20 20"
                         className="w-4 h-4"
                         fill="currentColor"
+                        aria-hidden="true"
                       >
                         <path
                           fillRule="evenodd"
@@ -140,7 +103,7 @@ const Experience = () => {
                           clipRule="evenodd"
                         />
                       </svg>
-                      {exp.company}
+                      <span data-company={exp.company}>{exp.company}{exp.companyDescription ? ` — ${exp.companyDescription}` : ""}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-4 h-4 flex items-center justify-center">
@@ -148,7 +111,7 @@ const Experience = () => {
                           viewBox="0 0 20 20"
                           className="w-full h-full"
                           fill="currentColor"
-                          style={{ imageRendering: "pixelated", flexShrink: 0 }}
+                          aria-hidden="true"
                         >
                           <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" />
                         </svg>
@@ -177,27 +140,30 @@ const Experience = () => {
                     viewBox="0 0 20 20"
                     className="w-6 h-6"
                     fill="currentColor"
+                    aria-hidden="true"
                   >
                     <path d="M17 4h-4V2a1 1 0 00-2 0v2H9V2a1 1 0 00-2 0v2H3a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V5a1 1 0 00-1-1zM4 16V7h12v9H4z" />
                     <path d="M6 9h2v2H6zM9 9h2v2H9zM12 9h2v2h-2zM6 12h2v2H6zM9 12h2v2H9zM12 12h2v2h-2z" />
                   </svg>
-                  <span>{exp.period}</span>
+                  <time dateTime={`${exp.startDate}/${exp.endDate}`}>{exp.period}</time>
                 </div>
                 <div className="flex items-center gap-1">
                   <svg
                     viewBox="0 0 20 20"
                     className="w-6 h-6"
                     fill="currentColor"
+                    aria-hidden="true"
                   >
                     <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
                   </svg>
-                  <span>{exp.company}</span>
+                  <span data-company={exp.company}>{exp.company}</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <svg
                     viewBox="0 0 20 20"
                     className="w-6 h-6"
                     fill="currentColor"
+                    aria-hidden="true"
                   >
                     <path d="M10 2a6 6 0 00-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 00-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" />
                   </svg>

@@ -1,0 +1,25 @@
+{
+  "name": "Sameer Khan - Software Engineer",
+  "short_name": "Sameer Khan",
+  "description": "Software Engineer portfolio - Full-stack development, AI/ML, and modern web technologies",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a1a1a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/profile.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/profile.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["portfolio", "business", "productivity"]
+}

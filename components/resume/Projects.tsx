@@ -1,54 +1,23 @@
 import AnimatedSection from "./AnimatedSection";
 import Image from "next/image";
+import { projects as projectsData } from "@/lib/experiences";
 
 const Projects = () => {
+  // Combine project data with the "See more" card
   const projects = [
-    {
-      id: 1,
-      title: "BioSoundSCape",
-      date: "Spring 2025",
-      role: "Computer Vision Researcher",
-      category: "Computer Vision Project",
-      image: "/projects/biosoundscape.png",
-      url: "https://github.com/sameerkhansf/BioSoundSCape_SSU_Computer_Science",
-    },
-    {
-      id: 2,
-      title: "DFA/NFA Builder",
-      date: "Fall 2024",
-      role: "Automata Theory Project",
-      category: "Automata Theory",
-      image: "/projects/dfa-nfa-builder.png",
-      url: "https://github.com/sameerkhansf/JFLAPAutomataBuilder/tree/bb307977f4c3b30ead8571a1dd8c2f32c864f558",
-    },
-    {
-      id: 3,
-      title: "C++ Interpreter",
-      date: "Spring 2025",
-      role: "C++ Compiler Project",
-      category: "C++",
-      image: "/projects/cpp-interpreter.jpg",
-      url: "https://github.com/sameerkhansf/Interpreter",
-    },
-    {
-      id: 4,
-      title: "Expense Tracker Application",
-      date: "Dec 2024",
-      role: "Full Stack Developer",
-      category: "Web Application",
-      image: "/projects/expense-tracker.png",
-      url: "https://expense-tracker-mocha-three.vercel.app",
-    },
+    ...projectsData,
     {
       id: 5,
       title: "See more projects",
       date: "View all projects",
+      dateISO: undefined,
       role: "Github",
       category: "Github",
+      description: "View all projects and contributions on GitHub",
+      technologies: [],
       image: "/projects/github.jpg",
       url: "https://github.com/sameerkhansf",
-    }
-
+    },
   ];
 
   return (
@@ -61,7 +30,7 @@ const Projects = () => {
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full md:w-[320px] md:flex-shrink-0 bg-card rounded-2xl border border-border hover:shadow-lg transition-shadow duration-300 group"
+            className="w-full md:w-[320px] md:flex-shrink-0 bg-card rounded-2xl border border-border hover:shadow-lg hover:scale-[1.01] transition-all duration-300 group"
             style={{ animationDelay: `${index * 100}ms` }}
           >
             {/* Mobile Layout */}
@@ -85,17 +54,23 @@ const Projects = () => {
                     viewBox="0 0 20 20"
                     className="w-6 h-6"
                     fill="currentColor"
+                    aria-hidden="true"
                   >
                     <path d="M17 4h-4V2a1 1 0 00-2 0v2H9V2a1 1 0 00-2 0v2H3a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V5a1 1 0 00-1-1zM4 16V7h12v9H4z" />
                     <path d="M6 9h2v2H6zM9 9h2v2H9zM12 9h2v2h-2zM6 12h2v2H6zM9 12h2v2H9zM12 12h2v2h-2z" />
                   </svg>
-                  <span>{project.date.split(" ").slice(0, 2).join(" ")}</span>
+                  {project.dateISO ? (
+                    <time dateTime={project.dateISO}>{project.date.split(" ").slice(0, 2).join(" ")}</time>
+                  ) : (
+                    <span>{project.date.split(" ").slice(0, 2).join(" ")}</span>
+                  )}
                 </div>
                 <div className="flex items-center gap-1">
                   <svg
                     viewBox="0 0 20 20"
                     className="w-6 h-6"
                     fill="currentColor"
+                    aria-hidden="true"
                   >
                     <circle cx="10" cy="7" r="4" />
                     <path d="M10 11s-4 4-4 6a4 4 0 008 0c0-2-4-6-4-6z" />
@@ -107,6 +82,7 @@ const Projects = () => {
                     viewBox="0 0 20 20"
                     className="w-6 h-6"
                     fill="currentColor"
+                    aria-hidden="true"
                   >
                     <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
                   </svg>
@@ -115,6 +91,11 @@ const Projects = () => {
                   </span>
                 </div>
               </div>
+              {project.description && project.id !== 5 && (
+                <p className="text-xs text-muted-foreground mt-2 line-clamp-2">
+                  {project.description}
+                </p>
+              )}
             </div>
 
             {/* Desktop Layout */}
@@ -127,12 +108,12 @@ const Projects = () => {
                   boxShadow: "rgba(0, 0, 0, 0.05) 0px 4px 28px 0px",
                 }}
               >
-                <div className="aspect-video relative">
+                <div className="aspect-video relative overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
               </div>
@@ -158,17 +139,23 @@ const Projects = () => {
                         viewBox="0 0 20 20"
                         className="w-3 h-3"
                         fill="currentColor"
+                        aria-hidden="true"
                       >
                         <path d="M17 4h-4V2a1 1 0 00-2 0v2H9V2a1 1 0 00-2 0v2H3a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V5a1 1 0 00-1-1zM4 16V7h12v9H4z" />
                         <path d="M6 9h2v2H6zM9 9h2v2H9zM12 9h2v2h-2zM6 12h2v2H6zM9 12h2v2H9zM12 12h2v2h-2z" />
                       </svg>
-                      {project.date}
+                      {project.dateISO ? (
+                        <time dateTime={project.dateISO}>{project.date}</time>
+                      ) : (
+                        project.date
+                      )}
                     </div>
                     <div className="flex items-center gap-1">
                       <svg
                         viewBox="0 0 20 20"
                         className="w-3 h-3"
                         fill="currentColor"
+                        aria-hidden="true"
                       >
                         <circle cx="10" cy="7" r="4" />
                         <path d="M10 11s-4 4-4 6a4 4 0 008 0c0-2-4-6-4-6z" />
@@ -180,12 +167,18 @@ const Projects = () => {
                         viewBox="0 0 20 20"
                         className="w-3 h-3"
                         fill="currentColor"
+                        aria-hidden="true"
                       >
                         <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
                       </svg>
                       {project.category}
                     </div>
                   </div>
+                  {project.description && project.id !== 5 && (
+                    <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                      {project.description}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>

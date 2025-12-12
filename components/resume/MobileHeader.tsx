@@ -16,7 +16,6 @@ const MobileHeader = () => {
               width={72}
               height={72}
               className="w-full h-full object-cover"
-              unoptimized
             />
           </div>
           <div className="flex flex-col items-center">

@@ -7,40 +7,102 @@
 Sameer Khan is a new graduate Software Engineer passionate about building innovative web and mobile applications. With a strong foundation in computer science fundamentals and hands-on experience in modern web technologies, he brings expertise in:
 
 - **Full-Stack Development**: Building end-to-end applications using React, Next.js, TypeScript, Node.js
-- **AI/ML & Computer Vision**: Research experience in land cover classification using machine learning
-- **Cloud Technologies**: AWS certified with experience in Docker containerization
+- **AI/ML & Computer Vision**: Research experience in land cover classification, explainable AI for medical diagnosis, and LLM integration
+- **Cloud Technologies**: AWS certified with experience in Docker containerization and CI/CD pipelines
 - **Programming Languages**: Proficient in JavaScript, TypeScript, Python, Java, and C++
 
 Sameer graduated with honors from Sonoma State University, where his coursework included Database Management System Design, Data Structures & Algorithms, Computer Architecture, Software Design & Development, Intro to OOP, Computer Networking, and Analysis of Algorithms.
 
 ## Technical Skills
 
-### Frontend Development
-- React.js and Next.js for building modern web applications
+### Frontend Development (Advanced)
+- React.js for building modern component-based web applications
+- Next.js for server-side rendering and full-stack React applications
 - TypeScript for type-safe JavaScript development
 - Tailwind CSS for responsive, utility-first styling
 - HTML5 and CSS3
 
-### Backend Development
+### Backend Development (Advanced)
 - Node.js for server-side JavaScript
-- Python for scripting, automation, and ML
-- Java for enterprise applications
-- C++ for systems programming and compilers
+- Python for scripting, automation, ML, and API development
+- Java for enterprise applications and data structures
+- C++ for systems programming, compilers, and interpreters
 
-### Cloud & DevOps
+### Cloud & DevOps (Intermediate)
 - AWS (Amazon Web Services) - Certified Cloud Practitioner
+- AWS CodePipeline for CI/CD automation
 - Docker for containerization
 - Git for version control
-- CI/CD pipelines
+- CI/CD pipeline design and implementation
 
-### Databases
+### Databases (Advanced)
 - MongoDB for NoSQL document storage
 - SQL databases
+
+### AI/ML & Data Science
+- Machine Learning model development
+- Computer Vision and image classification
+- LLM integration and tool calling
+- Explainable AI techniques
+- TensorFlow and neural networks
 
 ### Languages Spoken
 - English (Native)
 - Urdu (Native)
 - Hindi (Fluent)
+
+## Work Experience
+
+### Software Developer at PomJuice (Mar 2025 - May 2025)
+**Location**: San Francisco, CA | **Industry**: FinTech
+
+Architected and built "Books Done Right": an AI-powered bookkeeping application that transforms how businesses manage their finances.
+
+**Technologies**: Next.js, React, Node.js, Python, LLM Tool Calling, QuickBooks API, TypeScript
+
+**Key Achievements**:
+- Implemented LLM-based natural language interface for intuitive bookkeeping interactions
+- Reduced manual bookkeeping effort by 80% through intelligent automation
+- Achieved 95%+ classification accuracy for financial transaction categorization
+- Built end-to-end full-stack application from concept to deployment
+
+### Research Intern, Explainable AI for Cancer Diagnosis at MESA Program (Jun 2024 - Aug 2024)
+**Location**: Sonoma State University, Rohnert Park, CA | **Industry**: Healthcare AI Research
+
+Worked with Dr. Gill on cutting-edge research integrating explainable AI into Convolutional Neural Networks for medical applications.
+
+**Technologies**: Python, TensorFlow, CNN, Explainable AI, Jupyter
+
+**Key Achievements**:
+- Improved model interpretability for cancer diagnosis systems
+- Enhanced predictive accuracy through explainable AI techniques
+- Contributed to research advancing AI transparency in healthcare
+
+### Full Stack Software Developer Intern at Stealth Startup (Apr 2024 - Aug 2024)
+**Location**: San Francisco, CA | **Industry**: Technology
+
+Contributed to full-stack development at an early-stage startup, building core infrastructure and user-facing features.
+
+**Technologies**: TypeScript, Python, Django, AWS, AWS CodePipeline, CSS
+
+**Key Achievements**:
+- Developed complete user authentication and onboarding system
+- Designed and implemented AWS CodePipeline CI/CD pipelines, reducing deployment time and errors
+- Collaborated on full-stack development across frontend and backend
+- Deployed production applications via AWS infrastructure
+
+### Undergraduate Teaching Assistant at Sonoma State University (Aug 2022 - Dec 2023)
+**Location**: Rohnert Park, CA | **Industry**: Education
+
+Supported computer science education as a teaching assistant for core programming courses.
+
+**Technologies**: C++, Object-Oriented Programming, Data Structures, Algorithms
+
+**Key Achievements**:
+- CS 215 Labs: Guided 80 students through C++ and OOP concepts
+- CSE 315: Mentored 60 students in data structures and algorithms
+- Created a comprehensive coding best-practices module with 90%+ positive feedback
+- Developed teaching materials and provided one-on-one student support
 
 ## Education
 
@@ -73,30 +135,43 @@ Sameer graduated with honors from Sonoma State University, where his coursework 
 
 ### BioSoundSCape (Spring 2025)
 **Role**: Computer Vision Researcher
-- Research project focused on land cover classification using machine learning
-- Applied computer vision techniques for environmental analysis
-- Technologies: Python, Machine Learning, Computer Vision
+
+Research project focused on land cover classification using machine learning and computer vision techniques for environmental analysis.
+
+- Applied advanced computer vision techniques for environmental data analysis
+- Developed machine learning models for land cover classification
+- Technologies: Python, Machine Learning, Computer Vision, TensorFlow
 - Repository: https://github.com/sameerkhansf/BioSoundSCape_SSU_Computer_Science
 
 ### DFA/NFA Builder (Fall 2024)
-**Role**: Automata Theory Project
-- Built a tool for creating and visualizing deterministic and non-deterministic finite automata
-- Implements core concepts from automata theory and formal languages
-- Technologies: Java
+**Role**: Automata Theory Project Developer
+
+Built a tool for creating and visualizing deterministic and non-deterministic finite automata, implementing core concepts from automata theory and formal languages.
+
+- Implements complete automata theory concepts
+- Visualizes state machines and transitions
+- Technologies: Java, Automata Theory, Graph Visualization
 - Repository: https://github.com/sameerkhansf/JFLAPAutomataBuilder
 
 ### C++ Interpreter (Spring 2025)
 **Role**: Compiler Project Developer
-- Implemented an interpreter demonstrating programming language theory concepts
-- Covers lexical analysis, parsing, and execution
-- Technologies: C++
+
+Implemented an interpreter demonstrating programming language theory concepts including lexical analysis, parsing, and execution.
+
+- Covers complete compilation pipeline: lexical analysis, parsing, execution
+- Demonstrates understanding of language design principles
+- Technologies: C++, Compilers, Lexical Analysis, Parsing
 - Repository: https://github.com/sameerkhansf/Interpreter
 
-### Expense Tracker Application (December 2024)
+### Expense Tracker Application (Dec 2024)
 **Role**: Full Stack Developer
-- Full-stack web application for personal expense tracking
-- Features data visualization and expense categorization
-- Technologies: React, Node.js, MongoDB
+
+Full-stack web application for personal expense tracking with data visualization and expense categorization features.
+
+- Complete CRUD functionality for expense management
+- Data visualization with charts and graphs
+- Expense categorization and filtering
+- Technologies: React, Node.js, MongoDB, Express, Chart.js
 - Live Demo: https://expense-tracker-mocha-three.vercel.app
 
 ## Frequently Asked Questions
@@ -118,6 +193,21 @@ You can contact Sameer Khan via email at khansam@sonoma.edu, visit his website a
 
 ### What projects has Sameer Khan worked on?
 Sameer Khan has worked on projects including BioSoundSCape (Computer Vision research), DFA/NFA Builder (Automata Theory), C++ Interpreter, and an Expense Tracker web application. His projects demonstrate expertise in full-stack development, computer science theory, and AI/ML.
+
+### What is Sameer Khan's experience with React?
+Sameer Khan has extensive experience with React and Next.js. He built "Books Done Right", an AI bookkeeping application using React and Next.js at PomJuice, and developed the Expense Tracker full-stack web application using React. He also uses React for his personal portfolio website.
+
+### Is Sameer Khan AWS certified?
+Yes, Sameer Khan is an AWS Certified Cloud Practitioner. He has hands-on experience with AWS services including CodePipeline for CI/CD, and has deployed production applications using AWS infrastructure.
+
+### What AI/ML projects has Sameer Khan worked on?
+Sameer Khan has worked on multiple AI/ML projects: (1) BioSoundSCape - a computer vision research project for land cover classification using machine learning, (2) Explainable AI for Cancer Diagnosis - research on integrating explainable AI into CNNs at Sonoma State's MESA program, and (3) Books Done Right - an AI bookkeeping app using LLM tool calling that achieved 95%+ classification accuracy.
+
+### What is Sameer Khan's work experience?
+Sameer Khan's work experience includes: Software Developer at PomJuice (AI bookkeeping startup), Research Intern at MESA Program (Explainable AI for cancer diagnosis), Full Stack Developer Intern at a stealth startup (authentication, CI/CD, AWS deployment), and Undergraduate Teaching Assistant at Sonoma State University (teaching C++, OOP, and data structures to 140+ students).
+
+### What internships has Sameer Khan completed?
+Sameer Khan has completed internships at: (1) MESA Research Program at Sonoma State University (Summer 2024) - Explainable AI research for cancer diagnosis, and (2) Stealth Startup in San Francisco (Spring-Summer 2024) - Full stack development with TypeScript, Python/Django, and AWS. He also worked as a Software Developer at PomJuice building an AI bookkeeping platform.
 
 ## Contact Information
 
