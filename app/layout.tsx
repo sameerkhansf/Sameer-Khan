@@ -7,6 +7,38 @@ import Confetti from "@/components/ui/Confetti";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Sameer Khan",
+  url: "https://sameerkhan.me",
+  image: "https://sameerkhan.me/profile.jpg",
+  jobTitle: "Software Engineer",
+  description:
+    "Software Engineer with expertise in full-stack development, AI/ML, and modern web technologies.",
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Sonoma State University",
+  },
+  knowsAbout: [
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Python",
+    "AWS",
+    "Full Stack Development",
+    "AI/ML",
+  ],
+  sameAs: [
+    "https://github.com/sameerkhansf",
+    "https://linkedin.com/in/sameerkhansf",
+    "https://x.com/sameerkhansf",
+    "https://instagram.com/sam.khan007_",
+  ],
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://sameerkhan.me"),
   alternates: {
@@ -75,6 +107,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.className}`} suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="antialiased tracking-tight">
         <ThemeProvider
           attribute="class"
