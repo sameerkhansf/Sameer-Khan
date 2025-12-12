@@ -1,4 +1,17 @@
 User-agent: *
 Allow: /
 
+# AI Crawlers - Explicitly allow for better indexing
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://sameerkhan.me/sitemap.xml
