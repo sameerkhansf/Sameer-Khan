@@ -1,6 +1,6 @@
 ---
 title: "The Art of Prompt Engineering: A Developer's Guide to Getting Better AI Outputs"
-description: "LLMs are prediction engines. The quality of your output depends entirely on how you ask. Here's everything I've learned about crafting prompts that actually work—from basic techniques to advanced strategies like Chain-of-Thought and ReAct."
+description: "LLMs are prediction engines. The quality of your output depends entirely on how you ask. From basic techniques to advanced strategies like Chain-of-Thought and ReAct, plus production-level patterns from Parahelp's XML-structured prompts."
 date: "2025-12-12"
 author: "Sameer Khan"
 tags: ["AI", "Prompt Engineering", "LLM", "GPT", "Claude", "Developer Tools"]
@@ -333,6 +333,113 @@ Strong multimodal capabilities. Tips:
 - Best for tasks involving images or documents
 - Excellent at research-style queries
 - Can process up to 1M tokens of context
+
+---
+
+## Production-Level Prompting: Lessons from the Field
+
+The techniques above work great for individual queries. But what about production systems handling thousands of requests?
+
+I recently studied how [Parahelp](https://parahelp.com/blog/prompt-design), a YC-backed AI support company, designs prompts for real-world applications. Their approach changed how I think about structured prompting.
+
+### XML-Structured Prompts
+
+Instead of free-form instructions, use XML tags to create clear structure:
+
+```xml
+<step>
+  <action_name>validate_user_input</action_name>
+  <description>Check if the user provided a valid order ID format</description>
+</step>
+
+<step>
+  <action_name>fetch_order_details</action_name>
+  <description>Retrieve order from database using <order_id></description>
+</step>
+```
+
+**Why it works:** XML tags leverage the model's code-parsing capabilities from pretraining. The structure is unambiguous—models rarely confuse where one step ends and another begins.
+
+### Variable Chaining
+
+Reference outputs from previous steps without needing the actual values:
+
+- `<variable_name>` — references tool call results
+- `{{policy_name}}` — references policies or static data
+
+```xml
+<if_block condition='<order_status> equals "shipped"'>
+  <step>
+    <action_name>provide_tracking</action_name>
+    <description>Share tracking info from <tracking_number></description>
+  </step>
+</if_block>
+```
+
+This lets you plan multi-step workflows before execution.
+
+### Explicit Conditions Over Defaults
+
+Here's a counterintuitive finding: **avoid "else" blocks entirely.**
+
+Instead of:
+
+```
+If condition A, do X
+Else, do Y
+```
+
+Write:
+
+```xml
+<if_block condition='condition_A'>
+  Do X
+</if_block>
+
+<if_block condition='NOT condition_A'>
+  Do Y
+</if_block>
+```
+
+Why? Models perform better when every path has an explicit condition. No assumptions, no defaults. This leverages their pattern-matching on conditionals from code training.
+
+### The Manager Prompt Pattern
+
+For critical operations, use a two-prompt system:
+
+1. **Worker prompt**: Executes the task
+2. **Manager prompt**: Validates the output before it goes to the user
+
+The manager checks:
+- Did the worker follow all policies?
+- Are there any security concerns?
+- Does the response make sense given the context?
+
+This catches errors that single-prompt systems miss.
+
+### Model "RAM": Know Your Limits
+
+Think of models as having limited "working memory" for decision paths.
+
+A prompt with 3 conditions and 2 outcomes each = 6 paths. Manageable.
+
+A prompt with 5 conditions and 3 outcomes each = 15 paths. The model starts dropping edge cases.
+
+**When you exceed capacity:**
+- Break into multiple sequential prompts
+- Use the manager pattern for validation
+- Simplify decision trees where possible
+
+### The 80/20 of Production Prompting
+
+Parahelp's team found that prompt text is only 20% of the work. The other 80%:
+
+- **Evaluation methodology** — How do you know if a prompt is working?
+- **Edge case discovery** — What inputs break your prompt?
+- **Real-world testing** — Lab performance ≠ production performance
+- **Iteration cycles** — Prompts improve through disciplined refinement
+
+If you're building production AI features, invest in eval infrastructure before optimizing prompt text.
 
 ---
 
