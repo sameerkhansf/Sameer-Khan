@@ -10,12 +10,16 @@ import Education from "@/components/resume/Education";
 import Certifications from "@/components/resume/Certifications";
 import Contact from "@/components/resume/Contact";
 import ScrollProgress from "@/components/ui/ScrollProgress";
+import KeyboardHint from "@/components/ui/KeyboardHint";
+import BackToTop from "@/components/ui/BackToTop";
 import Link from "next/link";
 
 export default function ResumePage() {
   return (
     <div className="min-h-screen flex flex-col md:flex-row md:gap-x-8 bg-background text-foreground">
       <ScrollProgress />
+      <KeyboardHint />
+      <BackToTop />
       {/* Sidebar - Desktop only, as a sibling */}
       <div className="hidden md:block h-screen sticky top-0">
         <Header />
