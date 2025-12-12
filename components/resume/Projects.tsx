@@ -6,10 +6,10 @@ const Projects = () => {
     {
       id: 1,
       title: "BioSoundSCape",
-      date: "Spring 2025",  
+      date: "Spring 2025",
       role: "Computer Vision Researcher",
       category: "Computer Vision Project",
-      image: "https://xptrglblnutotevffhpd.supabase.co/storage/v1/object/public/temp//Land-Cover.png",
+      image: "/projects/biosoundscape.png",
       url: "https://github.com/sameerkhansf/BioSoundSCape_SSU_Computer_Science",
     },
     {
@@ -18,7 +18,7 @@ const Projects = () => {
       date: "Fall 2024",
       role: "Automata Theory Project",
       category: "Automata Theory",
-      image: "https://xptrglblnutotevffhpd.supabase.co/storage/v1/object/public/temp//JflapAutomatoBuilder.png",
+      image: "/projects/dfa-nfa-builder.png",
       url: "https://github.com/sameerkhansf/JFLAPAutomataBuilder/tree/bb307977f4c3b30ead8571a1dd8c2f32c864f558",
     },
     {
@@ -27,7 +27,7 @@ const Projects = () => {
       date: "Spring 2025",
       role: "C++ Compiler Project",
       category: "C++",
-      image: "https://xptrglblnutotevffhpd.supabase.co/storage/v1/object/public/temp//C++%20Interpreter.jpg",
+      image: "/projects/cpp-interpreter.jpg",
       url: "https://github.com/sameerkhansf/Interpreter",
     },
     {
@@ -36,7 +36,7 @@ const Projects = () => {
       date: "Dec 2024",
       role: "Full Stack Developer",
       category: "Web Application",
-      image: "https://xptrglblnutotevffhpd.supabase.co/storage/v1/object/public/temp//ExpenseTracker.png",
+      image: "/projects/expense-tracker.png",
       url: "https://expense-tracker-mocha-three.vercel.app",
     },
     {
@@ -45,7 +45,7 @@ const Projects = () => {
       date: "View all projects",
       role: "Github",
       category: "Github",
-      image: "https://xptrglblnutotevffhpd.supabase.co/storage/v1/object/public/temp//github.jpg",
+      image: "/projects/github.jpg",
       url: "https://github.com/sameerkhansf",
     }
 

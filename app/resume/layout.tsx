@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     url: "https://sameerkhan.me/resume",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Sameer Khan - Software Engineer Resume",
