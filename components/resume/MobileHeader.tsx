@@ -1,34 +1,5 @@
 import Image from "next/image";
-
-const profileData = {
-  name: "Sameer Khan",
-  pronouns: "he/him",
-  bio: "New grad Software Engineer with a B.S. in Computer Science from Sonoma State University. Expertise in full-stack development, AI/ML, and modern web technologies.",
-  imageUrl: "/profile.jpg",
-  contact: {
-    email: "khansam@sonoma.edu",
-    website: "sameerkhan.me",
-  },
-  skills: [
-    "C++",
-    "Python",
-    "Java",
-    "JavaScript",
-    "React",
-    "Node.js",
-    "TypeScript",
-    "Next.js",
-    "AWS",
-    "Docker",
-    "MongoDB",
-    "Git",
-  ],
-  languages: [
-    { name: "English", flag: "US" },
-    { name: "Urdu", flag: "PK" },
-    { name: "Hindi", flag: "IN" },
-  ],
-};
+import { profileData } from "@/lib/data";
 
 const MobileHeader = () => {
   return (
@@ -39,7 +10,7 @@ const MobileHeader = () => {
           <div className="w-18 h-18 rounded-full overflow-hidden">
             <Image
               src={profileData.imageUrl}
-              alt="Sameer Khan - Software Engineer"
+              alt={`${profileData.name} - Software Engineer`}
               width={72}
               height={72}
               className="w-full h-full object-cover"
@@ -56,6 +27,7 @@ const MobileHeader = () => {
                 viewBox="0 0 16 16"
                 className="w-6 h-6"
                 fill="#3b82f6"
+                aria-label="Verified"
               >
                 <path fillRule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
               </svg>
@@ -92,6 +64,7 @@ const MobileHeader = () => {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
+                aria-hidden="true"
               >
                 <rect x="2" y="4" width="20" height="16" rx="2" />
                 <path d="m22 7-10 5L2 7" />
@@ -108,6 +81,7 @@ const MobileHeader = () => {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
+                aria-hidden="true"
               >
                 <circle cx="12" cy="12" r="10" />
                 <path d="M2 12h20" />
@@ -143,11 +117,7 @@ const MobileHeader = () => {
                 key={language.name}
                 className="inline-flex items-center gap-2 px-3 py-1 text-sm bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-resumx-purple hover:text-white hover:border-resumx-purple transition-all duration-200"
               >
-                <span className="text-base">
-                  {language.flag === "US" && "🇺🇸"}
-                  {language.flag === "PK" && "🇵🇰"}
-                  {language.flag === "IN" && "🇮🇳"}
-                </span>
+                <span className="text-base">{language.flag}</span>
                 {language.name}
               </span>
             ))}
