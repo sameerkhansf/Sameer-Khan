@@ -1,27 +1,13 @@
 import type { MDXComponents } from "mdx/types";
 import Image, { ImageProps } from "next/image";
 import Link from "next/link";
-
-// Custom code block component with copy button
-function CodeBlock({
-  children,
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLPreElement>) {
-  return (
-    <pre
-      className={`relative overflow-x-auto rounded-lg bg-gray-900 dark:bg-gray-950 p-4 text-sm ${className || ""}`}
-      {...props}
-    >
-      {children}
-    </pre>
-  );
-}
+import React from "react";
+import CodeBlock from "@/components/blog/CodeBlock";
 
 // Inline code
 function InlineCode({ children }: { children: React.ReactNode }) {
   return (
-    <code className="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-sm font-mono text-pink-600 dark:text-pink-400">
+    <code className="px-2 py-0.5 rounded-md bg-gray-100 dark:bg-gray-800 text-sm font-mono text-pink-600 dark:text-pink-400 border border-gray-200 dark:border-gray-700">
       {children}
     </code>
   );
@@ -150,7 +136,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     // Paragraph
     p: ({ children, ...props }) => (
       <p
-        className="my-4 text-gray-700 dark:text-gray-300 leading-relaxed"
+        className="my-6 text-gray-700 dark:text-gray-300 leading-relaxed text-base"
         {...props}
       >
         {children}
@@ -177,7 +163,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     // Blockquote
     blockquote: ({ children, ...props }) => (
       <blockquote
-        className="my-6 border-l-4 border-gray-300 dark:border-gray-600 pl-4 italic text-gray-600 dark:text-gray-400"
+        className="my-8 border-l-4 border-blue-500 dark:border-blue-400 pl-6 pr-4 py-2 bg-blue-50/50 dark:bg-blue-950/20 rounded-r-lg italic text-gray-700 dark:text-gray-300"
         {...props}
       >
         {children}
@@ -204,17 +190,19 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
     // Images
     img: (props) => (
-      <Image
-        sizes="100vw"
-        style={{ width: "100%", height: "auto" }}
-        className="rounded-lg my-6"
-        {...(props as ImageProps)}
-      />
+      <div className="my-8">
+        <Image
+          sizes="100vw"
+          style={{ width: "100%", height: "auto" }}
+          className="rounded-xl shadow-lg border border-gray-200 dark:border-gray-700"
+          {...(props as ImageProps)}
+        />
+      </div>
     ),
 
     // Horizontal rule
     hr: (props) => (
-      <hr className="my-8 border-gray-200 dark:border-gray-700" {...props} />
+      <hr className="my-12 border-0 border-t-2 border-gray-200 dark:border-gray-700" {...props} />
     ),
 
     // Table
