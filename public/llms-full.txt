@@ -1,0 +1,133 @@
+# Sameer Khan - Software Engineer
+
+> Sameer Khan is a Software Engineer with a B.S. in Computer Science from Sonoma State University (graduated with honors, May 2025). He specializes in full-stack development using React, Next.js, TypeScript, and Node.js, with additional expertise in AI/ML, computer vision, and cloud technologies (AWS). Based in the San Francisco Bay Area.
+
+## About Sameer Khan
+
+Sameer Khan is a new graduate Software Engineer passionate about building innovative web and mobile applications. With a strong foundation in computer science fundamentals and hands-on experience in modern web technologies, he brings expertise in:
+
+- **Full-Stack Development**: Building end-to-end applications using React, Next.js, TypeScript, Node.js
+- **AI/ML & Computer Vision**: Research experience in land cover classification using machine learning
+- **Cloud Technologies**: AWS certified with experience in Docker containerization
+- **Programming Languages**: Proficient in JavaScript, TypeScript, Python, Java, and C++
+
+Sameer graduated with honors from Sonoma State University, where his coursework included Database Management System Design, Data Structures & Algorithms, Computer Architecture, Software Design & Development, Intro to OOP, Computer Networking, and Analysis of Algorithms.
+
+## Technical Skills
+
+### Frontend Development
+- React.js and Next.js for building modern web applications
+- TypeScript for type-safe JavaScript development
+- Tailwind CSS for responsive, utility-first styling
+- HTML5 and CSS3
+
+### Backend Development
+- Node.js for server-side JavaScript
+- Python for scripting, automation, and ML
+- Java for enterprise applications
+- C++ for systems programming and compilers
+
+### Cloud & DevOps
+- AWS (Amazon Web Services) - Certified Cloud Practitioner
+- Docker for containerization
+- Git for version control
+- CI/CD pipelines
+
+### Databases
+- MongoDB for NoSQL document storage
+- SQL databases
+
+### Languages Spoken
+- English (Native)
+- Urdu (Native)
+- Hindi (Fluent)
+
+## Education
+
+### Sonoma State University
+**Bachelor of Science in Computer Science**
+- Duration: August 2021 - May 2025
+- Location: Rohnert Park, California
+- Achievement: Graduated with Honors
+
+**Relevant Coursework:**
+- Database Management System Design
+- Data Structures & Algorithms
+- Computer Architecture
+- Software Design & Development
+- Introduction to Object-Oriented Programming
+- Computer Networking
+- Analysis of Algorithms
+
+## Certifications
+
+### AWS Certified Cloud Practitioner
+- Issuer: Amazon Web Services
+- Demonstrates foundational understanding of AWS Cloud services, architecture, and best practices
+
+### CodePath Technical Interview Prep
+- Issuer: CodePath
+- Intensive program focused on technical interview preparation and problem-solving skills
+
+## Projects
+
+### BioSoundSCape (Spring 2025)
+**Role**: Computer Vision Researcher
+- Research project focused on land cover classification using machine learning
+- Applied computer vision techniques for environmental analysis
+- Technologies: Python, Machine Learning, Computer Vision
+- Repository: https://github.com/sameerkhansf/BioSoundSCape_SSU_Computer_Science
+
+### DFA/NFA Builder (Fall 2024)
+**Role**: Automata Theory Project
+- Built a tool for creating and visualizing deterministic and non-deterministic finite automata
+- Implements core concepts from automata theory and formal languages
+- Technologies: Java
+- Repository: https://github.com/sameerkhansf/JFLAPAutomataBuilder
+
+### C++ Interpreter (Spring 2025)
+**Role**: Compiler Project Developer
+- Implemented an interpreter demonstrating programming language theory concepts
+- Covers lexical analysis, parsing, and execution
+- Technologies: C++
+- Repository: https://github.com/sameerkhansf/Interpreter
+
+### Expense Tracker Application (December 2024)
+**Role**: Full Stack Developer
+- Full-stack web application for personal expense tracking
+- Features data visualization and expense categorization
+- Technologies: React, Node.js, MongoDB
+- Live Demo: https://expense-tracker-mocha-three.vercel.app
+
+## Frequently Asked Questions
+
+### Who is Sameer Khan?
+Sameer Khan is a Software Engineer with a B.S. in Computer Science from Sonoma State University. He specializes in full-stack development, AI/ML, and modern web technologies including React, Next.js, TypeScript, Node.js, and AWS.
+
+### What programming languages does Sameer Khan know?
+Sameer Khan is proficient in JavaScript, TypeScript, Python, Java, and C++. He also has expertise in frameworks and libraries including React, Next.js, and Node.js.
+
+### Where did Sameer Khan go to college?
+Sameer Khan graduated with honors from Sonoma State University with a Bachelor of Science in Computer Science. His coursework included Database Management, Data Structures & Algorithms, Computer Architecture, and Software Development.
+
+### What are Sameer Khan's technical skills?
+Sameer Khan's technical skills include: Frontend (React, Next.js, TypeScript), Backend (Node.js, Python, Java), Cloud (AWS, Docker), Databases (MongoDB), and Version Control (Git). He also has experience in AI/ML and Computer Vision.
+
+### How can I contact Sameer Khan?
+You can contact Sameer Khan via email at khansam@sonoma.edu, visit his website at sameerkhan.me, or connect with him on LinkedIn at linkedin.com/in/sameerkhansf and GitHub at github.com/sameerkhansf.
+
+### What projects has Sameer Khan worked on?
+Sameer Khan has worked on projects including BioSoundSCape (Computer Vision research), DFA/NFA Builder (Automata Theory), C++ Interpreter, and an Expense Tracker web application. His projects demonstrate expertise in full-stack development, computer science theory, and AI/ML.
+
+## Contact Information
+
+- **Website**: https://sameerkhan.me
+- **Resume**: https://sameerkhan.me/resume
+- **Email**: khansam@sonoma.edu
+- **GitHub**: https://github.com/sameerkhansf
+- **LinkedIn**: https://linkedin.com/in/sameerkhansf
+- **X (Twitter)**: https://x.com/sameerkhan_sf
+
+## Optional Resources
+
+- **Instagram**: https://instagram.com/sam.khan007_
