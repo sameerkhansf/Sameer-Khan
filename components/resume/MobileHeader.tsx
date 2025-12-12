@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { profileData } from "@/lib/data";
+import { BsPatchCheckFill } from "react-icons/bs";
+import { LuMail, LuGlobe } from "react-icons/lu";
 
 const MobileHeader = () => {
   return (
@@ -22,15 +24,10 @@ const MobileHeader = () => {
               <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100">
                 {profileData.name}
               </h1>
-              {/* Bootstrap patch-check-fill - Verified Badge */}
-              <svg
-                viewBox="0 0 16 16"
-                className="w-6 h-6"
-                fill="#3b82f6"
+              <BsPatchCheckFill
+                className="w-6 h-6 text-blue-500"
                 aria-label="Verified"
-              >
-                <path fillRule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
-              </svg>
+              />
             </div>
             <p className="text-sm text-gray-500 dark:text-gray-400">
               {profileData.pronouns}
@@ -58,35 +55,14 @@ const MobileHeader = () => {
               href={`mailto:${profileData.contact.email}`}
               className="flex items-center gap-3 transition-colors text-[15px] text-gray-800 dark:text-gray-200"
             >
-              <svg
-                viewBox="0 0 24 24"
-                className="w-4 h-4 text-gray-400 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                aria-hidden="true"
-              >
-                <rect x="2" y="4" width="20" height="16" rx="2" />
-                <path d="m22 7-10 5L2 7" />
-              </svg>
+              <LuMail className="w-4 h-4 text-gray-400 flex-shrink-0" aria-hidden="true" />
               {profileData.contact.email}
             </a>
             <a
               href={`https://${profileData.contact.website}`}
               className="flex items-center gap-3 transition-colors text-[15px] text-gray-800 dark:text-gray-200"
             >
-              <svg
-                viewBox="0 0 24 24"
-                className="w-4 h-4 text-gray-400 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                aria-hidden="true"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M2 12h20" />
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-              </svg>
+              <LuGlobe className="w-4 h-4 text-gray-400 flex-shrink-0" aria-hidden="true" />
               {profileData.contact.website}
             </a>
           </div>
