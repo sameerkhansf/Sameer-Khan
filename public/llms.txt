@@ -45,7 +45,7 @@ Technical articles on AI, React, Next.js, TypeScript, and software development.
 
 ### Recent Articles
 
-- [The Art of Prompt Engineering](https://sameerkhan.me/blog/the-art-of-prompt-engineering): Complete guide to prompt engineering techniques including Chain-of-Thought, ReAct, Tree of Thoughts, and sampling parameters (temperature, top-p, top-k).
+- [The Art of Prompt Engineering](https://sameerkhan.me/blog/the-art-of-prompt-engineering): Complete guide to prompt engineering techniques including Chain-of-Thought, ReAct, Tree of Thoughts, sampling parameters, and production-level patterns like XML-structured prompts and the Manager Prompt pattern from Parahelp.
 - [I Tested GPT-5.2 vs Gemini 3 with 5 Real Coding Tasks](https://sameerkhan.me/blog/gpt-5-2-vs-gemini-3-tested): Head-to-head comparison of GPT-5.2 and Gemini 3 on real development tasks: debugging, refactoring, API design, and more.
 - [How I Cut My Debugging Time in Half](https://sameerkhan.me/blog/how-i-cut-debugging-time-in-half): After tracking 47 debugging sessions, I discovered 80% of bugs fell into 5 categories. Here's what I changed.
 - [GPT-5.2 for Developers: First Look](https://sameerkhan.me/blog/gpt-5-2-developer-review): Comprehensive review of OpenAI's GPT-5.2 released December 2025, comparing Instant, Thinking, and Pro variants.
