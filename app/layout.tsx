@@ -40,7 +40,7 @@ export const metadata: Metadata = {
       "Software Engineer passionate about building innovative web and mobile applications. Specializing in full-stack development, AI/ML, and modern web technologies.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Sameer Khan - Software Engineer",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     description:
       "Software Engineer passionate about building innovative web and mobile applications.",
     creator: "@sameerkhansf",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,

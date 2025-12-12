@@ -1,4 +1,24 @@
 import AnimatedSection from "./AnimatedSection";
+import Image from "next/image";
+
+// Pomegranate icon for PomJuice
+const PomJuiceLogo = () => (
+  <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
+    <circle cx="12" cy="13" r="8" fill="#DC2626" />
+    <path d="M12 5C12 5 10 3 12 1C14 3 12 5 12 5Z" fill="#22C55E" />
+    <circle cx="9" cy="11" r="1.5" fill="#FCA5A5" opacity="0.6" />
+    <circle cx="14" cy="12" r="1.5" fill="#FCA5A5" opacity="0.6" />
+    <circle cx="11" cy="15" r="1.5" fill="#FCA5A5" opacity="0.6" />
+  </svg>
+);
+
+// Stealth/incognito icon for stealth startup
+const StealthLogo = () => (
+  <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
+    <path d="M12 4C7 4 2.73 7.11 1 11.5C2.73 15.89 7 19 12 19C17 19 21.27 15.89 23 11.5C21.27 7.11 17 4 12 4Z" stroke="white" strokeWidth="2" fill="none"/>
+    <circle cx="12" cy="11.5" r="3.5" fill="white"/>
+  </svg>
+);
 
 const Experience = () => {
   const experiences = [
@@ -8,6 +28,7 @@ const Experience = () => {
       period: "Mar 25 - May 25",
       company: "PomJuice — AI Bookkeeping Platform",
       location: "San Francisco, CA",
+      logoType: "pomjuice" as const,
       description:
         'Architected and built "Books Done Right": AI bookkeeping app using Next.js, React, Node.js, Python, LLM tool calling, and QuickBooks API. Implemented LLM-based natural language interface, reducing manual effort by 80%, improving classification accuracy to 95%+.',
     },
@@ -16,13 +37,7 @@ const Experience = () => {
       title: "Research Intern, Explainable AI for Cancer Diagnosis",
       period: "Jun 24 - Aug 24",
       company: "MESA Research Program, Sonoma State University",
-      logo: (
-        <img
-          src="https://media.licdn.com/dms/image/v2/C560BAQGH-ZCZOx0eoA/company-logo_100_100/company-logo_100_100/0/1630659812752/mesa_at_ssu_logo?e=1755734400&v=beta&t=xFwrMvBY1gEXWkGgA8-jd5JhVuCfxXU0IDGFa878Qek"
-          alt="Sonoma State University"
-          className="w-full h-full object-cover"
-        />
-      ),
+      logoType: "ssu" as const,
       location: "Rohnert Park, CA",
       description:
         "Worked with Dr. Gill on integrating explainable AI into CNNs, improving model interpretability and predictive accuracy for cancer diagnosis applications.",
@@ -33,6 +48,7 @@ const Experience = () => {
       period: "Apr 24 - Aug 24",
       company: "Stealth (Startup)",
       location: "San Francisco, CA",
+      logoType: "stealth" as const,
       description:
         "Developed user authentication and onboarding using TypeScript. Designed AWS CodePipeline CI/CD pipelines, cutting deployment time and errors. Collaborated on full-stack development (TypeScript, CSS, Python/Django) and deployed via AWS.",
     },
@@ -42,10 +58,45 @@ const Experience = () => {
       period: "Aug 22 - Dec 23",
       company: "Sonoma State University",
       location: "Rohnert Park, CA",
+      logoType: "ssu" as const,
       description:
         "CS 215 Labs: Guided 80 students through C++/OOP labs and assignments. CSE 315: Mentored 60 students in data structures and algorithms. Created a coding best-practices module with 90%+ positive feedback.",
     },
   ];
+
+  const renderLogo = (logoType: string) => {
+    switch (logoType) {
+      case "ssu":
+        return (
+          <Image
+            src="/logos/ssu.svg"
+            alt="Sonoma State University"
+            width={40}
+            height={40}
+            className="w-full h-full object-contain p-1"
+          />
+        );
+      case "pomjuice":
+        return <PomJuiceLogo />;
+      case "stealth":
+        return <StealthLogo />;
+      default:
+        return null;
+    }
+  };
+
+  const getLogoBgColor = (logoType: string) => {
+    switch (logoType) {
+      case "ssu":
+        return "bg-white";
+      case "pomjuice":
+        return "bg-white";
+      case "stealth":
+        return "bg-gray-700";
+      default:
+        return "bg-red-600";
+    }
+  };
 
   return (
     <AnimatedSection id="experience" className="section-container">
@@ -60,8 +111,8 @@ const Experience = () => {
             {/* Desktop Layout */}
             <div className="hidden md:block">
               <div className="flex items-start gap-4 mb-3">
-                <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
-                  {exp.logo}
+                <div className={`w-10 h-10 ${getLogoBgColor(exp.logoType)} rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden border border-gray-200 dark:border-gray-600`}>
+                  {renderLogo(exp.logoType)}
                 </div>
                 <div className="flex-1">
                   <h3 className="framer-heading mb-2">{exp.title}</h3>
@@ -122,14 +173,8 @@ const Experience = () => {
 
             {/* Mobile Layout */}
             <div className="md:hidden">
-              <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center mb-2">
-                <svg
-                  viewBox="0 0 20 20"
-                  className="w-5 h-5 text-white"
-                  fill="currentColor"
-                >
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+              <div className={`w-10 h-10 ${getLogoBgColor(exp.logoType)} rounded-xl flex items-center justify-center mb-2 overflow-hidden border border-gray-200 dark:border-gray-600`}>
+                {renderLogo(exp.logoType)}
               </div>
               <h3 className="framer-heading mb-1">{exp.title}</h3>
               <div
