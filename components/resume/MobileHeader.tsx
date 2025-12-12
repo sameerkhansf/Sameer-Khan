@@ -4,12 +4,10 @@ const profileData = {
   name: "Sameer Khan",
   pronouns: "he/him",
   bio: "New grad Software Engineer with a B.S. in Computer Science from Sonoma State University. Expertise in full-stack development, AI/ML, and modern web technologies.",
-  imageUrl:
-    "https://media.licdn.com/dms/image/v2/D5603AQEGVvJL1lNOdw/profile-displayphoto-shrink_400_400/B56ZW1dWncGQAs-/0/1742506128155?e=1755734400&v=beta&t=D-rQ5kLROJKetC45vatp-po9wQZDzbfOfFrPdpc9FmI",
+  imageUrl: "/profile.jpg",
   contact: {
     email: "khansam@sonoma.edu",
     website: "sameerkhan.me",
-    phone: "(415) 410-3335",
   },
   skills: [
     "C++",
@@ -116,22 +114,6 @@ const MobileHeader = () => {
                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
               </svg>
               {profileData.contact.website}
-            </a>
-            <a
-              href={`tel:+1${profileData.contact.phone.replace(/\D/g, "")}`}
-              className="flex items-center gap-3 transition-colors text-[15px] text-gray-800 dark:text-gray-200"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                className="w-4 h-4 text-gray-400 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-                <line x1="12" y1="18" x2="12.01" y2="18" />
-              </svg>
-              {profileData.contact.phone}
             </a>
           </div>
         </div>

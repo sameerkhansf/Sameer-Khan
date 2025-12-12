@@ -9,12 +9,6 @@ const Contact = () => {
       url: 'mailto:khansam@sonoma.edu'
     },
     {
-      id: 2,
-      title: 'Phone',
-      detail: '(415) 410-3335',
-      url: 'tel:+14154103335'
-    },
-    {
       id: 3,
       title: 'Website',
       detail: 'sameerkhan.me',
