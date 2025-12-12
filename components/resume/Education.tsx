@@ -1,4 +1,5 @@
 import AnimatedSection from "./AnimatedSection";
+import Image from "next/image";
 
 const Education = () => {
   const educationData = [
@@ -10,15 +11,6 @@ const Education = () => {
       location: "Rohnert Park, CA",
       description:
         "Graduated with Honors. Relevant Coursework included Database Management System Design, Data Structures & Algorithms, Computer Architecture, Software Design & Development, Intro to OOP, Computer Networking, Analysis of Algorithms. ",
-      logo: (
-        <div className="w-12 h-12 bg-blue-700 rounded-full flex items-center justify-center flex-shrink-0">
-          <img
-            src="https://media.licdn.com/dms/image/v2/C560BAQHFZ7Fx0TJj5g/company-logo_200_200/company-logo_200_200/0/1630653465827?e=1755734400&v=beta&t=5F7T5S4tgHiEJpLefnQgeRcUjEcgiSeaeEBVP5MGHnc"
-            alt="Sonoma State University"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      ),
     },
   ];
 
@@ -29,16 +21,24 @@ const Education = () => {
         {educationData.map((edu, index) => (
           <div
             key={edu.id}
-            className="animate-fade-in bg-[rgb(252,252,252)] dark:bg-gray-800 rounded-2xl p-4 border border-[rgba(18,18,18,0.07)] dark:border-gray-700 hover:shadow-lg transition-shadow duration-300"
+            className="animate-fade-in bg-card rounded-2xl p-4 border border-border hover:shadow-lg transition-shadow duration-300"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             {/* Desktop Layout */}
             <div className="hidden md:block">
               <div className="flex items-start gap-4 mb-3">
-                {edu.logo}
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden border border-border">
+                  <Image
+                    src="/logos/ssu.svg"
+                    alt="Sonoma State University"
+                    width={48}
+                    height={48}
+                    className="w-full h-full object-contain p-1"
+                  />
+                </div>
                 <div className="flex-1">
                   <h3 className="framer-heading mb-2">{edu.degree}</h3>
-                  <div className="flex flex-wrap items-center gap-6 text-sm text-resumx-text/60">
+                  <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
                     <div className="flex items-center gap-2">
                       <svg
                         viewBox="0 0 20 20"
@@ -78,13 +78,7 @@ const Education = () => {
                 </div>
               </div>
               <div className="ml-16">
-                <p
-                  className="leading-relaxed"
-                  style={{
-                    color:
-                      "var(--extracted-r6o4lv, var(--token-4ed8c69a-230d-4c07-af1f-2e5cbb244f43, rgb(126, 126, 126)))",
-                  }}
-                >
+                <p className="leading-relaxed text-muted-foreground">
                   {edu.description}
                 </p>
               </div>
@@ -92,14 +86,17 @@ const Education = () => {
 
             {/* Mobile Layout */}
             <div className="md:hidden">
-              <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center mb-2">
-                <span className="text-sm font-bold text-black">W</span>
+              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center mb-2 overflow-hidden border border-border">
+                <Image
+                  src="/logos/ssu.svg"
+                  alt="Sonoma State University"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-contain p-1"
+                />
               </div>
               <h3 className="framer-heading mb-1">{edu.degree}</h3>
-              <div
-                className="flex items-center gap-4 text-xs"
-                style={{ color: "rgb(126, 126, 126)" }}
-              >
+              <div className="flex items-center gap-4 text-xs text-muted-foreground">
                 <div className="flex items-center gap-1">
                   <svg
                     viewBox="0 0 20 20"
@@ -133,7 +130,7 @@ const Education = () => {
                   <span>{edu.location}</span>
                 </div>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mt-4">
+              <p className="text-sm text-muted-foreground leading-relaxed mt-4">
                 {edu.description}
               </p>
             </div>

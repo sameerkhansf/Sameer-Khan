@@ -13,7 +13,7 @@ import Link from "next/link";
 
 export default function ResumePage() {
   return (
-    <div className="min-h-screen flex flex-col md:flex-row md:gap-x-8 resume-body">
+    <div className="min-h-screen flex flex-col md:flex-row md:gap-x-8 bg-background text-foreground">
       {/* Sidebar - Desktop only, as a sibling */}
       <div className="hidden md:block h-screen sticky top-0">
         <Sidebar />
@@ -70,7 +70,7 @@ export default function ResumePage() {
           {/* Main content area */}
           <div className="flex-1 flex justify-center relative">
             {/* Blur effect only for main content area */}
-            <div className="absolute left-0 right-0 bottom-0 h-16 bg-gradient-to-t from-white/90 to-transparent dark:from-gray-900/90 backdrop-blur-sm"></div>
+            <div className="absolute left-0 right-0 bottom-0 h-16 bg-gradient-to-t from-background/90 to-transparent backdrop-blur-sm"></div>
             <div className="pointer-events-auto relative z-10">
               <Navigation />
             </div>

@@ -105,7 +105,7 @@ const Experience = () => {
         {experiences.map((exp, index) => (
           <div
             key={exp.id}
-            className="animate-fade-in bg-[rgb(252,252,252)] dark:bg-gray-800 rounded-2xl p-4 border border-[rgba(18,18,18,0.07)] dark:border-gray-700 hover:shadow-lg transition-shadow duration-300"
+            className="animate-fade-in bg-card rounded-2xl p-4 border border-border hover:shadow-lg transition-shadow duration-300"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             {/* Desktop Layout */}
@@ -116,7 +116,7 @@ const Experience = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="framer-heading mb-2">{exp.title}</h3>
-                  <div className="flex flex-wrap items-center gap-6 text-sm text-resumx-text/60">
+                  <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
                     <div className="flex items-center gap-2">
                       <svg
                         viewBox="0 0 20 20"
@@ -159,13 +159,7 @@ const Experience = () => {
                 </div>
               </div>
               <div className="ml-14">
-                <p
-                  className="leading-relaxed"
-                  style={{
-                    color:
-                      "var(--extracted-r6o4lv, var(--token-4ed8c69a-230d-4c07-af1f-2e5cbb244f43, rgb(126, 126, 126)))",
-                  }}
-                >
+                <p className="leading-relaxed text-muted-foreground">
                   {exp.description}
                 </p>
               </div>
@@ -177,10 +171,7 @@ const Experience = () => {
                 {renderLogo(exp.logoType)}
               </div>
               <h3 className="framer-heading mb-1">{exp.title}</h3>
-              <div
-                className="flex items-center gap-4 text-xs"
-                style={{ color: "rgb(126, 126, 126)" }}
-              >
+              <div className="flex items-center gap-4 text-xs text-muted-foreground">
                 <div className="flex items-center gap-1">
                   <svg
                     viewBox="0 0 20 20"
@@ -213,7 +204,7 @@ const Experience = () => {
                   <span>{exp.location}</span>
                 </div>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mt-4">
+              <p className="text-sm text-muted-foreground leading-relaxed mt-4">
                 {exp.description}
               </p>
             </div>

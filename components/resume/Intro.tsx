@@ -4,13 +4,7 @@ const Intro = () => {
   return (
     <AnimatedSection id="intro" className="section-container">
       <h2 className="section-title">Intro</h2>
-      <div
-        className="prose leading-relaxed"
-        style={{
-          color:
-            "var(--token-c688907e-c440-4ba5-8234-4183c55006d7, rgb(41, 41, 41))",
-        }}
-      >
+      <div className="prose leading-relaxed text-foreground">
         <p className="mb-6">
           I'm Sameer Khan, passionate software engineering student with a strong
           interest in building innovative and user-friendly applications. My
