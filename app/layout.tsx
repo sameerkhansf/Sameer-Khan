@@ -72,6 +72,14 @@ const personSchema = {
     "AI/ML",
     "Computer Vision",
     "Web Development",
+    "LLM Integration",
+    "Prompt Engineering",
+    "Large Language Models",
+    "GPT-5",
+    "Claude",
+    "Mistral",
+    "DeepSeek",
+    "AI Coding Tools",
   ],
   knowsLanguage: ["English", "Urdu", "Hindi"],
   sameAs: [
@@ -175,6 +183,22 @@ const faqSchema = {
         text: "Sameer Khan has completed internships at: (1) MESA Research Program at Sonoma State University (Summer 2024) - Explainable AI research for cancer diagnosis, and (2) Stealth Startup in San Francisco (Spring-Summer 2024) - Full stack development with TypeScript, Python/Django, and AWS. He also worked as a Software Developer at PomJuice building an AI bookkeeping platform.",
       },
     },
+    {
+      "@type": "Question",
+      name: "What blog articles has Sameer Khan written?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sameer Khan writes technical articles on AI, React, Next.js, TypeScript, and software development. His blog covers comprehensive reviews of frontier AI models (GPT-5.2, Claude Opus 4.5, DeepSeek-V3.2-Speciale, Mistral Large 3, Grok 4.1, and more), developer tools comparisons (Cursor vs Copilot vs Claude Code), React tutorials (useEffect guide, debugging strategies), TypeScript guides, and prompt engineering techniques. All articles are available at sameerkhan.me/blog.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What AI models has Sameer Khan reviewed?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sameer Khan has written comprehensive reviews of GPT-5.2 (Technical and Developer reviews), Claude Opus 4.5, GPT-5.1-Codex-Max, DeepSeek-V3.2-Speciale, Mistral Large 3, Mistral Devstral 2, Grok 4.1, AllenAI's OLMo 3 32B Think, and Amazon Nova 2 Lite. His reviews include benchmark performance, real-world testing, cost analysis, and developer use case recommendations.",
+      },
+    },
   ],
 };
 
@@ -186,9 +210,20 @@ const websiteSchema = {
   url: "https://sameerkhan.me",
   name: "Sameer Khan - Software Engineer",
   description:
-    "Personal portfolio and resume of Sameer Khan, Software Engineer specializing in full-stack development and AI/ML.",
+    "Personal portfolio and resume of Sameer Khan, Software Engineer specializing in full-stack development and AI/ML. Technical blog with comprehensive reviews of frontier AI models, React tutorials, and developer tools comparisons.",
+  inLanguage: "en-US",
   publisher: {
+    "@type": "Person",
     "@id": "https://sameerkhan.me/#person",
+    name: "Sameer Khan",
+  },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://sameerkhan.me/blog?q={search_term_string}",
+    },
+    "query-input": "required name=search_term_string",
   },
 };
 

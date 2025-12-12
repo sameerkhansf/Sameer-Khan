@@ -6,22 +6,59 @@ import CategoryFilter from "@/components/blog/CategoryFilter";
 export const metadata: Metadata = {
   title: "Blog | Sameer Khan",
   description:
-    "Technical articles on React, TypeScript, AI/ML, and software engineering. Tips, tutorials, and insights from a full-stack developer.",
+    "Technical articles on React, TypeScript, AI/ML, and software engineering. Comprehensive reviews of GPT-5.2, Claude Opus 4.5, DeepSeek-V3.2-Speciale, Mistral Large 3, and other frontier AI models. React tutorials, TypeScript guides, and developer tools comparisons.",
+  keywords: [
+    "Sameer Khan Blog",
+    "AI Model Reviews",
+    "GPT-5.2 Review",
+    "Claude Opus 4.5",
+    "React Tutorials",
+    "TypeScript Guides",
+    "LLM Reviews",
+    "Developer Tools",
+    "Web Development",
+    "Software Engineering",
+  ],
+  authors: [{ name: "Sameer Khan", url: "https://sameerkhan.me" }],
+  creator: "Sameer Khan",
   openGraph: {
     title: "Blog | Sameer Khan",
     description:
-      "Technical articles on React, TypeScript, AI/ML, and software engineering.",
+      "Technical articles on React, TypeScript, AI/ML, and software engineering. Comprehensive reviews of frontier AI models, React tutorials, and developer tools comparisons.",
     type: "website",
-    url: "/blog",
+    url: "https://sameerkhan.me/blog",
+    siteName: "Sameer Khan",
+    locale: "en_US",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Sameer Khan's Blog",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Blog | Sameer Khan",
     description:
       "Technical articles on React, TypeScript, AI/ML, and software engineering.",
+    creator: "@sameerkhan_sf",
+    images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "/blog",
+    canonical: "https://sameerkhan.me/blog",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -30,8 +67,63 @@ export default function BlogPage() {
   const featuredPosts = getFeaturedPosts();
   const categories = getAllCategories();
 
+  // Blog/CollectionPage Schema for AEO
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": "https://sameerkhan.me/blog#blog",
+    name: "Sameer Khan's Blog",
+    description:
+      "Technical articles on React, TypeScript, AI/ML, and software engineering. Comprehensive reviews of GPT-5.2, Claude Opus 4.5, DeepSeek-V3.2-Speciale, Mistral Large 3, and other frontier AI models. React tutorials, TypeScript guides, and developer tools comparisons.",
+    url: "https://sameerkhan.me/blog",
+    inLanguage: "en-US",
+    publisher: {
+      "@type": "Person",
+      "@id": "https://sameerkhan.me/#person",
+      name: "Sameer Khan",
+      url: "https://sameerkhan.me",
+    },
+    author: {
+      "@type": "Person",
+      "@id": "https://sameerkhan.me/#person",
+      name: "Sameer Khan",
+      url: "https://sameerkhan.me",
+    },
+    blogPost: posts.map((post) => ({
+      "@type": "BlogPosting",
+      "@id": `https://sameerkhan.me/blog/${post.slug}#blogpost`,
+      headline: post.title,
+      description: post.description,
+      datePublished: post.date,
+      dateModified: post.updated || post.date,
+      url: `https://sameerkhan.me/blog/${post.slug}`,
+      author: {
+        "@type": "Person",
+        "@id": "https://sameerkhan.me/#person",
+        name: post.author,
+      },
+      publisher: {
+        "@type": "Person",
+        "@id": "https://sameerkhan.me/#person",
+        name: post.author,
+      },
+      articleSection: post.category,
+      keywords: post.tags.join(", "),
+      inLanguage: "en-US",
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": `https://sameerkhan.me/blog/${post.slug}`,
+      },
+    })),
+  };
+
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
+      <div className="min-h-screen bg-background text-foreground">
       {/* Header - Cleaner like Medium */}
       <header className="border-b border-gray-200 dark:border-gray-800 sticky top-0 bg-background/95 backdrop-blur-sm z-40">
         <div className="max-w-6xl mx-auto px-6 py-4">
@@ -121,5 +213,6 @@ export default function BlogPage() {
         </div>
       </footer>
     </div>
+    </>
   );
 }
