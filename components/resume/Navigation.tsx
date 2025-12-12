@@ -7,7 +7,7 @@ const navItems = [
     id: "intro",
     label: "Intro",
     icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" className="text-gray-600">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" className="text-gray-600 dark:text-gray-300">
         <circle cx="12" cy="12" r="3" fill="currentColor"/>
         <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" fill="none"/>
       </svg>
@@ -17,7 +17,7 @@ const navItems = [
     id: "projects",
     label: "Projects",
     icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" className="text-gray-600">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" className="text-gray-600 dark:text-gray-300">
         <rect x="4" y="4" width="6" height="6" rx="1" fill="currentColor"/>
         <rect x="14" y="4" width="6" height="6" rx="1" fill="currentColor"/>
         <rect x="4" y="14" width="6" height="6" rx="1" fill="currentColor"/>
@@ -29,7 +29,7 @@ const navItems = [
     id: "experience",
     label: "Experience",
     icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" className="text-gray-600">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" className="text-gray-600 dark:text-gray-300">
         <rect x="2" y="8" width="20" height="12" rx="2" stroke="currentColor" strokeWidth="1.5" fill="none"/>
         <path d="M7 8V6a2 2 0 012-2h6a2 2 0 012 2v2" stroke="currentColor" strokeWidth="1.5" fill="none"/>
         <circle cx="12" cy="14" r="2" fill="currentColor"/>
@@ -40,7 +40,7 @@ const navItems = [
     id: "education",
     label: "Education",
     icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" className="text-gray-600">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" className="text-gray-600 dark:text-gray-300">
         <path d="M12 3l10 5-10 5L2 8l10-5z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
         <path d="M2 13l10 5 10-5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
         <path d="M2 18l10 5 10-5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
@@ -51,7 +51,7 @@ const navItems = [
     id: "certifications",
     label: "Certifications",
     icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" className="text-gray-600">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" className="text-gray-600 dark:text-gray-300">
         <circle cx="12" cy="8" r="6" stroke="currentColor" strokeWidth="1.5" fill="none"/>
         <path d="M8.5 14L12 16l3.5-2" stroke="currentColor" strokeWidth="1.5" fill="none"/>
         <path d="M9 21l3-3 3 3" stroke="currentColor" strokeWidth="1.5" fill="none"/>
@@ -62,7 +62,7 @@ const navItems = [
     id: "testimonials",
     label: "Testimonials",
     icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" className="text-gray-600">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" className="text-gray-600 dark:text-gray-300">
         <path d="M21 6H3a1 1 0 00-1 1v10a1 1 0 001 1h5l4 4 4-4h5a1 1 0 001-1V7a1 1 0 00-1-1z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
         <path d="M7 10h2m4 0h4" stroke="currentColor" strokeWidth="1.5"/>
       </svg>
@@ -72,7 +72,7 @@ const navItems = [
     id: "contact",
     label: "Contact",
     icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" className="text-gray-600">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" className="text-gray-600 dark:text-gray-300">
         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
         <circle cx="12" cy="10" r="3" fill="currentColor"/>
       </svg>
@@ -109,7 +109,7 @@ const Navigation = () => {
   return (
     <div className="mb-8">
         <div
-          className="flex gap-1 px-2 py-2 rounded-[44px] border border-[rgba(18,18,18,0.07)] bg-[rgb(252,252,252)] shadow-lg"
+          className="flex gap-1 px-2 py-2 rounded-[44px] border border-[rgba(18,18,18,0.07)] dark:border-gray-700 bg-[rgb(252,252,252)] dark:bg-gray-800 shadow-lg"
           data-border="true"
         >
         {navItems.map((item) => (

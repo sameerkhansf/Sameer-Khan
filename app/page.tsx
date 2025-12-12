@@ -32,7 +32,8 @@ export default function Home() {
               <Link
                 href="https://x.com/sameerkhan_sf"
                 target="_blank"
-                className=" hover:text-blue-600 hover:decoration-wavy hover:underline"
+                className="hover:text-blue-600 hover:decoration-wavy hover:underline"
+                aria-label="Follow me on X (Twitter)"
               >
                 @sameerkhansf
               </Link>
@@ -41,6 +42,7 @@ export default function Home() {
                 href="https://linkedin.com/in/sameerkhansf"
                 target="_blank"
                 className="hover:text-blue-600 hover:decoration-wavy hover:underline"
+                aria-label="Connect with me on LinkedIn"
               >
                 linkedin
               </Link>
@@ -49,6 +51,7 @@ export default function Home() {
                 href="https://github.com/sameerkhansf"
                 target="_blank"
                 className="hover:text-blue-600 hover:decoration-wavy hover:underline"
+                aria-label="View my projects on GitHub"
               >
                 github
               </Link>

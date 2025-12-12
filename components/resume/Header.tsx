@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Sidebar = () => {
   const skills = [
     "C++",
@@ -57,28 +59,22 @@ const Sidebar = () => {
       url: "https://www.github.com/sameerkhansf",
       name: "GitHub",
     },
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-        </svg>
-      ),
-      url: "https://www.youtube.com",
-      name: "YouTube",
-    },
   ];
 
   return (
-    <aside className="w-80 lg:w-96 h-screen bg-resumx-bg border-r border-resumx-gray/20 p-6 lg:p-8 overflow-y-auto flex-shrink-0">
+    <aside className="w-80 lg:w-96 h-screen bg-resumx-bg dark:bg-gray-900 border-r border-resumx-gray/20 dark:border-gray-700 p-6 lg:p-8 overflow-y-auto flex-shrink-0">
       <div className="h-full flex flex-col">
         <div className="space-y-6 flex-1">
           {/* Profile */}
           <div className="flex flex-col items-start gap-3">
             <div className="w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden animate-float">
-              <img
+              <Image
                 src="https://media.licdn.com/dms/image/v2/D5603AQEGVvJL1lNOdw/profile-displayphoto-shrink_400_400/B56ZW1dWncGQAs-/0/1742506128155?e=1755734400&v=beta&t=D-rQ5kLROJKetC45vatp-po9wQZDzbfOfFrPdpc9FmI"
-                alt="Sameer Khan"
+                alt="Sameer Khan - Software Engineer"
+                width={64}
+                height={64}
                 className="w-full h-full object-cover"
+                unoptimized
               />
             </div>
             <div className="flex flex-col items-start">
@@ -131,8 +127,7 @@ const Sidebar = () => {
                   "var(--token-c688907e-c440-4ba5-8234-4183c55006d7, rgb(41, 41, 41))",
               }}
             >
-              Computer Science student at Sonoma State University with expertise
-              in full-stack development, AI/ML, and modern web technologies.
+              New grad Software Engineer with a B.S. in Computer Science from Sonoma State University. Expertise in full-stack development, AI/ML, and modern web technologies.
             </p>
           </div>
 
@@ -246,8 +241,9 @@ const Sidebar = () => {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-resumx-text/60 hover:text-resumx-text transition-colors duration-200 text-xl"
+              className="text-resumx-text/60 hover:text-resumx-text dark:text-gray-400 dark:hover:text-gray-200 transition-colors duration-200 text-xl"
               title={link.name}
+              aria-label={`Visit my ${link.name} profile`}
             >
               {link.icon}
             </a>
