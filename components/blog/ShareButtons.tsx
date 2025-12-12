@@ -22,15 +22,15 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
   };
 
   return (
-    <div className="flex gap-3">
+    <div className="flex flex-wrap gap-3">
       <a
         href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors text-sm"
+        className="group inline-flex items-center gap-2 px-5 py-2.5 bg-gray-100 dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-blue-950/30 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-800 rounded-lg transition-all duration-200 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-700 dark:hover:text-blue-400"
       >
         <svg
-          className="w-4 h-4"
+          className="w-4 h-4 transition-transform group-hover:scale-110"
           fill="currentColor"
           viewBox="0 0 24 24"
           aria-hidden="true"
@@ -43,10 +43,10 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
         href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors text-sm"
+        className="group inline-flex items-center gap-2 px-5 py-2.5 bg-gray-100 dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-blue-950/30 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-800 rounded-lg transition-all duration-200 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-700 dark:hover:text-blue-400"
       >
         <svg
-          className="w-4 h-4"
+          className="w-4 h-4 transition-transform group-hover:scale-110"
           fill="currentColor"
           viewBox="0 0 24 24"
           aria-hidden="true"
@@ -55,14 +55,34 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
         </svg>
         LinkedIn
       </a>
+      <a
+        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group inline-flex items-center gap-2 px-5 py-2.5 bg-gray-100 dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-blue-950/30 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-800 rounded-lg transition-all duration-200 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-700 dark:hover:text-blue-400"
+      >
+        <svg
+          className="w-4 h-4 transition-transform group-hover:scale-110"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+        </svg>
+        Facebook
+      </a>
       <button
         onClick={copyToClipboard}
-        className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors text-sm"
+        className={`group inline-flex items-center gap-2 px-5 py-2.5 border rounded-lg transition-all duration-200 text-sm font-medium ${
+          copied
+            ? "bg-green-50 dark:bg-green-950/30 border-green-300 dark:border-green-800 text-green-700 dark:text-green-400"
+            : "bg-gray-100 dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100"
+        }`}
       >
         {copied ? (
           <>
             <svg
-              className="w-4 h-4 text-green-600"
+              className="w-4 h-4 transition-transform group-hover:scale-110"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -80,7 +100,7 @@ export default function ShareButtons({ title, slug }: ShareButtonsProps) {
         ) : (
           <>
             <svg
-              className="w-4 h-4"
+              className="w-4 h-4 transition-transform group-hover:scale-110"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
