@@ -1,0 +1,550 @@
+---
+title: "TypeScript Type vs Interface: When to Use Each (2025)"
+description: "The definitive guide to choosing between TypeScript's type and interface. Learn when to use each with real-world examples, common patterns, and practical decision guidelines."
+date: "2025-12-12"
+author: "Sameer Khan"
+tags: ["TypeScript", "JavaScript", "Web Development", "Programming", "Type Safety"]
+category: "Web Development"
+published: true
+featured: true
+---
+
+If you've written TypeScript for more than a day, you've asked this question: **Should I use `type` or `interface`?**
+
+Most tutorials give you the academic answer ("interfaces are extendable, types are more flexible") but don't tell you when to actually use each in real projects.
+
+After years of writing TypeScript in production, here's my practical guide.
+
+## Quick Answer
+
+**Use `interface` for:**
+- Object shapes that might be extended or merged
+- Public APIs and library definitions
+- React component props
+- When you want declaration merging
+
+**Use `type` for:**
+- Unions, intersections, and computed types
+- Primitives, tuples, and mapped types
+- When you need type aliases
+- Complex type transformations
+
+**Rule of thumb:** Start with `interface` for objects, use `type` for everything else.
+
+---
+
+## The Core Difference
+
+### Interfaces: Extendable Contracts
+
+Interfaces define **contracts** that objects must follow. They're designed to be extended and merged.
+
+```typescript
+interface User {
+  name: string;
+  email: string;
+}
+
+// Can extend
+interface Admin extends User {
+  role: 'admin';
+  permissions: string[];
+}
+
+// Declaration merging works
+interface User {
+  age?: number; // Merged with previous User interface
+}
+```
+
+### Types: Flexible Type Aliases
+
+Types create **aliases** for any TypeScript type. They're more flexible but can't be merged.
+
+```typescript
+type User = {
+  name: string;
+  email: string;
+}
+
+// Can create unions
+type Status = 'pending' | 'approved' | 'rejected';
+
+// Can create intersections
+type Admin = User & {
+  role: 'admin';
+  permissions: string[];
+}
+```
+
+---
+
+## When to Use Interface
+
+### 1. Object Shapes (Especially Extendable Ones)
+
+**Use `interface` when defining object structures that might be extended:**
+
+```typescript
+// ✅ Good: Interface for extendable object
+interface ApiResponse {
+  status: number;
+  data: unknown;
+}
+
+interface SuccessResponse extends ApiResponse {
+  status: 200;
+  data: { id: string; name: string };
+}
+
+interface ErrorResponse extends ApiResponse {
+  status: 400 | 500;
+  data: { error: string };
+}
+```
+
+**Why interface here?** You might extend `ApiResponse` for different response types. Interfaces make this cleaner.
+
+### 2. React Component Props
+
+**Use `interface` for React component props (community convention):**
+
+```typescript
+// ✅ Good: Interface for React props
+interface ButtonProps {
+  label: string;
+  onClick: () => void;
+  variant?: 'primary' | 'secondary';
+  disabled?: boolean;
+}
+
+function Button({ label, onClick, variant, disabled }: ButtonProps) {
+  return (
+    <button onClick={onClick} disabled={disabled} className={variant}>
+      {label}
+    </button>
+  );
+}
+```
+
+**Why interface here?** React community standard. Also, if you're building a component library, interfaces allow declaration merging for theme extensions.
+
+### 3. Public APIs and Library Definitions
+
+**Use `interface` when defining public APIs that others might extend:**
+
+```typescript
+// ✅ Good: Interface for library API
+interface DatabaseConfig {
+  host: string;
+  port: number;
+  database: string;
+}
+
+// Users of your library can extend it
+interface MyDatabaseConfig extends DatabaseConfig {
+  ssl: boolean;
+  connectionPool?: number;
+}
+```
+
+**Why interface here?** Allows library users to extend your types without modifying your code.
+
+### 4. Declaration Merging Needed
+
+**Use `interface` when you need TypeScript's declaration merging:**
+
+```typescript
+// ✅ Good: Interface allows merging
+interface Window {
+  myCustomProperty: string;
+}
+
+// Later, elsewhere in your codebase
+interface Window {
+  anotherProperty: number;
+}
+
+// Now window has both properties
+window.myCustomProperty = 'hello';
+window.anotherProperty = 42;
+```
+
+**Why interface here?** Types don't support declaration merging. This is useful for augmenting third-party types.
+
+---
+
+## When to Use Type
+
+### 1. Unions and Intersections
+
+**Use `type` for unions, intersections, and computed types:**
+
+```typescript
+// ✅ Good: Type for unions
+type Status = 'pending' | 'approved' | 'rejected';
+
+type UserRole = 'admin' | 'user' | 'guest';
+
+// ✅ Good: Type for intersections
+type AdminUser = User & {
+  role: 'admin';
+  permissions: string[];
+}
+
+// ✅ Good: Type for complex unions
+type ApiResponse = 
+  | { status: 200; data: User }
+  | { status: 400; error: string }
+  | { status: 500; error: string };
+```
+
+**Why type here?** Interfaces can't represent unions directly. Types are the right tool for this.
+
+### 2. Primitives, Tuples, and Mapped Types
+
+**Use `type` for non-object types:**
+
+```typescript
+// ✅ Good: Type for primitives
+type ID = string | number;
+
+// ✅ Good: Type for tuples
+type Coordinate = [number, number];
+
+type Point3D = [number, number, number];
+
+// ✅ Good: Type for mapped types
+type Optional<T> = {
+  [K in keyof T]?: T[K];
+}
+
+type ReadonlyUser = Readonly<User>;
+```
+
+**Why type here?** Interfaces only work for object shapes. For primitives, tuples, and mapped types, you need `type`.
+
+### 3. Type Aliases and Computed Types
+
+**Use `type` when creating aliases or computed types:**
+
+```typescript
+// ✅ Good: Type alias for clarity
+type UserID = string;
+type Email = string;
+
+function getUser(id: UserID): User {
+  // ...
+}
+
+// ✅ Good: Computed types
+type Keys = keyof User; // 'name' | 'email' | 'age'
+
+type UserValues = User[keyof User]; // string | number | undefined
+
+// ✅ Good: Conditional types
+type NonNullable<T> = T extends null | undefined ? never : T;
+```
+
+**Why type here?** These are type-level operations that interfaces can't handle.
+
+### 4. Complex Type Transformations
+
+**Use `type` for complex type manipulations:**
+
+```typescript
+// ✅ Good: Complex type transformations
+type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
+}
+
+type RequiredFields<T, K extends keyof T> = T & {
+  [P in K]-?: T[P];
+}
+
+// Usage
+type UserWithRequiredEmail = RequiredFields<User, 'email'>;
+```
+
+**Why type here?** Interfaces can't do these advanced type manipulations.
+
+---
+
+## Common Patterns and Examples
+
+### Pattern 1: Extending vs Intersecting
+
+**Interface approach (extending):**
+```typescript
+interface BaseUser {
+  id: string;
+  name: string;
+}
+
+interface AdminUser extends BaseUser {
+  role: 'admin';
+  permissions: string[];
+}
+```
+
+**Type approach (intersecting):**
+```typescript
+type BaseUser = {
+  id: string;
+  name: string;
+}
+
+type AdminUser = BaseUser & {
+  role: 'admin';
+  permissions: string[];
+}
+```
+
+**When to use which?** 
+- Use `interface` if you might extend `BaseUser` in multiple ways
+- Use `type` if you're doing one-off intersections or combining multiple types
+
+### Pattern 2: React Component Props
+
+**Standard approach (interface):**
+```typescript
+interface CardProps {
+  title: string;
+  children: React.ReactNode;
+  onClick?: () => void;
+}
+
+function Card({ title, children, onClick }: CardProps) {
+  return (
+    <div onClick={onClick}>
+      <h2>{title}</h2>
+      {children}
+    </div>
+  );
+}
+```
+
+**Why interface?** React community convention, and allows for prop extensions if needed.
+
+### Pattern 3: API Response Types
+
+**Using type for discriminated unions:**
+```typescript
+type ApiResponse<T> = 
+  | { success: true; data: T }
+  | { success: false; error: string };
+
+// Usage with type narrowing
+function handleResponse<T>(response: ApiResponse<T>) {
+  if (response.success) {
+    // TypeScript knows response.data exists here
+    console.log(response.data);
+  } else {
+    // TypeScript knows response.error exists here
+    console.error(response.error);
+  }
+}
+```
+
+**Why type?** Discriminated unions work better with `type`. This pattern gives you excellent type safety.
+
+### Pattern 4: Configuration Objects
+
+**Using interface for extendable config:**
+```typescript
+interface DatabaseConfig {
+  host: string;
+  port: number;
+  database: string;
+}
+
+interface ProductionConfig extends DatabaseConfig {
+  ssl: true;
+  connectionPool: 10;
+}
+
+interface DevelopmentConfig extends DatabaseConfig {
+  ssl: false;
+  connectionPool: 1;
+}
+```
+
+**Why interface?** Multiple config types extending a base makes sense with interfaces.
+
+---
+
+## Performance Considerations
+
+**Myth:** "Interfaces are faster than types"
+
+**Reality:** There's no runtime performance difference. Both are compile-time only. TypeScript erases all type information during compilation.
+
+The only difference is:
+- **Interfaces** are checked earlier in the compilation process (can be slightly faster to compile)
+- **Types** are more flexible but might take slightly longer to check complex transformations
+
+**Verdict:** Performance shouldn't influence your choice. Use the right tool for the job.
+
+---
+
+## Decision Flowchart
+
+```
+Is it an object shape?
+├─ Yes → Will it be extended or merged?
+│   ├─ Yes → Use interface
+│   └─ No → Either works, prefer interface for consistency
+│
+└─ No → Is it a union, intersection, or computed type?
+    ├─ Yes → Use type
+    └─ No → Is it a primitive, tuple, or mapped type?
+        ├─ Yes → Use type
+        └─ No → Use type (default for non-objects)
+```
+
+---
+
+## Common Mistakes
+
+### Mistake 1: Using Interface for Unions
+
+```typescript
+// ❌ Bad: Interface can't represent unions
+interface Status = 'pending' | 'approved'; // Error!
+
+// ✅ Good: Use type for unions
+type Status = 'pending' | 'approved';
+```
+
+### Mistake 2: Using Type When Declaration Merging is Needed
+
+```typescript
+// ❌ Bad: Type doesn't support declaration merging
+type Window = {
+  myProperty: string;
+}
+
+type Window = { // Error: Duplicate identifier
+  anotherProperty: number;
+}
+
+// ✅ Good: Use interface for merging
+interface Window {
+  myProperty: string;
+}
+
+interface Window {
+  anotherProperty: number; // Merged!
+}
+```
+
+### Mistake 3: Inconsistent Usage in Same Codebase
+
+```typescript
+// ❌ Bad: Mixing interface and type for similar things
+interface User {
+  name: string;
+}
+
+type Product = {
+  name: string;
+}
+
+// ✅ Good: Be consistent
+interface User {
+  name: string;
+}
+
+interface Product {
+  name: string;
+}
+```
+
+---
+
+## Best Practices Summary
+
+1. **Start with `interface` for object shapes** - It's more extendable and follows common conventions
+2. **Use `type` for unions, intersections, and computed types** - Interfaces can't handle these
+3. **Be consistent** - Pick one approach for similar structures in your codebase
+4. **Use `interface` for React props** - Community standard
+5. **Use `type` for type aliases** - That's what they're designed for
+6. **Don't overthink it** - Both work for simple object shapes; consistency matters more
+
+---
+
+## Real-World Example: Building a Type System
+
+Here's how I'd structure types for a real application:
+
+```typescript
+// Base types (interfaces for extendability)
+interface BaseEntity {
+  id: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+interface User extends BaseEntity {
+  name: string;
+  email: string;
+  role: UserRole;
+}
+
+// Unions and computed types (types)
+type UserRole = 'admin' | 'user' | 'guest';
+
+type ApiResponse<T> = 
+  | { success: true; data: T }
+  | { success: false; error: string };
+
+type UserKeys = keyof User; // 'id' | 'name' | 'email' | ...
+
+// React props (interfaces)
+interface UserCardProps {
+  user: User;
+  onEdit?: (user: User) => void;
+  showActions?: boolean;
+}
+
+// Complex transformations (types)
+type PartialUser = Partial<User>;
+type UserWithoutTimestamps = Omit<User, 'createdAt' | 'updatedAt'>;
+```
+
+---
+
+## Key Takeaways
+
+1. **Interfaces** are for object shapes that might be extended or merged
+2. **Types** are for unions, intersections, primitives, and computed types
+3. **React props** → use `interface` (convention)
+4. **Unions/intersections** → use `type` (required)
+5. **Consistency** matters more than the specific choice for simple objects
+6. **No performance difference** - both are compile-time only
+
+The "type vs interface" debate often overcomplicates things. In practice:
+- Use `interface` for objects (especially extendable ones)
+- Use `type` for everything else
+- Be consistent in your codebase
+
+That's it. No need to overthink it.
+
+---
+
+## FAQ
+
+**Q: Can I mix interface and type in the same codebase?**
+A: Yes, but be consistent. Use `interface` for similar object structures and `type` for similar non-object types.
+
+**Q: Which is better for performance?**
+A: Neither. Both are compile-time only and have no runtime impact.
+
+**Q: Should I convert all my types to interfaces?**
+A: No. Use the right tool for each situation. Types are better for unions and computed types.
+
+**Q: Can interfaces extend types?**
+A: Yes, but types can't extend interfaces. You can use intersection types instead.
+
+**Q: When should I use declaration merging?**
+A: When augmenting third-party types (like `Window` or library types) or building extensible APIs.
