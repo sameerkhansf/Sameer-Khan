@@ -62,12 +62,21 @@
   * {
     @apply border-border;
   }
-  
+
   html {
     scroll-behavior: smooth;
     font-size: 15px;
   }
-  
+
+  /* Smooth theme transitions */
+  html.theme-transition,
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.2s ease !important;
+    transition-delay: 0s !important;
+  }
+
   body {
     @apply bg-background text-foreground font-sans;
     line-height: 1.6;

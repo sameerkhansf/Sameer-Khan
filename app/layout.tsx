@@ -4,8 +4,14 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import Confetti from "@/components/ui/Confetti";
+import CommandPalette from "@/components/ui/CommandPalette";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  variable: "--font-inter",
+});
 
 // Person Schema - Enhanced for AEO with comprehensive details
 const personSchema = {
@@ -337,7 +343,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.className}`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${inter.className}`} suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#1a1a1a" />
@@ -371,9 +377,9 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="light"
           enableSystem
-          disableTransitionOnChange
         >
           <Confetti />
+          <CommandPalette />
           {children}
           <Analytics />
         </ThemeProvider>
