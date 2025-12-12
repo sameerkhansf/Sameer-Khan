@@ -34,7 +34,7 @@ const jsonLd = {
   sameAs: [
     "https://github.com/sameerkhansf",
     "https://linkedin.com/in/sameerkhansf",
-    "https://x.com/sameerkhansf",
+    "https://x.com/sameerkhan_sf",
     "https://instagram.com/sam.khan007_",
   ],
 };
@@ -84,7 +84,7 @@ export const metadata: Metadata = {
     title: "Sameer Khan - Software Engineer",
     description:
       "Software Engineer passionate about building innovative web and mobile applications.",
-    creator: "@sameerkhansf",
+    creator: "@sameerkhan_sf",
     images: ["/og-image.jpg"],
   },
   robots: {

@@ -29,8 +29,8 @@ const Contact = () => {
     {
       id: 6,
       title: 'X (Twitter)',
-      detail: '@sameerkhansf',
-      url: 'https://x.com/sameerkhansf'
+      detail: '@sameerkhan_sf',
+      url: 'https://x.com/sameerkhan_sf'
     }
   ];
 
