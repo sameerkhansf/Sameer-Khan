@@ -6,6 +6,7 @@ export default function IntroSection() {
   return (
     <section>
       <div className="space-y-6 text-left">
+        <h1 className="text-2xl font-semibold">Sameer Khan - Software Engineer</h1>
         <p className="text-base leading-relaxed">
           Welcome to my little piece of the internet. I'm a new grad Software
           Engineer with a passion for building innovative web and mobile

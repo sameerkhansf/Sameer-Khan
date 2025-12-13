@@ -9,7 +9,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       <div className="container max-w-lg mx-auto px-4 py-12">
         <header className="flex justify-between items-center mb-16">
-          <h1 className="text-xl font-medium">./sameerkhan.me</h1>
+          <span className="text-xl font-medium">./sameerkhan.me</span>
           <div className="flex items-center gap-4">
             <Link
               href="/blog"
