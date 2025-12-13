@@ -169,9 +169,9 @@ export default function BlogPage() {
       {/* Newsletter Section */}
       <section className="border-t border-gray-200 dark:border-gray-800 mt-20">
         <div className="max-w-2xl mx-auto px-6 py-12 text-center">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
             Stay Updated
-          </h3>
+          </h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
             Get notified when I publish new articles on AI, web development, and software engineering.
           </p>
