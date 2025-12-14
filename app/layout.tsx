@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import Confetti from "@/components/ui/Confetti";
@@ -409,19 +409,6 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased tracking-tight">
-        {/* Google Analytics - placed immediately after body per Google's recommendation */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-RWXWZX4QQ2"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-RWXWZX4QQ2');
-          `}
-        </Script>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -433,6 +420,7 @@ export default function RootLayout({
           <Analytics />
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId="G-RWXWZX4QQ2" />
     </html>
   );
 }
