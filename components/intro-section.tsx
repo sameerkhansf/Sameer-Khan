@@ -21,6 +21,8 @@ export default function IntroSection() {
             width={600}
             height={400}
             className="w-full rounded-lg"
+            priority
+            fetchPriority="high"
           />
           <p className="text-sm text-muted-foreground text-center">
             <Link
