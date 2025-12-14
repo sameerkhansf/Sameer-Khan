@@ -112,6 +112,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       "@type": "SoftwareApplication",
       name: post.title.replace(/Review|Complete|Developer|Technical/gi, "").trim(),
       applicationCategory: "AI Language Model",
+      operatingSystem: "Web, API",
     },
     author: {
       "@type": "Person",
