@@ -1,15 +1,18 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import dynamic from "next/dynamic";
 import {
   getPostBySlug,
   getAllPostSlugs,
   getRelatedPosts,
 } from "@/lib/blog";
-import BlogCard from "@/components/blog/BlogCard";
-import ShareButtons from "@/components/blog/ShareButtons";
 import MDXContent from "@/components/blog/MDXContent";
 import ReadingProgress from "@/components/blog/ReadingProgress";
+
+// Lazy load below-fold components for better performance
+const BlogCard = dynamic(() => import("@/components/blog/BlogCard"));
+const ShareButtons = dynamic(() => import("@/components/blog/ShareButtons"));
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;

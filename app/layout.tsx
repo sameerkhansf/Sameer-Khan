@@ -1,10 +1,13 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import dynamic from "next/dynamic";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
-import Confetti from "@/components/ui/Confetti";
-import CommandPalette from "@/components/ui/CommandPalette";
+
+// Lazy load non-critical components for better performance
+const Confetti = dynamic(() => import("@/components/ui/Confetti"));
+const CommandPalette = dynamic(() => import("@/components/ui/CommandPalette"));
 
 const inter = Inter({
   subsets: ["latin"],
