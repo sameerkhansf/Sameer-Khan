@@ -380,9 +380,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${inter.className}`} suppressHydrationWarning>
       <head>
-        {/* Google Analytics - loaded immediately after head per Google's recommendation */}
+        {/* DNS Prefetch for external domains */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
+
+        {/* Preload LCP image for faster discovery */}
+        <link rel="preload" href="/panel-event.jpg" as="image" fetchPriority="high" />
+
+        {/* Google Analytics - deferred to reduce render blocking */}
         <script
           async
+          defer
           src="https://www.googletagmanager.com/gtag/js?id=G-RWXWZX4QQ2"
         />
         <script
@@ -397,7 +407,7 @@ export default function RootLayout({
         />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#1a1a1a" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Sameer Khan" />
         <link rel="apple-touch-icon" href="/profile.jpg" />
