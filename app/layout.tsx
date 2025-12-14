@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import Confetti from "@/components/ui/Confetti";
@@ -381,6 +381,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${inter.className}`} suppressHydrationWarning>
       <head>
+        {/* Google Analytics - loaded immediately per Google's recommendation */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-RWXWZX4QQ2"
+          strategy="beforeInteractive"
+        />
+        <Script id="google-analytics" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-RWXWZX4QQ2');
+          `}
+        </Script>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#1a1a1a" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -419,7 +432,6 @@ export default function RootLayout({
           {children}
           <Analytics />
         </ThemeProvider>
-        <GoogleAnalytics gaId="G-RWXWZX4QQ2" />
       </body>
     </html>
   );
