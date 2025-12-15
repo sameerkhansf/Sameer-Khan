@@ -260,6 +260,10 @@ Sameer Khan publishes technical articles on AI, React, Next.js, TypeScript, and 
 
 ### Developer Tools & Comparisons
 
+**Browser Automation with Claude Code: Setting Up Playwright MCP** (December 2025)
+- URL: https://sameerkhan.me/blog/playwright-mcp-claude-code-browser-automation
+- How to set up Playwright MCP with Claude Code for AI-powered browser automation. Control Chrome, fill forms, scrape data, and automate web testing with natural language commands.
+
 **Cursor vs GitHub Copilot vs Claude Code: Complete Comparison (2025)** (December 2025)
 - URL: https://sameerkhan.me/blog/ai-coding-tools-comparison-2025
 - The definitive comparison of AI coding assistants in 2025. Learn which tool is best for your workflow: Cursor, GitHub Copilot, or Claude Code, with pricing, features, and real-world recommendations.
