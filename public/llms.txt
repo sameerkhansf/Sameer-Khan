@@ -58,6 +58,7 @@ Technical articles on AI, React, Next.js, TypeScript, and software development.
 - [Amazon Nova 2 Lite: A Technical Examination of AWS's Latest Model](https://sameerkhan.me/blog/amazon-nova-2-lite-review-2025): Complete technical review of Amazon Nova 2 Lite, AWS's latest language model. Benchmark performance, AWS integration, cost analysis, and comparison with GPT-5.2, Claude, and other frontier models.
 
 **Developer Tools & Comparisons:**
+- [Browser Automation with Claude Code: Setting Up Playwright MCP](https://sameerkhan.me/blog/playwright-mcp-claude-code-browser-automation): How to set up Playwright MCP with Claude Code for AI-powered browser automation. Control Chrome, fill forms, scrape data, and automate web testing with natural language commands.
 - [Cursor vs GitHub Copilot vs Claude Code: Complete Comparison (2025)](https://sameerkhan.me/blog/ai-coding-tools-comparison-2025): The definitive comparison of AI coding assistants in 2025. Learn which tool is best for your workflow: Cursor, GitHub Copilot, or Claude Code, with pricing, features, and real-world recommendations.
 - [I Tested GPT-5.2 vs Gemini 3 with 5 Real Coding Tasks](https://sameerkhan.me/blog/gpt-5-2-vs-gemini-3-tested): Head-to-head comparison of GPT-5.2 and Gemini 3 on real development tasks: debugging, refactoring, API design, and more.
 

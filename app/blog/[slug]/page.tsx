@@ -98,9 +98,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
      post.title.toLowerCase().includes("vs") ||
      post.title.toLowerCase().includes("comparison"));
   
-  const isTutorialPost = post.category === "Web Development" || 
+  const isTutorialPost = post.category === "Web Development" ||
+    post.category === "Developer Tools" ||
     post.title.toLowerCase().includes("guide") ||
     post.title.toLowerCase().includes("how to") ||
+    post.title.toLowerCase().includes("setting up") ||
     post.title.toLowerCase().includes("complete");
 
   // Review Schema for AI model reviews
