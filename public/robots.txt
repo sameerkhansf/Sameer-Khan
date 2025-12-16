@@ -1,11 +1,17 @@
 User-agent: *
 Allow: /
 
-# AI Crawlers - Explicitly allow for better indexing (Critical for AI Visibility)
+# OpenAI Crawlers - https://platform.openai.com/docs/bots
+# GPTBot: Used for training OpenAI models
 User-agent: GPTBot
 Allow: /
 
+# ChatGPT-User: User-initiated browsing in ChatGPT
 User-agent: ChatGPT-User
+Allow: /
+
+# OAI-SearchBot: Powers ChatGPT's search feature (critical for AI visibility)
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ClaudeBot
