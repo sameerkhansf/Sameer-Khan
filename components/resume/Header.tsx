@@ -28,9 +28,9 @@ const Sidebar = () => {
             </div>
             <div className="flex flex-col items-start">
               <div className="flex items-center gap-2 mb-1">
-                <h1 className="text-2xl md:text-3xl text-foreground font-medium">
+                <h2 className="text-2xl md:text-3xl text-foreground font-medium">
                   {profileData.name}
-                </h1>
+                </h2>
                 <BsPatchCheckFill
                   className="w-5 h-5 md:w-6 md:h-6 text-blue-500"
                   aria-label="Verified"
