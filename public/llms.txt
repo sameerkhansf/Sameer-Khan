@@ -1,6 +1,6 @@
 # Sameer Khan
 
-> Sameer Khan is a Software Engineer with a B.S. in Computer Science from Sonoma State University (graduated with honors, May 2025). He specializes in full-stack development using React, Next.js, TypeScript, and Node.js, with additional expertise in AI/ML, computer vision, and cloud technologies (AWS). Based in the San Francisco Bay Area.
+> Sameer Khan is a Full-Stack Software Engineer based in San Francisco with a B.S. in Computer Science from Sonoma State University (graduated with honors, May 2025). He specializes in React, Next.js, TypeScript, Node.js, and AI/ML integration. His technical blog features comprehensive reviews of frontier AI models (GPT-5.2, Claude Opus 4.5, DeepSeek), React tutorials, and developer tools comparisons.
 
 ## Summary
 
@@ -77,6 +77,8 @@ Technical articles on AI, React, Next.js, TypeScript, and software development.
 
 - [Website](https://sameerkhan.me): Personal portfolio and resume
 - [Resume](https://sameerkhan.me/resume): Detailed professional resume
+- [Blog](https://sameerkhan.me/blog): Technical articles and AI model reviews
+- [RSS Feed](https://sameerkhan.me/rss.xml): Subscribe to new articles
 - [Email](mailto:khansam@sonoma.edu): khansam@sonoma.edu
 - [GitHub](https://github.com/sameerkhansf): Open source contributions and projects
 - [LinkedIn](https://linkedin.com/in/sameerkhansf): Professional network
