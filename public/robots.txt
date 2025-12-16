@@ -259,6 +259,65 @@ Allow: /
 User-agent: atlassian-bot
 Allow: /
 
+# -----------------------------------------------------------------------------
+# Additional AI Crawlers (from ai.robots.txt & Dark Visitors research)
+# -----------------------------------------------------------------------------
+# Claude-SearchBot: Claude's search feature
+User-agent: Claude-SearchBot
+Allow: /
+
+# bedrockbot: AWS Bedrock AI
+User-agent: bedrockbot
+Allow: /
+
+# WebPilot: ChatGPT browser plugin
+User-agent: WebPilot
+Allow: /
+
+# PetalBot: Petal Search (Huawei)
+User-agent: PetalBot
+Allow: /
+
+# Google-Firebase: Firebase Hosting
+User-agent: Google-Firebase
+Allow: /
+
+# Cloudflare-AutoRAG: Cloudflare AI Gateway
+User-agent: Cloudflare-AutoRAG
+Allow: /
+
+# ImagesiftBot: Image analysis AI
+User-agent: ImagesiftBot
+Allow: /
+
+# img2dataset: Image dataset collection
+User-agent: img2dataset
+Allow: /
+
+# LinerBot: Liner AI research assistant
+User-agent: LinerBot
+Allow: /
+
+# KlaviyoAIBot: Klaviyo AI features
+User-agent: KlaviyoAIBot
+Allow: /
+
+# QualifiedBot: Qualified AI chatbot platform
+User-agent: QualifiedBot
+Allow: /
+
+# Scrapy: Popular web scraping framework (used by many AI projects)
+User-agent: Scrapy
+Allow: /
+
+# Spider: Web crawler for AI/LLM projects
+User-agent: Spider
+Allow: /
+
+# WRTNBot: WRTN AI assistant (Korea)
+User-agent: WRTNBot
+Allow: /
+
 # =============================================================================
 # SITEMAP & LLM CONTENT
 # =============================================================================
