@@ -20,9 +20,9 @@ const MobileHeader = () => {
           </div>
           <div className="flex flex-col items-center">
             <div className="flex items-center gap-2 mb-1">
-              <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100">
+              <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100">
                 {profileData.name}
-              </h1>
+              </h2>
               <BsPatchCheckFill
                 className="w-6 h-6 text-blue-500"
                 aria-label="Verified"
