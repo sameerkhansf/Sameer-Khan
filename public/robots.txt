@@ -1,71 +1,267 @@
 User-agent: *
 Allow: /
 
-# OpenAI Crawlers - https://platform.openai.com/docs/bots
-# GPTBot: Used for training OpenAI models
+# =============================================================================
+# AI CRAWLERS & BOTS - Comprehensive list for maximum AI visibility
+# Sources: 
+#   - https://platform.openai.com/docs/bots
+#   - https://support.apple.com/en-us/119829
+#   - https://darkvisitors.com/agents
+#   - https://github.com/ai-robots-txt/ai.robots.txt
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# OpenAI - https://platform.openai.com/docs/bots
+# -----------------------------------------------------------------------------
+# GPTBot: Training data collection for OpenAI models
 User-agent: GPTBot
 Allow: /
 
-# ChatGPT-User: User-initiated browsing in ChatGPT
+# ChatGPT-User: User-initiated browsing within ChatGPT
 User-agent: ChatGPT-User
 Allow: /
 
-# OAI-SearchBot: Powers ChatGPT's search feature (critical for AI visibility)
+# OAI-SearchBot: Powers ChatGPT's real-time search feature
 User-agent: OAI-SearchBot
 Allow: /
 
+# ChatGPT Agent: AI agent that can browse and interact with websites
+User-agent: ChatGPT Agent
+Allow: /
+
+# Operator: OpenAI's computer-use agent (announced Jan 2025)
+User-agent: Operator
+Allow: /
+
+# -----------------------------------------------------------------------------
+# Anthropic (Claude) - https://docs.anthropic.com
+# -----------------------------------------------------------------------------
+# ClaudeBot: Training data collection for Claude models
 User-agent: ClaudeBot
 Allow: /
 
+# Claude-Web: Claude's web browsing capability
 User-agent: Claude-Web
 Allow: /
 
-User-agent: PerplexityBot
+# Claude-User: User-initiated browsing in Claude
+User-agent: Claude-User
 Allow: /
 
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-# CCBot - Common Crawl (used by many AI training datasets)
-User-agent: CCBot
-Allow: /
-
-User-agent: cohere-ai
-Allow: /
-
+# anthropic-ai: Generic Anthropic crawler
 User-agent: anthropic-ai
 Allow: /
 
-# Meta/Facebook AI
-User-agent: FacebookBot
+# -----------------------------------------------------------------------------
+# Google AI - https://developers.google.com/search/docs/crawling-indexing
+# -----------------------------------------------------------------------------
+# Googlebot: Primary Google search crawler
+User-agent: Googlebot
 Allow: /
 
-User-agent: meta-externalagent
+# Google-Extended: AI training for Gemini, Vertex AI
+User-agent: Google-Extended
 Allow: /
 
-# Other AI crawlers
-User-agent: Bytespider
+# GoogleOther: R&D crawling, may be used for AI training
+User-agent: GoogleOther
 Allow: /
 
-# Apple Crawlers - https://support.apple.com/en-us/119829
+# Gemini-Deep-Research: Google's AI research assistant
+User-agent: Gemini-Deep-Research
+Allow: /
+
+# Google-NotebookLM: AI-powered research assistant
+User-agent: Google-NotebookLM
+Allow: /
+
+# GoogleAgent-Mariner: Google's AI browser agent
+User-agent: GoogleAgent-Mariner
+Allow: /
+
+# CloudVertexBot: Vertex AI platform crawler
+User-agent: CloudVertexBot
+Allow: /
+
+# -----------------------------------------------------------------------------
+# Microsoft/Bing
+# -----------------------------------------------------------------------------
+# Bingbot: Powers Bing search AND ChatGPT search (critical!)
+User-agent: Bingbot
+Allow: /
+
+# -----------------------------------------------------------------------------
+# Apple - https://support.apple.com/en-us/119829
+# -----------------------------------------------------------------------------
 # Applebot: Powers Spotlight, Siri, Safari search
 User-agent: Applebot
 Allow: /
 
-# Applebot-Extended: Used for training Apple Intelligence foundation models
+# Applebot-Extended: Training Apple Intelligence foundation models
 User-agent: Applebot-Extended
 Allow: /
 
+# -----------------------------------------------------------------------------
+# Meta/Facebook AI
+# -----------------------------------------------------------------------------
+# FacebookBot: Meta AI training (speech recognition, etc.)
+User-agent: FacebookBot
+Allow: /
+
+# meta-externalagent: Crawls web for Meta AI training
+User-agent: meta-externalagent
+Allow: /
+
+# meta-externalfetcher: User-initiated fetches for Meta AI
+User-agent: meta-externalfetcher
+Allow: /
+
+# -----------------------------------------------------------------------------
+# Perplexity AI - https://docs.perplexity.ai
+# -----------------------------------------------------------------------------
+# PerplexityBot: AI search engine crawler
+User-agent: PerplexityBot
+Allow: /
+
+# Perplexity-User: User-initiated searches in Perplexity
+User-agent: Perplexity-User
+Allow: /
+
+# -----------------------------------------------------------------------------
+# Amazon
+# -----------------------------------------------------------------------------
+# Amazonbot: Powers Alexa and Amazon AI features
 User-agent: Amazonbot
 Allow: /
 
-# Sitemap for search engines
+# AmazonBuyForMe: Amazon's AI shopping agent
+User-agent: AmazonBuyForMe
+Allow: /
+
+# NovaAct: Amazon's AI browser agent
+User-agent: NovaAct
+Allow: /
+
+# amazon-kendra: Amazon's enterprise search
+User-agent: amazon-kendra
+Allow: /
+
+# -----------------------------------------------------------------------------
+# Mistral AI
+# -----------------------------------------------------------------------------
+# MistralAI-User: Le Chat browsing capability
+User-agent: MistralAI-User
+Allow: /
+
+# -----------------------------------------------------------------------------
+# Cohere
+# -----------------------------------------------------------------------------
+# cohere-ai: Cohere's generic crawler
+User-agent: cohere-ai
+Allow: /
+
+# cohere-training-data-crawler: Training data collection
+User-agent: cohere-training-data-crawler
+Allow: /
+
+# -----------------------------------------------------------------------------
+# Other Major AI Search Engines
+# -----------------------------------------------------------------------------
+# Bravebot: Brave Search AI
+User-agent: Bravebot
+Allow: /
+
+# DuckAssistBot: DuckDuckGo AI answers
+User-agent: DuckAssistBot
+Allow: /
+
+# YouBot: You.com AI search
+User-agent: YouBot
+Allow: /
+
+# PhindBot: Phind AI search for developers
+User-agent: PhindBot
+Allow: /
+
+# iaskspider: iAsk.ai search
+User-agent: iaskspider
+Allow: /
+
+# -----------------------------------------------------------------------------
+# Chinese AI Companies
+# -----------------------------------------------------------------------------
+# Bytespider: ByteDance/TikTok AI (powers Doubao)
+User-agent: Bytespider
+Allow: /
+
+# DeepSeekBot: DeepSeek AI crawler
+User-agent: DeepSeekBot
+Allow: /
+
+# PanguBot: Huawei's PanGu AI models
+User-agent: PanguBot
+Allow: /
+
+# ChatGLM-Spider: Zhipu AI (ChatGLM)
+User-agent: ChatGLM-Spider
+Allow: /
+
+# -----------------------------------------------------------------------------
+# AI Assistants & Agents
+# -----------------------------------------------------------------------------
+# Devin: Cognition's AI software engineer
+User-agent: Devin
+Allow: /
+
+# Manus-User: Butterfly Effect AI agent
+User-agent: Manus-User
+Allow: /
+
+# TwinAgent: Twin's automated workers
+User-agent: TwinAgent
+Allow: /
+
+# -----------------------------------------------------------------------------
+# Open Source & Research
+# -----------------------------------------------------------------------------
+# CCBot: Common Crawl (used by many AI training datasets)
+User-agent: CCBot
+Allow: /
+
+# Ai2Bot-Dolma: Allen AI open source training
+User-agent: Ai2Bot-Dolma
+Allow: /
+
+# AI2Bot-DeepResearchEval: Allen AI research
+User-agent: AI2Bot-DeepResearchEval
+Allow: /
+
+# Diffbot: Structured data extraction
+User-agent: Diffbot
+Allow: /
+
+# Timpibot: Decentralized AI training index
+User-agent: Timpibot
+Allow: /
+
+# -----------------------------------------------------------------------------
+# Developer & Enterprise Tools
+# -----------------------------------------------------------------------------
+# FirecrawlAgent: Firecrawl for AI data extraction
+User-agent: FirecrawlAgent
+Allow: /
+
+# Crawl4AI: Open-source AI crawler
+User-agent: Crawl4AI
+Allow: /
+
+# atlassian-bot: Atlassian Rovo AI
+User-agent: atlassian-bot
+Allow: /
+
+# =============================================================================
+# SITEMAP & LLM CONTENT
+# =============================================================================
 Sitemap: https://sameerkhan.me/sitemap.xml
 
 # LLM-specific content files for AI answer engines (AEO)
