@@ -144,7 +144,7 @@ export default function Home() {
           </div>
         </header>
 
-        <main className="space-y-8">
+        <main id="main-content" className="space-y-8">
           <IntroSection />
           {/* <WritingsSection /> */}
         </main>

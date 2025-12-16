@@ -177,6 +177,40 @@ export function getFeaturedPosts(): BlogPostMeta[] {
   return posts.filter((post) => post.featured);
 }
 
+// Get popular posts (featured posts or most recent comprehensive reviews)
+export function getPopularPosts(limit: number = 5): BlogPostMeta[] {
+  const posts = getAllPosts();
+  
+  // Prioritize: 1) Featured posts, 2) AI reviews, 3) Tutorials/Guides
+  const scored = posts.map((post) => {
+    let score = 0;
+    
+    // Featured posts get highest priority
+    if (post.featured) score += 100;
+    
+    // AI model reviews are popular
+    if (post.title.toLowerCase().includes("review")) score += 50;
+    if (post.category === "AI") score += 30;
+    
+    // Tutorials and guides
+    if (post.title.toLowerCase().includes("guide")) score += 40;
+    if (post.title.toLowerCase().includes("how")) score += 20;
+    
+    // Comparison posts
+    if (post.title.toLowerCase().includes("vs")) score += 35;
+    
+    return { post, score };
+  });
+  
+  // Sort by score, then by date
+  scored.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    return new Date(b.post.date).getTime() - new Date(a.post.date).getTime();
+  });
+  
+  return scored.slice(0, limit).map((item) => item.post);
+}
+
 // Get related posts (by matching tags)
 export function getRelatedPosts(
   currentSlug: string,

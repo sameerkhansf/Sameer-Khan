@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { getAllPosts, getFeaturedPosts, getAllCategories } from "@/lib/blog";
+import { getAllPosts, getFeaturedPosts, getAllCategories, getPopularPosts } from "@/lib/blog";
 import CategoryFilter from "@/components/blog/CategoryFilter";
 
 export const metadata: Metadata = {
@@ -48,6 +48,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://sameerkhan.me/blog",
+    types: {
+      "application/rss+xml": "https://sameerkhan.me/rss.xml",
+    },
   },
   robots: {
     index: true,
@@ -66,6 +69,7 @@ export default function BlogPage() {
   const posts = getAllPosts();
   const featuredPosts = getFeaturedPosts();
   const categories = getAllCategories();
+  const popularPosts = getPopularPosts(5);
 
   // Blog/CollectionPage Schema for AEO
   const blogSchema = {
@@ -157,6 +161,37 @@ export default function BlogPage() {
             Learning in public and sharing what I discover along the way.
           </p>
         </div>
+
+        {/* Popular Posts Section - SEO Optimization */}
+        {popularPosts.length > 0 && (
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+              📈 Popular Posts
+            </h2>
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {popularPosts.slice(0, 3).map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
+                >
+                  <span className="text-xs font-medium text-blue-600 dark:text-blue-400">
+                    {post.category}
+                  </span>
+                  <h3 className="mt-2 font-semibold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                    {post.title}
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                    {post.description}
+                  </p>
+                  <div className="mt-2 text-xs text-gray-500 dark:text-gray-500">
+                    {post.readingTime}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Category Filter and Posts */}
         <CategoryFilter

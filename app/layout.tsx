@@ -31,9 +31,19 @@ const personSchema = {
     width: 400,
     height: 400,
   },
-  jobTitle: "Software Engineer",
+  jobTitle: "Full-Stack Software Engineer",
   description:
-    "Sameer Khan is a Software Engineer with a B.S. in Computer Science from Sonoma State University. He specializes in full-stack development using React, Next.js, TypeScript, and Node.js, with additional expertise in AI/ML and cloud technologies like AWS.",
+    "Sameer Khan is a Full-Stack Software Engineer based in San Francisco with a B.S. in Computer Science from Sonoma State University. He specializes in React, Next.js, TypeScript, Node.js, and AI/ML integration.",
+  // Location for local SEO
+  workLocation: {
+    "@type": "Place",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "San Francisco",
+      addressRegion: "CA",
+      addressCountry: "US",
+    },
+  },
   alumniOf: {
     "@type": "CollegeOrUniversity",
     name: "Sonoma State University",
@@ -134,6 +144,35 @@ const breadcrumbSchema = {
   ],
 };
 
+// SiteNavigationElement Schema - helps Google understand site structure
+const navigationSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: [
+    {
+      "@type": "SiteNavigationElement",
+      position: 1,
+      name: "Home",
+      description: "Sameer Khan's portfolio and personal website",
+      url: "https://sameerkhan.me",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      position: 2,
+      name: "Blog",
+      description: "Technical articles on AI models, React, TypeScript, and software engineering",
+      url: "https://sameerkhan.me/blog",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      position: 3,
+      name: "Resume",
+      description: "Sameer Khan's professional experience and skills",
+      url: "https://sameerkhan.me/resume",
+    },
+  ],
+};
+
 // Projects Schema - SoftwareSourceCode for portfolio projects
 const projectsSchema = {
   "@context": "https://schema.org",
@@ -208,22 +247,29 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://sameerkhan.me"),
   alternates: {
     canonical: "/",
+    types: {
+      "application/rss+xml": "https://sameerkhan.me/rss.xml",
+    },
   },
   title: {
-    default: "Sameer Khan - Software Engineer",
+    default: "Sameer Khan | Full-Stack Software Engineer | React & AI/ML",
     template: "%s | Sameer Khan",
   },
   description:
-    "Software Engineer passionate about building innovative web and mobile applications. Specializing in full-stack development, AI/ML, and modern web technologies.",
+    "Sameer Khan is a Full-Stack Software Engineer in San Francisco specializing in React, Next.js, TypeScript, and AI/ML. Technical blog with AI model reviews, React tutorials, and developer guides.",
   keywords: [
     "Sameer Khan",
     "Software Engineer",
     "Full Stack Developer",
-    "React",
-    "Next.js",
+    "React Developer",
+    "Next.js Developer",
     "TypeScript",
-    "AI/ML",
-    "San Francisco",
+    "AI/ML Engineer",
+    "San Francisco Developer",
+    "GPT-5 Review",
+    "Claude Opus Review",
+    "AI Model Reviews",
+    "React Tutorials",
   ],
   authors: [{ name: "Sameer Khan", url: "https://sameerkhan.me" }],
   creator: "Sameer Khan",
@@ -232,9 +278,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://sameerkhan.me",
     siteName: "Sameer Khan",
-    title: "Sameer Khan - Software Engineer",
+    title: "Sameer Khan | Full-Stack Software Engineer | React & AI/ML",
     description:
-      "Software Engineer passionate about building innovative web and mobile applications. Specializing in full-stack development, AI/ML, and modern web technologies.",
+      "Sameer Khan is a Full-Stack Software Engineer in San Francisco specializing in React, Next.js, TypeScript, and AI/ML. Technical blog with AI model reviews and React tutorials.",
     images: [
       {
         url: "/og-image.jpg",
@@ -246,9 +292,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sameer Khan - Software Engineer",
+    title: "Sameer Khan | Full-Stack Software Engineer | React & AI/ML",
     description:
-      "Software Engineer passionate about building innovative web and mobile applications.",
+      "Full-Stack Software Engineer in San Francisco. React, Next.js, TypeScript, AI/ML. Writing about AI models and web development.",
     creator: "@sameerkhan_sf",
     images: ["/og-image.jpg"],
   },
@@ -299,7 +345,11 @@ export default function RootLayout({
           }}
         />
         <link rel="manifest" href="/manifest.json" />
+        {/* Google Search Console verification - replace with your actual code */}
+        <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" />
         <meta name="theme-color" content="#1a1a1a" />
+        {/* RSS Feed link */}
+        <link rel="alternate" type="application/rss+xml" title="Sameer Khan's Blog" href="/rss.xml" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Sameer Khan" />
@@ -320,8 +370,19 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(projectsSchema) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(navigationSchema) }}
+        />
       </head>
       <body className="antialiased tracking-tight">
+        {/* Skip to content link for accessibility - improves SEO */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-md focus:outline-none"
+        >
+          Skip to content
+        </a>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
