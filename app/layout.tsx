@@ -204,6 +204,37 @@ const organizationSchema = {
   },
 };
 
+// Speakable Schema - For voice assistants (Google Assistant, Alexa, etc.)
+// Helps AI voice interfaces identify the most relevant content to read aloud
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://sameerkhan.me/#speakable",
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["h1", "h2", ".quick-answer", "article p:first-of-type"],
+  },
+  url: "https://sameerkhan.me",
+};
+
+// ProfilePage Schema - Establishes author expertise (E-E-A-T signals)
+// Critical for AI systems to understand author credibility and topic authority
+const profilePageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": "https://sameerkhan.me/#profilepage",
+  mainEntity: {
+    "@type": "Person",
+    "@id": "https://sameerkhan.me/#person",
+  },
+  dateCreated: "2024-01-01",
+  dateModified: new Date().toISOString().split("T")[0],
+  url: "https://sameerkhan.me",
+  name: "Sameer Khan - Software Engineer Profile",
+  description:
+    "Professional profile of Sameer Khan, Full-Stack Software Engineer specializing in React, Next.js, TypeScript, and AI/ML. Includes work experience, projects, certifications, and technical blog.",
+};
+
 // Projects Schema - SoftwareSourceCode for portfolio projects
 const projectsSchema = {
   "@context": "https://schema.org",
@@ -383,6 +414,9 @@ export default function RootLayout({
         <meta name="theme-color" content="#1a1a1a" />
         {/* RSS Feed link */}
         <link rel="alternate" type="application/rss+xml" title="Sameer Khan's Blog" href="/rss.xml" />
+        {/* LLMs.txt links for AI discovery (AEO) - https://llmstxt.org/ */}
+        <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt" />
+        <link rel="alternate" type="text/plain" title="LLM Full Content" href="/llms-full.txt" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Sameer Khan" />
@@ -410,6 +444,14 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
         />
       </head>
       <body className="antialiased tracking-tight">

@@ -56,6 +56,8 @@ Allow: /
 # Sitemap for search engines
 Sitemap: https://sameerkhan.me/sitemap.xml
 
-# LLM-specific content files for AI answer engines
-# llms.txt: https://sameerkhan.me/llms.txt
-# llms-full.txt: https://sameerkhan.me/llms-full.txt
+# LLM-specific content files for AI answer engines (AEO)
+# These files provide structured content optimized for LLM consumption
+# See: https://llmstxt.org/ for the emerging standard
+LLMs.txt: https://sameerkhan.me/llms.txt
+LLMs-full.txt: https://sameerkhan.me/llms-full.txt
