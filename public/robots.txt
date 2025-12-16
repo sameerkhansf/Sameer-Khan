@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# AI Crawlers - Explicitly allow for better indexing
+# AI Crawlers - Explicitly allow for better indexing (Critical for AI Visibility)
 User-agent: GPTBot
 Allow: /
 
@@ -26,13 +26,34 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
+# CCBot - Common Crawl (used by many AI training datasets)
+User-agent: CCBot
+Allow: /
+
 User-agent: cohere-ai
 Allow: /
 
 User-agent: anthropic-ai
 Allow: /
 
-# Sitemap and LLM optimization files
+# Meta/Facebook AI
+User-agent: FacebookBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# Other AI crawlers
+User-agent: Bytespider
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+# Sitemap for search engines
 Sitemap: https://sameerkhan.me/sitemap.xml
 
 # LLM-specific content files for AI answer engines

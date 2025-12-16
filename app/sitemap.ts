@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ? new Date(Math.max(...posts.map((p) => new Date(p.updated || p.date).getTime())))
     : new Date();
 
-  // Static pages
+  // Static pages - only include actual HTML pages (not .txt files)
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -32,17 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    // RSS feed for syndication
     {
-      url: `${baseUrl}/llms.txt`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/llms-full.txt`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
+      url: `${baseUrl}/rss.xml`,
+      lastModified: latestPostDate,
+      changeFrequency: "weekly",
+      priority: 0.5,
     },
   ];
 

@@ -173,6 +173,37 @@ const navigationSchema = {
   ],
 };
 
+// Organization Schema - Critical for AI Visibility (SEMrush recommendation)
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://sameerkhan.me/#organization",
+  name: "Sameer Khan",
+  url: "https://sameerkhan.me",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://sameerkhan.me/profile.jpg",
+    width: 400,
+    height: 400,
+  },
+  description: "Technical blog and portfolio of Sameer Khan, Full-Stack Software Engineer specializing in React, Next.js, TypeScript, and AI/ML. Comprehensive reviews of frontier AI models, React tutorials, and developer tools comparisons.",
+  founder: {
+    "@type": "Person",
+    "@id": "https://sameerkhan.me/#person",
+  },
+  foundingDate: "2024",
+  sameAs: [
+    "https://github.com/sameerkhansf",
+    "https://linkedin.com/in/sameerkhansf",
+    "https://x.com/sameerkhan_sf",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: "khansam@sonoma.edu",
+    contactType: "customer service",
+  },
+};
+
 // Projects Schema - SoftwareSourceCode for portfolio projects
 const projectsSchema = {
   "@context": "https://schema.org",
@@ -347,6 +378,8 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         {/* Google Search Console verification - replace with your actual code */}
         <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" />
+        {/* Bing Webmaster Tools verification - required for ChatGPT/AI visibility */}
+        <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE" />
         <meta name="theme-color" content="#1a1a1a" />
         {/* RSS Feed link */}
         <link rel="alternate" type="application/rss+xml" title="Sameer Khan's Blog" href="/rss.xml" />
@@ -373,6 +406,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(navigationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
       <body className="antialiased tracking-tight">
