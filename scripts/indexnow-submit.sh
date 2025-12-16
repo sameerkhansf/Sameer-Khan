@@ -4,7 +4,7 @@
 # Usage: ./scripts/indexnow-submit.sh [url1] [url2] ...
 # If no URLs provided, submits all site pages
 
-INDEXNOW_KEY="c72f4b95713743a08df2ffc6bc0c68a7"
+INDEXNOW_KEY="505e7f8bf1c9482aa778af60aa569a43"
 SITE_URL="https://sameerkhan.me"
 KEY_LOCATION="${SITE_URL}/${INDEXNOW_KEY}.txt"
 
