@@ -14,7 +14,7 @@
 import * as fs from "fs";
 import * as path from "path";
 
-const INDEXNOW_KEY = "c72f4b95713743a08df2ffc6bc0c68a7";
+const INDEXNOW_KEY = "505e7f8bf1c9482aa778af60aa569a43";
 const SITE_URL = "https://sameerkhan.me";
 
 // IndexNow endpoints - submit to one, they share with others
