@@ -53,7 +53,13 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
+# Apple Crawlers - https://support.apple.com/en-us/119829
+# Applebot: Powers Spotlight, Siri, Safari search
 User-agent: Applebot
+Allow: /
+
+# Applebot-Extended: Used for training Apple Intelligence foundation models
+User-agent: Applebot-Extended
 Allow: /
 
 User-agent: Amazonbot
