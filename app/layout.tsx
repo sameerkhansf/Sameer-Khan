@@ -379,7 +379,7 @@ export default function RootLayout({
         {/* Google Search Console verification - replace with your actual code */}
         <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" />
         {/* Bing Webmaster Tools verification - required for ChatGPT/AI visibility */}
-        <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE" />
+        <meta name="msvalidate.01" content="0937F6DB8C8C03B8C8BFF19C2D4B47B1" />
         <meta name="theme-color" content="#1a1a1a" />
         {/* RSS Feed link */}
         <link rel="alternate" type="application/rss+xml" title="Sameer Khan's Blog" href="/rss.xml" />
