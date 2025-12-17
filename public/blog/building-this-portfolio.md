@@ -1,0 +1,112 @@
+---
+title: "How I Built This Portfolio with Next.js 16 and Tailwind CSS"
+description: "A deep dive into the architecture, design decisions, and optimizations that went into building my personal portfolio site. From SEO to accessibility, learn what goes into a modern developer portfolio."
+date: "2025-01-10"
+
+author: "Sameer Khan"
+tags: ["Next.js","React","Tailwind CSS","TypeScript","SEO"]
+category: "Projects"
+
+
+---
+
+# How I Built This Portfolio with Next.js 16 and Tailwind CSS
+
+A deep dive into the architecture, design decisions, and optimizations that went into building my personal portfolio site. From SEO to accessibility, learn what goes into a modern developer portfolio.
+
+**Published:** January 9, 2025
+
+**Author:** Sameer Khan
+**Category:** Projects
+**Reading Time:** 2 min read
+**Word Count:** 375
+
+---
+
+
+Building a portfolio website might seem straightforward, but creating one that's fast, accessible, SEO-optimized, and genuinely useful is a different story. In this post, I'll walk you through the key decisions and implementations that went into building this site.
+
+## Why Next.js 16?
+
+Next.js has become my go-to framework for React projects, and version 16 brings some fantastic improvements:
+
+- **App Router**: The new app directory structure makes routing intuitive
+- **Server Components**: Reduced client-side JavaScript for better performance
+- **Static Export**: Perfect for hosting on Vercel or any static host
+- **Built-in Optimizations**: Image optimization, font loading, and more
+
+```typescript
+// next.config.js
+const nextConfig = {
+  output: "export",
+  images: { unoptimized: true },
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+};
+```
+
+## The Design Philosophy
+
+I wanted a design that was:
+
+1. **Clean and minimal** - Let the content speak
+2. **Dark mode ready** - Because developers love dark mode
+3. **Responsive** - Works on any device
+4. **Accessible** - WCAG 2.1 AA compliant
+
+Tailwind CSS made implementing these goals straightforward. The utility-first approach lets me iterate quickly while maintaining consistency.
+
+## SEO Optimizations
+
+SEO for a developer portfolio is crucial. Here's what I implemented:
+
+### Structured Data
+
+Every page includes JSON-LD structured data for better search engine understanding:
+
+```typescript
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Sameer Khan",
+  jobTitle: "Software Engineer",
+  knowsAbout: ["React", "TypeScript", "AI/ML"],
+};
+```
+
+### Meta Tags
+
+Dynamic meta tags for each page ensure proper social sharing:
+
+```typescript
+export async function generateMetadata({ params }): Promise<Metadata> {
+  return {
+    title: `${post.title} | Sameer Khan`,
+    description: post.description,
+    openGraph: {
+      type: "article",
+      publishedTime: post.date,
+    },
+  };
+}
+```
+
+## Performance Wins
+
+Here are some quick wins that made a big difference:
+
+- **Font Optimization**: Using `next/font` for zero layout shift
+- **Image Lazy Loading**: Native lazy loading for below-fold images
+- **Code Splitting**: Automatic with Next.js app router
+- **Static Generation**: Pre-rendered pages for instant loads
+
+## What's Next?
+
+This blog you're reading is part of the next phase. I'm planning to write about:
+
+- Building AI-powered applications
+- React patterns and best practices
+- Career insights for developers
+- Deep dives into interesting problems
+
+Stay tuned for more content, and feel free to reach out if you have questions!
+

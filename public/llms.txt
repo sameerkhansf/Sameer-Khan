@@ -43,6 +43,8 @@ Technical articles on AI, React, Next.js, TypeScript, and software development.
 
 - [Blog](https://sameerkhan.me/blog): All articles
 
+**Note:** All blog posts are available in LLM-friendly markdown format. Append `.md` to any blog post URL to get the markdown version. For example: `https://sameerkhan.me/blog/gpt-5-2-technical-review.md`
+
 ### Recent Articles
 
 **AI & LLM Reviews (December 2025):**
