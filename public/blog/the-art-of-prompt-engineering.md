@@ -1,0 +1,485 @@
+---
+title: "Prompt Engineering Guide: Better AI Outputs"
+description: "LLMs are prediction engines. The quality of your output depends entirely on how you ask. From basic techniques to advanced strategies like Chain-of-Thought and ReAct, plus production-level patterns from Parahelp's XML-structured prompts."
+date: "2025-12-12"
+
+author: "Sameer Khan"
+tags: ["AI","Prompt Engineering","LLM","GPT","Claude","Developer Tools"]
+category: "AI"
+
+
+---
+
+# Prompt Engineering Guide: Better AI Outputs
+
+LLMs are prediction engines. The quality of your output depends entirely on how you ask. From basic techniques to advanced strategies like Chain-of-Thought and ReAct, plus production-level patterns from Parahelp's XML-structured prompts.
+
+**Published:** December 11, 2025
+
+**Author:** Sameer Khan
+**Category:** AI
+**Reading Time:** 11 min read
+**Word Count:** 2080
+
+---
+
+
+LLMs are prediction engines. They don't "understand" your intent—they predict what tokens should come next based on everything you've given them.
+
+This means the quality of your output depends entirely on how you ask.
+
+After months of building AI features and experimenting with different models, I've developed a mental framework for prompt engineering that actually works. Here's everything I've learned.
+
+## The Foundation: How LLMs Actually Work
+
+Before diving into techniques, you need to understand one thing:
+
+**LLMs predict the next token based on probability distributions.**
+
+When you ask a question, the model doesn't "think" about it. It calculates which tokens are most likely to follow your input, based on patterns learned during training.
+
+This is why:
+- Vague prompts get vague answers
+- Context matters enormously
+- The same prompt can give different results (unless you control randomness)
+
+Understanding this changes how you approach prompting.
+
+---
+
+## Sampling Parameters: The Knobs You Can Turn
+
+Before we get to prompt techniques, let's cover the parameters that control output generation.
+
+### Temperature
+
+Temperature controls randomness. It scales the probability distribution of token selection.
+
+| Temperature | Behavior | Use Case |
+|-------------|----------|----------|
+| 0.0 - 0.3 | Deterministic, focused | Factual answers, code |
+| 0.4 - 0.7 | Balanced | General conversation |
+| 0.8 - 1.5 | Creative, unpredictable | Brainstorming, fiction |
+
+**My rule of thumb:** Start at 0.3 for coding tasks, 0.7 for writing tasks.
+
+### Top-P (Nucleus Sampling)
+
+Top-P sets a probability threshold. The model only considers tokens whose cumulative probability reaches your threshold.
+
+- **Top-P = 0.1**: Only the most probable tokens (focused)
+- **Top-P = 0.9**: Wider range of tokens (diverse)
+- **Top-P = 1.0**: All tokens considered (maximum diversity)
+
+**Important:** Adjust either temperature OR top-p, not both. OpenAI and Anthropic both recommend this.
+
+### Top-K
+
+Top-K limits selection to the K most likely tokens.
+
+- **K = 1**: Always picks the most likely token (greedy decoding)
+- **K = 50**: Picks from top 50 candidates
+
+I rarely touch this—temperature and top-p usually give enough control.
+
+---
+
+## Prompting Techniques: From Simple to Advanced
+
+### Zero-Shot Prompting
+
+The simplest approach: just ask your question directly.
+
+```
+Explain quantum entanglement to a 10-year-old.
+```
+
+Works well for straightforward tasks where the model has strong training data. Falls apart on complex reasoning or domain-specific tasks.
+
+### Few-Shot Prompting
+
+Provide examples to demonstrate the pattern you want.
+
+```
+Convert these sentences to formal English:
+
+Informal: "gonna grab some food"
+Formal: "I am going to get something to eat."
+
+Informal: "can't make it tonight"
+Formal: "I will not be able to attend this evening."
+
+Informal: "this is lowkey amazing"
+Formal:
+```
+
+**As a general rule, use 3-5 examples.** More examples help with complex patterns, but too many can overwhelm the context.
+
+This technique works because you're showing the model the exact transformation you want, not just describing it.
+
+### Chain-of-Thought (CoT)
+
+This is where things get interesting.
+
+Instead of asking for an answer directly, you ask the model to reason through the problem step by step.
+
+**Without CoT:**
+```
+What is 23 × 17?
+```
+
+**With CoT:**
+```
+What is 23 × 17? Let's work through this step by step.
+```
+
+The difference is dramatic for math, logic, and multi-step problems. In benchmarks, CoT improved PaLM's accuracy on math problems from 17.9% to 58.1%.
+
+**Why it works:** By generating intermediate steps, the model can "focus" on one part of the problem at a time instead of trying to solve everything at once.
+
+You can also combine CoT with few-shot prompting by showing examples with reasoning:
+
+```
+Q: A store has 45 apples. They sell 12 and receive a shipment of 30. How many do they have?
+
+A: Let's think step by step.
+1. Starting apples: 45
+2. After selling 12: 45 - 12 = 33
+3. After shipment of 30: 33 + 30 = 63
+The store has 63 apples.
+
+Q: A library has 120 books. They lend out 35 and receive 50 donations. How many books do they have?
+
+A: Let's think step by step.
+```
+
+### Self-Consistency
+
+A powerful extension of Chain-of-Thought.
+
+Instead of generating one answer, you:
+1. Generate multiple reasoning paths (with higher temperature)
+2. Take the most common final answer
+
+This "majority voting" approach improves accuracy significantly—up to +23% on some benchmarks.
+
+I use this for critical calculations where I can afford the extra API calls.
+
+### ReAct (Reasoning + Acting)
+
+ReAct combines reasoning with action-taking. The model alternates between:
+- **Thought**: Reasoning about what to do next
+- **Action**: Taking an action (search, calculate, call an API)
+- **Observation**: Receiving results from the action
+
+```
+Question: What is the population of the capital of France?
+
+Thought: I need to find the capital of France, then its population.
+Action: Search[capital of France]
+Observation: Paris is the capital of France.
+Thought: Now I need to find Paris's population.
+Action: Search[population of Paris 2024]
+Observation: The population of Paris is approximately 2.1 million.
+Thought: I have the answer.
+Answer: The population of Paris, the capital of France, is approximately 2.1 million.
+```
+
+**Why ReAct matters:** It lets models use external tools and ground their responses in real data. This dramatically reduces hallucination.
+
+If you've used ChatGPT with web browsing enabled, you've seen ReAct in action.
+
+### Tree of Thoughts (ToT)
+
+Tree of Thoughts generalizes Chain-of-Thought by exploring multiple reasoning paths simultaneously.
+
+Instead of a single chain:
+```
+Problem → Step 1 → Step 2 → Step 3 → Answer
+```
+
+You get a tree:
+```
+Problem → Branch A → (evaluate) → Continue or Backtrack
+        → Branch B → (evaluate) → Continue or Backtrack
+        → Branch C → (evaluate) → Continue or Backtrack
+```
+
+The model proposes different approaches, evaluates them, and can backtrack if a path isn't working.
+
+**Use ToT when:**
+- The problem has multiple valid approaches
+- You need systematic exploration
+- Simple CoT gets stuck
+
+**Don't use ToT when:**
+- The problem is straightforward
+- Speed matters more than accuracy
+- You're token-constrained
+
+### Skeleton of Thought (SoT)
+
+A technique focused on reducing latency rather than improving quality.
+
+The model first generates a skeleton (outline), then fills in each section in parallel.
+
+```
+Question: What are the benefits of meditation?
+
+Skeleton:
+1. Mental health benefits
+2. Physical health benefits
+3. Productivity benefits
+4. Relationship benefits
+
+[Then expand each point in parallel]
+```
+
+This can achieve up to 2.39× speedup without model modifications.
+
+**Best for:** Questions that can be answered in independent points.
+**Avoid for:** Step-by-step reasoning where each step depends on the previous.
+
+---
+
+## Practical Tips I've Learned
+
+### 1. Be Specific About Format
+
+Don't just ask for an answer—specify exactly how you want it.
+
+**Vague:**
+```
+Explain REST APIs.
+```
+
+**Better:**
+```
+Explain REST APIs in 3 paragraphs:
+1. What they are (1 paragraph)
+2. How they work (1 paragraph)
+3. When to use them (1 paragraph)
+
+Use simple language a junior developer would understand.
+```
+
+### 2. Provide Context About Your Situation
+
+The model can't read your mind. Tell it what it needs to know.
+
+**Missing context:**
+```
+How do I fix this error?
+[error message]
+```
+
+**With context:**
+```
+I'm building a Next.js 16 app with the App Router.
+I'm getting this error when trying to fetch data in a Server Component:
+[error message]
+
+Here's my component code:
+[code]
+
+What's causing this and how do I fix it?
+```
+
+### 3. Use System Prompts Wisely
+
+System prompts set the model's "persona" and behavior guidelines.
+
+```
+You are a senior software engineer specializing in TypeScript and React.
+You write clean, maintainable code with proper error handling.
+When reviewing code, you focus on:
+- Type safety
+- Performance implications
+- Edge cases
+Always explain your reasoning.
+```
+
+This frames every subsequent response.
+
+### 4. Iterate, Don't Start Over
+
+If the first response isn't right, refine rather than rewriting from scratch.
+
+```
+That's close, but I need the code to also handle the case where the API returns null.
+```
+
+The model has context from the conversation—use it.
+
+### 5. Ask the Model to Check Its Work
+
+For important tasks, add a verification step:
+
+```
+After generating the code, review it for:
+1. Syntax errors
+2. Missing edge cases
+3. Potential security issues
+
+If you find any problems, fix them before giving the final answer.
+```
+
+---
+
+## Model-Specific Considerations
+
+### GPT-5/5.2
+
+GPT-5 is highly steerable. Key tips:
+- Use the `reasoning_effort` parameter for complex tasks
+- It handles ambiguity well—but explicit instructions still help
+- Excellent at following code style guidelines
+
+### Claude (4.x / Opus 4.5)
+
+Claude excels at long-context tasks (200K tokens). Tips:
+- It responds well to motivation/context for why you need something
+- Very good at maintaining consistency across long outputs
+- Tends to be more cautious—you may need to explicitly permit certain outputs
+
+### Gemini 3
+
+Strong multimodal capabilities. Tips:
+- Best for tasks involving images or documents
+- Excellent at research-style queries
+- Can process up to 1M tokens of context
+
+---
+
+## Production-Level Prompting: Lessons from the Field
+
+The techniques above work great for individual queries. But what about production systems handling thousands of requests?
+
+I recently studied how [Parahelp](https://parahelp.com/blog/prompt-design), a YC-backed AI support company, designs prompts for real-world applications. Their approach changed how I think about structured prompting.
+
+### XML-Structured Prompts
+
+Instead of free-form instructions, use XML tags to create clear structure:
+
+```xml
+<step>
+  <action_name>validate_user_input</action_name>
+  <description>Check if the user provided a valid order ID format</description>
+</step>
+
+<step>
+  <action_name>fetch_order_details</action_name>
+  <description>Retrieve order from database using <order_id></description>
+</step>
+```
+
+**Why it works:** XML tags leverage the model's code-parsing capabilities from pretraining. The structure is unambiguous—models rarely confuse where one step ends and another begins.
+
+### Variable Chaining
+
+Reference outputs from previous steps without needing the actual values:
+
+- `<variable_name>` — references tool call results
+- `{{policy_name}}` — references policies or static data
+
+```xml
+<if_block condition='<order_status> equals "shipped"'>
+  <step>
+    <action_name>provide_tracking</action_name>
+    <description>Share tracking info from <tracking_number></description>
+  </step>
+</if_block>
+```
+
+This lets you plan multi-step workflows before execution.
+
+### Explicit Conditions Over Defaults
+
+Here's a counterintuitive finding: **avoid "else" blocks entirely.**
+
+Instead of:
+
+```
+If condition A, do X
+Else, do Y
+```
+
+Write:
+
+```xml
+<if_block condition='condition_A'>
+  Do X
+</if_block>
+
+<if_block condition='NOT condition_A'>
+  Do Y
+</if_block>
+```
+
+Why? Models perform better when every path has an explicit condition. No assumptions, no defaults. This leverages their pattern-matching on conditionals from code training.
+
+### The Manager Prompt Pattern
+
+For critical operations, use a two-prompt system:
+
+1. **Worker prompt**: Executes the task
+2. **Manager prompt**: Validates the output before it goes to the user
+
+The manager checks:
+- Did the worker follow all policies?
+- Are there any security concerns?
+- Does the response make sense given the context?
+
+This catches errors that single-prompt systems miss.
+
+### Model "RAM": Know Your Limits
+
+Think of models as having limited "working memory" for decision paths.
+
+A prompt with 3 conditions and 2 outcomes each = 6 paths. Manageable.
+
+A prompt with 5 conditions and 3 outcomes each = 15 paths. The model starts dropping edge cases.
+
+**When you exceed capacity:**
+- Break into multiple sequential prompts
+- Use the manager pattern for validation
+- Simplify decision trees where possible
+
+### The 80/20 of Production Prompting
+
+Parahelp's team found that prompt text is only 20% of the work. The other 80%:
+
+- **Evaluation methodology** — How do you know if a prompt is working?
+- **Edge case discovery** — What inputs break your prompt?
+- **Real-world testing** — Lab performance ≠ production performance
+- **Iteration cycles** — Prompts improve through disciplined refinement
+
+If you're building production AI features, invest in eval infrastructure before optimizing prompt text.
+
+---
+
+## When Prompting Isn't Enough
+
+Sometimes prompt engineering hits its limits. Signs you need a different approach:
+
+- **Complex tool use** → Build an agent with ReAct + actual tool integrations
+- **Domain-specific accuracy** → Consider fine-tuning or RAG
+- **Consistent formatting** → Use structured outputs (JSON mode)
+- **Real-time data** → Integrate web search or APIs
+
+Prompt engineering is powerful, but it's one tool in your toolkit.
+
+---
+
+## Parting Words
+
+Prompt engineering isn't magic—it's applied understanding of how these models work.
+
+The techniques here will get you 80% of the way. The remaining 20% comes from experimentation and understanding your specific use case.
+
+Start simple. Add complexity only when needed. And always remember: if your prompt requires a PhD to understand, you're probably overcomplicating it.
+
+---
+
+*What prompting techniques have worked best for you? I'm always curious to learn new approaches—[reach out on Twitter](https://x.com/sameerkhan_sf).*
+
