@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "npx tsx scripts/generate-markdown-files.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "indexnow": "./scripts/indexnow-submit.sh"
+    "indexnow": "./scripts/indexnow-submit.sh",
+    "generate-md": "npx tsx scripts/generate-markdown-files.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
@@ -50,6 +52,7 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@types/canvas-confetti": "^1.9.0"
+    "@types/canvas-confetti": "^1.9.0",
+    "tsx": "^4.21.0"
   }
 }
