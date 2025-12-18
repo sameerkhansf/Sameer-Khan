@@ -205,6 +205,7 @@ const organizationSchema = {
 };
 
 // Speakable Schema - For voice assistants (Google Assistant, Alexa, etc.)
+// Enhanced with both CSS selectors and XPath for maximum compatibility
 // Helps AI voice interfaces identify the most relevant content to read aloud
 const speakableSchema = {
   "@context": "https://schema.org",
@@ -212,7 +213,16 @@ const speakableSchema = {
   "@id": "https://sameerkhan.me/#speakable",
   speakable: {
     "@type": "SpeakableSpecification",
-    cssSelector: ["h1", "h2", ".quick-answer", "article p:first-of-type"],
+    // CSS selectors for modern browsers
+    cssSelector: ["h1", "h2", ".quick-answer", "article p:first-of-type", "main h1", "main h2"],
+    // XPath for more precise targeting (better for voice assistants)
+    xpath: [
+      "/html/head/title",
+      "/html/body/main//h1[1]",
+      "/html/body/main//h2[1]",
+      "/html/body/main//article//p[1]",
+      "/html/body//*[contains(@class, 'quick-answer')]//p[1]",
+    ],
   },
   url: "https://sameerkhan.me",
 };
@@ -407,7 +417,9 @@ export default function RootLayout({
           }}
         />
         <link rel="manifest" href="/manifest.json" />
-        {/* Google Search Console verification - replace with your actual code */}
+        {/* Google Search Console verification
+            Get your verification code from: https://search.google.com/search-console
+            Replace YOUR_GOOGLE_VERIFICATION_CODE with your actual code */}
         <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" />
         {/* Bing Webmaster Tools verification - required for ChatGPT/AI visibility */}
         <meta name="msvalidate.01" content="0937F6DB8C8C03B8C8BFF19C2D4B47B1" />
