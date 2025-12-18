@@ -121,11 +121,32 @@ export default function BlogPage() {
     })),
   };
 
+  // CollectionPage Schema - Helps search engines understand this is a collection
+  const collectionPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://sameerkhan.me/blog#collection",
+    name: "Sameer Khan's Blog - Technical Articles",
+    description:
+      "Collection of technical articles on React, TypeScript, AI/ML, and software engineering",
+    url: "https://sameerkhan.me/blog",
+    mainEntity: {
+      "@type": "Blog",
+      "@id": "https://sameerkhan.me/blog#blog",
+    },
+    numberOfItems: posts.length,
+    inLanguage: "en-US",
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageSchema) }}
       />
       <div className="min-h-screen bg-background text-foreground">
       {/* Header - Cleaner like Medium */}
