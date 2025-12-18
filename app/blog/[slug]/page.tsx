@@ -218,6 +218,22 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       "@type": "Thing",
       name: tag,
     })),
+    // Additional AEO signals
+    genre: post.category,
+    audience: {
+      "@type": "Audience",
+      audienceType: "Developers, Software Engineers, AI/ML Practitioners",
+    },
+    // Citation/attribution signals
+    citation: `https://sameerkhan.me/blog/${slug}`,
+    // Creative work signals
+    creativeWorkStatus: "Published",
+    copyrightHolder: {
+      "@type": "Person",
+      "@id": "https://sameerkhan.me/#person",
+      name: post.author,
+    },
+    copyrightYear: new Date(post.date).getFullYear().toString(),
   };
 
   // BreadcrumbList Schema for navigation
@@ -246,6 +262,31 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     ],
   };
 
+  // Speakable Schema for blog posts - Enhanced with XPath
+  // Helps voice assistants identify key content to read aloud
+  const articleSpeakableSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `https://sameerkhan.me/blog/${slug}#speakable`,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [
+        "h1",
+        ".quick-answer",
+        "article h2:first-of-type",
+        "article p:first-of-type",
+      ],
+      xpath: [
+        "/html/head/title",
+        "/html/body/main//article//h1[1]",
+        "/html/body/main//*[contains(@class, 'quick-answer')]//p[1]",
+        "/html/body/main//article//h2[1]",
+        "/html/body/main//article//p[1]",
+      ],
+    },
+    url: `https://sameerkhan.me/blog/${slug}`,
+  };
+
   return (
     <>
       <script
@@ -267,6 +308,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSpeakableSchema) }}
       />
       <div className="min-h-screen bg-background text-foreground">
         <ReadingProgress />
