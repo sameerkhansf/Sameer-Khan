@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { profileData } from "@/lib/data";
-import { BsPatchCheckFill } from "react-icons/bs";
-import { LuMail, LuGlobe } from "react-icons/lu";
+import { BsPatchCheckFill, LuMail, LuGlobe } from "@/components/icons";
 
 const MobileHeader = () => {
   return (
