@@ -54,6 +54,7 @@ export default function OptimizedImage({
         priority={priority}
         sizes={sizes}
         className={className}
+        fetchPriority={priority ? "high" : undefined}
       />
     );
   }
@@ -68,6 +69,7 @@ export default function OptimizedImage({
         priority={priority}
         sizes={sizes}
         className="w-full h-auto"
+        fetchPriority={priority ? "high" : undefined}
       />
     </picture>
   );
