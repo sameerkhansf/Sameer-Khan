@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 export default function IntroSection() {
   return (
@@ -15,14 +15,14 @@ export default function IntroSection() {
         </p>
         
         <div className="space-y-2">
-          <Image
+          <OptimizedImage
             src="/panel-event.jpg"
             alt="ASES x NFX Ventures dinner with Stanford entrepreneurs"
             width={600}
             height={400}
             className="w-full rounded-lg"
             priority
-            fetchPriority="high"
+            sizes="(max-width: 640px) 100vw, 600px"
           />
           <p className="text-sm text-muted-foreground text-center">
             <Link

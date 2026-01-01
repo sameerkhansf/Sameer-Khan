@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import dynamic from "next/dynamic";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -399,28 +400,7 @@ export default function RootLayout({
 
         {/* Preload LCP image for faster discovery */}
         <link rel="preload" href="/panel-event.jpg" as="image" fetchPriority="high" />
-
-        {/* Google Analytics - deferred to reduce render blocking */}
-        <script
-          async
-          defer
-          src="https://www.googletagmanager.com/gtag/js?id=G-RWXWZX4QQ2"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-RWXWZX4QQ2');
-            `,
-          }}
-        />
         <link rel="manifest" href="/manifest.json" />
-        {/* Google Search Console verification
-            Get your verification code from: https://search.google.com/search-console
-            Replace YOUR_GOOGLE_VERIFICATION_CODE with your actual code */}
-        <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" />
         {/* Bing Webmaster Tools verification - required for ChatGPT/AI visibility */}
         <meta name="msvalidate.01" content="0937F6DB8C8C03B8C8BFF19C2D4B47B1" />
         <meta name="theme-color" content="#1a1a1a" />
@@ -484,6 +464,9 @@ export default function RootLayout({
           {children}
           <Analytics />
         </ThemeProvider>
+        
+        {/* Google Analytics - Optimized with @next/third-parties */}
+        <GoogleAnalytics gaId="G-RWXWZX4QQ2" />
       </body>
     </html>
   );
