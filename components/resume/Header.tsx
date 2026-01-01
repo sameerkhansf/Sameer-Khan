@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { profileData } from "@/lib/data";
-import { BsTwitterX, BsInstagram, BsLinkedin, BsGithub, BsPatchCheckFill } from "react-icons/bs";
-import { LuMail, LuGlobe } from "react-icons/lu";
+import { BsTwitterX, BsInstagram, BsLinkedin, BsGithub, BsPatchCheckFill, LuMail, LuGlobe } from "@/components/icons";
 
 const SocialIcons: Record<string, React.ReactNode> = {
   "X (Twitter)": <BsTwitterX className="w-5 h-5" />,
