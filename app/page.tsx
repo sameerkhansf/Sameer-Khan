@@ -121,7 +121,9 @@ export default function Home() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c"),
+        }}
       />
     <div className="min-h-screen bg-background text-foreground">
       <div className="container max-w-lg mx-auto px-4 py-12">
