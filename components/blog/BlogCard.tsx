@@ -6,9 +6,10 @@ import type { BlogPostMeta } from "@/lib/blog";
 
 interface BlogCardProps {
   post: BlogPostMeta;
+  lang?: string;
 }
 
-export default function BlogCard({ post }: BlogCardProps) {
+export default function BlogCard({ post, lang }: BlogCardProps) {
   // Check if post is new (published within last 7 days)
   const postDate = new Date(post.date);
   const daysSincePublished = Math.floor(
@@ -16,11 +17,14 @@ export default function BlogCard({ post }: BlogCardProps) {
   );
   const isNew = daysSincePublished <= 7;
 
+  // Determine the blog post URL (with or without locale prefix)
+  const postUrl = lang ? `/${lang}/blog/${post.slug}` : `/blog/${post.slug}`;
+
   return (
     <article className="group relative flex flex-col bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-xl hover:shadow-gray-200/50 dark:hover:shadow-gray-900/50 hover:-translate-y-1 transition-all duration-300 h-full">
       {/* Featured Image */}
       {post.image && (
-        <Link href={`/blog/${post.slug}`} className="block overflow-hidden relative">
+        <Link href={postUrl} className="block overflow-hidden relative">
           <div className="relative aspect-[16/9] bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800">
             <Image
               src={post.image}
@@ -101,8 +105,8 @@ export default function BlogCard({ post }: BlogCardProps) {
 
         {/* Title - Limited to 2 lines */}
         <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug line-clamp-2">
-          <Link 
-            href={`/blog/${post.slug}`} 
+          <Link
+            href={postUrl}
             className="hover:underline decoration-2 underline-offset-4 block"
           >
             {post.title}

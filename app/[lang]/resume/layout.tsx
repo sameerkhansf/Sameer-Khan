@@ -1,6 +1,3 @@
-// This layout is kept for backward compatibility
-// All content is now served from /[lang]/resume/
-
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

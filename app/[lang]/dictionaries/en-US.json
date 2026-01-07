@@ -1,0 +1,93 @@
+{
+  "common": {
+    "siteName": "Sameer Khan",
+    "siteDescription": "Full-Stack Software Engineer | React & AI/ML",
+    "home": "Home",
+    "blog": "Blog",
+    "resume": "Resume",
+    "backToHome": "Back to Home",
+    "backToBlog": "Back to Blog",
+    "madeWith": "Made with",
+    "in": "in",
+    "sanFrancisco": "San Francisco, CA",
+    "allRightsReserved": "All rights reserved",
+    "skipToContent": "Skip to content",
+    "subscribe": "Subscribe",
+    "enterEmail": "Enter your email"
+  },
+  "intro": {
+    "heading": "Sameer Khan - Full-Stack Software Engineer",
+    "welcome": "Welcome to my little piece of the internet. I'm a Full-Stack Software Engineer based in San Francisco with a passion for building innovative web applications and AI-powered solutions. I specialize in React, Next.js, TypeScript, and machine learning integration.",
+    "imageCaption": "dinner with Stanford's next generation of entrepreneurs!",
+    "aboutMe": "About Me",
+    "aboutMeText": "I'm a recent Computer Science graduate from Sonoma State University with hands-on experience building production applications. My journey spans from research in explainable AI for cancer diagnosis to building AI-powered bookkeeping platforms at PomJuice, where I architected systems that reduced manual effort by 80% and achieved 95%+ classification accuracy.",
+    "technicalSkills": "Technical Skills",
+    "frontend": "Frontend",
+    "frontendSkills": "React, Next.js, TypeScript, Tailwind CSS, HTML/CSS",
+    "backend": "Backend",
+    "backendSkills": "Node.js, Python, Java, Django, Express.js",
+    "aiml": "AI/ML",
+    "aimlSkills": "TensorFlow, PyTorch, LLM Integration, Prompt Engineering",
+    "cloudDevops": "Cloud & DevOps",
+    "cloudDevopsSkills": "AWS (Certified), Docker, CI/CD, MongoDB",
+    "whatIWrite": "What I Write About",
+    "whatIWriteText": "On my technical blog, I share comprehensive reviews of frontier AI models like GPT-5, Claude Opus, and DeepSeek, along with React tutorials, TypeScript guides, and developer tools comparisons. I believe in learning in public and sharing knowledge with the developer community.",
+    "currentFocus": "Current Focus",
+    "currentFocusText": "I'm currently exploring the intersection of AI and software engineering, particularly how large language models can enhance developer productivity. When I'm not coding, you can find me exploring the beautiful Bay Area, working on side projects, or diving deep into the latest tech trends.",
+    "letsConnect": "Let's Connect",
+    "letsConnectText": "I'm always interested in connecting with fellow developers, discussing new technologies, or exploring collaboration opportunities. Feel free to reach out through any of the channels below!"
+  },
+  "homepage": {
+    "title": "Sameer Khan | Full-Stack Software Engineer | React & AI/ML",
+    "description": "Sameer Khan is a Full-Stack Software Engineer in San Francisco specializing in React, Next.js, TypeScript, and AI/ML.",
+    "greeting": "Hi, I'm Sameer",
+    "intro": "Software Engineer building things with React, Next.js, and AI"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Thoughts on software development, AI, and everything in between. Learning in public and sharing what I discover along the way.",
+    "metaDescription": "Technical articles on React, TypeScript, AI/ML, and software engineering. Comprehensive reviews of GPT-5.2, Claude Opus 4.5, DeepSeek-V3.2-Speciale, Mistral Large 3, and other frontier AI models.",
+    "popularPosts": "Popular Posts",
+    "featuredPosts": "Featured Posts",
+    "allPosts": "All Posts",
+    "categories": "Categories",
+    "tags": "Tags",
+    "readingTime": "min read",
+    "publishedOn": "Published on",
+    "updatedOn": "Updated on",
+    "daysAgo": "days ago",
+    "relatedPosts": "Related Posts",
+    "relatedArticles": "Related Articles",
+    "shareArticle": "Share this article",
+    "quickAnswer": "Quick Answer",
+    "stayUpdated": "Stay Updated",
+    "getNotified": "Get notified when I publish new articles on AI, web development, and software engineering.",
+    "postNotFound": "Post Not Found"
+  },
+  "resume": {
+    "title": "Resume",
+    "description": "Professional resume of Sameer Khan - Software Engineer with expertise in full-stack development, AI/ML, React, Next.js, TypeScript, and AWS.",
+    "intro": "Intro",
+    "projects": "Projects",
+    "experience": "Experience",
+    "education": "Education",
+    "certifications": "Certifications",
+    "contact": "Contact",
+    "skills": "Skills",
+    "viewProject": "View Project",
+    "viewCode": "View Code"
+  },
+  "social": {
+    "followOn": "Follow me on",
+    "connectOn": "Connect with me on",
+    "viewProjects": "View my projects on"
+  },
+  "accessibility": {
+    "toggleTheme": "Toggle theme",
+    "darkMode": "Dark mode",
+    "lightMode": "Light mode",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "loading": "Loading..."
+  }
+}
