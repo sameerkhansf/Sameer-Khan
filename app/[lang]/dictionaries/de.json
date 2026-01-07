@@ -1,0 +1,93 @@
+{
+  "common": {
+    "siteName": "Sameer Khan",
+    "siteDescription": "Full-Stack Software-Ingenieur | React & AI/ML",
+    "home": "Startseite",
+    "blog": "Blog",
+    "resume": "Lebenslauf",
+    "backToHome": "Zuruck zur Startseite",
+    "backToBlog": "Zuruck zum Blog",
+    "madeWith": "Erstellt mit",
+    "in": "in",
+    "sanFrancisco": "San Francisco, CA",
+    "allRightsReserved": "Alle Rechte vorbehalten",
+    "skipToContent": "Zum Inhalt springen",
+    "subscribe": "Abonnieren",
+    "enterEmail": "E-Mail eingeben"
+  },
+  "intro": {
+    "heading": "Sameer Khan - Full-Stack Software-Ingenieur",
+    "welcome": "Willkommen auf meinem kleinen Teil des Internets. Ich bin ein Full-Stack Software-Ingenieur in San Francisco mit einer Leidenschaft fur innovative Webanwendungen und KI-gesteuerte Losungen. Ich spezialisiere mich auf React, Next.js, TypeScript und Machine Learning Integration.",
+    "imageCaption": "Abendessen mit Stanfords nachster Generation von Unternehmern!",
+    "aboutMe": "Uber Mich",
+    "aboutMeText": "Ich bin ein frischer Informatik-Absolvent der Sonoma State University mit praktischer Erfahrung im Aufbau von Produktionsanwendungen. Mein Weg reicht von der Forschung an erklarbarer KI fur die Krebsdiagnose bis zum Aufbau von KI-gesteuerten Buchhaltungsplattformen bei PomJuice, wo ich Systeme entwickelte, die den manuellen Aufwand um 80% reduzierten und eine Klassifizierungsgenauigkeit von uber 95% erreichten.",
+    "technicalSkills": "Technische Fahigkeiten",
+    "frontend": "Frontend",
+    "frontendSkills": "React, Next.js, TypeScript, Tailwind CSS, HTML/CSS",
+    "backend": "Backend",
+    "backendSkills": "Node.js, Python, Java, Django, Express.js",
+    "aiml": "KI/ML",
+    "aimlSkills": "TensorFlow, PyTorch, LLM-Integration, Prompt Engineering",
+    "cloudDevops": "Cloud & DevOps",
+    "cloudDevopsSkills": "AWS (Zertifiziert), Docker, CI/CD, MongoDB",
+    "whatIWrite": "Worüber Ich Schreibe",
+    "whatIWriteText": "In meinem technischen Blog teile ich umfassende Bewertungen von Frontier-KI-Modellen wie GPT-5, Claude Opus und DeepSeek, zusammen mit React-Tutorials, TypeScript-Anleitungen und Vergleichen von Entwickler-Tools. Ich glaube an offentliches Lernen und das Teilen von Wissen mit der Entwickler-Community.",
+    "currentFocus": "Aktueller Fokus",
+    "currentFocusText": "Ich erkunde derzeit die Schnittstelle von KI und Softwareentwicklung, insbesondere wie grosse Sprachmodelle die Produktivitat von Entwicklern verbessern konnen. Wenn ich nicht programmiere, erkunde ich die schone Bay Area, arbeite an Nebenprojekten oder tauche tief in die neuesten Tech-Trends ein.",
+    "letsConnect": "Lass Uns Verbinden",
+    "letsConnectText": "Ich bin immer daran interessiert, mich mit anderen Entwicklern zu vernetzen, neue Technologien zu diskutieren oder Kollaborationsmoglichkeiten zu erkunden. Kontaktiere mich gerne uber einen der unten aufgefuhrten Kanale!"
+  },
+  "homepage": {
+    "title": "Sameer Khan | Full-Stack Software-Ingenieur | React & AI/ML",
+    "description": "Sameer Khan ist ein Full-Stack Software-Ingenieur in San Francisco, spezialisiert auf React, Next.js, TypeScript und AI/ML.",
+    "greeting": "Hallo, ich bin Sameer",
+    "intro": "Software-Ingenieur, der Dinge mit React, Next.js und AI baut"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Gedanken uber Softwareentwicklung, KI und alles dazwischen. Offentlich lernen und teilen, was ich entdecke.",
+    "metaDescription": "Technische Artikel uber React, TypeScript, AI/ML und Softwareentwicklung.",
+    "popularPosts": "Beliebte Beitrage",
+    "featuredPosts": "Ausgewahlte Beitrage",
+    "allPosts": "Alle Beitrage",
+    "categories": "Kategorien",
+    "tags": "Tags",
+    "readingTime": "Min. Lesezeit",
+    "publishedOn": "Veroffentlicht am",
+    "updatedOn": "Aktualisiert am",
+    "daysAgo": "Tage her",
+    "relatedPosts": "Verwandte Beitrage",
+    "relatedArticles": "Verwandte Artikel",
+    "shareArticle": "Diesen Artikel teilen",
+    "quickAnswer": "Schnelle Antwort",
+    "stayUpdated": "Bleib auf dem Laufenden",
+    "getNotified": "Erhalte Benachrichtigungen, wenn ich neue Artikel uber KI, Webentwicklung und Softwareentwicklung veroffentliche.",
+    "postNotFound": "Beitrag nicht gefunden"
+  },
+  "resume": {
+    "title": "Lebenslauf",
+    "description": "Professioneller Lebenslauf von Sameer Khan - Software-Ingenieur mit Expertise in Full-Stack-Entwicklung, AI/ML, React, Next.js, TypeScript und AWS.",
+    "intro": "Einleitung",
+    "projects": "Projekte",
+    "experience": "Erfahrung",
+    "education": "Ausbildung",
+    "certifications": "Zertifizierungen",
+    "contact": "Kontakt",
+    "skills": "Fahigkeiten",
+    "viewProject": "Projekt ansehen",
+    "viewCode": "Code ansehen"
+  },
+  "social": {
+    "followOn": "Folge mir auf",
+    "connectOn": "Verbinde dich mit mir auf",
+    "viewProjects": "Meine Projekte ansehen auf"
+  },
+  "accessibility": {
+    "toggleTheme": "Thema wechseln",
+    "darkMode": "Dunkler Modus",
+    "lightMode": "Heller Modus",
+    "openMenu": "Menu offnen",
+    "closeMenu": "Menu schliessen",
+    "loading": "Laden..."
+  }
+}

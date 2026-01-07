@@ -1,0 +1,93 @@
+{
+  "common": {
+    "siteName": "Sameer Khan",
+    "siteDescription": "全栈软件工程师 | React & AI/ML",
+    "home": "首页",
+    "blog": "博客",
+    "resume": "简历",
+    "backToHome": "返回首页",
+    "backToBlog": "返回博客",
+    "madeWith": "用心制作于",
+    "in": "",
+    "sanFrancisco": "旧金山, 加州",
+    "allRightsReserved": "版权所有",
+    "skipToContent": "跳转到内容",
+    "subscribe": "订阅",
+    "enterEmail": "输入您的邮箱"
+  },
+  "intro": {
+    "heading": "Sameer Khan - 全栈软件工程师",
+    "welcome": "欢迎来到我的网络小天地。我是一名位于旧金山的全栈软件工程师，热衷于构建创新的Web应用程序和人工智能解决方案。我专注于React、Next.js、TypeScript和机器学习集成。",
+    "imageCaption": "与斯坦福下一代企业家共进晚餐！",
+    "aboutMe": "关于我",
+    "aboutMeText": "我是索诺玛州立大学计算机科学专业的应届毕业生，拥有构建生产级应用程序的实践经验。我的经历涵盖了从癌症诊断可解释AI研究到在PomJuice构建AI驱动的记账平台，在那里我设计的系统减少了80%的人工工作量，分类准确率达到95%以上。",
+    "technicalSkills": "技术技能",
+    "frontend": "前端",
+    "frontendSkills": "React, Next.js, TypeScript, Tailwind CSS, HTML/CSS",
+    "backend": "后端",
+    "backendSkills": "Node.js, Python, Java, Django, Express.js",
+    "aiml": "人工智能/机器学习",
+    "aimlSkills": "TensorFlow, PyTorch, 大语言模型集成, 提示工程",
+    "cloudDevops": "云计算与DevOps",
+    "cloudDevopsSkills": "AWS（认证）, Docker, CI/CD, MongoDB",
+    "whatIWrite": "我写什么",
+    "whatIWriteText": "在我的技术博客上，我分享关于前沿AI模型（如GPT-5、Claude Opus和DeepSeek）的全面评测，以及React教程、TypeScript指南和开发工具比较。我相信公开学习和与开发者社区分享知识。",
+    "currentFocus": "当前关注",
+    "currentFocusText": "我目前正在探索人工智能与软件工程的交叉领域，特别是大型语言模型如何提升开发者生产力。当我不在编程时，你可以发现我在探索美丽的湾区、进行副业项目，或深入研究最新的科技趋势。",
+    "letsConnect": "联系我",
+    "letsConnectText": "我一直很乐意与其他开发者交流、讨论新技术或探索合作机会。欢迎通过以下任何渠道与我联系！"
+  },
+  "homepage": {
+    "title": "Sameer Khan | 全栈软件工程师 | React & AI/ML",
+    "description": "Sameer Khan是一位位于旧金山的全栈软件工程师，专注于React、Next.js、TypeScript和AI/ML。",
+    "greeting": "你好，我是Sameer",
+    "intro": "使用React、Next.js和AI构建应用的软件工程师"
+  },
+  "blog": {
+    "title": "博客",
+    "description": "关于软件开发、AI以及其他一切的思考。公开学习并分享我的发现。",
+    "metaDescription": "关于React、TypeScript、AI/ML和软件工程的技术文章。",
+    "popularPosts": "热门文章",
+    "featuredPosts": "精选文章",
+    "allPosts": "所有文章",
+    "categories": "分类",
+    "tags": "标签",
+    "readingTime": "分钟阅读",
+    "publishedOn": "发布于",
+    "updatedOn": "更新于",
+    "daysAgo": "天前",
+    "relatedPosts": "相关文章",
+    "relatedArticles": "相关内容",
+    "shareArticle": "分享这篇文章",
+    "quickAnswer": "快速回答",
+    "stayUpdated": "保持更新",
+    "getNotified": "当我发布关于AI、Web开发和软件工程的新文章时获得通知。",
+    "postNotFound": "文章未找到"
+  },
+  "resume": {
+    "title": "简历",
+    "description": "Sameer Khan的专业简历 - 拥有全栈开发、AI/ML、React、Next.js、TypeScript和AWS专业知识的软件工程师。",
+    "intro": "简介",
+    "projects": "项目",
+    "experience": "经验",
+    "education": "教育",
+    "certifications": "证书",
+    "contact": "联系方式",
+    "skills": "技能",
+    "viewProject": "查看项目",
+    "viewCode": "查看代码"
+  },
+  "social": {
+    "followOn": "关注我",
+    "connectOn": "联系我",
+    "viewProjects": "查看我的项目"
+  },
+  "accessibility": {
+    "toggleTheme": "切换主题",
+    "darkMode": "深色模式",
+    "lightMode": "浅色模式",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "loading": "加载中..."
+  }
+}
