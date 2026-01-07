@@ -2,18 +2,43 @@
 import Link from "next/link";
 import OptimizedImage from "@/components/ui/OptimizedImage";
 
-export default function IntroSection() {
+interface IntroTranslations {
+  heading: string;
+  welcome: string;
+  imageCaption: string;
+  aboutMe: string;
+  aboutMeText: string;
+  technicalSkills: string;
+  frontend: string;
+  frontendSkills: string;
+  backend: string;
+  backendSkills: string;
+  aiml: string;
+  aimlSkills: string;
+  cloudDevops: string;
+  cloudDevopsSkills: string;
+  whatIWrite: string;
+  whatIWriteText: string;
+  currentFocus: string;
+  currentFocusText: string;
+  letsConnect: string;
+  letsConnectText: string;
+}
+
+interface IntroSectionProps {
+  translations: IntroTranslations;
+  lang: string;
+}
+
+export default function IntroSection({ translations, lang }: IntroSectionProps) {
   return (
     <section aria-label="About Sameer Khan" itemScope itemType="https://schema.org/Person">
       <div className="space-y-6 text-left">
-        <h1 className="text-2xl font-semibold" itemProp="name">Sameer Khan - Full-Stack Software Engineer</h1>
+        <h1 className="text-2xl font-semibold" itemProp="name">{translations.heading}</h1>
         <p className="text-base leading-relaxed">
-          Welcome to my little piece of the internet. I'm a Full-Stack Software Engineer
-          based in San Francisco with a passion for building innovative web applications
-          and AI-powered solutions. I specialize in React, Next.js, TypeScript, and 
-          machine learning integration.
+          {translations.welcome}
         </p>
-        
+
         <div className="space-y-2">
           <OptimizedImage
             src="/panel-event.jpg"
@@ -40,81 +65,53 @@ export default function IntroSection() {
             >
               NFX Ventures
             </Link>{" "}
-            dinner with Stanford's next generation of entrepreneurs!
+            {translations.imageCaption}
           </p>
         </div>
 
         {/* About Me Section */}
-        <h2 className="text-xl font-semibold pt-4">About Me</h2>
+        <h2 className="text-xl font-semibold pt-4">{translations.aboutMe}</h2>
         <p className="text-base leading-relaxed">
-          I'm a recent Computer Science graduate from Sonoma State University with hands-on 
-          experience building production applications. My journey spans from research in 
-          explainable AI for cancer diagnosis to building AI-powered bookkeeping platforms 
-          at <span className="text-muted-foreground">PomJuice</span>, where I architected 
-          systems that reduced manual effort by 80% and achieved 95%+ classification accuracy.
+          {translations.aboutMeText}
         </p>
 
         {/* Technical Skills Section */}
-        <h2 className="text-xl font-semibold pt-4">Technical Skills</h2>
+        <h2 className="text-xl font-semibold pt-4">{translations.technicalSkills}</h2>
         <div className="text-base leading-relaxed space-y-2">
           <p>
-            <strong>Frontend:</strong> React, Next.js, TypeScript, Tailwind CSS, HTML/CSS
+            <strong>{translations.frontend}:</strong> {translations.frontendSkills}
           </p>
           <p>
-            <strong>Backend:</strong> Node.js, Python, Java, Django, Express.js
+            <strong>{translations.backend}:</strong> {translations.backendSkills}
           </p>
           <p>
-            <strong>AI/ML:</strong> TensorFlow, PyTorch, LLM Integration, Prompt Engineering
+            <strong>{translations.aiml}:</strong> {translations.aimlSkills}
           </p>
           <p>
-            <strong>Cloud & DevOps:</strong> AWS (Certified), Docker, CI/CD, MongoDB
+            <strong>{translations.cloudDevops}:</strong> {translations.cloudDevopsSkills}
           </p>
         </div>
 
         {/* What I Write About Section */}
-        <h2 className="text-xl font-semibold pt-4">What I Write About</h2>
+        <h2 className="text-xl font-semibold pt-4">{translations.whatIWrite}</h2>
         <p className="text-base leading-relaxed">
-          On my{" "}
-          <Link href="/blog" className="text-blue-600 hover:underline">
-            technical blog
+          {translations.whatIWriteText.split(/blog|博客|ブログ|Blog/i)[0]}
+          <Link href={`/${lang}/blog`} className="text-blue-600 hover:underline">
+            {lang === "zh" ? "博客" : lang === "ja" ? "ブログ" : "blog"}
           </Link>
-          , I share comprehensive reviews of frontier AI models like GPT-5, Claude Opus, 
-          and DeepSeek, along with React tutorials, TypeScript guides, and developer tools 
-          comparisons. I believe in learning in public and sharing knowledge with the 
-          developer community.
+          {translations.whatIWriteText.split(/blog|博客|ブログ|Blog/i)[1] || ""}
         </p>
 
         {/* Current Focus Section */}
-        <h2 className="text-xl font-semibold pt-4">Current Focus</h2>
+        <h2 className="text-xl font-semibold pt-4">{translations.currentFocus}</h2>
         <p className="text-base leading-relaxed">
-          I'm currently exploring the intersection of AI and software engineering, 
-          particularly how large language models can enhance developer productivity. 
-          When I'm not coding, you can find me exploring the beautiful Bay Area, 
-          working on side projects, or diving deep into the latest tech trends.
+          {translations.currentFocusText}
         </p>
 
         {/* Connect Section */}
-        <h2 className="text-xl font-semibold pt-4">Let's Connect</h2>
+        <h2 className="text-xl font-semibold pt-4">{translations.letsConnect}</h2>
         <p className="text-base leading-relaxed">
-          I'm always interested in connecting with fellow developers, discussing new 
-          technologies, or exploring collaboration opportunities. Feel free to reach 
-          out on{" "}
-          <Link 
-            href="https://linkedin.com/in/sameerkhansf" 
-            target="_blank"
-            className="text-blue-600 hover:underline"
-          >
-            LinkedIn
-          </Link>
-          {" "}or check out my work on{" "}
-          <Link 
-            href="https://github.com/sameerkhansf" 
-            target="_blank"
-            className="text-blue-600 hover:underline"
-          >
-            GitHub
-          </Link>
-          .
+          {translations.letsConnectText}
         </p>
       </div>
     </section>

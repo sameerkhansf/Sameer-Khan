@@ -1,0 +1,93 @@
+{
+  "common": {
+    "siteName": "Sameer Khan",
+    "siteDescription": "Ingenieur Logiciel Full-Stack | React & AI/ML",
+    "home": "Accueil",
+    "blog": "Blog",
+    "resume": "CV",
+    "backToHome": "Retour a l'accueil",
+    "backToBlog": "Retour au blog",
+    "madeWith": "Fait avec",
+    "in": "a",
+    "sanFrancisco": "San Francisco, CA",
+    "allRightsReserved": "Tous droits reserves",
+    "skipToContent": "Aller au contenu",
+    "subscribe": "S'abonner",
+    "enterEmail": "Entrez votre email"
+  },
+  "intro": {
+    "heading": "Sameer Khan - Ingenieur Logiciel Full-Stack",
+    "welcome": "Bienvenue dans mon petit coin d'internet. Je suis un Ingenieur Logiciel Full-Stack base a San Francisco, passionne par la creation d'applications web innovantes et de solutions alimentees par l'IA. Je me specialise dans React, Next.js, TypeScript et l'integration du machine learning.",
+    "imageCaption": "diner avec la prochaine generation d'entrepreneurs de Stanford!",
+    "aboutMe": "A Propos de Moi",
+    "aboutMeText": "Je suis un recent diplome en informatique de Sonoma State University avec une experience pratique dans la construction d'applications de production. Mon parcours s'etend de la recherche en IA explicable pour le diagnostic du cancer a la construction de plateformes de comptabilite alimentees par l'IA chez PomJuice, ou j'ai concu des systemes qui ont reduit l'effort manuel de 80% et atteint une precision de classification de plus de 95%.",
+    "technicalSkills": "Competences Techniques",
+    "frontend": "Frontend",
+    "frontendSkills": "React, Next.js, TypeScript, Tailwind CSS, HTML/CSS",
+    "backend": "Backend",
+    "backendSkills": "Node.js, Python, Java, Django, Express.js",
+    "aiml": "IA/ML",
+    "aimlSkills": "TensorFlow, PyTorch, Integration LLM, Ingenierie de Prompts",
+    "cloudDevops": "Cloud & DevOps",
+    "cloudDevopsSkills": "AWS (Certifie), Docker, CI/CD, MongoDB",
+    "whatIWrite": "Ce Que J'ecris",
+    "whatIWriteText": "Sur mon blog technique, je partage des critiques completes de modeles d'IA de pointe comme GPT-5, Claude Opus et DeepSeek, ainsi que des tutoriels React, des guides TypeScript et des comparaisons d'outils de developpement. Je crois en l'apprentissage public et le partage des connaissances avec la communaute des developpeurs.",
+    "currentFocus": "Focus Actuel",
+    "currentFocusText": "J'explore actuellement l'intersection de l'IA et du genie logiciel, en particulier comment les grands modeles de langage peuvent ameliorer la productivite des developpeurs. Quand je ne code pas, vous pouvez me trouver a explorer la magnifique Bay Area, a travailler sur des projets paralleles ou a plonger dans les dernieres tendances technologiques.",
+    "letsConnect": "Connectons-Nous",
+    "letsConnectText": "Je suis toujours interesse a me connecter avec d'autres developpeurs, discuter de nouvelles technologies ou explorer des opportunites de collaboration. N'hesitez pas a me contacter via l'un des canaux ci-dessous!"
+  },
+  "homepage": {
+    "title": "Sameer Khan | Ingenieur Logiciel Full-Stack | React & AI/ML",
+    "description": "Sameer Khan est un Ingenieur Logiciel Full-Stack a San Francisco specialise en React, Next.js, TypeScript et AI/ML.",
+    "greeting": "Bonjour, je suis Sameer",
+    "intro": "Ingenieur logiciel creant des choses avec React, Next.js et AI"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Reflexions sur le developpement logiciel, l'IA et tout ce qui se trouve entre les deux. Apprendre en public et partager mes decouvertes.",
+    "metaDescription": "Articles techniques sur React, TypeScript, AI/ML et genie logiciel.",
+    "popularPosts": "Articles Populaires",
+    "featuredPosts": "Articles en Vedette",
+    "allPosts": "Tous les Articles",
+    "categories": "Categories",
+    "tags": "Tags",
+    "readingTime": "min de lecture",
+    "publishedOn": "Publie le",
+    "updatedOn": "Mis a jour le",
+    "daysAgo": "jours",
+    "relatedPosts": "Articles Connexes",
+    "relatedArticles": "Articles Lies",
+    "shareArticle": "Partager cet article",
+    "quickAnswer": "Reponse Rapide",
+    "stayUpdated": "Restez Informe",
+    "getNotified": "Soyez averti lorsque je publie de nouveaux articles sur l'IA, le developpement web et le genie logiciel.",
+    "postNotFound": "Article Non Trouve"
+  },
+  "resume": {
+    "title": "CV",
+    "description": "CV professionnel de Sameer Khan - Ingenieur logiciel avec expertise en developpement full-stack, AI/ML, React, Next.js, TypeScript et AWS.",
+    "intro": "Introduction",
+    "projects": "Projets",
+    "experience": "Experience",
+    "education": "Formation",
+    "certifications": "Certifications",
+    "contact": "Contact",
+    "skills": "Competences",
+    "viewProject": "Voir le Projet",
+    "viewCode": "Voir le Code"
+  },
+  "social": {
+    "followOn": "Suivez-moi sur",
+    "connectOn": "Connectez-vous avec moi sur",
+    "viewProjects": "Voir mes projets sur"
+  },
+  "accessibility": {
+    "toggleTheme": "Changer de theme",
+    "darkMode": "Mode sombre",
+    "lightMode": "Mode clair",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "loading": "Chargement..."
+  }
+}

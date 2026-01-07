@@ -8,12 +8,14 @@ interface CategoryFilterProps {
   posts: BlogPostMeta[];
   featuredPosts: BlogPostMeta[];
   categories: string[];
+  lang?: string;
 }
 
 export default function CategoryFilter({
   posts,
   featuredPosts,
   categories,
+  lang,
 }: CategoryFilterProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
@@ -91,7 +93,7 @@ export default function CategoryFilter({
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
             {filteredPosts.map((post) => (
-              <BlogCard key={post.slug} post={post} />
+              <BlogCard key={post.slug} post={post} lang={lang} />
             ))}
           </div>
         </section>
@@ -147,7 +149,7 @@ export default function CategoryFilter({
           </div>
           <div className="grid gap-6 md:grid-cols-2 auto-rows-fr">
             {filteredFeatured.map((post) => (
-              <BlogCard key={post.slug} post={post} />
+              <BlogCard key={post.slug} post={post} lang={lang} />
             ))}
           </div>
         </section>
