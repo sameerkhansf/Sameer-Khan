@@ -142,11 +142,15 @@ export default function BlogPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(blogSchema).replace(/</g, "\\u003c"),
+        }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(collectionPageSchema).replace(/</g, "\\u003c"),
+        }}
       />
       <div className="min-h-screen bg-background text-foreground">
       {/* Header - Cleaner like Medium */}

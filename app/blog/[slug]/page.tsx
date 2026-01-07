@@ -291,27 +291,37 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleSchema).replace(/</g, "\\u003c"),
+        }}
       />
       {reviewSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(reviewSchema).replace(/</g, "\\u003c"),
+          }}
         />
       )}
       {howToSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(howToSchema).replace(/</g, "\\u003c"),
+          }}
         />
       )}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
+        }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSpeakableSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleSpeakableSchema).replace(/</g, "\\u003c"),
+        }}
       />
       <div className="min-h-screen bg-background text-foreground">
         <ReadingProgress />
