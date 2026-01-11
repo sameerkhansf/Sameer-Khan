@@ -3,7 +3,8 @@ import AnimatedSection from "./AnimatedSection";
 const Intro = () => {
   return (
     <AnimatedSection id="intro" className="section-container">
-      <h1 className="sr-only">Sameer Khan - Professional Resume</h1>
+      <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">Sameer Khan</h1>
+      <p className="text-lg text-muted-foreground mb-6">Full-Stack Software Engineer</p>
       <h2 className="section-title">Intro</h2>
       <div className="prose leading-relaxed text-foreground">
         <p className="mb-6">

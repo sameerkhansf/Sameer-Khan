@@ -319,12 +319,16 @@ User-agent: WRTNBot
 Allow: /
 
 # =============================================================================
-# SITEMAP & LLM CONTENT
+# SITEMAP
 # =============================================================================
 Sitemap: https://sameerkhan.me/sitemap.xml
 
+# =============================================================================
+# LLM CONTENT (for reference - AI bots auto-discover /llms.txt)
+# =============================================================================
 # LLM-specific content files for AI answer engines (AEO)
 # These files provide structured content optimized for LLM consumption
 # See: https://llmstxt.org/ for the emerging standard
-LLMs.txt: https://sameerkhan.me/llms.txt
-LLMs-full.txt: https://sameerkhan.me/llms-full.txt
+# Available at:
+#   - https://sameerkhan.me/llms.txt
+#   - https://sameerkhan.me/llms-full.txt

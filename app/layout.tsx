@@ -320,6 +320,15 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://sameerkhan.me"),
   alternates: {
     canonical: "/",
+    languages: {
+      "en-US": "/en-US",
+      "es": "/es",
+      "de": "/de",
+      "fr": "/fr",
+      "ja": "/ja",
+      "zh": "/zh",
+      "x-default": "/en-US",
+    },
     types: {
       "application/rss+xml": "https://sameerkhan.me/rss.xml",
     },
