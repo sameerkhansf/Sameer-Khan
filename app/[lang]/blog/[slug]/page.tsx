@@ -49,7 +49,7 @@ export async function generateMetadata({
     title: `${post.title} | Sameer Khan`,
     description: post.description,
     keywords: post.tags,
-    authors: [{ name: post.author, url: "https://sameerkhan.me" }],
+    authors: [{ name: post.author, url: "https://samkhan.net" }],
     creator: post.author,
     publisher: "Sameer Khan",
     openGraph: {
@@ -65,7 +65,7 @@ export async function generateMetadata({
       images: post.image
         ? [{ url: post.image, alt: post.imageAlt || post.title, width: 1200, height: 630 }]
         : [{ url: "/og-image.jpg", alt: post.title, width: 1200, height: 630 }],
-      url: `https://sameerkhan.me/${lang}/blog/${slug}`,
+      url: `https://samkhan.net/${lang}/blog/${slug}`,
       siteName: "Sameer Khan",
     },
     twitter: {
@@ -76,7 +76,7 @@ export async function generateMetadata({
       images: post.image ? [post.image] : ["/og-image.jpg"],
     },
     alternates: {
-      canonical: `https://sameerkhan.me/${lang}/blog/${slug}`,
+      canonical: `https://samkhan.net/${lang}/blog/${slug}`,
     },
     robots: {
       index: true,
@@ -126,7 +126,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const reviewSchema = isReviewPost ? {
     "@context": "https://schema.org",
     "@type": "Review",
-    "@id": `https://sameerkhan.me/${lang}/blog/${slug}#review`,
+    "@id": `https://samkhan.net/${lang}/blog/${slug}#review`,
     itemReviewed: {
       "@type": "SoftwareApplication",
       name: post.title.replace(/Review|Complete|Developer|Technical/gi, "").trim(),
@@ -135,12 +135,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     },
     author: {
       "@type": "Person",
-      "@id": "https://sameerkhan.me/#person",
+      "@id": "https://samkhan.net/#person",
       name: post.author,
     },
     publisher: {
       "@type": "Person",
-      "@id": "https://sameerkhan.me/#person",
+      "@id": "https://samkhan.net/#person",
       name: post.author,
     },
     reviewBody: post.description,
@@ -158,18 +158,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const howToSchema = isTutorialPost ? {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    "@id": `https://sameerkhan.me/${lang}/blog/${slug}#howto`,
+    "@id": `https://samkhan.net/${lang}/blog/${slug}#howto`,
     name: post.title,
     description: post.description,
     image: {
       "@type": "ImageObject",
-      url: `https://sameerkhan.me/og-image.jpg`,
+      url: `https://samkhan.net/og-image.jpg`,
       alt: post.title,
     },
     totalTime: `PT${Math.ceil(post.wordCount / 200)}M`,
     author: {
       "@type": "Person",
-      "@id": "https://sameerkhan.me/#person",
+      "@id": "https://samkhan.net/#person",
       name: post.author,
     },
     datePublished: post.date,
@@ -180,20 +180,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "@id": `https://sameerkhan.me/${lang}/blog/${slug}#article`,
+    "@id": `https://samkhan.net/${lang}/blog/${slug}#article`,
     headline: post.title,
     description: post.description,
     image: post.image
       ? {
           "@type": "ImageObject",
-          url: `https://sameerkhan.me${post.image}`,
+          url: `https://samkhan.net${post.image}`,
           alt: post.imageAlt || post.title,
           width: 1200,
           height: 630,
         }
       : {
           "@type": "ImageObject",
-          url: "https://sameerkhan.me/og-image.jpg",
+          url: "https://samkhan.net/og-image.jpg",
           alt: post.title,
           width: 1200,
           height: 630,
@@ -202,20 +202,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     dateModified: post.updated || post.date,
     author: {
       "@type": "Person",
-      "@id": "https://sameerkhan.me/#person",
+      "@id": "https://samkhan.net/#person",
       name: post.author,
-      url: "https://sameerkhan.me",
+      url: "https://samkhan.net",
     },
     publisher: {
       "@type": "Person",
-      "@id": "https://sameerkhan.me/#person",
+      "@id": "https://samkhan.net/#person",
       name: post.author,
-      url: "https://sameerkhan.me",
+      url: "https://samkhan.net",
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://sameerkhan.me/${lang}/blog/${slug}`,
-      url: `https://sameerkhan.me/${lang}/blog/${slug}`,
+      "@id": `https://samkhan.net/${lang}/blog/${slug}`,
+      url: `https://samkhan.net/${lang}/blog/${slug}`,
     },
     keywords: post.tags.join(", "),
     wordCount: post.wordCount,
@@ -223,9 +223,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     inLanguage: lang,
     isPartOf: {
       "@type": "Blog",
-      "@id": "https://sameerkhan.me/blog#blog",
+      "@id": "https://samkhan.net/blog#blog",
       name: "Sameer Khan's Blog",
-      url: "https://sameerkhan.me/blog",
+      url: "https://samkhan.net/blog",
     },
     about: post.tags.map((tag) => ({
       "@type": "Thing",
@@ -240,11 +240,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       "@type": "Audience",
       audienceType: "Developers, Software Engineers, AI/ML Practitioners",
     },
-    citation: `https://sameerkhan.me/${lang}/blog/${slug}`,
+    citation: `https://samkhan.net/${lang}/blog/${slug}`,
     creativeWorkStatus: "Published",
     copyrightHolder: {
       "@type": "Person",
-      "@id": "https://sameerkhan.me/#person",
+      "@id": "https://samkhan.net/#person",
       name: post.author,
     },
     copyrightYear: new Date(post.date).getFullYear().toString(),
@@ -259,19 +259,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         "@type": "ListItem",
         position: 1,
         name: dict.common.home,
-        item: `https://sameerkhan.me/${lang}`,
+        item: `https://samkhan.net/${lang}`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: dict.blog.title,
-        item: `https://sameerkhan.me/${lang}/blog`,
+        item: `https://samkhan.net/${lang}/blog`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: post.title,
-        item: `https://sameerkhan.me/${lang}/blog/${slug}`,
+        item: `https://samkhan.net/${lang}/blog/${slug}`,
       },
     ],
   };
@@ -280,7 +280,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const articleSpeakableSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "@id": `https://sameerkhan.me/${lang}/blog/${slug}#speakable`,
+    "@id": `https://samkhan.net/${lang}/blog/${slug}#speakable`,
     speakable: {
       "@type": "SpeakableSpecification",
       cssSelector: [
@@ -297,7 +297,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         "/html/body/main//article//p[1]",
       ],
     },
-    url: `https://sameerkhan.me/${lang}/blog/${slug}`,
+    url: `https://samkhan.net/${lang}/blog/${slug}`,
   };
 
   return (

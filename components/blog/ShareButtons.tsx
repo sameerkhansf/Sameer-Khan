@@ -9,7 +9,7 @@ interface ShareButtonsProps {
 
 export default function ShareButtons({ title, slug }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
-  const url = `https://sameerkhan.me/blog/${slug}`;
+  const url = `https://samkhan.net/blog/${slug}`;
 
   const copyToClipboard = async () => {
     try {

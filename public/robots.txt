@@ -321,7 +321,7 @@ Allow: /
 # =============================================================================
 # SITEMAP
 # =============================================================================
-Sitemap: https://sameerkhan.me/sitemap.xml
+Sitemap: https://samkhan.net/sitemap.xml
 
 # =============================================================================
 # LLM CONTENT (for reference - AI bots auto-discover /llms.txt)
@@ -330,5 +330,5 @@ Sitemap: https://sameerkhan.me/sitemap.xml
 # These files provide structured content optimized for LLM consumption
 # See: https://llmstxt.org/ for the emerging standard
 # Available at:
-#   - https://sameerkhan.me/llms.txt
-#   - https://sameerkhan.me/llms-full.txt
+#   - https://samkhan.net/llms.txt
+#   - https://samkhan.net/llms-full.txt
