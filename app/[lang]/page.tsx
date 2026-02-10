@@ -50,7 +50,7 @@ const faqSchema = {
       name: "How can I contact Sameer Khan?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "You can contact Sameer Khan via email at khansam@sonoma.edu, visit his website at sameerkhan.me, or connect with him on LinkedIn at linkedin.com/in/sameerkhansf and GitHub at github.com/sameerkhansf.",
+        text: "You can contact Sameer Khan via email at khansam@sonoma.edu, visit his website at samkhan.net, or connect with him on LinkedIn at linkedin.com/in/sameerkhansf and GitHub at github.com/sameerkhansf.",
       },
     },
     {
@@ -106,7 +106,7 @@ const faqSchema = {
       name: "What blog articles has Sameer Khan written?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sameer Khan writes technical articles on AI, React, Next.js, TypeScript, and software development. His blog covers comprehensive reviews of frontier AI models (GPT-5.2, Claude Opus 4.5, DeepSeek-V3.2-Speciale, Mistral Large 3, Grok 4.1, and more), developer tools comparisons (Cursor vs Copilot vs Claude Code), React tutorials (useEffect guide, debugging strategies), TypeScript guides, and prompt engineering techniques. All articles are available at sameerkhan.me/blog.",
+        text: "Sameer Khan writes technical articles on AI, React, Next.js, TypeScript, and software development. His blog covers comprehensive reviews of frontier AI models (GPT-5.2, Claude Opus 4.5, DeepSeek-V3.2-Speciale, Mistral Large 3, Grok 4.1, and more), developer tools comparisons (Cursor vs Copilot vs Claude Code), React tutorials (useEffect guide, debugging strategies), TypeScript guides, and prompt engineering techniques. All articles are available at samkhan.net/blog.",
       },
     },
     {
@@ -141,7 +141,7 @@ export default async function Home({ params }: HomePageProps) {
       <div className="min-h-screen bg-background text-foreground">
         <div className="container max-w-lg mx-auto px-4 py-12">
           <header className="flex justify-between items-center mb-16">
-            <span className="text-xl font-medium">./sameerkhan.me</span>
+            <span className="text-xl font-medium">./samkhan.net</span>
             <div className="flex items-center gap-4">
               <Link
                 href={`/${lang}/blog`}

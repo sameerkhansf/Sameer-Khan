@@ -28,14 +28,14 @@ export async function generateStaticParams() {
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": "https://sameerkhan.me/#person",
+  "@id": "https://samkhan.net/#person",
   name: "Sameer Khan",
   givenName: "Sameer",
   familyName: "Khan",
-  url: "https://sameerkhan.me",
+  url: "https://samkhan.net",
   image: {
     "@type": "ImageObject",
-    url: "https://sameerkhan.me/profile.jpg",
+    url: "https://samkhan.net/profile.jpg",
     width: 400,
     height: 400,
   },
@@ -115,22 +115,22 @@ const personSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": "https://sameerkhan.me/#website",
-  url: "https://sameerkhan.me",
+  "@id": "https://samkhan.net/#website",
+  url: "https://samkhan.net",
   name: "Sameer Khan - Software Engineer",
   description:
     "Personal portfolio and resume of Sameer Khan, Software Engineer specializing in full-stack development and AI/ML. Technical blog with comprehensive reviews of frontier AI models, React tutorials, and developer tools comparisons.",
   inLanguage: "en-US",
   publisher: {
     "@type": "Person",
-    "@id": "https://sameerkhan.me/#person",
+    "@id": "https://samkhan.net/#person",
     name: "Sameer Khan",
   },
   potentialAction: {
     "@type": "SearchAction",
     target: {
       "@type": "EntryPoint",
-      urlTemplate: "https://sameerkhan.me/blog?q={search_term_string}",
+      urlTemplate: "https://samkhan.net/blog?q={search_term_string}",
     },
     "query-input": "required name=search_term_string",
   },
@@ -145,7 +145,7 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://sameerkhan.me",
+      item: "https://samkhan.net",
     },
   ],
 };
@@ -160,21 +160,21 @@ const navigationSchema = {
       position: 1,
       name: "Home",
       description: "Sameer Khan's portfolio and personal website",
-      url: "https://sameerkhan.me",
+      url: "https://samkhan.net",
     },
     {
       "@type": "SiteNavigationElement",
       position: 2,
       name: "Blog",
       description: "Technical articles on AI models, React, TypeScript, and software engineering",
-      url: "https://sameerkhan.me/blog",
+      url: "https://samkhan.net/blog",
     },
     {
       "@type": "SiteNavigationElement",
       position: 3,
       name: "Resume",
       description: "Sameer Khan's professional experience and skills",
-      url: "https://sameerkhan.me/resume",
+      url: "https://samkhan.net/resume",
     },
   ],
 };
@@ -183,19 +183,19 @@ const navigationSchema = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://sameerkhan.me/#organization",
+  "@id": "https://samkhan.net/#organization",
   name: "Sameer Khan",
-  url: "https://sameerkhan.me",
+  url: "https://samkhan.net",
   logo: {
     "@type": "ImageObject",
-    url: "https://sameerkhan.me/profile.jpg",
+    url: "https://samkhan.net/profile.jpg",
     width: 400,
     height: 400,
   },
   description: "Technical blog and portfolio of Sameer Khan, Full-Stack Software Engineer specializing in React, Next.js, TypeScript, and AI/ML. Comprehensive reviews of frontier AI models, React tutorials, and developer tools comparisons.",
   founder: {
     "@type": "Person",
-    "@id": "https://sameerkhan.me/#person",
+    "@id": "https://samkhan.net/#person",
   },
   foundingDate: "2024",
   sameAs: [
@@ -214,7 +214,7 @@ const organizationSchema = {
 const speakableSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://sameerkhan.me/#speakable",
+  "@id": "https://samkhan.net/#speakable",
   speakable: {
     "@type": "SpeakableSpecification",
     cssSelector: ["h1", "h2", ".quick-answer", "article p:first-of-type", "main h1", "main h2"],
@@ -226,21 +226,21 @@ const speakableSchema = {
       "/html/body//*[contains(@class, 'quick-answer')]//p[1]",
     ],
   },
-  url: "https://sameerkhan.me",
+  url: "https://samkhan.net",
 };
 
 // ProfilePage Schema - Establishes author expertise (E-E-A-T signals)
 const profilePageSchema = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
-  "@id": "https://sameerkhan.me/#profilepage",
+  "@id": "https://samkhan.net/#profilepage",
   mainEntity: {
     "@type": "Person",
-    "@id": "https://sameerkhan.me/#person",
+    "@id": "https://samkhan.net/#person",
   },
   dateCreated: "2024-01-01",
   dateModified: new Date().toISOString().split("T")[0],
-  url: "https://sameerkhan.me",
+  url: "https://samkhan.net",
   name: "Sameer Khan - Software Engineer Profile",
   description:
     "Professional profile of Sameer Khan, Full-Stack Software Engineer specializing in React, Next.js, TypeScript, and AI/ML. Includes work experience, projects, certifications, and technical blog.",
@@ -262,7 +262,7 @@ const projectsSchema = {
         programmingLanguage: ["Python", "TensorFlow"],
         codeRepository:
           "https://github.com/sameerkhansf/BioSoundSCape_SSU_Computer_Science",
-        author: { "@id": "https://sameerkhan.me/#person" },
+        author: { "@id": "https://samkhan.net/#person" },
         dateCreated: "2025-05",
         applicationCategory: "Computer Vision",
       },
@@ -278,7 +278,7 @@ const projectsSchema = {
         programmingLanguage: ["Java"],
         codeRepository:
           "https://github.com/sameerkhansf/JFLAPAutomataBuilder",
-        author: { "@id": "https://sameerkhan.me/#person" },
+        author: { "@id": "https://samkhan.net/#person" },
         dateCreated: "2024-12",
         applicationCategory: "Automata Theory",
       },
@@ -293,7 +293,7 @@ const projectsSchema = {
           "Interpreter implementation demonstrating programming language theory concepts including lexical analysis, parsing, and execution.",
         programmingLanguage: ["C++"],
         codeRepository: "https://github.com/sameerkhansf/Interpreter",
-        author: { "@id": "https://sameerkhan.me/#person" },
+        author: { "@id": "https://samkhan.net/#person" },
         dateCreated: "2025-05",
         applicationCategory: "Compilers",
       },
@@ -309,7 +309,7 @@ const projectsSchema = {
         url: "https://expense-tracker-mocha-three.vercel.app",
         applicationCategory: "FinanceApplication",
         operatingSystem: "Web Browser",
-        author: { "@id": "https://sameerkhan.me/#person" },
+        author: { "@id": "https://samkhan.net/#person" },
         dateCreated: "2024-12",
       },
     },
@@ -317,7 +317,7 @@ const projectsSchema = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sameerkhan.me"),
+  metadataBase: new URL("https://samkhan.net"),
   alternates: {
     canonical: "/",
     languages: {
@@ -330,7 +330,7 @@ export const metadata: Metadata = {
       "x-default": "/en-US",
     },
     types: {
-      "application/rss+xml": "https://sameerkhan.me/rss.xml",
+      "application/rss+xml": "https://samkhan.net/rss.xml",
     },
   },
   title: {
@@ -353,12 +353,12 @@ export const metadata: Metadata = {
     "AI Model Reviews",
     "React Tutorials",
   ],
-  authors: [{ name: "Sameer Khan", url: "https://sameerkhan.me" }],
+  authors: [{ name: "Sameer Khan", url: "https://samkhan.net" }],
   creator: "Sameer Khan",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://sameerkhan.me",
+    url: "https://samkhan.net",
     siteName: "Sameer Khan",
     title: "Sameer Khan | Full-Stack Software Engineer | React & AI/ML",
     description:

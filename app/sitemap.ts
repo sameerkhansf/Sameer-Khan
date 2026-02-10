@@ -4,7 +4,7 @@ import { getAllPosts } from "@/lib/blog";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://sameerkhan.me";
+  const baseUrl = "https://samkhan.net";
   const posts = getAllPosts();
 
   // Get the latest post date for blog page lastModified

@@ -25,14 +25,14 @@ export const metadata: Metadata = {
     "Web Development",
     "Software Engineering",
   ],
-  authors: [{ name: "Sameer Khan", url: "https://sameerkhan.me" }],
+  authors: [{ name: "Sameer Khan", url: "https://samkhan.net" }],
   creator: "Sameer Khan",
   openGraph: {
     title: "Blog | Sameer Khan",
     description:
       "Technical articles on React, TypeScript, AI/ML, and software engineering. Comprehensive reviews of frontier AI models, React tutorials, and developer tools comparisons.",
     type: "website",
-    url: "https://sameerkhan.me/blog",
+    url: "https://samkhan.net/blog",
     siteName: "Sameer Khan",
     locale: "en_US",
     images: [
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://sameerkhan.me/blog",
+    canonical: "https://samkhan.net/blog",
     types: {
-      "application/rss+xml": "https://sameerkhan.me/rss.xml",
+      "application/rss+xml": "https://samkhan.net/rss.xml",
     },
   },
   robots: {
@@ -89,40 +89,40 @@ export default async function BlogPage({ params }: BlogPageProps) {
   const blogSchema = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "@id": "https://sameerkhan.me/blog#blog",
+    "@id": "https://samkhan.net/blog#blog",
     name: "Sameer Khan's Blog",
     description:
       "Technical articles on React, TypeScript, AI/ML, and software engineering. Comprehensive reviews of GPT-5.2, Claude Opus 4.5, DeepSeek-V3.2-Speciale, Mistral Large 3, and other frontier AI models. React tutorials, TypeScript guides, and developer tools comparisons.",
-    url: "https://sameerkhan.me/blog",
+    url: "https://samkhan.net/blog",
     inLanguage: lang,
     publisher: {
       "@type": "Person",
-      "@id": "https://sameerkhan.me/#person",
+      "@id": "https://samkhan.net/#person",
       name: "Sameer Khan",
-      url: "https://sameerkhan.me",
+      url: "https://samkhan.net",
     },
     author: {
       "@type": "Person",
-      "@id": "https://sameerkhan.me/#person",
+      "@id": "https://samkhan.net/#person",
       name: "Sameer Khan",
-      url: "https://sameerkhan.me",
+      url: "https://samkhan.net",
     },
     blogPost: posts.map((post) => ({
       "@type": "BlogPosting",
-      "@id": `https://sameerkhan.me/blog/${post.slug}#blogpost`,
+      "@id": `https://samkhan.net/blog/${post.slug}#blogpost`,
       headline: post.title,
       description: post.description,
       datePublished: post.date,
       dateModified: post.updated || post.date,
-      url: `https://sameerkhan.me/blog/${post.slug}`,
+      url: `https://samkhan.net/blog/${post.slug}`,
       author: {
         "@type": "Person",
-        "@id": "https://sameerkhan.me/#person",
+        "@id": "https://samkhan.net/#person",
         name: post.author,
       },
       publisher: {
         "@type": "Person",
-        "@id": "https://sameerkhan.me/#person",
+        "@id": "https://samkhan.net/#person",
         name: post.author,
       },
       articleSection: post.category,
@@ -130,7 +130,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
       inLanguage: lang,
       mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": `https://sameerkhan.me/blog/${post.slug}`,
+        "@id": `https://samkhan.net/blog/${post.slug}`,
       },
     })),
   };
@@ -139,14 +139,14 @@ export default async function BlogPage({ params }: BlogPageProps) {
   const collectionPageSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "@id": "https://sameerkhan.me/blog#collection",
+    "@id": "https://samkhan.net/blog#collection",
     name: "Sameer Khan's Blog - Technical Articles",
     description:
       "Collection of technical articles on React, TypeScript, AI/ML, and software engineering",
-    url: "https://sameerkhan.me/blog",
+    url: "https://samkhan.net/blog",
     mainEntity: {
       "@type": "Blog",
-      "@id": "https://sameerkhan.me/blog#blog",
+      "@id": "https://samkhan.net/blog#blog",
     },
     numberOfItems: posts.length,
     inLanguage: lang,
