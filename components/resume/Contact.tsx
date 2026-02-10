@@ -28,8 +28,8 @@ const Contact = () => {
     {
       id: 3,
       title: 'Website',
-      detail: 'sameerkhan.me',
-      url: 'https://sameerkhan.me'
+      detail: 'samkhan.net',
+      url: 'https://samkhan.net'
     },
     {
       id: 4,

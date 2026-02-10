@@ -5,7 +5,7 @@
 # If no URLs provided, submits all site pages
 
 INDEXNOW_KEY="505e7f8bf1c9482aa778af60aa569a43"
-SITE_URL="https://sameerkhan.me"
+SITE_URL="https://samkhan.net"
 KEY_LOCATION="${SITE_URL}/${INDEXNOW_KEY}.txt"
 
 # Colors for output
@@ -44,7 +44,7 @@ build_payload() {
     
     cat <<EOF
 {
-    "host": "sameerkhan.me",
+    "host": "samkhan.net",
     "key": "${INDEXNOW_KEY}",
     "keyLocation": "${KEY_LOCATION}",
     "urlList": [${url_list}]

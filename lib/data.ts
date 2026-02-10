@@ -18,7 +18,7 @@ export const profileData = {
   imageUrl: "/profile.jpg",
   contact: {
     email: "khansam@sonoma.edu",
-    website: "sameerkhan.me",
+    website: "samkhan.net",
   },
   // Flat skills array for backward compatibility
   skills: [

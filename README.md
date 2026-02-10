@@ -1,6 +1,6 @@
 # Sameer Khan - Personal Portfolio & Technical Blog
 
-**Live Site:** [sameerkhan.me](https://sameerkhan.me)  
+**Live Site:** [samkhan.net](https://samkhan.net)  
 **Built with:** Next.js 16, TypeScript, Tailwind CSS, MDX
 
 ---
@@ -628,7 +628,7 @@ This project is open source and available under the MIT License.
 **Sameer Khan**  
 Full-Stack Software Engineer | AI/ML Enthusiast | Technical Writer
 
-- 🌐 Website: [sameerkhan.me](https://sameerkhan.me)
+- 🌐 Website: [samkhan.net](https://samkhan.net)
 - 💼 LinkedIn: [linkedin.com/in/sameerkhansf](https://linkedin.com/in/sameerkhansf)
 - 🐙 GitHub: [@sameerkhansf](https://github.com/sameerkhansf)
 - 𝕏 Twitter/X: [@sameerkhan_sf](https://x.com/sameerkhan_sf)

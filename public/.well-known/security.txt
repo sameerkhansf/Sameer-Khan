@@ -1,6 +1,6 @@
 Contact: mailto:khansam@sonoma.edu
 Expires: 2026-12-31T23:59:00.000Z
 Preferred-Languages: en
-Canonical: https://sameerkhan.me/.well-known/security.txt
-Policy: https://sameerkhan.me
-Acknowledgments: https://sameerkhan.me
+Canonical: https://samkhan.net/.well-known/security.txt
+Policy: https://samkhan.net
+Acknowledgments: https://samkhan.net
