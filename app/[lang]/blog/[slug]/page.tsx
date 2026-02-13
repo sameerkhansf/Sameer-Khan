@@ -150,8 +150,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       bestRating: "10",
       worstRating: "1",
     },
-    datePublished: post.date,
-    dateModified: post.updated || post.date,
+    datePublished: `${post.date}T00:00:00+00:00`,
+    dateModified: `${post.updated || post.date}T00:00:00+00:00`,
   } : null;
 
   // HowTo Schema for tutorial posts
@@ -172,8 +172,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       "@id": "https://samkhan.net/#person",
       name: post.author,
     },
-    datePublished: post.date,
-    dateModified: post.updated || post.date,
+    datePublished: `${post.date}T00:00:00+00:00`,
+    dateModified: `${post.updated || post.date}T00:00:00+00:00`,
   } : null;
 
   // Article Schema for SEO/AEO - Enhanced
@@ -198,8 +198,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           width: 1200,
           height: 630,
         },
-    datePublished: post.date,
-    dateModified: post.updated || post.date,
+    datePublished: `${post.date}T00:00:00+00:00`,
+    dateModified: `${post.updated || post.date}T00:00:00+00:00`,
     author: {
       "@type": "Person",
       "@id": "https://samkhan.net/#person",
