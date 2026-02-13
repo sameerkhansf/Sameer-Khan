@@ -112,8 +112,8 @@ export default async function BlogPage({ params }: BlogPageProps) {
       "@id": `https://samkhan.net/blog/${post.slug}#blogpost`,
       headline: post.title,
       description: post.description,
-      datePublished: post.date,
-      dateModified: post.updated || post.date,
+      datePublished: `${post.date}T00:00:00+00:00`,
+      dateModified: `${post.updated || post.date}T00:00:00+00:00`,
       url: `https://samkhan.net/blog/${post.slug}`,
       author: {
         "@type": "Person",
