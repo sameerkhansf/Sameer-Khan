@@ -64,7 +64,7 @@ const resumeJsonLd = {
   name: "Sameer Khan - Resume",
   description:
     "Professional resume of Sameer Khan, Software Engineer specializing in full-stack development, AI/ML, and modern web technologies.",
-  dateModified: "2025-12-11",
+  dateModified: "2025-12-11T00:00:00+00:00",
   mainEntity: {
     "@type": "Person",
     "@id": "https://samkhan.net/#person",
@@ -170,7 +170,7 @@ const educationSchema = {
       addressCountry: "US",
     },
   },
-  dateCreated: "2025-05",
+  dateCreated: "2025-05-01T00:00:00+00:00",
   description:
     "Graduated with Honors. Relevant coursework: Database Management System Design, Data Structures & Algorithms, Computer Architecture, Software Design & Development, Computer Networking, Analysis of Algorithms.",
 };
