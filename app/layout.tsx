@@ -327,7 +327,6 @@ export const metadata: Metadata = {
       "fr": "/fr",
       "ja": "/ja",
       "zh": "/zh",
-      "x-default": "/en-US",
     },
     types: {
       "application/rss+xml": "https://samkhan.net/rss.xml",
@@ -401,6 +400,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${inter.className}`} suppressHydrationWarning>
       <head>
+        {/* x-default is not a BCP 47 tag — cannot use metadata.alternates.languages */}
+        <link rel="alternate" hrefLang="x-default" href="https://samkhan.net/en-US/" />
+
         {/* DNS Prefetch for external domains */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
