@@ -17,10 +17,10 @@
   },
   "intro": {
     "heading": "Sameer Khan - Full-Stack Software-Ingenieur",
-    "welcome": "Willkommen auf meinem kleinen Teil des Internets. Ich bin ein Full-Stack Software-Ingenieur in San Francisco mit einer Leidenschaft fur innovative Webanwendungen und KI-gesteuerte Losungen. Ich spezialisiere mich auf React, Next.js, TypeScript und Machine Learning Integration.",
+    "welcome": "Willkommen auf meinem kleinen Teil des Internets. Ich bin Mitgrunder von agentShop, der Commerce-Intelligence-Schicht, die KI-Gesprache in beratenden Verkauf verwandelt, mit Sitz in San Francisco. Ich spezialisiere mich auf React, Next.js, TypeScript und Machine Learning Integration.",
     "imageCaption": "Abendessen mit Stanfords nachster Generation von Unternehmern!",
     "aboutMe": "Uber Mich",
-    "aboutMeText": "Ich bin ein frischer Informatik-Absolvent der Sonoma State University mit praktischer Erfahrung im Aufbau von Produktionsanwendungen. Mein Weg reicht von der Forschung an erklarbarer KI fur die Krebsdiagnose bis zum Aufbau von KI-gesteuerten Buchhaltungsplattformen bei PomJuice, wo ich Systeme entwickelte, die den manuellen Aufwand um 80% reduzierten und eine Klassifizierungsgenauigkeit von uber 95% erreichten.",
+    "aboutMeText": "Ich bin Mitgrunder von agentShop und habe meinen Abschluss in Informatik mit Auszeichnung an der Sonoma State University gemacht. Als Portfolio Tech Analyst beim MARL Accelerator habe ich uber 500 Startups bewertet. Mein Weg reicht von der Forschung an erklarbarer KI fur die Hirntumordiagnose bis zum Aufbau von KI-gesteuerten Buchhaltungsplattformen bei PomJuice, wo ich Systeme entwickelte, die den manuellen Aufwand um 80% reduzierten und eine Klassifizierungsgenauigkeit von uber 95% erreichten.",
     "technicalSkills": "Technische Fahigkeiten",
     "frontend": "Frontend",
     "frontendSkills": "React, Next.js, TypeScript, Tailwind CSS, HTML/CSS",
@@ -33,7 +33,7 @@
     "whatIWrite": "Worüber Ich Schreibe",
     "whatIWriteText": "In meinem technischen Blog teile ich umfassende Bewertungen von Frontier-KI-Modellen wie GPT-5, Claude Opus und DeepSeek, zusammen mit React-Tutorials, TypeScript-Anleitungen und Vergleichen von Entwickler-Tools. Ich glaube an offentliches Lernen und das Teilen von Wissen mit der Entwickler-Community.",
     "currentFocus": "Aktueller Fokus",
-    "currentFocusText": "Ich erkunde derzeit die Schnittstelle von KI und Softwareentwicklung, insbesondere wie grosse Sprachmodelle die Produktivitat von Entwicklern verbessern konnen. Wenn ich nicht programmiere, erkunde ich die schone Bay Area, arbeite an Nebenprojekten oder tauche tief in die neuesten Tech-Trends ein.",
+    "currentFocusText": "Derzeit baue ich agentShop auf und helfe Marken, das KI-Regal bei ChatGPT, Gemini und Perplexity zu beherrschen. Wenn ich nicht programmiere, erkunde ich die schone Bay Area, arbeite an Nebenprojekten oder tauche tief in die neuesten Tech-Trends ein.",
     "letsConnect": "Lass Uns Verbinden",
     "letsConnectText": "Ich bin immer daran interessiert, mich mit anderen Entwicklern zu vernetzen, neue Technologien zu diskutieren oder Kollaborationsmoglichkeiten zu erkunden. Kontaktiere mich gerne uber einen der unten aufgefuhrten Kanale!"
   },

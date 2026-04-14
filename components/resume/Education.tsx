@@ -12,7 +12,7 @@ const Education = () => {
       institution: "Sonoma State University",
       location: "Rohnert Park, CA",
       description:
-        "Graduated with Honors. Relevant Coursework included Database Management System Design, Data Structures & Algorithms, Computer Architecture, Software Design & Development, Intro to OOP, Computer Networking, Analysis of Algorithms. ",
+        "Graduated with Honors. International Student Scholarship recipient (May 2023). Relevant Coursework: Database Management System Design, Data Structures & Algorithms, Computer Architecture, Software Design & Development, Intro to OOP, Computer Networking, Analysis of Algorithms.",
     },
   ];
 
