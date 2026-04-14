@@ -17,10 +17,10 @@
   },
   "intro": {
     "heading": "Sameer Khan - Ingenieur Logiciel Full-Stack",
-    "welcome": "Bienvenue dans mon petit coin d'internet. Je suis un Ingenieur Logiciel Full-Stack base a San Francisco, passionne par la creation d'applications web innovantes et de solutions alimentees par l'IA. Je me specialise dans React, Next.js, TypeScript et l'integration du machine learning.",
+    "welcome": "Bienvenue dans mon petit coin d'internet. Je suis Cofondateur d'agentShop, la couche d'intelligence commerciale qui transforme les conversations IA en ventes consultatives, base a San Francisco. Je me specialise dans React, Next.js, TypeScript et l'integration du machine learning.",
     "imageCaption": "diner avec la prochaine generation d'entrepreneurs de Stanford!",
     "aboutMe": "A Propos de Moi",
-    "aboutMeText": "Je suis un recent diplome en informatique de Sonoma State University avec une experience pratique dans la construction d'applications de production. Mon parcours s'etend de la recherche en IA explicable pour le diagnostic du cancer a la construction de plateformes de comptabilite alimentees par l'IA chez PomJuice, ou j'ai concu des systemes qui ont reduit l'effort manuel de 80% et atteint une precision de classification de plus de 95%.",
+    "aboutMeText": "Je suis Cofondateur d'agentShop et diplome avec mention de Sonoma State University en informatique. En tant qu'Analyste Technologique de Portefeuille chez MARL Accelerator, j'ai evalue plus de 500 startups. Mon parcours s'etend de la recherche en IA explicable pour le diagnostic de tumeurs cerebrales a la construction de plateformes de comptabilite alimentees par l'IA chez PomJuice, ou j'ai concu des systemes qui ont reduit l'effort manuel de 80% et atteint une precision de classification de plus de 95%.",
     "technicalSkills": "Competences Techniques",
     "frontend": "Frontend",
     "frontendSkills": "React, Next.js, TypeScript, Tailwind CSS, HTML/CSS",
@@ -33,7 +33,7 @@
     "whatIWrite": "Ce Que J'ecris",
     "whatIWriteText": "Sur mon blog technique, je partage des critiques completes de modeles d'IA de pointe comme GPT-5, Claude Opus et DeepSeek, ainsi que des tutoriels React, des guides TypeScript et des comparaisons d'outils de developpement. Je crois en l'apprentissage public et le partage des connaissances avec la communaute des developpeurs.",
     "currentFocus": "Focus Actuel",
-    "currentFocusText": "J'explore actuellement l'intersection de l'IA et du genie logiciel, en particulier comment les grands modeles de langage peuvent ameliorer la productivite des developpeurs. Quand je ne code pas, vous pouvez me trouver a explorer la magnifique Bay Area, a travailler sur des projets paralleles ou a plonger dans les dernieres tendances technologiques.",
+    "currentFocusText": "Je construis actuellement agentShop, aidant les marques a maitriser le rayon IA sur ChatGPT, Gemini et Perplexity. Quand je ne code pas, vous pouvez me trouver a explorer la magnifique Bay Area, a travailler sur des projets paralleles ou a plonger dans les dernieres tendances technologiques.",
     "letsConnect": "Connectons-Nous",
     "letsConnectText": "Je suis toujours interesse a me connecter avec d'autres developpeurs, discuter de nouvelles technologies ou explorer des opportunites de collaboration. N'hesitez pas a me contacter via l'un des canaux ci-dessous!"
   },

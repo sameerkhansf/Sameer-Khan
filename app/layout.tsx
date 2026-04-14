@@ -32,9 +32,9 @@ const personSchema = {
     width: 400,
     height: 400,
   },
-  jobTitle: "Full-Stack Software Engineer",
+  jobTitle: "Co-Founder at agentShop · Full-Stack Software Engineer",
   description:
-    "Sameer Khan is a Full-Stack Software Engineer based in San Francisco with a B.S. in Computer Science from Sonoma State University. He specializes in React, Next.js, TypeScript, Node.js, and AI/ML integration.",
+    "Sameer Khan is the Co-Founder of agentShop, the commerce intelligence layer that turns AI conversations into consultative sales. Full-Stack Software Engineer based in San Francisco with a B.S. in Computer Science from Sonoma State University (Honors). Specializes in React, Next.js, TypeScript, Node.js, and AI/ML integration.",
   // Location for local SEO
   workLocation: {
     "@type": "Place",
@@ -89,6 +89,9 @@ const personSchema = {
     "LLM Integration",
     "Prompt Engineering",
     "Large Language Models",
+    "AI Commerce",
+    "AI Agents",
+    "E-Commerce AI Optimization",
     "GPT-5",
     "Claude",
     "Mistral",
@@ -112,9 +115,9 @@ const websiteSchema = {
   "@type": "WebSite",
   "@id": "https://samkhan.net/#website",
   url: "https://samkhan.net",
-  name: "Sameer Khan - Software Engineer",
+  name: "Sameer Khan - Co-Founder, agentShop · Software Engineer",
   description:
-    "Personal portfolio and resume of Sameer Khan, Software Engineer specializing in full-stack development and AI/ML. Technical blog with comprehensive reviews of frontier AI models, React tutorials, and developer tools comparisons.",
+    "Personal portfolio and resume of Sameer Khan, Co-Founder of agentShop and Full-Stack Software Engineer specializing in AI commerce, full-stack development, and AI/ML. Technical blog with comprehensive reviews of frontier AI models, React tutorials, and developer tools comparisons.",
   inLanguage: "en-US",
   publisher: {
     "@type": "Person",
@@ -187,7 +190,7 @@ const organizationSchema = {
     width: 400,
     height: 400,
   },
-  description: "Technical blog and portfolio of Sameer Khan, Full-Stack Software Engineer specializing in React, Next.js, TypeScript, and AI/ML. Comprehensive reviews of frontier AI models, React tutorials, and developer tools comparisons.",
+  description: "Technical blog and portfolio of Sameer Khan, Co-Founder of agentShop and Full-Stack Software Engineer specializing in AI commerce, React, Next.js, TypeScript, and AI/ML. Comprehensive reviews of frontier AI models, React tutorials, and developer tools comparisons.",
   founder: {
     "@type": "Person",
     "@id": "https://samkhan.net/#person",
@@ -243,7 +246,7 @@ const profilePageSchema = {
   url: "https://samkhan.net",
   name: "Sameer Khan - Software Engineer Profile",
   description:
-    "Professional profile of Sameer Khan, Full-Stack Software Engineer specializing in React, Next.js, TypeScript, and AI/ML. Includes work experience, projects, certifications, and technical blog.",
+    "Professional profile of Sameer Khan, Co-Founder of agentShop and Full-Stack Software Engineer specializing in AI commerce, React, Next.js, TypeScript, and AI/ML. Includes work experience, projects, certifications, and technical blog.",
 };
 
 // Projects Schema - SoftwareSourceCode for portfolio projects
@@ -333,11 +336,11 @@ export const metadata: Metadata = {
     },
   },
   title: {
-    default: "Sameer Khan | Full-Stack Software Engineer | React & AI/ML",
+    default: "Sameer Khan | Co-Founder, agentShop | Full-Stack Software Engineer",
     template: "%s | Sameer Khan",
   },
   description:
-    "Sameer Khan is a Full-Stack Software Engineer in San Francisco specializing in React, Next.js, TypeScript, and AI/ML. Technical blog with AI model reviews, React tutorials, and developer guides.",
+    "Sameer Khan is the Co-Founder of agentShop and a Full-Stack Software Engineer in San Francisco specializing in AI commerce, React, Next.js, TypeScript, and AI/ML. Technical blog with AI model reviews, React tutorials, and developer guides.",
   keywords: [
     "Sameer Khan",
     "Software Engineer",
@@ -359,9 +362,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://samkhan.net",
     siteName: "Sameer Khan",
-    title: "Sameer Khan | Full-Stack Software Engineer | React & AI/ML",
+    title: "Sameer Khan | Co-Founder, agentShop | Full-Stack Software Engineer",
     description:
-      "Sameer Khan is a Full-Stack Software Engineer in San Francisco specializing in React, Next.js, TypeScript, and AI/ML. Technical blog with AI model reviews and React tutorials.",
+      "Sameer Khan is the Co-Founder of agentShop and a Full-Stack Software Engineer in San Francisco specializing in AI commerce, React, Next.js, TypeScript, and AI/ML. Technical blog with AI model reviews and React tutorials.",
     images: [
       {
         url: "/og-image.jpg",
@@ -373,9 +376,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sameer Khan | Full-Stack Software Engineer | React & AI/ML",
+    title: "Sameer Khan | Co-Founder, agentShop | Full-Stack Software Engineer",
     description:
-      "Full-Stack Software Engineer in San Francisco. React, Next.js, TypeScript, AI/ML. Writing about AI models and web development.",
+      "Co-Founder of agentShop. Full-Stack Software Engineer in San Francisco. AI Commerce, React, Next.js, TypeScript, AI/ML. Writing about AI models and web development.",
     creator: "@sameerkhan_sf",
     images: ["/og-image.jpg"],
   },
