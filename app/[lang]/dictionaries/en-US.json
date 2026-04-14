@@ -17,10 +17,10 @@
   },
   "intro": {
     "heading": "Sameer Khan - Full-Stack Software Engineer",
-    "welcome": "Welcome to my little piece of the internet. I'm a Full-Stack Software Engineer based in San Francisco with a passion for building innovative web applications and AI-powered solutions. I specialize in React, Next.js, TypeScript, and machine learning integration.",
+    "welcome": "Welcome to my little piece of the internet. I'm the Co-Founder of agentShop — the commerce intelligence layer that turns AI conversations into consultative sales. I'm a Full-Stack Software Engineer based in San Francisco, specializing in React, Next.js, TypeScript, and AI/ML integration.",
     "imageCaption": "dinner with Stanford's next generation of entrepreneurs!",
     "aboutMe": "About Me",
-    "aboutMeText": "I'm a recent Computer Science graduate from Sonoma State University with hands-on experience building production applications. My journey spans from research in explainable AI for cancer diagnosis to building AI-powered bookkeeping platforms at PomJuice, where I architected systems that reduced manual effort by 80% and achieved 95%+ classification accuracy.",
+    "aboutMeText": "I'm the Co-Founder of agentShop, helping brands show up where AI is deciding what customers buy. Before that, I evaluated 500+ startups as a Portfolio Tech Analyst at MARL Accelerator, built AI-powered bookkeeping at PomJuice, and conducted research in explainable AI for brain tumor diagnosis at Sonoma State University, where I graduated with honors.",
     "technicalSkills": "Technical Skills",
     "frontend": "Frontend",
     "frontendSkills": "React, Next.js, TypeScript, Tailwind CSS, HTML/CSS",
@@ -33,7 +33,7 @@
     "whatIWrite": "What I Write About",
     "whatIWriteText": "On my technical blog, I share comprehensive reviews of frontier AI models like GPT-5, Claude Opus, and DeepSeek, along with React tutorials, TypeScript guides, and developer tools comparisons. I believe in learning in public and sharing knowledge with the developer community.",
     "currentFocus": "Current Focus",
-    "currentFocusText": "I'm currently exploring the intersection of AI and software engineering, particularly how large language models can enhance developer productivity. When I'm not coding, you can find me exploring the beautiful Bay Area, working on side projects, or diving deep into the latest tech trends.",
+    "currentFocusText": "I'm currently building agentShop — the commerce intelligence layer that helps brands own the AI shelf across ChatGPT, Gemini, and Perplexity. When I'm not building, you can find me exploring the Bay Area, writing about AI on my blog, or diving deep into the latest tech trends.",
     "letsConnect": "Let's Connect",
     "letsConnectText": "I'm always interested in connecting with fellow developers, discussing new technologies, or exploring collaboration opportunities. Feel free to reach out through any of the channels below!"
   },

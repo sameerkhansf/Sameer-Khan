@@ -14,7 +14,7 @@ export interface Expertise {
 export const profileData = {
   name: "Sameer Khan",
   pronouns: "he/him",
-  bio: "New grad Software Engineer with a B.S. in Computer Science from Sonoma State University. Expertise in full-stack development, AI/ML, and modern web technologies.",
+  bio: "Co-Founder of agentShop, the commerce intelligence layer that turns AI conversations into consultative sales. B.S. in Computer Science from Sonoma State University (Honors). Expertise in full-stack development, AI/ML, and modern web technologies.",
   imageUrl: "/profile.jpg",
   contact: {
     email: "khansam@sonoma.edu",
@@ -56,19 +56,19 @@ export const profileData = {
       area: "Full-Stack Development",
       level: "Advanced",
       technologies: ["React", "Next.js", "Node.js", "TypeScript", "MongoDB"],
-      relatedProjects: ["Expense Tracker", "Books Done Right"],
+      relatedProjects: ["Expense Tracker", "Books Done Right", "agentShop"],
     },
     {
       area: "AI/ML & Computer Vision",
-      level: "Intermediate",
-      technologies: ["Python", "TensorFlow", "CNN", "LLM"],
-      relatedProjects: ["BioSoundSCape", "Explainable AI Research"],
+      level: "Advanced",
+      technologies: ["Python", "TensorFlow", "CNN", "LLM", "AI Agents"],
+      relatedProjects: ["BioSoundSCape", "Explainable AI Research", "MARL Analyst Agent"],
     },
     {
       area: "Cloud & DevOps",
       level: "Intermediate",
       technologies: ["AWS", "Docker", "CI/CD", "CodePipeline"],
-      relatedProjects: ["Stealth Startup Infrastructure"],
+      relatedProjects: ["CmdTower Infrastructure"],
     },
     {
       area: "Systems Programming",

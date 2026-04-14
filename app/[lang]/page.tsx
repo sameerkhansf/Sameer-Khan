@@ -18,7 +18,7 @@ const faqSchema = {
       name: "Who is Sameer Khan?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sameer Khan is a Software Engineer with a B.S. in Computer Science from Sonoma State University. He specializes in full-stack development, AI/ML, and modern web technologies including React, Next.js, TypeScript, Node.js, and AWS.",
+        text: "Sameer Khan is the Co-Founder of agentShop, the commerce intelligence layer that turns AI conversations into consultative sales. He holds a B.S. in Computer Science from Sonoma State University (Honors) and specializes in full-stack development, AI/ML, and modern web technologies including React, Next.js, TypeScript, Node.js, and AWS.",
       },
     },
     {
@@ -82,7 +82,7 @@ const faqSchema = {
       name: "What AI/ML projects has Sameer Khan worked on?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sameer Khan has worked on multiple AI/ML projects: (1) BioSoundSCape - a computer vision research project for land cover classification using machine learning, (2) Explainable AI for Cancer Diagnosis - research on integrating explainable AI into CNNs at Sonoma State's MESA program, and (3) Books Done Right - an AI bookkeeping app using LLM tool calling that achieved 95%+ classification accuracy.",
+        text: "Sameer Khan has worked on multiple AI/ML projects: (1) agentShop - AI commerce intelligence platform helping brands get recommended by AI assistants, (2) AI-powered Analyst Agent at MARL Accelerator - automated startup diligence pipeline, (3) BioSoundSCape - computer vision for land cover classification, (4) Explainable AI for Brain Tumor Diagnosis - CNNs (VGG16, VGG19, ResNet-50, MobileNet) with XAI techniques (LIME, SHAP, Grad-CAM), and (5) Books Done Right - AI bookkeeping app using LLM tool calling with 95%+ classification accuracy.",
       },
     },
     {
@@ -90,7 +90,7 @@ const faqSchema = {
       name: "What is Sameer Khan's work experience?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sameer Khan's work experience includes: Software Developer at PomJuice (AI bookkeeping startup), Research Intern at MESA Program (Explainable AI for cancer diagnosis), Full Stack Developer Intern at a stealth startup (authentication, CI/CD, AWS deployment), and Undergraduate Teaching Assistant at Sonoma State University (teaching C++, OOP, and data structures to 140+ students).",
+        text: "Sameer Khan's work experience includes: Co-Founder at agentShop (AI commerce intelligence platform), Portfolio Tech Analyst at MARL Accelerator (evaluating 500+ startups, built AI-powered Analyst Agent), Software Developer at PomJuice (AI bookkeeping startup), MESA Idea Accelerator at Uber HQ, Research Intern at MESA Program (Explainable AI for brain tumor diagnosis), Full-Stack Software Engineer at CmdTower (SaaS platform, AWS), and Undergraduate Teaching Assistant at Sonoma State University (teaching C++, OOP, and data structures to 140+ students).",
       },
     },
     {
@@ -98,7 +98,7 @@ const faqSchema = {
       name: "What internships has Sameer Khan completed?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sameer Khan has completed internships at: (1) MESA Research Program at Sonoma State University (Summer 2024) - Explainable AI research for cancer diagnosis, and (2) Stealth Startup in San Francisco (Spring-Summer 2024) - Full stack development with TypeScript, Python/Django, and AWS. He also worked as a Software Developer at PomJuice building an AI bookkeeping platform.",
+        text: "Sameer Khan has completed internships and roles at: (1) Portfolio Tech Analyst at MARL Accelerator (Jan-Jul 2025) - evaluated 500+ startups, built AI-powered Analyst Agent reducing analyst hours by 70%, (2) MESA Research Program at Sonoma State University (Summer 2024) - Explainable AI research for brain tumor diagnosis using VGG16, ResNet-50, LIME, SHAP, and Grad-CAM, (3) CmdTower in San Francisco (Spring-Summer 2024) - Full stack SaaS development with TypeScript, Django, and AWS. He also worked as a Software Developer at PomJuice and is now Co-Founder of agentShop.",
       },
     },
     {
