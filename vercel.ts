@@ -2,6 +2,10 @@ import type { VercelConfig } from "@vercel/config/v1";
 
 export const config: VercelConfig = {
   regions: ["sfo1"],
+  // gh-aw pushes agent evidence to memory/* branches (no app dir) — skip
+  // building those. Exit 0 = ignore build, exit 1 = build.
+  ignoreCommand:
+    'case "$VERCEL_GIT_COMMIT_REF" in memory/*) exit 0;; *) exit 1;; esac',
   headers: [
     {
       source: "/(.*)",
