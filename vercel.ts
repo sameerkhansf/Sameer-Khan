@@ -32,15 +32,16 @@ export const config: VercelConfig = {
       ],
     },
     // Paths that content-negotiate markdown via Accept (see proxy.js) must
-    // tell caches the response varies by Accept.
+    // tell caches the response varies by Accept. trailingSlash: true means
+    // canonical paths end in "/", so cover both forms.
     { source: "/", headers: [{ key: "Vary", value: "Accept" }] },
-    { source: "/:lang", headers: [{ key: "Vary", value: "Accept" }] },
+    { source: "/index.md", headers: [{ key: "Vary", value: "Accept" }] },
     {
-      source: "/blog/:slug*",
+      source: "/((?:en-US|es|fr|de|ja|zh)/?)",
       headers: [{ key: "Vary", value: "Accept" }],
     },
     {
-      source: "/:lang/blog/:slug*",
+      source: "/((?:en-US/|es/|fr/|de/|ja/|zh/)?blog/.+)",
       headers: [{ key: "Vary", value: "Accept" }],
     },
   ],
