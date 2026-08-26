@@ -695,14 +695,20 @@ Full-Stack Software Engineer | AI/ML Enthusiast | Technical Writer
 
 ## Blog index
 
-<!-- count starts -->18<!-- count ends --> posts. [Atom/RSS feed](https://samkhan.net/rss.xml).
+<!-- count starts -->19<!-- count ends --> posts. [Atom/RSS feed](https://samkhan.net/rss.xml).
 
 <!-- index starts -->
 ### Developer Tools
 
+* [Running gh-aw agents on NVIDIA free NIM endpoints](https://samkhan.net/blog/running-gh-aw-agents-on-nvidia-free-nim-endpoints/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/running-gh-aw-agents-on-nvidia-free-nim-endpoints.mdx)) - 2026-08-26
 * [Playwright MCP Setup Guide for Claude Code](https://samkhan.net/blog/playwright-mcp-claude-code-browser-automation/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/playwright-mcp-claude-code-browser-automation.mdx)) - 2025-12-14
 * [Cursor vs Copilot vs Claude Code: 2025 Comparison](https://samkhan.net/blog/ai-coding-tools-comparison-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/ai-coding-tools-comparison-2025.mdx)) - 2025-12-12
 * [How I Cut My Debugging Time in Half as a React Developer](https://samkhan.net/blog/how-i-cut-debugging-time-in-half/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/how-i-cut-debugging-time-in-half.mdx)) - 2025-12-12
+
+### Web Development
+
+* [TypeScript Type vs Interface: When to Use Each (2025)](https://samkhan.net/blog/typescript-type-vs-interface-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/typescript-type-vs-interface-2025.mdx)) - 2025-12-12
+* [useEffect Guide: Fix Common React Problems 2025](https://samkhan.net/blog/useeffect-complete-guide-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/useeffect-complete-guide-2025.mdx)) - 2025-12-12
 
 ### AI
 
@@ -718,11 +724,6 @@ Full-Stack Software Engineer | AI/ML Enthusiast | Technical Writer
 * [Mistral Devstral 2 Review: Agentic Coding Model](https://samkhan.net/blog/mistral-devstral-2-agentic-coding-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/mistral-devstral-2-agentic-coding-review-2025.mdx)) - 2025-12-12
 * [Mistral Large 3 Review: GPT-5.2 Competitor?](https://samkhan.net/blog/mistral-large-3-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/mistral-large-3-review-2025.mdx)) - 2025-12-12
 * [Prompt Engineering Guide: Better AI Outputs](https://samkhan.net/blog/the-art-of-prompt-engineering/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/the-art-of-prompt-engineering.mdx)) - 2025-12-12
-
-### Web Development
-
-* [TypeScript Type vs Interface: When to Use Each (2025)](https://samkhan.net/blog/typescript-type-vs-interface-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/typescript-type-vs-interface-2025.mdx)) - 2025-12-12
-* [useEffect Guide: Fix Common React Problems 2025](https://samkhan.net/blog/useeffect-complete-guide-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/useeffect-complete-guide-2025.mdx)) - 2025-12-12
 
 ### Projects
 
