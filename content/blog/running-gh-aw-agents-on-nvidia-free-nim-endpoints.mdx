@@ -21,6 +21,7 @@ Three real failures occurred in sequence before achieving a green run:
 3. **The agentics sample's timeout-minutes: 15 killed a successful 16.3-minute research session** - Increased timeout to 30 minutes to accommodate longer research sessions
 
 Additional verified facts:
+
 - NVIDIA NIM serves the `/v1/chat/completions` endpoint but returns 404 for `/v1/responses` and `/v1/messages` (verified via curl testing)
 - Therefore, the Copilot engine's default completions wire API is the only viable fit
 - The threat-detection step requires the larger free model `nvidia/nemotron-3-super-120b-a12b` to emit the strict THREAT_DETECTION_RESULT JSON format
@@ -28,9 +29,10 @@ Additional verified facts:
 - The primary diagnosis tool is `gh aw audit (run-id)` for inspecting workflow executions
 
 Sources consulted:
-- GitHub Agentic Workflows documentation: https://github.github.com/gh-aw/ (accessed 2026-08-26)
-- GitHub next agentics repository: https://github.com/githubnext/agentics (accessed 2026-08-26)
-- NVIDIA models catalog: https://build.nvidia.com/models (accessed 2026-08-26)
+
+- GitHub Agentic Workflows documentation: <https://github.github.com/gh-aw/> (accessed 2026-08-26)
+- GitHub next agentics repository: <https://github.com/githubnext/agentics> (accessed 2026-08-26)
+- NVIDIA models catalog: <https://build.nvidia.com/models> (accessed 2026-08-26)
 
 The working configuration involves setting appropriate values in the agent configuration files to bypass the AWF proxy limitations, disable unwanted token steering, and increase session timeouts to enable productive research sessions with NVIDIA's free AI models.
 
