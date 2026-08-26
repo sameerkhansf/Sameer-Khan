@@ -2,6 +2,9 @@ import type { VercelConfig } from "@vercel/config/v1";
 
 export const config: VercelConfig = {
   regions: ["sfo1"],
+  // Lockfile-exact installs: a preview build once flaked with "TypeScript
+  // not installed" under default npm install; npm ci is deterministic.
+  installCommand: "npm ci",
   // gh-aw pushes agent evidence to memory/* branches (no app dir) — skip
   // building those. Exit 0 = ignore build, exit 1 = build.
   ignoreCommand:
