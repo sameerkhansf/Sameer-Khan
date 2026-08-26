@@ -61,7 +61,7 @@ tools:
     max-file-size: 1048576
     max-file-count: 100
 
-timeout-minutes: 25
+timeout-minutes: 40
 
 ---
 
