@@ -23,8 +23,40 @@ function getLocale(request) {
   return match(languages, locales, defaultLocale);
 }
 
+// acceptmarkdown.com content negotiation: pages with a markdown equivalent
+// serve it when the request explicitly accepts text/markdown.
+function markdownRewrite(request) {
+  const accept = request.headers.get("accept") || "";
+  if (!accept.includes("text/markdown")) return null;
+
+  // Normalize: strip trailing slash and any locale prefix
+  let pathname = request.nextUrl.pathname.replace(/\/$/, "");
+  for (const locale of locales) {
+    if (pathname === `/${locale}`) pathname = "";
+    else if (pathname.startsWith(`/${locale}/`))
+      pathname = pathname.slice(locale.length + 1);
+  }
+
+  let target = null;
+  if (pathname === "") target = "/index.md";
+  else {
+    const post = pathname.match(/^\/blog\/([\w-]+)$/);
+    if (post) target = `/blog/${post[1]}.md`;
+  }
+  if (!target) return null;
+
+  const url = request.nextUrl.clone();
+  url.pathname = target;
+  const response = NextResponse.rewrite(url);
+  response.headers.set("Vary", "Accept");
+  return response;
+}
+
 export function proxy(request) {
   const { pathname } = request.nextUrl;
+
+  const markdown = markdownRewrite(request);
+  if (markdown) return markdown;
 
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
