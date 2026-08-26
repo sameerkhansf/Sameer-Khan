@@ -1,0 +1,83 @@
+---
+title: "Running Gemini CLI v0.57.0 with Cloud Workstations OAuth fixes"
+description: "Google Gemini CLI v0.57.0 released August 25, 2026 adds dynamic OAuth redirect URI resolution for Cloud Workstations, IDE connection stability fixes, eval validation framework, and silent retries for capacity errors."
+date: "2026-08-26"
+author: "Sameer Khan"
+tags: ["AI", "Gemini CLI", "Google", "Developer Tools", "CLI", "OAuth"]
+category: "Developer Tools"
+published: true
+---
+
+I was setting up Gemini CLI inside a Google Cloud Workstation and hit an OAuth redirect URI mismatch — the CLI couldn't dynamically resolve the proxy URL. Version 0.57.0 fixes this plus several stability improvements.
+
+## What's new in v0.57.0
+
+Released August 25, 2026, the headline fix is **dynamic Cloud Workstations proxy redirect URI resolution** for OAuth flows ([#28688](https://github.com/google-gemini/gemini-cli/pull/28688)). Previously, the CLI used a hardcoded redirect URI that didn't match Cloud Workstations' proxy URL pattern, breaking authentication.
+
+Other notable changes:
+
+- **IDE connection stability** — fixed swallowed directory mismatch errors when connecting to VS Code and other editors ([#28729](https://github.com/google-gemini/gemini-cli/pull/28729))
+- **Eval validation framework** — added tool call formatter and failure summaries for automated evaluation ([#28344](https://github.com/google-gemini/gemini-cli/pull/28344), [#28305](https://github.com/google-gemini/gemini-cli/pull/28305))
+- **Silent retries for capacity errors** — context-aware retries with availability TTL to handle transient capacity exhaustion ([#28790](https://github.com/google-gemini/gemini-cli/pull/28790))
+- **Multi-turn cancellation rollback** — entire request rolls back on cancellation/abort instead of leaving partial state ([#28801](https://github.com/google-gemini/gemini-cli/pull/28801))
+- **Git environment normalization** — resolves workspace state mismatch between CLI and git ([#28792](https://github.com/google-gemini/gemini-cli/pull/28792))
+- **TUI timeout fixes** — prevents indefinite hangs by adding execution timeouts ([#28812](https://github.com/google-gemini/gemini-cli/pull/28812))
+- **Sub-agent handoff token regression fix** — resolves token loss on startup ([#28882](https://github.com/google-gemini/gemini-cli/pull/28882))
+
+## Installation
+
+```bash
+npm install -g @google/gemini-cli@latest
+# or for the preview channel
+npm install -g @google/gemini-cli@preview
+```
+
+Verify the version:
+
+```bash
+gemini --version
+# 0.57.0
+```
+
+## Testing the Cloud Workstations OAuth fix
+
+If you use Cloud Workstations, the OAuth flow should now work without manual configuration. The CLI detects the proxy environment and constructs the correct redirect URI automatically.
+
+```bash
+# Inside a Cloud Workstation
+gemini auth login
+# Opens browser with correct redirect URI for the proxy
+```
+
+## Eval validation example
+
+The new eval framework lets you validate tool calling behavior programmatically:
+
+```bash
+# Run eval suite
+gemini eval run --suite my-eval-suite
+
+# Generate coverage report
+gemini eval coverage --output coverage.json
+```
+
+## Capacity error handling
+
+The silent retry logic is transparent but you'll notice fewer "capacity exhausted" errors during peak usage. The CLI now:
+
+1. Detects capacity errors (HTTP 429/503 with specific error codes)
+2. Waits with exponential backoff + jitter
+3. Respects an availability TTL cache to avoid hammering exhausted endpoints
+4. Retries the full multi-turn request atomically
+
+## Sources
+
+- [Gemini CLI v0.57.0 release](https://github.com/google-gemini/gemini-cli/releases/tag/v0.57.0) (accessed 2026-08-26)
+- [PR #28688: Dynamic Cloud Workstations OAuth redirect](https://github.com/google-gemini/gemini-cli/pull/28688)
+- [PR #28790: Silent retries for capacity errors](https://github.com/google-gemini/gemini-cli/pull/28790)
+- [PR #28344: Eval validation framework](https://github.com/google-gemini/gemini-cli/pull/28344)
+- [Gemini CLI changelog](https://github.com/google-gemini/gemini-cli/blob/main/docs/changelogs/latest.md) (accessed 2026-08-26)
+
+---
+
+*Tested with `@google/gemini-cli@0.57.0` on Node 20.18.0*
