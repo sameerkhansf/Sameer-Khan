@@ -18,8 +18,8 @@ Comprehensive review of Claude Opus 4.5, Anthropic's latest frontier model. Comp
 
 **Author:** Sameer Khan
 **Category:** AI
-**Reading Time:** 9 min read
-**Word Count:** 1791
+**Reading Time:** 10 min read
+**Word Count:** 1825
 
 ---
 
@@ -33,6 +33,7 @@ After extensive testing across coding, reasoning, and general development tasks,
 **Claude Opus 4.5** is Anthropic's latest general-purpose frontier model, released December 2025. It's designed to compete with GPT-5.2 across reasoning, coding, and general capabilities.
 
 **Key Numbers:**
+
 - **ARC-AGI-2:** 48.1% (vs GPT-5.2's 52.9%)
 - **SWE-Bench Pro:** 52.3% (vs GPT-5.2's 55.6%)
 - **GPQA Diamond:** 90.8% (vs GPT-5.2's 92.4%)
@@ -55,6 +56,7 @@ After extensive testing across coding, reasoning, and general development tasks,
 ### Constitutional AI Approach
 
 Anthropic's "Constitutional AI" training emphasizes:
+
 - **Helpfulness** - Providing useful, accurate information
 - **Harmlessness** - Avoiding harmful outputs
 - **Honesty** - Admitting uncertainty, avoiding fabrication
@@ -69,7 +71,7 @@ This shows in Claude's behavior: it's more likely to admit uncertainty, ask clar
 ### Reasoning Benchmarks
 
 | Benchmark | Claude Opus 4.5 | GPT-5.2 Thinking | GPT-5.2 Pro | Mistral Large 3 |
-|-----------|----------------|------------------|--------------|-----------------|
+| ----------- | ---------------- | ------------------ | -------------- | ----------------- |
 | **ARC-AGI-2** | 48.1% | 52.9% | 54.2% | 49.8% |
 | **GPQA Diamond** | 90.8% | 92.4% | 93.2% | 90.5% |
 | **AIME 2025** | 97.2% | 100% | 100% | 96.8% |
@@ -80,7 +82,7 @@ This shows in Claude's behavior: it's more likely to admit uncertainty, ask clar
 ### Coding Benchmarks
 
 | Benchmark | Claude Opus 4.5 | GPT-5.2 Thinking | GPT-5.1-Codex-Max | Mistral Devstral 2 |
-|-----------|----------------|------------------|-------------------|-------------------|
+| ----------- | ---------------- | ------------------ | ------------------- | ------------------- |
 | **SWE-Bench Pro** | 52.3% | 55.6% | 54.2% | 56.2% |
 | **SWE-Bench Verified** | 77.1% | 80.0% | 79.8% | 81.2% |
 | **HumanEval** | 91.2% | 94.1% | 95.3% | 95.1% |
@@ -91,7 +93,7 @@ This shows in Claude's behavior: it's more likely to admit uncertainty, ask clar
 ### General Capabilities
 
 | Task Category | Claude Opus 4.5 | GPT-5.2 Thinking |
-|---------------|----------------|------------------|
+| --------------- | ---------------- | ------------------ |
 | **Writing Quality** | Excellent | Excellent |
 | **Code Explanation** | Excellent | Very Good |
 | **Math Problem Solving** | Very Good | Excellent |
@@ -107,6 +109,7 @@ This shows in Claude's behavior: it's more likely to admit uncertainty, ask clar
 **Problem:** Design and implement a distributed caching system with Redis, including cache invalidation, consistency guarantees, and monitoring.
 
 **Claude Opus 4.5's Response:**
+
 - Proposed comprehensive architecture
 - Explained design decisions clearly
 - Implemented Redis integration with proper patterns
@@ -121,6 +124,7 @@ This shows in Claude's behavior: it's more likely to admit uncertainty, ask clar
 **Problem:** Review a complex codebase for issues, performance problems, and improvements.
 
 **Claude Opus 4.5's Response:**
+
 - Identified multiple categories of issues
 - Explained each issue clearly with examples
 - Provided specific recommendations
@@ -135,6 +139,7 @@ This shows in Claude's behavior: it's more likely to admit uncertainty, ask clar
 **Problem:** Prove a complex theorem with multiple steps.
 
 **Claude Opus 4.5's Response:**
+
 - Structured proof clearly
 - Explained each step thoroughly
 - Used proper mathematical notation
@@ -148,6 +153,7 @@ This shows in Claude's behavior: it's more likely to admit uncertainty, ask clar
 **Problem:** Design a microservices architecture for a SaaS platform.
 
 **Claude Opus 4.5's Response:**
+
 - Proposed architecture with clear service boundaries
 - Explained trade-offs thoroughly
 - Considered scalability and reliability
@@ -162,6 +168,7 @@ This shows in Claude's behavior: it's more likely to admit uncertainty, ask clar
 **Problem:** Explain a complex TypeScript type system to a junior developer.
 
 **Claude Opus 4.5's Response:**
+
 - Built explanation from basics
 - Used analogies effectively
 - Showed examples progressively
@@ -177,6 +184,7 @@ This shows in Claude's behavior: it's more likely to admit uncertainty, ask clar
 ### 1. Excellent Explanations
 
 Claude Opus 4.5 excels at explaining code, concepts, and reasoning. It's the best model for:
+
 - Teaching and learning
 - Code reviews
 - Documentation generation
@@ -185,6 +193,7 @@ Claude Opus 4.5 excels at explaining code, concepts, and reasoning. It's the bes
 ### 2. Safety and Alignment
 
 Claude's Constitutional AI training makes it:
+
 - More likely to admit uncertainty
 - Better at refusing harmful requests
 - More transparent about limitations
@@ -193,6 +202,7 @@ Claude's Constitutional AI training makes it:
 ### 3. Long Context Handling
 
 While the context window is 200K tokens, Claude handles very long contexts effectively:
+
 - Better retrieval from long documents
 - Maintains coherence across long conversations
 - Effective at synthesizing information from long inputs
@@ -200,6 +210,7 @@ While the context window is 200K tokens, Claude handles very long contexts effec
 ### 4. Polished Outputs
 
 Claude's outputs are consistently:
+
 - Well-structured
 - Properly formatted
 - Thoroughly documented
@@ -208,6 +219,7 @@ Claude's outputs are consistently:
 ### 5. Reasoning Transparency
 
 Claude is better at:
+
 - Explaining its reasoning
 - Showing work step-by-step
 - Admitting when uncertain
@@ -220,6 +232,7 @@ Claude is better at:
 ### 1. Cost
 
 At $15/$75 per million tokens, Claude Opus 4.5 is:
+
 - 5x more expensive than GPT-5.2 for input
 - 5x more expensive than GPT-5.2 for output
 - 30x more expensive than Mistral Large 3
@@ -233,6 +246,7 @@ Claude trails GPT-5.2 by 2-5 percentage points on most benchmarks. For applicati
 ### 3. Coding Performance
 
 While good, Claude isn't the best for pure coding:
+
 - Trails GPT-5.2 by 3-4%
 - Trails specialized coding models
 - Slower code generation
@@ -248,7 +262,7 @@ Claude Opus 4.5 is text-only. GPT-5.2 offers vision capabilities.
 ### API Pricing Comparison
 
 | Model | Input (per 1M tokens) | Output (per 1M tokens) | Ratio |
-|-------|----------------------|------------------------|-------|
+| ------- | ---------------------- | ------------------------ | ------- |
 | **Claude Opus 4.5** | $15.00 | $75.00 | 5:1 |
 | **GPT-5.2 Thinking** | $3.00 | $14.00 | 4.7:1 |
 | **GPT-5.2 Pro** | $30.00 | $168.00 | 5.6:1 |
@@ -259,6 +273,7 @@ Claude Opus 4.5 is text-only. GPT-5.2 offers vision capabilities.
 ### When Cost is Justified
 
 Claude's premium might be worth it for:
+
 - **Code reviews** - Superior explanations
 - **Teaching/education** - Best teaching style
 - **Documentation** - Excellent documentation generation
@@ -272,6 +287,7 @@ Claude's premium might be worth it for:
 ### Claude Opus 4.5 vs GPT-5.2
 
 **Claude Advantages:**
+
 - Better explanations and teaching
 - Better safety/alignment
 - Better long-context handling
@@ -279,6 +295,7 @@ Claude's premium might be worth it for:
 - Better code reviews
 
 **GPT-5.2 Advantages:**
+
 - Better peak performance (2-5%)
 - 5x cheaper
 - Multimodal capabilities
@@ -290,11 +307,13 @@ Claude's premium might be worth it for:
 ### Claude Opus 4.5 vs Mistral Large 3
 
 **Claude Advantages:**
+
 - Better performance (2-5%)
 - Better explanations
 - Better safety
 
 **Mistral Advantages:**
+
 - 30x cheaper
 - Competitive performance
 - Better value
@@ -305,7 +324,7 @@ Claude's premium might be worth it for:
 
 ## Use Cases
 
-### Best For:
+### Best For
 
 1. **Code Reviews** - Superior analysis and explanations
 2. **Teaching/Learning** - Best teaching style
@@ -314,7 +333,7 @@ Claude's premium might be worth it for:
 5. **Long Documents** - Better long-context synthesis
 6. **Safety-Critical** - Better safety/alignment
 
-### Not Ideal For:
+### Not Ideal For
 
 1. **High-Volume Use** - Too expensive
 2. **Peak Performance Needed** - GPT-5.2 is better
@@ -346,6 +365,7 @@ Anthropic's API is clean and well-documented.
 ### Response Quality
 
 Claude's responses are consistently:
+
 - **Well-structured** - Clear organization
 - **Thoroughly explained** - Detailed reasoning
 - **Professionally formatted** - Clean presentation

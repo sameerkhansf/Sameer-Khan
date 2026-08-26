@@ -19,7 +19,7 @@ Complete review of Mistral Large 3 (2512), the latest frontier model from Mistra
 **Author:** Sameer Khan
 **Category:** AI
 **Reading Time:** 9 min read
-**Word Count:** 1633
+**Word Count:** 1675
 
 ---
 
@@ -33,6 +33,7 @@ After extensive testing on coding, reasoning, and general tasks, here's the comp
 **Mistral Large 3 (2512)** is Mistral's latest general-purpose frontier model, released December 2, 2025. It's designed to match GPT-5.2 and Claude Opus 4.5 across reasoning, coding, and general capabilities.
 
 **Key Numbers:**
+
 - **ARC-AGI-2:** 49.8% (vs GPT-5.2's 52.9%, Claude's 48.1%)
 - **SWE-Bench Pro:** 53.2% (vs GPT-5.2's 55.6%, Claude's 52.3%)
 - **GPQA Diamond:** 90.5% (vs GPT-5.2's 92.4%, Claude's 90.8%)
@@ -57,11 +58,13 @@ After extensive testing on coding, reasoning, and general tasks, here's the comp
 Mistral took a different approach than GPT-5.2's three-tier system (Instant/Thinking/Pro). Large 3 is a single model optimized for balanced performance across all tasks.
 
 **Advantages:**
+
 - Simpler API (no mode selection)
 - Consistent behavior
 - Lower complexity
 
 **Disadvantages:**
+
 - Less control over compute allocation
 - Can't optimize for speed vs accuracy trade-offs
 
@@ -72,7 +75,7 @@ Mistral took a different approach than GPT-5.2's three-tier system (Instant/Thin
 ### Reasoning Benchmarks
 
 | Benchmark | Mistral Large 3 | GPT-5.2 Thinking | Claude Opus 4.5 | GPT-5.1 Thinking |
-|-----------|----------------|------------------|-----------------|------------------|
+| ----------- | ---------------- | ------------------ | ----------------- | ------------------ |
 | **ARC-AGI-2** | 49.8% | 52.9% | 48.1% | 17.6% |
 | **GPQA Diamond** | 90.5% | 92.4% | 90.8% | 88.1% |
 | **AIME 2025** | 96.8% | 100% | 97.2% | 94.0% |
@@ -83,7 +86,7 @@ Mistral took a different approach than GPT-5.2's three-tier system (Instant/Thin
 ### Coding Benchmarks
 
 | Benchmark | Mistral Large 3 | GPT-5.2 Thinking | Claude Opus 4.5 |
-|-----------|----------------|------------------|-----------------|
+| ----------- | ---------------- | ------------------ | ----------------- |
 | **SWE-Bench Pro** | 53.2% | 55.6% | 52.3% |
 | **SWE-Bench Verified** | 78.5% | 80.0% | 77.1% |
 | **HumanEval** | 93.2% | 94.1% | 91.2% |
@@ -94,7 +97,7 @@ Mistral took a different approach than GPT-5.2's three-tier system (Instant/Thin
 ### General Capabilities
 
 | Task Category | Mistral Large 3 | GPT-5.2 Thinking | Claude Opus 4.5 |
-|---------------|----------------|------------------|-----------------|
+| --------------- | ---------------- | ------------------ | ----------------- |
 | **Writing Quality** | Excellent | Excellent | Excellent |
 | **Code Explanation** | Very Good | Excellent | Very Good |
 | **Math Problem Solving** | Very Good | Excellent | Very Good |
@@ -109,6 +112,7 @@ Mistral took a different approach than GPT-5.2's three-tier system (Instant/Thin
 **Problem:** Design and implement a distributed task queue system with Redis backend, worker pool, retry logic, and monitoring.
 
 **Large 3's Response:**
+
 - Proposed architecture with Redis as broker
 - Designed worker pool with concurrency control
 - Implemented retry logic with exponential backoff
@@ -122,6 +126,7 @@ Mistral took a different approach than GPT-5.2's three-tier system (Instant/Thin
 **Problem:** Prove that the sum of two odd numbers is even.
 
 **Large 3's Response:**
+
 - Stated the theorem clearly
 - Used formal mathematical notation
 - Provided step-by-step proof
@@ -134,6 +139,7 @@ Mistral took a different approach than GPT-5.2's three-tier system (Instant/Thin
 **Problem:** Explain quantum entanglement in accessible terms.
 
 **Large 3's Response:**
+
 - Started with intuitive analogy
 - Built up to formal explanation
 - Used diagrams (described)
@@ -147,6 +153,7 @@ Mistral took a different approach than GPT-5.2's three-tier system (Instant/Thin
 **Problem:** A logic puzzle requiring multiple inference steps.
 
 **Large 3's Response:**
+
 - Broke down the problem systematically
 - Made inferences step by step
 - Showed work clearly
@@ -159,6 +166,7 @@ Mistral took a different approach than GPT-5.2's three-tier system (Instant/Thin
 **Problem:** Review and refactor a messy React component.
 
 **Large 3's Response:**
+
 - Identified all issues (performance, readability, bugs)
 - Proposed refactoring plan
 - Refactored code with improvements
@@ -174,7 +182,7 @@ Mistral took a different approach than GPT-5.2's three-tier system (Instant/Thin
 ### API Pricing Comparison
 
 | Model | Input (per 1M tokens) | Output (per 1M tokens) | Ratio |
-|-------|----------------------|------------------------|-------|
+| ------- | ---------------------- | ------------------------ | ------- |
 | **Mistral Large 3** | $0.50 | $1.50 | 3:1 |
 | **GPT-5.2 Thinking** | $3.00 | $14.00 | 4.7:1 |
 | **Claude Opus 4.5** | $15.00 | $75.00 | 5:1 |
@@ -186,7 +194,7 @@ Mistral took a different approach than GPT-5.2's three-tier system (Instant/Thin
 For a typical task (100K input, 10K output tokens):
 
 | Model | Cost | Performance Score* | Cost/Performance |
-|-------|------|-------------------|------------------|
+| ------- | ------ | ------------------- | ------------------ |
 | **Mistral Large 3** | $0.065 | 0.92 | $0.071 |
 | **GPT-5.2 Thinking** | $0.44 | 1.00 | $0.44 |
 | **Claude Opus 4.5** | $2.25 | 0.90 | $2.50 |
@@ -221,11 +229,13 @@ For a typical task (100K input, 10K output tokens):
 ### Large 3 vs GPT-5.2
 
 **Large 3 Advantages:**
+
 - 6-9x cheaper
 - Simpler API (no mode selection)
 - Better cost-performance ratio
 
 **GPT-5.2 Advantages:**
+
 - Slightly better peak performance (2-3%)
 - 400K context window
 - Three-tier system (Instant/Thinking/Pro)
@@ -236,11 +246,13 @@ For a typical task (100K input, 10K output tokens):
 ### Large 3 vs Claude Opus 4.5
 
 **Large 3 Advantages:**
+
 - 30x cheaper
 - Better coding performance
 - Competitive reasoning
 
 **Claude Opus 4.5 Advantages:**
+
 - Slightly better safety/alignment
 - Better at very long contexts
 - More polished conversational style
@@ -251,14 +263,14 @@ For a typical task (100K input, 10K output tokens):
 
 ## Use Cases
 
-### Best For:
+### Best For
 
 1. **Cost-Sensitive Applications** - When you need frontier-level performance but can't justify GPT-5.2 prices
 2. **Coding Tasks** - Excellent coding performance at fraction of cost
 3. **High-Volume Use** - Cost savings compound at scale
 4. **Balanced Workloads** - Good across reasoning, coding, and general tasks
 
-### Not Ideal For:
+### Not Ideal For
 
 1. **Peak Performance Needed** - GPT-5.2 is 2-3% better
 2. **Very Long Contexts** - 200K may not be enough (use GPT-5.2's 400K)
@@ -292,6 +304,7 @@ The API is straightforward and OpenAI-compatible, making integration easy.
 ### Response Quality
 
 Large 3's responses are:
+
 - **Clear and structured** - Well-organized outputs
 - **Accurate** - High factual accuracy
 - **Consistent** - Less variance than some models
@@ -318,6 +331,7 @@ Large 3's responses are:
 If you need GPT-5.2-level capabilities but can't justify the cost, Large 3 delivers 92% of the performance at 15% of the price. For most applications, that 8% performance gap isn't worth the 6-9x cost premium.
 
 Large 3 particularly shines for:
+
 - High-volume applications where cost compounds
 - Coding tasks where it's competitive with GPT-5.2
 - Applications where 200K context is sufficient

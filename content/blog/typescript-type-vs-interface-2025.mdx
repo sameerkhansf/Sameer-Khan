@@ -18,12 +18,14 @@ After years of writing TypeScript in production, here's my practical guide.
 ## Quick Answer
 
 **Use `interface` for:**
+
 - Object shapes that might be extended or merged
 - Public APIs and library definitions
 - React component props
 - When you want declaration merging
 
 **Use `type` for:**
+
 - Unions, intersections, and computed types
 - Primitives, tuples, and mapped types
 - When you need type aliases
@@ -275,6 +277,7 @@ type UserWithRequiredEmail = RequiredFields<User, 'email'>;
 ### Pattern 1: Extending vs Intersecting
 
 **Interface approach (extending):**
+
 ```typescript
 interface BaseUser {
   id: string;
@@ -288,6 +291,7 @@ interface AdminUser extends BaseUser {
 ```
 
 **Type approach (intersecting):**
+
 ```typescript
 type BaseUser = {
   id: string;
@@ -300,13 +304,15 @@ type AdminUser = BaseUser & {
 }
 ```
 
-**When to use which?** 
+**When to use which?**
+
 - Use `interface` if you might extend `BaseUser` in multiple ways
 - Use `type` if you're doing one-off intersections or combining multiple types
 
 ### Pattern 2: React Component Props
 
 **Standard approach (interface):**
+
 ```typescript
 interface CardProps {
   title: string;
@@ -329,6 +335,7 @@ function Card({ title, children, onClick }: CardProps) {
 ### Pattern 3: API Response Types
 
 **Using type for discriminated unions:**
+
 ```typescript
 type ApiResponse<T> = 
   | { success: true; data: T }
@@ -351,6 +358,7 @@ function handleResponse<T>(response: ApiResponse<T>) {
 ### Pattern 4: Configuration Objects
 
 **Using interface for extendable config:**
+
 ```typescript
 interface DatabaseConfig {
   host: string;
@@ -380,6 +388,7 @@ interface DevelopmentConfig extends DatabaseConfig {
 **Reality:** There's no runtime performance difference. Both are compile-time only. TypeScript erases all type information during compilation.
 
 The only difference is:
+
 - **Interfaces** are checked earlier in the compilation process (can be slightly faster to compile)
 - **Types** are more flexible but might take slightly longer to check complex transformations
 
@@ -389,7 +398,7 @@ The only difference is:
 
 ## Decision Flowchart
 
-```
+```text
 Is it an object shape?
 ├─ Yes → Will it be extended or merged?
 │   ├─ Yes → Use interface
@@ -524,6 +533,7 @@ type UserWithoutTimestamps = Omit<User, 'createdAt' | 'updatedAt'>;
 6. **No performance difference** - both are compile-time only
 
 The "type vs interface" debate often overcomplicates things. In practice:
+
 - Use `interface` for objects (especially extendable ones)
 - Use `type` for everything else
 - Be consistent in your codebase

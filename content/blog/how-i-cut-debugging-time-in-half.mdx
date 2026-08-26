@@ -26,6 +26,7 @@ The most common bug: I assumed state had a certain value, but it didn't.
 **Before:** Console.log everywhere, guessing what went wrong.
 
 **After:** React DevTools + this mental checklist:
+
 - When was this state last updated?
 - What triggered that update?
 - Is there a race condition?
@@ -47,6 +48,7 @@ Infinite loops. Stale closures. Effects firing on every render.
 **Before:** Adding and removing dependencies randomly until it worked.
 
 **After:** I started asking two questions:
+
 1. "What external system am I syncing with?"
 2. "If the answer is 'nothing,' do I even need useEffect?"
 
@@ -72,6 +74,7 @@ Data loads, but the component already unmounted. Or state updates in the wrong o
 **Before:** Sprinkling `setTimeout` and hoping for the best.
 
 **After:** Three rules I now follow:
+
 1. Always handle loading states explicitly
 2. Use React Query or SWR instead of raw fetch
 3. Check if component is mounted before updating state
@@ -95,6 +98,7 @@ Components receiving undefined because something in the chain didn't pass the pr
 **Before:** Adding console.logs at every level until I found the gap.
 
 **After:**
+
 - TypeScript catches most of these at compile time
 - Context for truly global state (but sparingly)
 - Component colocation—keeping state close to where it's used
@@ -108,6 +112,7 @@ Not JavaScript, but they still ate my time.
 **Before:** Randomly changing Tailwind classes until it looked right.
 
 **After:**
+
 - Browser DevTools → Computed tab to see actual values
 - `outline: 1px solid red` on parent containers to visualize layout
 - Understanding that 90% of layout bugs are flexbox or grid misunderstandings
@@ -119,21 +124,27 @@ Not JavaScript, but they still ate my time.
 After trying dozens of debugging tools, here's what I actually use:
 
 ### React DevTools
+
 Free, essential, criminally underused. The Components tab shows real-time props and state. The Profiler shows what's re-rendering and why.
 
 ### TypeScript Strict Mode
+
 Catches so many bugs at compile time. The initial migration is painful, but worth it.
 
 ### React Query / TanStack Query
+
 Handles caching, loading states, and refetching. Eliminated most of my async bugs.
 
 ### Console.table()
+
 Better than console.log for arrays and objects:
+
 ```javascript
 console.table(users); // Actually readable
 ```
 
 ### Cursor / AI Assistant
+
 I pipe error messages directly to AI now. Not for blind copying, but for "what should I be looking for?" It's like having a rubber duck that talks back.
 
 ---
@@ -143,6 +154,7 @@ I pipe error messages directly to AI now. Not for blind copying, but for "what s
 Tools helped, but the bigger change was process.
 
 **I now spend 5 minutes understanding before touching code:**
+
 1. What did I expect to happen?
 2. What actually happened?
 3. What's the smallest test case that reproduces this?
@@ -156,7 +168,7 @@ This sounds obvious, but I used to skip straight to "let me try this" mode. That
 After a month of tracking:
 
 | Metric | Before | After |
-|--------|--------|-------|
+| -------- | -------- | ------- |
 | Avg debugging time | 34 min | 16 min |
 | Bugs fixed first try | 23% | 58% |
 | "What the hell" moments | Many | Fewer |
@@ -168,6 +180,7 @@ The 50% time reduction is nice, but the real win is fewer "I have no idea what's
 ## What I'm Still Bad At
 
 For transparency:
+
 - **Performance bugs** — I still struggle with knowing when to reach for useMemo
 - **Race conditions** — Better, but not solved
 - **CSS grid** — We have a complicated relationship

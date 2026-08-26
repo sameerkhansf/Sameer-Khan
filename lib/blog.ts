@@ -5,6 +5,12 @@ import readingTime from "reading-time";
 
 const POSTS_PATH = path.join(process.cwd(), "content/blog");
 
+function toDateString(value: unknown): string | undefined {
+  if (value instanceof Date) return value.toISOString().slice(0, 10);
+  if (typeof value === "string" && value) return value;
+  return undefined;
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -63,8 +69,10 @@ function readMDXFile(slug: string): BlogPost | null {
     slug,
     title: data.title || "Untitled",
     description: data.description || "",
-    date: data.date || new Date().toISOString(),
-    updated: data.updated,
+    // YAML parses unquoted dates into Date objects; normalize to YYYY-MM-DD
+    // strings so every consumer can treat dates as text.
+    date: toDateString(data.date) || new Date().toISOString(),
+    updated: toDateString(data.updated),
     author: data.author || "Sameer Khan",
     tags: data.tags || [],
     category: data.category || "General",

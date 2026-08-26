@@ -19,6 +19,15 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run typecheck
+      - name: Validate content (frontmatter schema + markdownlint)
+        run: npm run validate:content
+      - name: Check links in posts
+        uses: lycheeverse/lychee-action@v2.9.0
+        with:
+          args: --no-progress --accept 200..=206,403,429 'content/blog/**/*.mdx'
+          fail: true
+      - name: Build (MDX compile gate)
+        run: npm run build
       - name: Update README index
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: npx tsx scripts/update-readme.ts

@@ -18,6 +18,7 @@ After testing it on coding, reasoning, and general tasks, here's what you need t
 **Grok 4.1** is xAI's latest language model, released December 2025. It's positioned as a competitor to GPT-5.2 and Claude Opus 4.5, with particular focus on reasoning and "truthfulness."
 
 **Key Numbers:**
+
 - **ARC-AGI-2:** 45.3% (vs GPT-5.2's 52.9%, Claude's 48.1%)
 - **SWE-Bench Pro:** 50.8% (vs GPT-5.2's 55.6%, Claude's 52.3%)
 - **GPQA Diamond:** 89.2% (vs GPT-5.2's 92.4%, Claude's 90.8%)
@@ -54,7 +55,7 @@ This positioning appeals to users frustrated with what they see as excessive saf
 ### Reasoning Benchmarks
 
 | Benchmark | Grok 4.1 | GPT-5.2 Thinking | Claude Opus 4.5 | Mistral Large 3 |
-|-----------|----------|------------------|-----------------|-----------------|
+| ----------- | ---------- | ------------------ | ----------------- | ----------------- |
 | **ARC-AGI-2** | 45.3% | 52.9% | 48.1% | 49.8% |
 | **GPQA Diamond** | 89.2% | 92.4% | 90.8% | 90.5% |
 | **AIME 2025** | 94.5% | 100% | 97.2% | 96.8% |
@@ -65,7 +66,7 @@ This positioning appeals to users frustrated with what they see as excessive saf
 ### Coding Benchmarks
 
 | Benchmark | Grok 4.1 | GPT-5.2 Thinking | Claude Opus 4.5 | Mistral Large 3 |
-|-----------|----------|------------------|-----------------|-----------------|
+| ----------- | ---------- | ------------------ | ----------------- | ----------------- |
 | **SWE-Bench Pro** | 50.8% | 55.6% | 52.3% | 53.2% |
 | **SWE-Bench Verified** | 75.2% | 80.0% | 77.1% | 78.5% |
 | **HumanEval** | 91.8% | 94.1% | 91.2% | 93.2% |
@@ -82,6 +83,7 @@ This positioning appeals to users frustrated with what they see as excessive saf
 **Problem:** Implement a complete authentication system for a Next.js app.
 
 **Grok 4.1's Response:**
+
 - Generated all necessary files
 - Implemented proper security practices
 - Added TypeScript types
@@ -95,6 +97,7 @@ This positioning appeals to users frustrated with what they see as excessive saf
 **Problem:** Explain a controversial technical topic (AI safety vs capabilities).
 
 **Grok 4.1's Response:**
+
 - Provided balanced perspective
 - Discussed both sides
 - Cited sources
@@ -107,6 +110,7 @@ This positioning appeals to users frustrated with what they see as excessive saf
 **Problem:** Solve a complex optimization problem.
 
 **Grok 4.1's Response:**
+
 - Identified problem type
 - Proposed solution approach
 - Implemented algorithm
@@ -119,6 +123,7 @@ This positioning appeals to users frustrated with what they see as excessive saf
 **Problem:** What are the latest developments in AI? (Using X integration)
 
 **Grok 4.1's Response:**
+
 - Accessed real-time X data
 - Synthesized information from multiple sources
 - Provided current information
@@ -131,6 +136,7 @@ This positioning appeals to users frustrated with what they see as excessive saf
 **Problem:** Review a complex codebase for issues.
 
 **Grok 4.1's Response:**
+
 - Identified multiple issues
 - Provided specific recommendations
 - Explained reasoning
@@ -155,6 +161,7 @@ response = grok.chat(
 ```
 
 This allows Grok to:
+
 - Access real-time discussions
 - Synthesize current events
 - Reference live conversations
@@ -176,7 +183,7 @@ This allows Grok to:
 ### API Pricing
 
 | Model | Input (per 1M tokens) | Output (per 1M tokens) | X Integration |
-|-------|----------------------|------------------------|----------------|
+| ------- | ---------------------- | ------------------------ | ---------------- |
 | **Grok 4.1** | $2.00 | $8.00 | ✅ Yes (with X Premium) |
 | **GPT-5.2 Thinking** | $3.00 | $14.00 | ❌ No |
 | **Claude Opus 4.5** | $15.00 | $75.00 | ❌ No |
@@ -187,6 +194,7 @@ This allows Grok to:
 ### X Premium Requirement
 
 To access X integration:
+
 - **X Premium:** $8/month (basic)
 - **X Premium+:** $16/month (full features)
 
@@ -219,12 +227,14 @@ This adds to the effective cost if you want X integration.
 ### Grok 4.1 vs GPT-5.2
 
 **Grok 4.1 Advantages:**
+
 - Cheaper (33% less for input, 43% less for output)
 - Real-time X data access
 - Less filtering/refusal
 - Good enough for most tasks
 
 **GPT-5.2 Advantages:**
+
 - Better peak performance (5-7% on benchmarks)
 - 400K context window
 - More polished outputs
@@ -235,11 +245,13 @@ This adds to the effective cost if you want X integration.
 ### Grok 4.1 vs Claude Opus 4.5
 
 **Grok 4.1 Advantages:**
+
 - 7.5x cheaper
 - Real-time X data
 - Less filtering
 
 **Claude Opus 4.5 Advantages:**
+
 - Better performance (3-5% on benchmarks)
 - Better safety/alignment
 - More polished outputs
@@ -250,7 +262,7 @@ This adds to the effective cost if you want X integration.
 
 ## Use Cases
 
-### Best For:
+### Best For
 
 1. **Real-Time Information** - When you need current X/Twitter data
 2. **Less Filtered Responses** - When you want more direct answers
@@ -258,7 +270,7 @@ This adds to the effective cost if you want X integration.
 4. **X Ecosystem** - When you're already using X Premium
 5. **Balanced Workloads** - Good across coding, reasoning, general tasks
 
-### Not Ideal For:
+### Not Ideal For
 
 1. **Peak Performance Needed** - GPT-5.2 is better
 2. **Very Long Contexts** - 128K may not be enough
