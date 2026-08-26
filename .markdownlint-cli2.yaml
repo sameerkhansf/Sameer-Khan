@@ -8,3 +8,4 @@ config:
   MD041: false # first line heading — frontmatter comes first
   MD024: { siblings_only: true } # duplicate headings allowed across sections
   MD036: false # bold-as-heading is a deliberate style in review posts
+  MD054: { autolink: false } # <url> autolinks are JSX to MDX — always [text](url)

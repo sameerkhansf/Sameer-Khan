@@ -1,12 +1,28 @@
 ---
-title: Running gh-aw agents on NVIDIA free NIM endpoints
-description: Wiring GitHub Agentic Workflows to use NVIDIA's free hosted NIM endpoints via Copilot BYOK engine mode
+title: "Running gh-aw agents on NVIDIA free NIM endpoints"
+description: "Wiring GitHub Agentic Workflows to use NVIDIA's free hosted NIM endpoints via Copilot BYOK engine mode"
 date: "2026-08-26"
-author: Sameer Khan
-tags: [AI, Developer Tools, GitHub, NVIDIA]
-category: Developer Tools
-published: true
+
+author: "Sameer Khan"
+tags: ["AI","Developer Tools","GitHub","NVIDIA"]
+category: "Developer Tools"
+
+
 ---
+
+# Running gh-aw agents on NVIDIA free NIM endpoints
+
+Wiring GitHub Agentic Workflows to use NVIDIA's free hosted NIM endpoints via Copilot BYOK engine mode
+
+**Published:** August 25, 2026
+
+**Author:** Sameer Khan
+**Category:** Developer Tools
+**Reading Time:** 2 min read
+**Word Count:** 356
+
+---
+
 
 I needed to configure GitHub's Agentic Workflows framework (gh-aw) to work with NVIDIA's free hosted NIM endpoints. The capture note documents the exact configuration and three specific failures encountered before achieving a successful run.
 
@@ -37,3 +53,4 @@ Sources consulted:
 The working configuration involves setting appropriate values in the agent configuration files to bypass the AWF proxy limitations, disable unwanted token steering, and increase session timeouts to enable productive research sessions with NVIDIA's free AI models.
 
 This setup enables developers to leverage NVIDIA's free AI offerings within GitHub's agentic workflow framework without incurring costs, while maintaining the ability to handle complex multi-step reasoning tasks that require strict JSON output formats for steps like threat detection.
+
