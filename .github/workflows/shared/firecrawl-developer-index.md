@@ -3,9 +3,9 @@
 
 <!-- Vendor skill: firecrawl/skills firecrawl-developer-index (installed via firecrawl-cli setup developer-index). Verbatim body. -->
 
-# Firecrawl Developer Index
+# Tool reference: Firecrawl Developer Index
 
-Answer a developer question from the primary source: the issue where the bug was reported, the merged pull request that fixed it, the README or documentation page that states the contract. A blog post that describes a behaviour is a weaker answer than the passage that defines it, so reach for the index first and the open web second.
+This section is a REFERENCE for one search tool available to you — it is not your task. Your actual mission and run contract appear below under their own heading; read on to them before acting. Use this index during research/scouting steps to find primary sources: the issue where a bug was reported, the merged pull request that fixed it, the README or documentation page that states a contract. A blog post that describes a behaviour is a weaker source than the passage that defines it, so reach for the index first and the open web second.
 
 There is **no fixed recipe**. Read the question, decide what kind it is, and choose the approach below. A literal error string wants a different move than "how do I do X". Don't run machinery a question doesn't call for.
 
