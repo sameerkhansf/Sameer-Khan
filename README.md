@@ -702,8 +702,8 @@ Full-Stack Software Engineer | AI/ML Enthusiast | Technical Writer
 
 * [Running gh-aw agents on NVIDIA free NIM endpoints](https://samkhan.net/blog/running-gh-aw-agents-on-nvidia-free-nim-endpoints/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/running-gh-aw-agents-on-nvidia-free-nim-endpoints.mdx)) - 2026-08-26
 * [Playwright MCP Setup Guide for Claude Code](https://samkhan.net/blog/playwright-mcp-claude-code-browser-automation/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/playwright-mcp-claude-code-browser-automation.mdx)) - 2025-12-14
-* [Cursor vs Copilot vs Claude Code: 2025 Comparison](https://samkhan.net/blog/ai-coding-tools-comparison-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/ai-coding-tools-comparison-2025.mdx)) - 2025-12-12
 * [How I Cut My Debugging Time in Half as a React Developer](https://samkhan.net/blog/how-i-cut-debugging-time-in-half/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/how-i-cut-debugging-time-in-half.mdx)) - 2025-12-12
+* [Cursor vs Copilot vs Claude Code: 2025 Comparison](https://samkhan.net/blog/ai-coding-tools-comparison-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/ai-coding-tools-comparison-2025.mdx)) - 2025-12-12
 
 ### AI
 
