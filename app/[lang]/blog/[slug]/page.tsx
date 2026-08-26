@@ -77,6 +77,10 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `https://samkhan.net/${lang}/blog/${slug}`,
+      // llms.txt spec v2: advertise the markdown twin of this page
+      types: {
+        "text/markdown": `https://samkhan.net/blog/${slug}.md`,
+      },
     },
     robots: {
       index: true,
