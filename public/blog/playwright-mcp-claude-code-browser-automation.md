@@ -19,7 +19,7 @@ How to set up Playwright MCP with Claude Code for AI-powered browser automation.
 **Author:** Sameer Khan
 **Category:** Developer Tools
 **Reading Time:** 5 min read
-**Word Count:** 844
+**Word Count:** 848
 
 ---
 
@@ -85,7 +85,7 @@ Claude reads the page and extracts what you need.
 Playwright MCP gives Claude 25 browser tools. You don't need to remember them—Claude picks the right ones automatically. But for reference:
 
 | Category | Tools |
-|----------|-------|
+| ---------- | ------- |
 | **Navigation** | Navigate, go back, wait for load |
 | **Interaction** | Click, type, fill forms, select options |
 | **Screenshots** | Full page, element-specific, viewport |

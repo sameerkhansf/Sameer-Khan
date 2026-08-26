@@ -19,7 +19,7 @@ LLMs are prediction engines. The quality of your output depends entirely on how 
 **Author:** Sameer Khan
 **Category:** AI
 **Reading Time:** 11 min read
-**Word Count:** 2080
+**Word Count:** 2086
 
 ---
 
@@ -39,6 +39,7 @@ Before diving into techniques, you need to understand one thing:
 When you ask a question, the model doesn't "think" about it. It calculates which tokens are most likely to follow your input, based on patterns learned during training.
 
 This is why:
+
 - Vague prompts get vague answers
 - Context matters enormously
 - The same prompt can give different results (unless you control randomness)
@@ -56,7 +57,7 @@ Before we get to prompt techniques, let's cover the parameters that control outp
 Temperature controls randomness. It scales the probability distribution of token selection.
 
 | Temperature | Behavior | Use Case |
-|-------------|----------|----------|
+| ------------- | ---------- | ---------- |
 | 0.0 - 0.3 | Deterministic, focused | Factual answers, code |
 | 0.4 - 0.7 | Balanced | General conversation |
 | 0.8 - 1.5 | Creative, unpredictable | Brainstorming, fiction |
@@ -90,7 +91,7 @@ I rarely touch this—temperature and top-p usually give enough control.
 
 The simplest approach: just ask your question directly.
 
-```
+```text
 Explain quantum entanglement to a 10-year-old.
 ```
 
@@ -100,7 +101,7 @@ Works well for straightforward tasks where the model has strong training data. F
 
 Provide examples to demonstrate the pattern you want.
 
-```
+```text
 Convert these sentences to formal English:
 
 Informal: "gonna grab some food"
@@ -124,12 +125,14 @@ This is where things get interesting.
 Instead of asking for an answer directly, you ask the model to reason through the problem step by step.
 
 **Without CoT:**
-```
+
+```text
 What is 23 × 17?
 ```
 
 **With CoT:**
-```
+
+```text
 What is 23 × 17? Let's work through this step by step.
 ```
 
@@ -139,7 +142,7 @@ The difference is dramatic for math, logic, and multi-step problems. In benchmar
 
 You can also combine CoT with few-shot prompting by showing examples with reasoning:
 
-```
+```text
 Q: A store has 45 apples. They sell 12 and receive a shipment of 30. How many do they have?
 
 A: Let's think step by step.
@@ -158,6 +161,7 @@ A: Let's think step by step.
 A powerful extension of Chain-of-Thought.
 
 Instead of generating one answer, you:
+
 1. Generate multiple reasoning paths (with higher temperature)
 2. Take the most common final answer
 
@@ -168,11 +172,12 @@ I use this for critical calculations where I can afford the extra API calls.
 ### ReAct (Reasoning + Acting)
 
 ReAct combines reasoning with action-taking. The model alternates between:
+
 - **Thought**: Reasoning about what to do next
 - **Action**: Taking an action (search, calculate, call an API)
 - **Observation**: Receiving results from the action
 
-```
+```text
 Question: What is the population of the capital of France?
 
 Thought: I need to find the capital of France, then its population.
@@ -194,12 +199,14 @@ If you've used ChatGPT with web browsing enabled, you've seen ReAct in action.
 Tree of Thoughts generalizes Chain-of-Thought by exploring multiple reasoning paths simultaneously.
 
 Instead of a single chain:
-```
+
+```text
 Problem → Step 1 → Step 2 → Step 3 → Answer
 ```
 
 You get a tree:
-```
+
+```text
 Problem → Branch A → (evaluate) → Continue or Backtrack
         → Branch B → (evaluate) → Continue or Backtrack
         → Branch C → (evaluate) → Continue or Backtrack
@@ -208,11 +215,13 @@ Problem → Branch A → (evaluate) → Continue or Backtrack
 The model proposes different approaches, evaluates them, and can backtrack if a path isn't working.
 
 **Use ToT when:**
+
 - The problem has multiple valid approaches
 - You need systematic exploration
 - Simple CoT gets stuck
 
 **Don't use ToT when:**
+
 - The problem is straightforward
 - Speed matters more than accuracy
 - You're token-constrained
@@ -223,7 +232,7 @@ A technique focused on reducing latency rather than improving quality.
 
 The model first generates a skeleton (outline), then fills in each section in parallel.
 
-```
+```text
 Question: What are the benefits of meditation?
 
 Skeleton:
@@ -249,12 +258,14 @@ This can achieve up to 2.39× speedup without model modifications.
 Don't just ask for an answer—specify exactly how you want it.
 
 **Vague:**
-```
+
+```text
 Explain REST APIs.
 ```
 
 **Better:**
-```
+
+```text
 Explain REST APIs in 3 paragraphs:
 1. What they are (1 paragraph)
 2. How they work (1 paragraph)
@@ -268,13 +279,15 @@ Use simple language a junior developer would understand.
 The model can't read your mind. Tell it what it needs to know.
 
 **Missing context:**
-```
+
+```text
 How do I fix this error?
 [error message]
 ```
 
 **With context:**
-```
+
+```text
 I'm building a Next.js 16 app with the App Router.
 I'm getting this error when trying to fetch data in a Server Component:
 [error message]
@@ -289,7 +302,7 @@ What's causing this and how do I fix it?
 
 System prompts set the model's "persona" and behavior guidelines.
 
-```
+```text
 You are a senior software engineer specializing in TypeScript and React.
 You write clean, maintainable code with proper error handling.
 When reviewing code, you focus on:
@@ -305,7 +318,7 @@ This frames every subsequent response.
 
 If the first response isn't right, refine rather than rewriting from scratch.
 
-```
+```text
 That's close, but I need the code to also handle the case where the API returns null.
 ```
 
@@ -315,7 +328,7 @@ The model has context from the conversation—use it.
 
 For important tasks, add a verification step:
 
-```
+```text
 After generating the code, review it for:
 1. Syntax errors
 2. Missing edge cases
@@ -331,6 +344,7 @@ If you find any problems, fix them before giving the final answer.
 ### GPT-5/5.2
 
 GPT-5 is highly steerable. Key tips:
+
 - Use the `reasoning_effort` parameter for complex tasks
 - It handles ambiguity well—but explicit instructions still help
 - Excellent at following code style guidelines
@@ -338,6 +352,7 @@ GPT-5 is highly steerable. Key tips:
 ### Claude (4.x / Opus 4.5)
 
 Claude excels at long-context tasks (200K tokens). Tips:
+
 - It responds well to motivation/context for why you need something
 - Very good at maintaining consistency across long outputs
 - Tends to be more cautious—you may need to explicitly permit certain outputs
@@ -345,6 +360,7 @@ Claude excels at long-context tasks (200K tokens). Tips:
 ### Gemini 3
 
 Strong multimodal capabilities. Tips:
+
 - Best for tasks involving images or documents
 - Excellent at research-style queries
 - Can process up to 1M tokens of context
@@ -399,7 +415,7 @@ Here's a counterintuitive finding: **avoid "else" blocks entirely.**
 
 Instead of:
 
-```
+```text
 If condition A, do X
 Else, do Y
 ```
@@ -426,6 +442,7 @@ For critical operations, use a two-prompt system:
 2. **Manager prompt**: Validates the output before it goes to the user
 
 The manager checks:
+
 - Did the worker follow all policies?
 - Are there any security concerns?
 - Does the response make sense given the context?
@@ -441,6 +458,7 @@ A prompt with 3 conditions and 2 outcomes each = 6 paths. Manageable.
 A prompt with 5 conditions and 3 outcomes each = 15 paths. The model starts dropping edge cases.
 
 **When you exceed capacity:**
+
 - Break into multiple sequential prompts
 - Use the manager pattern for validation
 - Simplify decision trees where possible

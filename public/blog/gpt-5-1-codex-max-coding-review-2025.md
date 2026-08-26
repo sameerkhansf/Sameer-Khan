@@ -18,8 +18,8 @@ Complete comparison of GPT-5.1-Codex-Max and Claude Opus 4.5 for coding tasks. B
 
 **Author:** Sameer Khan
 **Category:** AI
-**Reading Time:** 8 min read
-**Word Count:** 1578
+**Reading Time:** 9 min read
+**Word Count:** 1616
 
 ---
 
@@ -35,7 +35,7 @@ Which is better for developers? After testing both extensively on real coding sc
 **Key Numbers:**
 
 | Metric | GPT-5.1-Codex-Max | Claude Opus 4.5 |
-|--------|-------------------|-----------------|
+| -------- | ------------------- | ----------------- |
 | **SWE-Bench Pro** | 54.2% | 52.3% |
 | **SWE-Bench Verified** | 79.8% | 77.1% |
 | **HumanEval** | 95.3% | 91.2% |
@@ -52,12 +52,14 @@ Which is better for developers? After testing both extensively on real coding sc
 ### GPT-5.1-Codex-Max
 
 **Design Philosophy:**
+
 - Specialized for coding tasks
 - Fine-tuned on massive code datasets
 - Optimized for code generation, debugging, refactoring
 - Less general-purpose than base GPT-5.1
 
 **Key Features:**
+
 - Code-aware tokenization
 - Better understanding of code structure
 - Optimized for multi-file codebases
@@ -66,12 +68,14 @@ Which is better for developers? After testing both extensively on real coding sc
 ### Claude Opus 4.5
 
 **Design Philosophy:**
+
 - General-purpose model with strong coding
 - Balanced across all task categories
 - Strong reasoning capabilities
 - Better at explaining code to humans
 
 **Key Features:**
+
 - 200K context window
 - Excellent code explanations
 - Strong reasoning alongside coding
@@ -84,7 +88,7 @@ Which is better for developers? After testing both extensively on real coding sc
 ### Coding Benchmarks
 
 | Benchmark | GPT-5.1-Codex-Max | Claude Opus 4.5 | GPT-5.2 Thinking | Mistral Devstral 2 |
-|-----------|-------------------|-----------------|------------------|-------------------|
+| ----------- | ------------------- | ----------------- | ------------------ | ------------------- |
 | **SWE-Bench Pro** | 54.2% | 52.3% | 55.6% | 56.2% |
 | **SWE-Bench Verified** | 79.8% | 77.1% | 80.0% | 81.2% |
 | **HumanEval** | 95.3% | 91.2% | 94.1% | 95.1% |
@@ -96,7 +100,7 @@ Which is better for developers? After testing both extensively on real coding sc
 ### Reasoning Benchmarks (For Context)
 
 | Benchmark | GPT-5.1-Codex-Max | Claude Opus 4.5 |
-|-----------|-------------------|-----------------|
+| ----------- | ------------------- | ----------------- |
 | **ARC-AGI-2** | 18.5% | 48.1% |
 | **GPQA Diamond** | 85.2% | 90.8% |
 | **AIME 2025** | 91.2% | 97.2% |
@@ -112,6 +116,7 @@ Which is better for developers? After testing both extensively on real coding sc
 **Task:** Refactor a React app from class components to hooks across 12 files.
 
 **GPT-5.1-Codex-Max:**
+
 - Analyzed all files systematically
 - Identified shared logic patterns
 - Created custom hooks efficiently
@@ -121,6 +126,7 @@ Which is better for developers? After testing both extensively on real coding sc
 **Result:** ✅ Excellent. Fast, accurate refactoring. All components working.
 
 **Claude Opus 4.5:**
+
 - Analyzed files more carefully
 - Provided better explanations of changes
 - Refactored accurately
@@ -135,6 +141,7 @@ Which is better for developers? After testing both extensively on real coding sc
 **Task:** Fix a race condition affecting 5 modules.
 
 **GPT-5.1-Codex-Max:**
+
 - Quickly identified root cause
 - Fixed all affected areas
 - Added proper synchronization
@@ -143,6 +150,7 @@ Which is better for developers? After testing both extensively on real coding sc
 **Result:** ✅ Excellent. Fast, accurate fix.
 
 **Claude Opus 4.5:**
+
 - Analyzed problem more deeply
 - Explained the race condition clearly
 - Fixed all areas
@@ -157,6 +165,7 @@ Which is better for developers? After testing both extensively on real coding sc
 **Task:** Generate a complete REST API with authentication, pagination, filtering.
 
 **GPT-5.1-Codex-Max:**
+
 - Generated code quickly
 - Proper structure and patterns
 - Good error handling
@@ -165,6 +174,7 @@ Which is better for developers? After testing both extensively on real coding sc
 **Result:** ✅ Excellent. Fast, complete code generation.
 
 **Claude Opus 4.5:**
+
 - Generated code more carefully
 - Better architecture explanations
 - More comprehensive error handling
@@ -179,6 +189,7 @@ Which is better for developers? After testing both extensively on real coding sc
 **Task:** Explain a complex TypeScript type system.
 
 **GPT-5.1-Codex-Max:**
+
 - Explained types accurately
 - Showed examples
 - Clear but technical
@@ -186,6 +197,7 @@ Which is better for developers? After testing both extensively on real coding sc
 **Result:** ✅ Good. Accurate but technical explanation.
 
 **Claude Opus 4.5:**
+
 - Explained types clearly
 - Built up from basics
 - More intuitive explanations
@@ -200,6 +212,7 @@ Which is better for developers? After testing both extensively on real coding sc
 **Task:** Design a microservices architecture for an e-commerce platform.
 
 **GPT-5.1-Codex-Max:**
+
 - Proposed solid architecture
 - Good service boundaries
 - Practical implementation details
@@ -208,6 +221,7 @@ Which is better for developers? After testing both extensively on real coding sc
 **Result:** ✅ Very good. Solid architecture, practical focus.
 
 **Claude Opus 4.5:**
+
 - Proposed architecture with more reasoning
 - Explained trade-offs clearly
 - Considered more edge cases
@@ -224,7 +238,7 @@ Which is better for developers? After testing both extensively on real coding sc
 ### API Pricing
 
 | Model | Input (per 1M tokens) | Output (per 1M tokens) | Typical Coding Task* |
-|-------|----------------------|------------------------|---------------------|
+| ------- | ---------------------- | ------------------------ | --------------------- |
 | **GPT-5.1-Codex-Max** | $2.50 | $12.00 | $3.70 |
 | **Claude Opus 4.5** | $15.00 | $75.00 | $22.50 |
 
@@ -237,7 +251,7 @@ Which is better for developers? After testing both extensively on real coding sc
 For coding tasks specifically:
 
 | Model | Cost | Coding Performance | Cost/Performance |
-|-------|------|-------------------|------------------|
+| ------- | ------ | ------------------- | ------------------ |
 | **GPT-5.1-Codex-Max** | $3.70 | 0.97 | $3.81 |
 | **Claude Opus 4.5** | $22.50 | 0.94 | $23.94 |
 
@@ -252,6 +266,7 @@ For coding tasks specifically:
 ### GPT-5.1-Codex-Max
 
 **Strengths:**
+
 - ✅ Best coding performance in this comparison
 - ✅ 6x cheaper than Claude
 - ✅ Fast code generation
@@ -259,6 +274,7 @@ For coding tasks specifically:
 - ✅ Good at multi-file codebases
 
 **Weaknesses:**
+
 - ❌ Weaker general reasoning
 - ❌ Smaller context (128K vs 200K)
 - ❌ Less polished explanations
@@ -267,6 +283,7 @@ For coding tasks specifically:
 ### Claude Opus 4.5
 
 **Strengths:**
+
 - ✅ Better code explanations
 - ✅ Strong general reasoning alongside coding
 - ✅ Longer context (200K tokens)
@@ -274,6 +291,7 @@ For coding tasks specifically:
 - ✅ Better documentation generation
 
 **Weaknesses:**
+
 - ❌ More expensive (6x cost)
 - ❌ Slightly weaker pure coding performance
 - ❌ Slower code generation
@@ -283,7 +301,7 @@ For coding tasks specifically:
 
 ## When to Use Each
 
-### Use GPT-5.1-Codex-Max When:
+### Use GPT-5.1-Codex-Max When
 
 - ✅ **Pure coding tasks** - Code generation, debugging, refactoring
 - ✅ **Cost matters** - 6x cheaper for coding workloads
@@ -291,7 +309,7 @@ For coding tasks specifically:
 - ✅ **High-volume coding** - Cost savings compound
 - ✅ **Code-focused workflows** - Don't need general reasoning
 
-### Use Claude Opus 4.5 When:
+### Use Claude Opus 4.5 When
 
 - ✅ **Code + reasoning** - Need general reasoning alongside coding
 - ✅ **Code explanation** - Teaching, documentation, reviews
@@ -306,6 +324,7 @@ For coding tasks specifically:
 ### For Interactive Coding (Pair Programming)
 
 **Recommendation:** Claude Opus 4.5
+
 - Better explanations help learning
 - More thoughtful responses
 - Better code reviews
@@ -313,6 +332,7 @@ For coding tasks specifically:
 ### For Autonomous Coding (Agents)
 
 **Recommendation:** GPT-5.1-Codex-Max
+
 - Faster code generation
 - Better pure coding performance
 - Lower cost for high-volume use
@@ -320,6 +340,7 @@ For coding tasks specifically:
 ### For Code Generation (Bulk)
 
 **Recommendation:** GPT-5.1-Codex-Max
+
 - Faster generation
 - Lower cost
 - Good enough quality
@@ -327,6 +348,7 @@ For coding tasks specifically:
 ### For Code Review
 
 **Recommendation:** Claude Opus 4.5
+
 - Better explanations
 - More thorough analysis
 - Better documentation
@@ -352,6 +374,7 @@ For coding tasks specifically:
 Codex-Max's specialized training gives it a slight edge on coding benchmarks, and it's 6x cheaper. For developers who primarily need coding assistance, Codex-Max offers the best value.
 
 However, Claude Opus 4.5 is better when you need:
+
 - Code explanations and teaching
 - General reasoning alongside coding
 - Longer context windows

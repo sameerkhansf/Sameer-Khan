@@ -19,7 +19,7 @@ GPT-5.2 lands in the middle of an unprecedented AI arms race. With a 400K contex
 **Author:** Sameer Khan
 **Category:** AI
 **Reading Time:** 8 min read
-**Word Count:** 1482
+**Word Count:** 1498
 
 ---
 
@@ -39,7 +39,7 @@ Having spent the past 48 hours putting GPT-5.2 through its paces across coding, 
 GPT-5.2 ships in three distinct configurations, each optimized for different use cases:
 
 | Variant | Optimization | Best For |
-|---------|-------------|----------|
+| --------- | ------------- | ---------- |
 | **Instant** | Speed-first, minimal latency | Routine queries, translation, quick writing |
 | **Thinking** | Extended reasoning chains | Complex coding, long documents, math, planning |
 | **Pro** | Maximum accuracy | Difficult research problems, high-stakes decisions |
@@ -72,7 +72,7 @@ This represents a genuine inflection point. Two years ago, GPT-4 struggled with 
 The picture is more nuanced here:
 
 | Benchmark | GPT-5.2 Thinking | Claude Opus 4.5 | Gemini 3 Pro | DeepSeek V3.2 |
-|-----------|------------------|-----------------|--------------|---------------|
+| ----------- | ------------------ | ----------------- | -------------- | --------------- |
 | SWE-bench Verified | ~78% | 80.9% | 76.2% | 74.9% |
 | SWE-bench Pro | 55.6% (SOTA) | — | — | — |
 | Terminal-Bench 2.0 | ~50% | ~59% | — | 46.4% |
@@ -169,12 +169,14 @@ GPT-5.2 is the **generalist**—strong across all domains with full tool and API
 For teams evaluating GPT-5.2 for production:
 
 **When to use GPT-5.2:**
+
 - Large codebase analysis requiring 200K+ token context
 - Complex reasoning tasks where accuracy matters more than latency
 - Workflows that can tolerate $14/M output token costs
 - Use cases that benefit from extended output generation
 
 **When to prefer alternatives:**
+
 - Cost-sensitive applications → DeepSeek V3.2 ($0.70/M)
 - Multi-step tool orchestration → Claude Opus 4.5
 - Multimodal/vision tasks → Gemini 3 Pro

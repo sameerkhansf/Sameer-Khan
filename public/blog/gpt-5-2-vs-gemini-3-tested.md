@@ -19,7 +19,7 @@ GPT-5.2 dropped yesterday. I put it head-to-head against Gemini 3 on real develo
 **Author:** Sameer Khan
 **Category:** AI
 **Reading Time:** 6 min read
-**Word Count:** 1004
+**Word Count:** 1008
 
 ---
 
@@ -50,7 +50,7 @@ Let's see how they did.
 
 I gave both models this error that's plagued many React developers:
 
-```
+```text
 Error: Hydration failed because the initial UI does not match
 what was rendered on the server.
 ```
@@ -95,6 +95,7 @@ useEffect(() => {
 **GPT-5.2's Response:**
 
 Split it into four separate hooks:
+
 - `useFetchUser(userId)`
 - `useNotificationPolling()`
 - `useDocumentTitle(unreadCount)`
@@ -113,6 +114,7 @@ Also split into multiple useEffects within the same component. Correct approach,
 ## Task 3: Design a REST API for User Notifications
 
 I asked both to design an API for a notification system with these requirements:
+
 - List notifications (paginated)
 - Mark as read (single and bulk)
 - Delete notifications
@@ -120,7 +122,7 @@ I asked both to design an API for a notification system with these requirements:
 
 **GPT-5.2's Response:**
 
-```
+```text
 GET    /api/notifications?page=1&limit=20&unread=true
 GET    /api/notifications/:id
 PATCH  /api/notifications/:id          { read: true }
@@ -157,6 +159,7 @@ type DeepPartial<T> = T extends object
 Started with a one-sentence summary: "DeepPartial makes every property in an object optional, recursively—including nested objects."
 
 Then walked through it step by step:
+
 1. What `T extends object` checks
 2. How the mapped type works
 3. Why the recursion matters
@@ -178,7 +181,7 @@ I asked both to outline a technical blog post about "Building a Real-Time Collab
 
 **GPT-5.2's Response:**
 
-```
+```text
 1. Hook: "Google Docs feels like magic. Let's build that magic."
 2. The Problem: Why real-time is hard (conflicts, latency, state)
 3. CRDT vs OT: When to use each (with a decision flowchart)
@@ -199,7 +202,7 @@ More traditional structure (Introduction, Background, Implementation, Conclusion
 ## The Final Score
 
 | Task | Winner |
-|------|--------|
+| ------ | -------- |
 | Debugging | GPT-5.2 |
 | Refactoring | GPT-5.2 |
 | API Design | GPT-5.2 |
