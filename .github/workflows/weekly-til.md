@@ -5,7 +5,7 @@ description: |
   The human merge is the only approval.
 
 on:
-  schedule: weekly on thursday
+  schedule: daily
   workflow_dispatch:
 
 permissions: read-all
@@ -24,7 +24,7 @@ engine:
   id: copilot
   env:
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
-    COPILOT_MODEL: "nvidia/nemotron-3-ultra-550b-a55b:free"
+    COPILOT_MODEL: "nvidia/nemotron-3-super-120b-a12b:free"
     COPILOT_PROVIDER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
 
 sandbox:
@@ -49,6 +49,7 @@ safe-outputs:
       - "public/blog/**"
 
 tools:
+  cache-memory:
   web-fetch:
   bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date"]
   edit:
@@ -61,7 +62,9 @@ tools:
     max-file-size: 1048576
     max-file-count: 100
 
-timeout-minutes: 40
+timeout-minutes: 25
+
+max-turns: 40
 
 ---
 
@@ -73,7 +76,7 @@ You are the autonomous weekly writer for samkhan.net. No human capture note exis
 
 ## Job
 
-1. **Scout a topic.** Gather candidates from, in priority order: (a) the most recent "[weekly-research]" GitHub discussion in this repository; (b) recent commits and merged PRs in this repository (real work done here is the best TIL material); (c) current AI/developer-tooling news from primary sources via web fetch. Pick ONE narrow, concrete, verifiable topic — a task with commands and observable results, never a broad survey.
+1. **Consume the queue, don't re-research.** First read your cache memory file `topics.md` — it holds the standing topic queue plus every topic already written or rejected. Refill the queue only when it's empty, from, in priority order: (a) the "Post queue" section of the most recent "[weekly-research]" GitHub discussion; (b) recent commits and merged PRs in this repository (real work done here is the best TIL material); (c) current AI/developer-tooling news from primary sources via web fetch. Pick ONE narrow, concrete, verifiable topic from the queue — a task with commands and observable results, never a broad survey. After this run, rewrite `topics.md`: remaining queue, plus the chosen/rejected topics appended to the history so no future run repeats them.
 
 2. **Dedupe.** List existing posts in `content/blog/` and read the README index. If the best candidate substantially duplicates an existing post, pick the next candidate. If nothing novel remains, call `noop` explaining what was considered and why each was rejected.
 
