@@ -702,15 +702,16 @@ Full-Stack Software Engineer | AI/ML Enthusiast | Technical Writer
 
 * [Running gh-aw agents on NVIDIA free NIM endpoints](https://samkhan.net/blog/running-gh-aw-agents-on-nvidia-free-nim-endpoints/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/running-gh-aw-agents-on-nvidia-free-nim-endpoints.mdx)) - 2026-08-26
 * [Playwright MCP Setup Guide for Claude Code](https://samkhan.net/blog/playwright-mcp-claude-code-browser-automation/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/playwright-mcp-claude-code-browser-automation.mdx)) - 2025-12-14
-* [Cursor vs Copilot vs Claude Code: 2025 Comparison](https://samkhan.net/blog/ai-coding-tools-comparison-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/ai-coding-tools-comparison-2025.mdx)) - 2025-12-12
 * [How I Cut My Debugging Time in Half as a React Developer](https://samkhan.net/blog/how-i-cut-debugging-time-in-half/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/how-i-cut-debugging-time-in-half.mdx)) - 2025-12-12
+* [Cursor vs Copilot vs Claude Code: 2025 Comparison](https://samkhan.net/blog/ai-coding-tools-comparison-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/ai-coding-tools-comparison-2025.mdx)) - 2025-12-12
+
+### Web Development
+
+* [useEffect Guide: Fix Common React Problems 2025](https://samkhan.net/blog/useeffect-complete-guide-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/useeffect-complete-guide-2025.mdx)) - 2025-12-12
+* [TypeScript Type vs Interface: When to Use Each (2025)](https://samkhan.net/blog/typescript-type-vs-interface-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/typescript-type-vs-interface-2025.mdx)) - 2025-12-12
 
 ### AI
 
-* [OLMo 3 32B Think Review: Best Open-Source LLM](https://samkhan.net/blog/allenai-olmo-3-32b-think-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/allenai-olmo-3-32b-think-review-2025.mdx)) - 2025-12-12
-* [Amazon Nova 2 Lite Review: AWS AI Model Guide](https://samkhan.net/blog/amazon-nova-2-lite-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/amazon-nova-2-lite-review-2025.mdx)) - 2025-12-12
-* [Claude Opus 4.5: Complete Developer Review](https://samkhan.net/blog/claude-opus-4-5-complete-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/claude-opus-4-5-complete-review-2025.mdx)) - 2025-12-12
-* [DeepSeek V3.2 Speciale Review: Free GPT-5 Rival](https://samkhan.net/blog/deepseek-v3-2-speciale-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/deepseek-v3-2-speciale-review-2025.mdx)) - 2025-12-12
 * [GPT-5.1 Codex Max vs Claude Opus 4.5 for Coding](https://samkhan.net/blog/gpt-5-1-codex-max-coding-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/gpt-5-1-codex-max-coding-review-2025.mdx)) - 2025-12-12
 * [GPT-5.2 Developer Review: First Look (Dec 2025)](https://samkhan.net/blog/gpt-5-2-developer-review/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/gpt-5-2-developer-review.mdx)) - 2025-12-12
 * [GPT-5.2 Technical Review: OpenAI's Best Model](https://samkhan.net/blog/gpt-5-2-technical-review/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/gpt-5-2-technical-review.mdx)) - 2025-12-12
@@ -719,11 +720,10 @@ Full-Stack Software Engineer | AI/ML Enthusiast | Technical Writer
 * [Mistral Devstral 2 Review: Agentic Coding Model](https://samkhan.net/blog/mistral-devstral-2-agentic-coding-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/mistral-devstral-2-agentic-coding-review-2025.mdx)) - 2025-12-12
 * [Mistral Large 3 Review: GPT-5.2 Competitor?](https://samkhan.net/blog/mistral-large-3-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/mistral-large-3-review-2025.mdx)) - 2025-12-12
 * [Prompt Engineering Guide: Better AI Outputs](https://samkhan.net/blog/the-art-of-prompt-engineering/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/the-art-of-prompt-engineering.mdx)) - 2025-12-12
-
-### Web Development
-
-* [TypeScript Type vs Interface: When to Use Each (2025)](https://samkhan.net/blog/typescript-type-vs-interface-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/typescript-type-vs-interface-2025.mdx)) - 2025-12-12
-* [useEffect Guide: Fix Common React Problems 2025](https://samkhan.net/blog/useeffect-complete-guide-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/useeffect-complete-guide-2025.mdx)) - 2025-12-12
+* [OLMo 3 32B Think Review: Best Open-Source LLM](https://samkhan.net/blog/allenai-olmo-3-32b-think-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/allenai-olmo-3-32b-think-review-2025.mdx)) - 2025-12-12
+* [Amazon Nova 2 Lite Review: AWS AI Model Guide](https://samkhan.net/blog/amazon-nova-2-lite-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/amazon-nova-2-lite-review-2025.mdx)) - 2025-12-12
+* [Claude Opus 4.5: Complete Developer Review](https://samkhan.net/blog/claude-opus-4-5-complete-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/claude-opus-4-5-complete-review-2025.mdx)) - 2025-12-12
+* [DeepSeek V3.2 Speciale Review: Free GPT-5 Rival](https://samkhan.net/blog/deepseek-v3-2-speciale-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/deepseek-v3-2-speciale-review-2025.mdx)) - 2025-12-12
 
 ### Projects
 
