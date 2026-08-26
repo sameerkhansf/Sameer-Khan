@@ -12,7 +12,6 @@
     "typecheck": "tsc --noEmit",
     "test:agents": "node --test scripts/agent-readiness.test.mjs",
     "generate-md": "npx tsx scripts/generate-markdown-files.ts",
-    "optimize-images": "npx tsx scripts/optimize-images.ts",
     "validate:content": "remark-lint-frontmatter-validation \"content/blog/**/*.mdx\" --schema schemas/post.schema.json && markdownlint-cli2"
   },
   "dependencies": {

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import OptimizedImage from "@/components/ui/OptimizedImage";
+import Image from "next/image";
 
 interface IntroTranslations {
   heading: string;
@@ -40,7 +40,7 @@ export default function IntroSection({ translations, lang }: IntroSectionProps) 
         </p>
 
         <div className="space-y-2">
-          <OptimizedImage
+          <Image
             src="/panel-event.jpg"
             alt="ASES x NFX Ventures dinner with Stanford entrepreneurs"
             width={600}

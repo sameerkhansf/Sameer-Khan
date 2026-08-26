@@ -3,7 +3,6 @@ import Image, { ImageProps } from "next/image";
 import Link from "next/link";
 import React from "react";
 import CodeBlock from "@/components/blog/CodeBlock";
-import OptimizedImage from "@/components/ui/OptimizedImage";
 
 // Inline code
 function InlineCode({ children }: { children: React.ReactNode }) {
@@ -181,14 +180,15 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     // Links
     a: CustomLink,
 
-    // Images - Use OptimizedImage for WebP support
-    img: (props) => (
+    // Images
+    img: ({ alt = "", ...props }) => (
       <div className="my-8">
-        <OptimizedImage
+        <Image
           sizes="100vw"
           style={{ width: "100%", height: "auto" }}
           className="rounded-xl shadow-lg border border-gray-200 dark:border-gray-700"
-          {...(props as ImageProps)}
+          alt={alt}
+          {...(props as Omit<ImageProps, "alt">)}
         />
       </div>
     ),
