@@ -1,0 +1,91 @@
+# Sameer Khan
+
+> Sameer Khan is a Full-Stack Software Engineer based in San Francisco with a B.S. in Computer Science from Sonoma State University (graduated with honors, May 2025). He specializes in React, Next.js, TypeScript, Node.js, and AI/ML integration. His technical blog features comprehensive reviews of frontier AI models (GPT-5.2, Claude Opus 4.5, DeepSeek), React tutorials, and developer tools comparisons.
+
+## Summary
+
+Sameer Khan is a new grad Software Engineer passionate about building innovative web and mobile applications. His technical expertise spans frontend development (React, Next.js, TypeScript), backend development (Node.js, Python, Java, C++), cloud infrastructure (AWS, Docker), and databases (MongoDB). He is AWS Certified Cloud Practitioner and proficient in English, Urdu, and Hindi.
+
+## Skills
+
+- **Frontend**: React (Advanced), Next.js (Advanced), TypeScript (Advanced), JavaScript (Advanced), HTML, CSS, Tailwind CSS
+- **Backend**: Node.js (Advanced), Python (Advanced), Java (Intermediate), C++ (Intermediate)
+- **Cloud & DevOps**: AWS (Intermediate), Docker (Intermediate), Git (Advanced), CI/CD
+- **Databases**: MongoDB (Advanced)
+- **Other**: AI/ML, Computer Vision, LLM Integration, Data Structures & Algorithms
+
+## Work Experience
+
+- **Software Developer at PomJuice** (Mar 2025 - May 2025): Built "Books Done Right" AI bookkeeping app using Next.js, React, Node.js, Python, LLM tool calling, and QuickBooks API. Reduced manual effort by 80%, achieved 95%+ classification accuracy.
+- **Research Intern at MESA Program, Sonoma State University** (Jun 2024 - Aug 2024): Explainable AI for cancer diagnosis - integrated explainable AI into CNNs, improving model interpretability and predictive accuracy.
+- **Full Stack Developer Intern at Stealth Startup** (Apr 2024 - Aug 2024): Built user authentication, designed AWS CodePipeline CI/CD, full-stack development with TypeScript, Python/Django, and AWS deployment.
+- **Undergraduate Teaching Assistant at Sonoma State University** (Aug 2022 - Dec 2023): Guided 140+ students in C++, OOP, data structures, and algorithms. Created coding best-practices module with 90%+ positive feedback.
+
+## Education
+
+- [Sonoma State University](https://www.sonoma.edu): Bachelor of Science in Computer Science (Aug 2021 - May 2025). Graduated with Honors. Coursework: Database Management, Data Structures & Algorithms, Computer Architecture, Software Design & Development, Computer Networking, Analysis of Algorithms.
+
+## Certifications
+
+- AWS Certified Cloud Practitioner
+- CodePath Technical Interview Prep
+
+## Projects
+
+- [BioSoundSCape](https://github.com/sameerkhansf/BioSoundSCape_SSU_Computer_Science): Computer Vision research project for land cover classification using machine learning. Built with Python, TensorFlow. (Spring 2025)
+- [DFA/NFA Builder](https://github.com/sameerkhansf/JFLAPAutomataBuilder): Automata theory project for building and visualizing deterministic and non-deterministic finite automata. Built with Java. (Fall 2024)
+- [C++ Interpreter](https://github.com/sameerkhansf/Interpreter): A compiler/interpreter implementation demonstrating programming language theory concepts including lexical analysis, parsing, and execution. Built with C++. (Spring 2025)
+- [Expense Tracker](https://expense-tracker-mocha-three.vercel.app): Full-stack web application for tracking personal expenses with data visualization and categorization. Built with React, Node.js, MongoDB. (Dec 2024)
+
+## Blog
+
+Technical articles on AI, React, Next.js, TypeScript, and software development.
+
+- [Blog](https://samkhan.net/blog): All articles
+
+**Note:** All blog posts are available in LLM-friendly markdown format. Append `.md` to any blog post URL to get the markdown version. For example: `https://samkhan.net/blog/gpt-5-2-technical-review.md`
+
+### Recent Articles
+
+**AI & LLM Reviews (December 2025):**
+- [Claude Opus 4.5: Complete Developer Review](https://samkhan.net/blog/claude-opus-4-5-complete-review-2025): Comprehensive review of Claude Opus 4.5, Anthropic's latest frontier model. Complete capabilities analysis, benchmark performance, real-world testing, cost evaluation, and developer use case recommendations.
+- [GPT-5.2 Technical Review: OpenAI's Response to the 'Code Red' Moment](https://samkhan.net/blog/gpt-5-2-technical-review): GPT-5.2 lands in the middle of an unprecedented AI arms race. With a 400K context window, 30% fewer hallucinations, and the first 90%+ ARC-AGI score, here's what developers need to know about OpenAI's most capable model yet.
+- [GPT-5.2 for Developers: First Look](https://samkhan.net/blog/gpt-5-2-developer-review): Comprehensive review of OpenAI's GPT-5.2 released December 2025, comparing Instant, Thinking, and Pro variants.
+- [GPT-5.1-Codex-Max vs Claude Opus 4.5: Coding Specialist Showdown](https://samkhan.net/blog/gpt-5-1-codex-max-coding-review-2025): Complete comparison of GPT-5.1-Codex-Max and Claude Opus 4.5 for coding tasks. Benchmark performance, real-world coding tests, cost analysis, and developer workflow recommendations.
+- [DeepSeek-V3.2-Speciale Review: The Open-Source Model That Matches GPT-5.2](https://samkhan.net/blog/deepseek-v3-2-speciale-review-2025): DeepSeek-V3.2-Speciale delivers frontier-level reasoning capabilities with open weights. Complete technical review, benchmark comparisons, and developer testing of this free alternative to GPT-5.2 and Claude Opus 4.5.
+- [Mistral Large 3 Review: Can It Compete with GPT-5.2 and Claude Opus 4.5?](https://samkhan.net/blog/mistral-large-3-review-2025): Complete review of Mistral Large 3 (2512), the latest frontier model from Mistral AI. Benchmark comparisons, coding performance, cost analysis, and real-world testing against GPT-5.2 and Claude Opus 4.5.
+- [Mistral Devstral 2: The Agentic Coding Model That Rivals Cursor](https://samkhan.net/blog/mistral-devstral-2-agentic-coding-review-2025): Mistral Devstral 2 is purpose-built for agentic coding workflows. Complete review of its coding capabilities, agent performance, and how it compares to GPT-5.2, Claude Opus 4.5, and specialized coding tools.
+- [Grok 4.1 Review: xAI's Latest Model Tested](https://samkhan.net/blog/grok-4-1-review-2025): Complete review of Grok 4.1, xAI's latest language model. Benchmark performance, real-world testing, cost analysis, and comparison with GPT-5.2, Claude Opus 4.5, and other frontier models.
+- [AllenAI's OLMo 3 32B Think: The Best Fully Open-Source Reasoning Model](https://samkhan.net/blog/allenai-olmo-3-32b-think-review-2025): Complete review of OLMo 3 32B Think, AllenAI's open-source reasoning model. Benchmark performance, self-hosting guide, cost analysis, and comparison with GPT-5.2, DeepSeek-V3.2-Speciale, and other open-source models.
+- [Amazon Nova 2 Lite: A Technical Examination of AWS's Latest Model](https://samkhan.net/blog/amazon-nova-2-lite-review-2025): Complete technical review of Amazon Nova 2 Lite, AWS's latest language model. Benchmark performance, AWS integration, cost analysis, and comparison with GPT-5.2, Claude, and other frontier models.
+
+**Developer Tools & Comparisons:**
+- [Browser Automation with Claude Code: Setting Up Playwright MCP](https://samkhan.net/blog/playwright-mcp-claude-code-browser-automation): How to set up Playwright MCP with Claude Code for AI-powered browser automation. Control Chrome, fill forms, scrape data, and automate web testing with natural language commands.
+- [Cursor vs GitHub Copilot vs Claude Code: Complete Comparison (2025)](https://samkhan.net/blog/ai-coding-tools-comparison-2025): The definitive comparison of AI coding assistants in 2025. Learn which tool is best for your workflow: Cursor, GitHub Copilot, or Claude Code, with pricing, features, and real-world recommendations.
+- [I Tested GPT-5.2 vs Gemini 3 with 5 Real Coding Tasks](https://samkhan.net/blog/gpt-5-2-vs-gemini-3-tested): Head-to-head comparison of GPT-5.2 and Gemini 3 on real development tasks: debugging, refactoring, API design, and more.
+
+**Web Development & React:**
+- [useEffect Complete Guide: Common Problems and Solutions (2025)](https://samkhan.net/blog/useeffect-complete-guide-2025): Master React's useEffect hook with practical solutions to infinite loops, cleanup issues, dependency arrays, and more. Real-world examples and debugging strategies.
+- [TypeScript Type vs Interface: When to Use Each (2025)](https://samkhan.net/blog/typescript-type-vs-interface-2025): The definitive guide to choosing between TypeScript's type and interface. Learn when to use each with real-world examples, common patterns, and practical decision guidelines.
+- [How I Cut My Debugging Time in Half as a React Developer](https://samkhan.net/blog/how-i-cut-debugging-time-in-half): After tracking my debugging sessions for a month, I discovered that 80% of my bugs fell into 5 categories. Here's what I changed and the tools that actually made a difference.
+
+**AI & Prompt Engineering:**
+- [The Art of Prompt Engineering: A Developer's Guide to Getting Better AI Outputs](https://samkhan.net/blog/the-art-of-prompt-engineering): Complete guide to prompt engineering techniques including Chain-of-Thought, ReAct, Tree of Thoughts, sampling parameters, and production-level patterns like XML-structured prompts and the Manager Prompt pattern from Parahelp.
+
+**Portfolio & Projects:**
+- [How I Built This Portfolio with Next.js 16 and Tailwind CSS](https://samkhan.net/blog/building-this-portfolio): Technical deep dive into building a Next.js 16 portfolio with MDX, SEO optimization, and accessibility.
+
+## Contact
+
+- [Website](https://samkhan.net): Personal portfolio and resume
+- [Resume](https://samkhan.net/resume): Detailed professional resume
+- [Blog](https://samkhan.net/blog): Technical articles and AI model reviews
+- [RSS Feed](https://samkhan.net/rss.xml): Subscribe to new articles
+- [Email](mailto:khansam@sonoma.edu): khansam@sonoma.edu
+- [GitHub](https://github.com/sameerkhansf): Open source contributions and projects
+- [LinkedIn](https://linkedin.com/in/sameerkhansf): Professional network
+- [X/Twitter](https://x.com/sameerkhan_sf): @sameerkhan_sf
+
+## Optional
+
+- [Instagram](https://instagram.com/sam.khan007_): Personal updates

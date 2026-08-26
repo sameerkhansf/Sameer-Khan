@@ -31,5 +31,17 @@ export const config: VercelConfig = {
         { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
       ],
     },
+    // Paths that content-negotiate markdown via Accept (see proxy.js) must
+    // tell caches the response varies by Accept.
+    { source: "/", headers: [{ key: "Vary", value: "Accept" }] },
+    { source: "/:lang", headers: [{ key: "Vary", value: "Accept" }] },
+    {
+      source: "/blog/:slug*",
+      headers: [{ key: "Vary", value: "Accept" }],
+    },
+    {
+      source: "/:lang/blog/:slug*",
+      headers: [{ key: "Vary", value: "Accept" }],
+    },
   ],
 };
