@@ -1,9 +1,0 @@
-2026-08-26T17:30:49.3470000Z Evaluating safe_outputs.if
-2026-08-26T17:30:49.3470000Z Evaluating: ((!cancelled()) && (needs.agent.result != 'skipped') && (needs.detection.result == 'success'))
-2026-08-26T17:30:49.3470000Z Expanded: (!false && ('failure' != 'skipped') && ('success' == 'success'))
-2026-08-26T17:30:49.3470000Z Result: true
-2026-08-26T17:30:49.3500000Z Requested labels: ubuntu-slim
-2026-08-26T17:30:49.3500000Z Job defined at: sameerkhansf/Sameer-Khan/.github/workflows/til-writer.lock.yml@refs/heads/main
-2026-08-26T17:30:49.3500000Z Waiting for a runner to pick up this job...
-2026-08-26T17:30:49.3670000Z Job is about to start running on the hosted runner: GitHub Actions 1000000365
-2026-08-26T17:30:49.3680000Z Job is waiting for a hosted runner to come online.

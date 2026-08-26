@@ -40,3 +40,6 @@ next-env.d.ts
 
 # playwright-mcp debug artifacts
 /.playwright-mcp/
+
+# gh-aw downloaded run artifacts (gh aw audit / gh aw logs)
+/.github/aw/logs/
