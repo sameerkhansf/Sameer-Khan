@@ -92,7 +92,7 @@ The capture note is: "${{ steps.sanitized.outputs.text }}"
 
 5. **Evidence bundle.** Write a JSON evidence file to repo-memory named after the slug: source URLs with access dates, versions of any tools referenced, commands run with outputs, and the list of factual claims mapped to sources.
 
-6. **Open the PR.** This step is MANDATORY and is the entire point of the run: you MUST finish by calling the `create_pull_request` safe-output tool with the new MDX file. A run that researches but never calls `create_pull_request` is a failed run — if you truly cannot produce the post, call `report_incomplete` with the reason instead of ending silently. The PR description must contain: the angle chosen and why, the evidence summary (sources with dates), and a checklist of claims verified. Set `published: false` in frontmatter so merging alone does not publish until Sameer flips it.
+6. **Open the PR.** This step is MANDATORY and is the entire point of the run: you MUST finish by calling the `create_pull_request` safe-output tool with the new MDX file. Call it with exactly these arguments: `title`, `body`, and `branch` (use `til/<slug>`). Do NOT pass `temporary_id` — if you include it, it must match `^aw_[A-Za-z0-9_]{3,12}$` (e.g. `aw_til1`) or the whole PR is rejected by validation. A run that researches but never calls `create_pull_request` is a failed run — if you truly cannot produce the post, call `report_incomplete` with the reason instead of ending silently. The PR description must contain: the angle chosen and why, the evidence summary (sources with dates), and a checklist of claims verified. Set `published: false` in frontmatter so merging alone does not publish until Sameer flips it.
 
 ## Hard rules
 
