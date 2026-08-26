@@ -705,6 +705,11 @@ Full-Stack Software Engineer | AI/ML Enthusiast | Technical Writer
 * [Cursor vs Copilot vs Claude Code: 2025 Comparison](https://samkhan.net/blog/ai-coding-tools-comparison-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/ai-coding-tools-comparison-2025.mdx)) - 2025-12-12
 * [How I Cut My Debugging Time in Half as a React Developer](https://samkhan.net/blog/how-i-cut-debugging-time-in-half/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/how-i-cut-debugging-time-in-half.mdx)) - 2025-12-12
 
+### Web Development
+
+* [useEffect Guide: Fix Common React Problems 2025](https://samkhan.net/blog/useeffect-complete-guide-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/useeffect-complete-guide-2025.mdx)) - 2025-12-12
+* [TypeScript Type vs Interface: When to Use Each (2025)](https://samkhan.net/blog/typescript-type-vs-interface-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/typescript-type-vs-interface-2025.mdx)) - 2025-12-12
+
 ### AI
 
 * [OLMo 3 32B Think Review: Best Open-Source LLM](https://samkhan.net/blog/allenai-olmo-3-32b-think-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/allenai-olmo-3-32b-think-review-2025.mdx)) - 2025-12-12
@@ -719,11 +724,6 @@ Full-Stack Software Engineer | AI/ML Enthusiast | Technical Writer
 * [Mistral Devstral 2 Review: Agentic Coding Model](https://samkhan.net/blog/mistral-devstral-2-agentic-coding-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/mistral-devstral-2-agentic-coding-review-2025.mdx)) - 2025-12-12
 * [Mistral Large 3 Review: GPT-5.2 Competitor?](https://samkhan.net/blog/mistral-large-3-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/mistral-large-3-review-2025.mdx)) - 2025-12-12
 * [Prompt Engineering Guide: Better AI Outputs](https://samkhan.net/blog/the-art-of-prompt-engineering/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/the-art-of-prompt-engineering.mdx)) - 2025-12-12
-
-### Web Development
-
-* [TypeScript Type vs Interface: When to Use Each (2025)](https://samkhan.net/blog/typescript-type-vs-interface-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/typescript-type-vs-interface-2025.mdx)) - 2025-12-12
-* [useEffect Guide: Fix Common React Problems 2025](https://samkhan.net/blog/useeffect-complete-guide-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/useeffect-complete-guide-2025.mdx)) - 2025-12-12
 
 ### Projects
 
