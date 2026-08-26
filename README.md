@@ -707,18 +707,18 @@ Full-Stack Software Engineer | AI/ML Enthusiast | Technical Writer
 
 ### AI
 
-* [OLMo 3 32B Think Review: Best Open-Source LLM](https://samkhan.net/blog/allenai-olmo-3-32b-think-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/allenai-olmo-3-32b-think-review-2025.mdx)) - 2025-12-12
-* [Amazon Nova 2 Lite Review: AWS AI Model Guide](https://samkhan.net/blog/amazon-nova-2-lite-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/amazon-nova-2-lite-review-2025.mdx)) - 2025-12-12
-* [Claude Opus 4.5: Complete Developer Review](https://samkhan.net/blog/claude-opus-4-5-complete-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/claude-opus-4-5-complete-review-2025.mdx)) - 2025-12-12
-* [DeepSeek V3.2 Speciale Review: Free GPT-5 Rival](https://samkhan.net/blog/deepseek-v3-2-speciale-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/deepseek-v3-2-speciale-review-2025.mdx)) - 2025-12-12
-* [GPT-5.1 Codex Max vs Claude Opus 4.5 for Coding](https://samkhan.net/blog/gpt-5-1-codex-max-coding-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/gpt-5-1-codex-max-coding-review-2025.mdx)) - 2025-12-12
-* [GPT-5.2 Developer Review: First Look (Dec 2025)](https://samkhan.net/blog/gpt-5-2-developer-review/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/gpt-5-2-developer-review.mdx)) - 2025-12-12
 * [GPT-5.2 Technical Review: OpenAI's Best Model](https://samkhan.net/blog/gpt-5-2-technical-review/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/gpt-5-2-technical-review.mdx)) - 2025-12-12
 * [GPT-5.2 vs Gemini 3: Real Coding Test Results](https://samkhan.net/blog/gpt-5-2-vs-gemini-3-tested/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/gpt-5-2-vs-gemini-3-tested.mdx)) - 2025-12-12
 * [Grok 4.1 Review: xAI's Latest Model Tested](https://samkhan.net/blog/grok-4-1-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/grok-4-1-review-2025.mdx)) - 2025-12-12
 * [Mistral Devstral 2 Review: Agentic Coding Model](https://samkhan.net/blog/mistral-devstral-2-agentic-coding-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/mistral-devstral-2-agentic-coding-review-2025.mdx)) - 2025-12-12
 * [Mistral Large 3 Review: GPT-5.2 Competitor?](https://samkhan.net/blog/mistral-large-3-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/mistral-large-3-review-2025.mdx)) - 2025-12-12
 * [Prompt Engineering Guide: Better AI Outputs](https://samkhan.net/blog/the-art-of-prompt-engineering/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/the-art-of-prompt-engineering.mdx)) - 2025-12-12
+* [OLMo 3 32B Think Review: Best Open-Source LLM](https://samkhan.net/blog/allenai-olmo-3-32b-think-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/allenai-olmo-3-32b-think-review-2025.mdx)) - 2025-12-12
+* [Amazon Nova 2 Lite Review: AWS AI Model Guide](https://samkhan.net/blog/amazon-nova-2-lite-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/amazon-nova-2-lite-review-2025.mdx)) - 2025-12-12
+* [Claude Opus 4.5: Complete Developer Review](https://samkhan.net/blog/claude-opus-4-5-complete-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/claude-opus-4-5-complete-review-2025.mdx)) - 2025-12-12
+* [DeepSeek V3.2 Speciale Review: Free GPT-5 Rival](https://samkhan.net/blog/deepseek-v3-2-speciale-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/deepseek-v3-2-speciale-review-2025.mdx)) - 2025-12-12
+* [GPT-5.1 Codex Max vs Claude Opus 4.5 for Coding](https://samkhan.net/blog/gpt-5-1-codex-max-coding-review-2025/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/gpt-5-1-codex-max-coding-review-2025.mdx)) - 2025-12-12
+* [GPT-5.2 Developer Review: First Look (Dec 2025)](https://samkhan.net/blog/gpt-5-2-developer-review/) ([source](https://github.com/sameerkhansf/Sameer-Khan/blob/main/content/blog/gpt-5-2-developer-review.mdx)) - 2025-12-12
 
 ### Web Development
 
