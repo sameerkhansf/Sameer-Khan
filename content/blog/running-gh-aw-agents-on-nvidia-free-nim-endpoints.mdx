@@ -1,0 +1,58 @@
+---
+title: "Running gh-aw Agents on NVIDIA Free NIM Endpoints"
+description: "Wiring GitHub Agentic Workflows to NVIDIA's free hosted NIM endpoints via Copilot BYOK engine mode, overcoming three real failures to achieve a successful research session."
+date: "2026-08-26"
+author: "Sameer Khan"
+tags: ["GitHub", "Agentic Workflows", "NVIDIA", "NIM", "AI", "Copilot", "BYOK"]
+category: "AI"
+published: false
+---
+
+I needed to wire this repo's GitHub Agentic Workflows (github/gh-aw) to NVIDIA's free hosted NIM endpoints (integrate.api.nvidia.com, nvidia/nemotron-3.5-lightning-30b-a3b, 40 RPM free) via the Copilot BYOK engine mode. Three real failures hit before a green run, in order: (1) AWF proxy rejected every request with 400 'Model has no AI credits pricing' — fixed with frontmatter models.default-ai-credits-pricing input/output 0.000001 (compiler rejects literal 0); (2) proxy token steering silently rewrote the model to claude-sonnet-5 — fixed with sandbox.agent.token-steering: false and model-fallback: false; (3) the agentics sample's timeout-minutes: 15 killed a successful 16.3-minute research session — raised to 30.
+
+NIM serves /v1/chat/completions but 404s /v1/responses and /v1/messages (verified with curl), so copilot engine's default completions wire API is the only fit. The threat-detection step needed the larger free nvidia/nemotron-3-super-120b-a12b to emit the strict THREAT_DETECTION_RESULT JSON. Sustained sessions can hit free-tier 403 throttling, solved by routing through OpenRouter with the NVIDIA BYOK integration (NVIDIA quota first, automatic fallback). The diagnosis workhorse was gh aw audit (run-id).
+
+## Configuration Fixes
+
+First failure: AWF proxy rejecting requests with "Model has no AI credits pricing" error. This was resolved by adding explicit pricing to the models configuration:
+
+```yaml
+models:
+  default:
+    # Compiler rejects literal 0, so use tiny value
+    ai-credits-pricing:
+      input: 0.000001
+      output: 0.000001
+```
+
+Second failure: proxy token steering silently rewriting the model to claude-sonnet-5. Disabled both token steering and model fallback:
+
+```yaml
+sandbox:
+  agent:
+    token-steering: false
+    model-fallback: false
+```
+
+Third failure: agentics sample's timeout-minutes: 15 cutting off a successful 16.3-minute research session. Increased timeout to 30 minutes:
+
+```yaml
+timeout-minutes: 30
+```
+
+## Technical Details
+
+NVIDIA's NIM endpoints only support the /v1/chat/completions API; /v1/responses and /v1/messages return 404. This means the copilot engine must use the default completions wire API rather than newer endpoints.
+
+For the threat detection step in agentic workflows, the smaller nvidia/nemotron-3.5-lightning-30b-a3b model couldn't emit the strict JSON format required for THREAT_DETECTION_RESULT. Switching to the larger free nvidia/nemotron-3-super-120b-a12b model resolved this.
+
+To handle free-tier throttling (403 errors during sustained sessions), I configured OpenRouter as a fallback that preserves the NVIDIA BYOK integration—NVIDIA quota is used first, with automatic fallback to OpenRouter when limits are hit.
+
+## Verification
+
+The successful configuration was verified using:
+- `gh aw audit <run-id>` to inspect workflow execution
+- Direct curl tests to NIM endpoints confirming /v1/chat/completions availability
+- Monitoring token usage and throttle responses during extended research sessions
+
+The final working configuration enables reliable agentic workflows on NVIDIA's free NIM endpoints within the GitHub Agentic Workflows system.
