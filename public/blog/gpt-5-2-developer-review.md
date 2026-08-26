@@ -19,7 +19,7 @@ A comprehensive developer review of GPT-5.2 released December 11, 2025. Comparin
 **Author:** Sameer Khan
 **Category:** AI
 **Reading Time:** 4 min read
-**Word Count:** 774
+**Word Count:** 790
 
 ---
 
@@ -41,7 +41,7 @@ The headline numbers: **38% fewer errors** than GPT-5, and it edges out Claude O
 ### Three Model Variants
 
 | Variant | Best For | Speed | Accuracy |
-|---------|----------|-------|----------|
+| --------- | ---------- | ------- | ---------- |
 | **Instant** | Quick queries, simple tasks | Fastest | Good |
 | **Thinking** | Coding, math, document analysis | Moderate | Excellent |
 | **Pro** | Research, complex problems | Slower | Best-in-class |
@@ -53,12 +53,13 @@ OpenAI's product lead Max Schwarzer says GPT-5.2 "makes substantial improvements
 GPT-5.2 Thinking outperforms the competition on key developer benchmarks:
 
 | Benchmark | GPT-5.2 Thinking | Claude Opus 4.5 | Gemini 3 |
-|-----------|------------------|-----------------|----------|
+| ----------- | ------------------ | ----------------- | ---------- |
 | SWE-Bench Pro | **Top** | 2nd | 3rd |
 | GPQA Diamond | **Top** | 2nd | 3rd |
 | Complex Reasoning | **Top** | Close 2nd | 3rd |
 
 Coding startups are already reporting results:
+
 - **Windsurf**: "State-of-the-art agent coding performance"
 - **CharlieCode**: "Measurable gains on complex multi-step workflows"
 - **Cursor**: Previously called GPT-5 "the smartest model we've used"
@@ -108,13 +109,15 @@ Pricing details are still emerging, but expect:
 
 ## Should You Upgrade?
 
-### Yes, if you:
+### Yes, if you
+
 - Build AI-powered features in production
 - Need reliable code generation
 - Work on complex reasoning tasks
 - Want fewer errors to review
 
-### Maybe wait if you:
+### Maybe wait if you
+
 - Current tools are working fine
 - Budget is a concern
 - Don't need the latest benchmarks
@@ -122,11 +125,13 @@ Pricing details are still emerging, but expect:
 ### The Competition
 
 Claude Opus 4.5 remains strong, especially for:
+
 - Large context windows (200K tokens)
 - Nuanced reasoning tasks
 - Technical accuracy
 
 GPT-5.2 wins on:
+
 - Raw benchmark performance
 - Coding-specific tasks
 - Speed (Instant variant)
@@ -140,18 +145,23 @@ GPT-5.2 wins on:
 ## FAQ
 
 ### Is GPT-5.2 better than Claude Opus 4.5?
+
 On benchmarks, yes. GPT-5.2 Thinking edges out Claude on SWE-Bench Pro and GPQA Diamond. However, Claude's 200K context window and technical accuracy make it competitive for specific use cases.
 
 ### How much does GPT-5.2 cost?
+
 Pricing varies by variant. Instant is cheapest for high-volume use, Thinking is mid-tier for complex tasks, and Pro is premium for maximum accuracy. Check OpenAI's pricing page for current rates.
 
 ### When will GPT-5.2 be available to everyone?
+
 GPT-5.2 is rolling out to ChatGPT paid subscribers and API users starting December 11, 2025. Full availability depends on your subscription tier.
 
 ### What happened to GPT-5?
+
 GPT-5 (released August 2025) is still available. GPT-5.2 is an incremental upgrade with better accuracy and the new variant system.
 
 ### Is this a response to Google Gemini?
+
 Yes. Reports indicate OpenAI declared "code red" after Gemini 3's release, accelerating GPT-5.2's launch.
 
 ## Key Takeaways

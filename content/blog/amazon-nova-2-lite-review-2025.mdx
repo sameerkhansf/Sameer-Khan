@@ -18,6 +18,7 @@ After testing it on coding, reasoning, and AWS-specific tasks, here's what devel
 **Amazon Nova 2 Lite** is Amazon's latest language model, optimized for AWS Bedrock. It's designed to provide competitive performance at lower cost, with deep integration into AWS services.
 
 **Key Numbers:**
+
 - **ARC-AGI-2:** 42.3% (vs GPT-5.2's 52.9%)
 - **SWE-Bench Pro:** 48.7% (vs GPT-5.2's 55.6%)
 - **GPQA Diamond:** 87.2% (vs GPT-5.2's 92.4%)
@@ -56,7 +57,7 @@ This integration is Nova 2 Lite's main differentiator—it's not just a model, i
 ### Reasoning Benchmarks
 
 | Benchmark | Nova 2 Lite | GPT-5.2 Thinking | Claude Opus 4.5 | Mistral Large 3 |
-|-----------|-------------|------------------|-----------------|-----------------|
+| ----------- | ------------- | ------------------ | ----------------- | ----------------- |
 | **ARC-AGI-2** | 42.3% | 52.9% | 48.1% | 49.8% |
 | **GPQA Diamond** | 87.2% | 92.4% | 90.8% | 90.5% |
 | **AIME 2025** | 91.5% | 100% | 97.2% | 96.8% |
@@ -67,7 +68,7 @@ This integration is Nova 2 Lite's main differentiator—it's not just a model, i
 ### Coding Benchmarks
 
 | Benchmark | Nova 2 Lite | GPT-5.2 Thinking | Claude Opus 4.5 | Mistral Large 3 |
-|-----------|-------------|------------------|-----------------|-----------------|
+| ----------- | ------------- | ------------------ | ----------------- | ----------------- |
 | **SWE-Bench Pro** | 48.7% | 55.6% | 52.3% | 53.2% |
 | **SWE-Bench Verified** | 72.3% | 80.0% | 77.1% | 78.5% |
 | **HumanEval** | 88.9% | 94.1% | 91.2% | 93.2% |
@@ -84,6 +85,7 @@ This integration is Nova 2 Lite's main differentiator—it's not just a model, i
 **Task:** Create a Lambda function that processes S3 uploads, validates files, and stores metadata in DynamoDB.
 
 **Nova 2 Lite's Response:**
+
 - Generated Lambda function with proper IAM permissions
 - Integrated S3 event triggers
 - Added DynamoDB integration
@@ -98,6 +100,7 @@ This integration is Nova 2 Lite's main differentiator—it's not just a model, i
 **Task:** Implement a distributed consensus algorithm (Raft) in Python.
 
 **Nova 2 Lite's Response:**
+
 - Implemented core Raft logic
 - Added leader election
 - Implemented log replication
@@ -111,6 +114,7 @@ This integration is Nova 2 Lite's main differentiator—it's not just a model, i
 **Task:** Refactor a React component to use hooks and improve performance.
 
 **Nova 2 Lite's Response:**
+
 - Converted class component to hooks
 - Added memoization where appropriate
 - Improved performance
@@ -123,6 +127,7 @@ This integration is Nova 2 Lite's main differentiator—it's not just a model, i
 **Task:** Design a serverless architecture for a real-time chat application.
 
 **Nova 2 Lite's Response:**
+
 - Proposed API Gateway + Lambda + DynamoDB
 - Added WebSocket support via API Gateway
 - Designed DynamoDB table structure
@@ -137,6 +142,7 @@ This integration is Nova 2 Lite's main differentiator—it's not just a model, i
 **Task:** Solve a complex optimization problem.
 
 **Nova 2 Lite's Response:**
+
 - Identified problem type
 - Proposed solution approach
 - Implemented algorithm
@@ -197,7 +203,7 @@ Nova 2 Lite can optimize AWS costs:
 ### API Pricing
 
 | Model | Input (per 1M tokens) | Output (per 1M tokens) | AWS Integration |
-|-------|----------------------|------------------------|-----------------|
+| ------- | ---------------------- | ------------------------ | ----------------- |
 | **Nova 2 Lite** | $0.30 | $0.90 | ✅ Native |
 | **GPT-5.2 Thinking** | $3.00 | $14.00 | ❌ External |
 | **Claude Opus 4.5** | $15.00 | $75.00 | ❌ External |
@@ -242,12 +248,14 @@ For AWS-native applications, consider:
 ### Nova 2 Lite vs GPT-5.2
 
 **Nova 2 Lite Advantages:**
+
 - 10-15x cheaper
 - Better AWS integration
 - Lower latency within AWS
 - Data stays in AWS
 
 **GPT-5.2 Advantages:**
+
 - Significantly better performance (10-15% on benchmarks)
 - 400K context window
 - Multimodal capabilities
@@ -258,11 +266,13 @@ For AWS-native applications, consider:
 ### Nova 2 Lite vs Claude Opus 4.5
 
 **Nova 2 Lite Advantages:**
+
 - 50x cheaper
 - Better AWS integration
 - AWS-native deployment
 
 **Claude Opus 4.5 Advantages:**
+
 - Much better performance (15-20% on benchmarks)
 - Better general reasoning
 - More polished outputs
@@ -273,7 +283,7 @@ For AWS-native applications, consider:
 
 ## Use Cases
 
-### Best For:
+### Best For
 
 1. **AWS-Native Applications** - When you're building on AWS
 2. **Cost-Sensitive AWS Workloads** - High-volume applications
@@ -281,7 +291,7 @@ For AWS-native applications, consider:
 4. **AWS Architecture Design** - Excellent at AWS patterns
 5. **Lambda Development** - Strong Lambda function generation
 
-### Not Ideal For:
+### Not Ideal For
 
 1. **Peak Performance Needed** - Frontier models are better
 2. **Non-AWS Applications** - Less advantage outside AWS
@@ -315,6 +325,7 @@ Native AWS SDK integration makes it seamless for AWS developers.
 ### Response Quality
 
 Nova 2 Lite's responses are:
+
 - **AWS-Optimized** - Follows AWS best practices
 - **Practical** - Focuses on implementable solutions
 - **Cost-Aware** - Considers AWS costs

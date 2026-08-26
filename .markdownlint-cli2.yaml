@@ -1,0 +1,10 @@
+# markdownlint-cli2 config for MDX blog posts (agent- and human-written).
+globs:
+  - "content/blog/**/*.mdx"
+config:
+  default: true
+  MD013: false # line length — prose wraps in the renderer
+  MD033: false # inline HTML — MDX components are expected
+  MD041: false # first line heading — frontmatter comes first
+  MD024: { siblings_only: true } # duplicate headings allowed across sections
+  MD036: false # bold-as-heading is a deliberate style in review posts

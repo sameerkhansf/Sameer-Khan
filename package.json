@@ -13,7 +13,8 @@
     "test:agents": "node --test scripts/agent-readiness.test.mjs",
     "indexnow": "./scripts/indexnow-submit.sh",
     "generate-md": "npx tsx scripts/generate-markdown-files.ts",
-    "optimize-images": "npx tsx scripts/optimize-images.ts"
+    "optimize-images": "npx tsx scripts/optimize-images.ts",
+    "validate:content": "remark-lint-frontmatter-validation \"content/blog/**/*.mdx\" --schema schemas/post.schema.json && markdownlint-cli2"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.7.5",
@@ -53,7 +54,9 @@
     "autoprefixer": "^10.4.22",
     "eslint": "^9.39.1",
     "eslint-config-next": "^16.0.10",
+    "markdownlint-cli2": "^0.23.2",
     "postcss": "^8.5.6",
+    "remark-lint-frontmatter-validation": "^1.0.4",
     "tailwindcss": "^3.4.17",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
