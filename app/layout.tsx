@@ -217,16 +217,9 @@ const speakableSchema = {
   "@id": "https://samkhan.net/#speakable",
   speakable: {
     "@type": "SpeakableSpecification",
-    // CSS selectors for modern browsers
+    // CSS selectors only: Google's crawler was discovering the xpath strings
+    // as relative links and 404ing on them (GSC "Not found" report)
     cssSelector: ["h1", "h2", ".quick-answer", "article p:first-of-type", "main h1", "main h2"],
-    // XPath for more precise targeting (better for voice assistants)
-    xpath: [
-      "/html/head/title",
-      "/html/body/main//h1[1]",
-      "/html/body/main//h2[1]",
-      "/html/body/main//article//p[1]",
-      "/html/body//*[contains(@class, 'quick-answer')]//p[1]",
-    ],
   },
   url: "https://samkhan.net",
 };
