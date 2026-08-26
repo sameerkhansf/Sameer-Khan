@@ -186,7 +186,7 @@ export const LuGlobe: React.FC<IconProps> = ({ size = 24, className, ...props })
   </svg>
 );
 
-export default {
+const icons = {
   ArrowUpRight,
   Moon,
   Sun,
@@ -198,3 +198,5 @@ export default {
   LuMail,
   LuGlobe,
 };
+
+export default icons;
