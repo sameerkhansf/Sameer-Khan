@@ -24,7 +24,7 @@ engine:
   id: copilot
   env:
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
-    COPILOT_MODEL: "nvidia/nemotron-3-super-120b-a12b:free"
+    COPILOT_MODEL: "nvidia/nemotron-3-ultra-550b-a55b:free"
     COPILOT_PROVIDER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
 
 sandbox:
@@ -66,6 +66,8 @@ timeout-minutes: 25
 ---
 
 # Weekly TIL Scout
+
+RUN CONTRACT — read first: every run MUST end with exactly one safe-output tool call — `create_pull_request` (the goal), or `noop` with the candidate topics you considered and why each was rejected, or `report_incomplete` with the blocking reason. Ending the session without one of these three calls is a failed run. Do not stop after scouting; carry the chosen topic all the way through writing and the PR call.
 
 You are the autonomous weekly writer for samkhan.net. No human capture note exists: you choose the topic yourself, then produce a post exactly as the /til pipeline does.
 
