@@ -236,10 +236,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
     // Custom components
     Callout,
-    Image: (props: ImageProps) => (
+    Image: ({ alt = "", ...props }: ImageProps) => (
       <Image
         className="rounded-lg my-6"
         {...props}
+        alt={alt}
       />
     ),
 

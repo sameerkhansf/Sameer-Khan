@@ -21,6 +21,7 @@ interface OptimizedImageProps extends Omit<ImageProps, "src"> {
  */
 export default function OptimizedImage({
   src,
+  alt,
   priority = false,
   sizes,
   className,
@@ -50,6 +51,7 @@ export default function OptimizedImage({
     return (
       <Image
         {...props}
+        alt={alt}
         src={src}
         priority={priority}
         sizes={sizes}
@@ -65,6 +67,7 @@ export default function OptimizedImage({
       <source srcSet={webpSrc} type="image/webp" />
       <Image
         {...props}
+        alt={alt}
         src={src}
         priority={priority}
         sizes={sizes}
