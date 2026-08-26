@@ -14,6 +14,11 @@ permissions: read-all
 
 network: defaults
 
+models:
+  default-ai-credits-pricing:
+    input: 0.000001
+    output: 0.000001
+
 safe-outputs:
   create-discussion:
     title-prefix: "[weekly-research] "
