@@ -77,7 +77,7 @@ Create a new GitHub discussion with title starting with "[weekly-research]" cont
 - Market opportunities
 - Business analysis
 - Enjoyable anecdotes
-- A final section titled "## Post queue": 5-7 concrete, narrow, TIL-able topic candidates (each one task with verifiable commands/results, one line each, no broad surveys) — this section is consumed by the daily writer workflow
+- A final section titled "## Post queue": 5-7 concrete, narrow, TIL-able topic candidates (each one task with verifiable commands/results, one line each, no broad surveys) — external/industry topics only — never this repository's own workflows or automation; this section is consumed by the daily writer workflow
 
 Only a new discussion should be created, no existing discussions should be adjusted.
 
