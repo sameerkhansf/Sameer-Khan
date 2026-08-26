@@ -8,7 +8,7 @@ const Intro = () => {
       <h2 className="section-title">Intro</h2>
       <div className="prose leading-relaxed text-foreground">
         <p className="mb-6">
-          I'm Sameer Khan, Co-Founder of agentShop — the commerce intelligence
+          I&apos;m Sameer Khan, Co-Founder of agentShop — the commerce intelligence
           layer that turns AI conversations into consultative sales. I build at
           the intersection of AI and commerce, helping brands show up where AI
           is deciding what customers buy.
