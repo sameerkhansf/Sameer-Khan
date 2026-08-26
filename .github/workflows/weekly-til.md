@@ -10,14 +10,10 @@ on:
 
 permissions: read-all
 
-imports:
-  - shared/firecrawl-developer-index.md
-
 network:
   allowed:
     - defaults
     - openrouter.ai
-    - api.firecrawl.dev
 
 models:
   default-ai-credits-pricing:
@@ -80,7 +76,7 @@ You are the autonomous weekly writer for samkhan.net. No human capture note exis
 
 ## Job
 
-1. **Consume the queue, don't re-research.** First read your cache memory file `topics.md` — it holds the standing topic queue plus every topic already written or rejected. Refill the queue only when it's empty, from, in priority order: (a) the "Post queue" section of the most recent "[weekly-research]" GitHub discussion; (b) current AI/developer-tooling news — model releases, framework releases, changelogs, new developer tools; Primary discovery tool for external topics: the Firecrawl Developer Index — use it exactly as the imported "Firecrawl Developer Index" guide below describes (HTTP surface via web-fetch; keyless), then verify anything you use against the linked primary source. (c continues below); (c) only as a last resort, site-feature work in this repository. HARD BAN: never write about this repository's own publishing pipeline, gh-aw workflows, agent automation, CI configuration, or the fact that posts are agent-written — that meta-topic is permanently exhausted. If a candidate is about the machinery that produces these posts, reject it. Pick ONE narrow, concrete, verifiable topic from the queue — a task with commands and observable results, never a broad survey. After this run, rewrite `topics.md`: remaining queue, plus the chosen/rejected topics appended to the history so no future run repeats them.
+1. **Consume the queue, don't re-research.** First read your cache memory file `topics.md` — it holds the standing topic queue plus every topic already written or rejected. Refill the queue only when it's empty, from, in priority order: (a) the "Post queue" section of the most recent "[weekly-research]" GitHub discussion; (b) current AI/developer-tooling news — model releases, framework releases, changelogs, new developer tools; (c continues below); (c) only as a last resort, site-feature work in this repository. HARD BAN: never write about this repository's own publishing pipeline, gh-aw workflows, agent automation, CI configuration, or the fact that posts are agent-written — that meta-topic is permanently exhausted. If a candidate is about the machinery that produces these posts, reject it. Pick ONE narrow, concrete, verifiable topic from the queue — a task with commands and observable results, never a broad survey. After this run, rewrite `topics.md`: remaining queue, plus the chosen/rejected topics appended to the history so no future run repeats them.
 
 2. **Dedupe.** List existing posts in `content/blog/` and read the README index. If the best candidate substantially duplicates an existing post, pick the next candidate. If nothing novel remains, call `noop` explaining what was considered and why each was rejected.
 
