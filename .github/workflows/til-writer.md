@@ -76,7 +76,12 @@ The capture note is: "${{ steps.sanitized.outputs.text }}"
 
 3. **Verify.** Every factual claim in the draft must trace to a source you actually fetched, or to a command you actually ran in this repository. Never write "I tested X" unless you ran it here. Prefer exact version numbers, dates, and quoted behavior over generalities.
 
-4. **Write the draft.** Create one new file in `content/blog/` named `<kebab-case-slug>.mdx`, matching the existing posts' format exactly — YAML frontmatter with `title`, `description`, `date` (today), `author: "Sameer Khan"`, `tags`, `category`, `published: false`. Study 2–3 existing posts first and match their voice: direct, first-person, tables for comparisons, code blocks with real commands, no generic "In today's fast-paced world" introductions, no unsupported superlatives, no invented personal anecdotes. TIL posts are short — 400–1200 words recording one concrete thing learned, with exact commands and outputs.
+4. **Write the draft.** Create one new file in `content/blog/` named `<kebab-case-slug>.mdx`, matching the existing posts' format exactly — YAML frontmatter with `title`, `description`, `date` (today), `author: "Sameer Khan"`, `tags`, `category`, `published: false`. Study 2–3 existing posts first for MDX conventions, then follow this measured TIL register (derived from analyzing all 579 posts in simonw/til):
+   - **Title**: gerund-led sentence case, ~7 words, naming the task — "Running X inside Y", "Fixing X when Y". Never "How to…", never clickbait, no first-person in titles.
+   - **Opening**: first sentence states the concrete first-person trigger — what you were doing and what forced the learning ("I needed…", "I noticed…", "For X I found…") — with a link to the real project or issue. The first paragraph doubles as the summary; no throat-clearing.
+   - **Length**: target the 150–900 word range, median ~320. Go longer (up to ~1,500) only when the material genuinely demands a deep-dive.
+   - **Body**: prose interleaved with at least one fenced code block containing real commands and real output (88% of Simon's posts have code). 3–5 external links to primary sources. H2 subheads only if the post runs long. End with the working final version or a pointer to it.
+   - **Never**: "In today's fast-paced world" intros, unsupported superlatives, invented anecdotes, "what is X" boilerplate.
 
 5. **Evidence bundle.** Write a JSON evidence file to repo-memory named after the slug: source URLs with access dates, versions of any tools referenced, commands run with outputs, and the list of factual claims mapped to sources.
 
