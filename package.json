@@ -59,6 +59,6 @@
     "remark-lint-frontmatter-validation": "^1.0.4",
     "tailwindcss": "^3.4.17",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^7.0.2"
   }
 }
