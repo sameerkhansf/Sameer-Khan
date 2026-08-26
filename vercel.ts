@@ -5,10 +5,9 @@ export const config: VercelConfig = {
   // Lockfile-exact installs: a preview build once flaked with "TypeScript
   // not installed" under default npm install; npm ci is deterministic.
   installCommand: "npm ci",
-  // gh-aw pushes agent evidence to memory/* branches (no app dir) — skip
-  // building those. Exit 0 = ignore build, exit 1 = build.
-  ignoreCommand:
-    'case "$VERCEL_GIT_COMMIT_REF" in memory/*) exit 0;; *) exit 1;; esac',
+  // gh-aw pushes agent evidence to memory/* branches, which have no app dir
+  // and can never build. Exit 0 = skip build. Filesystem test needs no env vars.
+  ignoreCommand: "test ! -d app",
   headers: [
     {
       source: "/(.*)",
