@@ -15,7 +15,12 @@ permissions: read-all
 
 network: defaults
 
-engine: claude
+engine:
+  id: claude
+  env:
+    ANTHROPIC_MODEL: "nvidia/nemotron-3.5-lightning:free"
+    ANTHROPIC_BASE_URL: "https://openrouter.ai/api/v1"
+    ANTHROPIC_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
 
 safe-outputs:
   create-pull-request:
