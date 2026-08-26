@@ -1,0 +1,39 @@
+---
+title: Running gh-aw agents on NVIDIA free NIM endpoints
+description: Wiring GitHub Agentic Workflows to use NVIDIA's free hosted NIM endpoints via Copilot BYOK engine mode
+date: "2026-08-26"
+author: Sameer Khan
+tags: [AI, Developer Tools, GitHub, NVIDIA]
+category: Developer Tools
+published: false
+---
+
+I needed to configure GitHub's Agentic Workflows framework (gh-aw) to work with NVIDIA's free hosted NIM endpoints. The capture note documents the exact configuration and three specific failures encountered before achieving a successful run.
+
+The core task involves wiring the repo's GitHub Agentic Workflows (github/gh-aw) to NVIDIA's free hosted NIM endpoints (integrate.api.nvidia.com, specifically nvidia/nemotron-3.5-lightning-30b-a3b at 40 RPM free tier) via the Copilot BYOK (Bring Your Own Key) engine mode.
+
+Three real failures occurred in sequence before achieving a green run:
+
+1. **AWF proxy rejected every request with 400 'Model has no AI credits pricing'** - This was fixed by adding frontmatter configuration: `models.default-ai-credits-pricing input/output 0.000001` (note that the compiler rejects literal 0, so a tiny value is required)
+
+2. **Proxy token steering silently rewrote the model to claude-sonnet-5** - Resolved by setting `sandbox.agent.token-steering: false` and `model-fallback: false` in the configuration
+
+3. **The agentics sample's timeout-minutes: 15 killed a successful 16.3-minute research session** - Increased timeout to 30 minutes to accommodate longer research sessions
+
+Additional verified facts:
+
+- NVIDIA NIM serves the `/v1/chat/completions` endpoint but returns 404 for `/v1/responses` and `/v1/messages` (verified via curl testing)
+- Therefore, the Copilot engine's default completions wire API is the only viable fit
+- The threat-detection step requires the larger free model `nvidia/nemotron-3-super-120b-a12b` to emit the strict THREAT_DETECTION_RESULT JSON format
+- Sustained sessions can encounter free-tier 403 throttling, which is solved by routing through OpenRouter with NVIDIA BYOK integration (uses NVIDIA quota first, then automatically falls back)
+- The primary diagnosis tool is `gh aw audit (run-id)` for inspecting workflow executions
+
+Sources consulted:
+
+- GitHub Agentic Workflows documentation: <https://github.github.com/gh-aw/> (accessed 2026-08-26)
+- GitHub next agentics repository: <https://github.com/githubnext/agentics> (accessed 2026-08-26)
+- NVIDIA models catalog: <https://build.nvidia.com/models> (accessed 2026-08-26)
+
+The working configuration involves setting appropriate values in the agent configuration files to bypass the AWF proxy limitations, disable unwanted token steering, and increase session timeouts to enable productive research sessions with NVIDIA's free AI models.
+
+This setup enables developers to leverage NVIDIA's free AI offerings within GitHub's agentic workflow framework without incurring costs, while maintaining the ability to handle complex multi-step reasoning tasks that require strict JSON output formats for steps like threat detection.
