@@ -95,6 +95,8 @@ The capture note is: "${{ steps.sanitized.outputs.text }}"
 
 ## Hard rules
 
+- Do not write about this repository's publishing pipeline, gh-aw workflows, or agent automation unless the capture note explicitly and unambiguously asks for that topic — it is otherwise exhausted.
+- When a post follows up on ground an existing post covers, link to the earlier post instead of re-explaining its material.
 - Never edit existing posts. Only add new files under the allowed paths.
 - No SEO filler, no "what is X" boilerplate sections, no fake first-person experiences.
 - If sources conflict, say so in the post — a recorded contradiction is more valuable than false certainty.
