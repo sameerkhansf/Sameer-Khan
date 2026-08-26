@@ -1,0 +1,14 @@
+name: IndexNow
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: bojieyang/indexnow-action@v3
+        with:
+          sitemap-location: "https://samkhan.net/sitemap.xml"
+          key: ${{ secrets.INDEXNOW_KEY }}
