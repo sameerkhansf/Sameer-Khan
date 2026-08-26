@@ -76,7 +76,9 @@ export async function generateMetadata({
       images: post.image ? [post.image] : ["/og-image.jpg"],
     },
     alternates: {
-      canonical: `https://samkhan.net/${lang}/blog/${slug}`,
+      // Posts are English-only; every locale route serves identical content,
+      // so they all canonicalize to en-US (fixes Bing duplicate titles/descriptions)
+      canonical: `https://samkhan.net/en-US/blog/${slug}`,
       // llms.txt spec v2: advertise the markdown twin of this page
       types: {
         "text/markdown": `https://samkhan.net/blog/${slug}.md`,
