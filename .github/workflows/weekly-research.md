@@ -47,7 +47,7 @@ engine:
   id: copilot
   env:
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
-    COPILOT_MODEL: "nvidia/nemotron-3.5-lightning:free"
+    COPILOT_MODEL: "nvidia/nemotron-3-ultra-550b-a55b:free"
     COPILOT_PROVIDER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
 
 sandbox:
@@ -77,6 +77,7 @@ Create a new GitHub discussion with title starting with "[weekly-research]" cont
 - Market opportunities
 - Business analysis
 - Enjoyable anecdotes
+- A final section titled "## Post queue": 5-7 concrete, narrow, TIL-able topic candidates (each one task with verifiable commands/results, one line each, no broad surveys) — this section is consumed by the daily writer workflow
 
 Only a new discussion should be created, no existing discussions should be adjusted.
 
