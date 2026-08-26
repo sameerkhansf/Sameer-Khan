@@ -51,7 +51,7 @@ safe-outputs:
 tools:
   cache-memory:
   web-fetch:
-  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "gh", "git", "npx", "npm", "node", "python3", "pip3", "curl", "jq", "mkdir", "cd"]
+  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date"]
   edit:
   github:
     toolsets: [default]
