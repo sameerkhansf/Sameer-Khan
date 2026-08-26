@@ -26,8 +26,11 @@ function getLocale(request) {
 // acceptmarkdown.com content negotiation: pages with a markdown equivalent
 // serve it when the request explicitly accepts text/markdown.
 function markdownRewrite(request) {
-  const accept = request.headers.get("accept") || "";
-  if (!accept.includes("text/markdown")) return null;
+  const negotiator = new Negotiator({
+    headers: { accept: request.headers.get("accept") || "" },
+  });
+  if (negotiator.mediaType(["text/html", "text/markdown"]) !== "text/markdown")
+    return null;
 
   // Normalize: strip trailing slash and any locale prefix
   let pathname = request.nextUrl.pathname.replace(/\/$/, "");
