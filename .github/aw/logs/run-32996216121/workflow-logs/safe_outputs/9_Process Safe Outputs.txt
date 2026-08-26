@@ -1,0 +1,46 @@
+﻿2026-08-26T18:20:14.0365842Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T18:20:14.0366693Z with:
+2026-08-26T18:20:14.0370673Z   github-token: ***
+2026-08-26T18:20:14.0372386Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/process_safe_outputs.cjs');
+await main();
+
+2026-08-26T18:20:14.0374155Z   debug: false
+2026-08-26T18:20:14.0374631Z   user-agent: actions/github-script
+2026-08-26T18:20:14.0375198Z   result-encoding: json
+2026-08-26T18:20:14.0375677Z   retries: 0
+2026-08-26T18:20:14.0376182Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T18:20:14.0376778Z env:
+2026-08-26T18:20:14.0377198Z   GH_AW_AGENT_AIC: 
+2026-08-26T18:20:14.0377658Z   GH_AW_AIC: 
+2026-08-26T18:20:14.0378325Z   GH_AW_AMBIENT_CONTEXT: 29928
+2026-08-26T18:20:14.0378997Z   GH_AW_CALLER_WORKFLOW_ID: sameerkhansf/Sameer-Khan/til-writer
+2026-08-26T18:20:14.0379749Z   GH_AW_COMMANDS: ["til"]
+2026-08-26T18:20:14.0380285Z   GH_AW_DETECTION_CONCLUSION: skipped
+2026-08-26T18:20:14.0380857Z   GH_AW_DETECTION_REASON: 
+2026-08-26T18:20:14.0381373Z   GH_AW_EFFECTIVE_TOKENS: 
+2026-08-26T18:20:14.0381890Z   GH_AW_ENGINE_ID: copilot
+2026-08-26T18:20:14.0382389Z   GH_AW_ENGINE_MODEL: auto
+2026-08-26T18:20:14.0382887Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T18:20:14.0383403Z   GH_AW_THREAT_DETECTION_AIC: 
+2026-08-26T18:20:14.0383942Z   GH_AW_WORKFLOW_ID: til-writer
+2026-08-26T18:20:14.0384480Z   GH_AW_WORKFLOW_NAME: TIL Writer
+2026-08-26T18:20:14.0385467Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/sameerkhansf/Sameer-Khan/blob/main/.github/workflows/til-writer.md
+2026-08-26T18:20:14.0386562Z   GITHUB_AW_OTEL_TRACE_ID: 4b30332db371f993d125fa437b4eb907
+2026-08-26T18:20:14.0387294Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 63353ff5628d03f6
+2026-08-26T18:20:14.0388125Z   GITHUB_AW_OTEL_JOB_START_MS: 1787768411943
+2026-08-26T18:20:14.0388741Z   GH_HOST: github.com
+2026-08-26T18:20:14.0389291Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-08-26T18:20:14.0389919Z   GH_AW_COMMENT_ID: 5429092303
+2026-08-26T18:20:14.0401868Z   GH_AW_ALLOWED_DOMAINS: api.business.githubcopilot.com,api.enterprise.githubcopilot.com,api.github.com,api.githubcopilot.com,api.individual.githubcopilot.com,api.snapcraft.io,archive.ubuntu.com,azure.archive.ubuntu.com,crl.geotrust.com,crl.globalsign.com,crl.identrust.com,crl.sectigo.com,crl.thawte.com,crl.usertrust.com,crl.verisign.com,crl3.digicert.com,crl4.digicert.com,crls.ssl.com,github.com,host.docker.internal,json-schema.org,json.schemastore.org,keyserver.ubuntu.com,ocsp.digicert.com,ocsp.geotrust.com,ocsp.globalsign.com,ocsp.identrust.com,ocsp.sectigo.com,ocsp.ssl.com,ocsp.thawte.com,ocsp.usertrust.com,ocsp.verisign.com,openrouter.ai,packagecloud.io,packages.cloud.google.com,packages.microsoft.com,ppa.launchpad.net,raw.githubusercontent.com,registry.npmjs.org,s.symcb.com,s.symcd.com,security.ubuntu.com,telemetry.enterprise.githubcopilot.com,ts-crl.ws.symantec.com,ts-ocsp.ws.symantec.com,www.googleapis.com
+2026-08-26T18:20:14.0414129Z   GITHUB_SERVER_URL: https://github.com
+2026-08-26T18:20:14.0414749Z   GITHUB_API_URL: https://api.github.com
+2026-08-26T18:20:14.0420781Z   GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG: {"create_pull_request":{"allowed_files":["content/blog/**","public/blog/**"],"draft":true,"labels":["til","automated"],"max":1,"max_patch_files":100,"max_patch_size":4096,"protect_top_level_dot_folders":true,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","README.md","CONTRIBUTING.md","CHANGELOG.md","SECURITY.md","CODE_OF_CONDUCT.md","AGENTS.md"],"protected_files_policy":"request_review","title_prefix":"[til] "},"create_report_incomplete_issue":{},"missing_data":{},"missing_tool":{},"noop":{"max":1,"report-as-issue":"false"},"report_incomplete":{}}
+2026-08-26T18:20:14.0430092Z   GH_AW_CI_TRIGGER_TOKEN: 
+2026-08-26T18:20:14.0430650Z ##[endgroup]
+2026-08-26T18:20:14.1807160Z Safe Output Handler Manager starting...
+2026-08-26T18:20:14.1820478Z Loaded config from GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG: {"create_pull_request":{"allowed_files":["content/blog/**","public/blog/**"],"draft":true,"labels":["til","automated"],"max":1,"max_patch_files":100,"max_patch_size":4096,"protect_top_level_dot_folders":true,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","README.md","CONTRIBUTING.md","CHANGELOG.md","SECURITY.md","CODE_OF_CONDUCT.md","AGENTS.md"],"protected_files_policy":"request_review","title_prefix":"[til] "},"create_report_incomplete_issue":{},"missing_data":{},"missing_tool":{},"noop":{"max":1,"report-as-issue":"false"},"report_incomplete":{}}
+2026-08-26T18:20:14.1833214Z Agent output content length: 24
+2026-08-26T18:20:14.1836269Z Found 0 message(s) in agent output
+2026-08-26T18:20:14.1840461Z No safe-output messages available - nothing to process

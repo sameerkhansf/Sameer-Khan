@@ -1,0 +1,16 @@
+[2026-08-26T08:59:34.899Z] [INFO] [difc] Guard policy: {"allow-only":{"approval-labels":[],"blocked-users":[],"min-integrity":"none","repos":"all","trusted-users":[]}}
+[2026-08-26T08:59:35.153Z] [INFO] [difc] Loaded discovered WASM guard from file: 00-github-guard.wasm
+[2026-08-26T08:59:35.166Z] [INFO] [difc] Registered guard 'github'
+[2026-08-26T08:59:35.173Z] [DEBUG] [backend] GetOrLaunch called for server: github
+[2026-08-26T08:59:35.986Z] [INFO] [backend] Launching MCP backend server: server=github, command=docker, args=[run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=... -e GITHUB_FEATURES=fiel... -e GITHUB_HOST=http... ghcr.io/github/github-mcp-server:v1.9.0]
+[2026-08-26T08:59:38.158Z] [INFO] [backend] [stderr] time=2026-08-26T08:59:38.140Z level=INFO msg="starting server" version=v1.9.0 host=https://github.com readOnly=true lockdownEnabled=false
+[2026-08-26T08:59:38.222Z] [INFO] [backend] [stderr] GitHub MCP Server running on stdio
+[2026-08-26T08:59:38.224Z] [INFO] [backend] [stderr] time=2026-08-26T08:59:38.223Z level=INFO msg="server run start"
+[2026-08-26T08:59:38.226Z] [INFO] [backend] [stderr] time=2026-08-26T08:59:38.223Z level=INFO msg="server connecting"
+[2026-08-26T08:59:38.227Z] [INFO] [backend] [stderr] time=2026-08-26T08:59:38.223Z level=INFO msg="server session connected" session_id=""
+[2026-08-26T08:59:38.228Z] [INFO] [backend] Successfully launched MCP backend server: server=github
+[2026-08-26T08:59:38.228Z] [INFO] [backend] [stderr] time=2026-08-26T08:59:38.223Z level=INFO msg="client log level set" level=""
+[2026-08-26T08:59:38.231Z] [INFO] [backend] Backend server info: name=github-mcp-server, version=v1.9.0
+[2026-08-26T08:59:38.238Z] [INFO] [backend] [stderr] time=2026-08-26T08:59:38.237Z level=INFO msg="client log level set" level=""
+[2026-08-26T08:59:38.565Z] [INFO] [backend] [stderr] time=2026-08-26T08:59:38.565Z level=INFO msg="client log level set" level=""
+[2026-08-26T08:59:38.578Z] [INFO] [backend] Successfully registered tools from github (took 3.403083121s)

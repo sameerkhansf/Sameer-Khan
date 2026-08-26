@@ -1,0 +1,28 @@
+﻿2026-08-26T18:20:32.9369609Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-08-26T18:20:32.9370763Z with:
+2026-08-26T18:20:32.9371260Z   name: aic-usage-cache
+2026-08-26T18:20:32.9371952Z   path: /tmp/gh-aw/agentic-workflow-usage-cache.jsonl
+2026-08-26T18:20:32.9372797Z   if-no-files-found: ignore
+2026-08-26T18:20:32.9373387Z   retention-days: 7
+2026-08-26T18:20:32.9373920Z   compression-level: 6
+2026-08-26T18:20:32.9374475Z   overwrite: false
+2026-08-26T18:20:32.9375013Z   include-hidden-files: false
+2026-08-26T18:20:32.9375620Z   archive: true
+2026-08-26T18:20:32.9376098Z env:
+2026-08-26T18:20:32.9376568Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T18:20:32.9377328Z   GITHUB_AW_OTEL_TRACE_ID: 4b30332db371f993d125fa437b4eb907
+2026-08-26T18:20:32.9378214Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 2e2fa8c53c7eefc5
+2026-08-26T18:20:32.9379257Z   GITHUB_AW_OTEL_JOB_START_MS: 1787768427940
+2026-08-26T18:20:32.9379969Z ##[endgroup]
+2026-08-26T18:20:33.1136058Z With the provided path, there will be 1 file uploaded
+2026-08-26T18:20:33.1148045Z Artifact name is valid!
+2026-08-26T18:20:33.1152205Z Root directory input is valid!
+2026-08-26T18:20:33.4580489Z Uploading artifact: aic-usage-cache.zip
+2026-08-26T18:20:33.4639265Z Beginning upload of artifact content to blob storage
+2026-08-26T18:20:33.7432808Z Uploaded bytes 254
+2026-08-26T18:20:33.8092008Z Finished uploading artifact content to blob storage!
+2026-08-26T18:20:33.8096972Z SHA256 digest of uploaded artifact is 5abe63b0698e4c304c82b4c86fc5b174062e265adab94e249b786029cbbc804c
+2026-08-26T18:20:33.8099839Z Finalizing artifact upload
+2026-08-26T18:20:34.1734170Z Artifact aic-usage-cache successfully finalized. Artifact ID 9617788477
+2026-08-26T18:20:34.1737031Z Artifact aic-usage-cache has been successfully uploaded! Final size is 254 bytes. Artifact ID is 9617788477
+2026-08-26T18:20:34.1743982Z Artifact download URL: https://github.com/sameerkhansf/Sameer-Khan/actions/runs/32996216121/artifacts/9617788477

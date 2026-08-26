@@ -1,0 +1,40 @@
+﻿2026-08-26T18:20:38.3591957Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T18:20:38.3595028Z with:
+2026-08-26T18:20:38.3607344Z   github-token: ***
+2026-08-26T18:20:38.3612179Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/notify_comment_error.cjs');
+await main();
+
+2026-08-26T18:20:38.3616921Z   debug: false
+2026-08-26T18:20:38.3618081Z   user-agent: actions/github-script
+2026-08-26T18:20:38.3619671Z   result-encoding: json
+2026-08-26T18:20:38.3621873Z   retries: 0
+2026-08-26T18:20:38.3623740Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T18:20:38.3625881Z env:
+2026-08-26T18:20:38.3626910Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T18:20:38.3628314Z   GITHUB_AW_OTEL_TRACE_ID: 4b30332db371f993d125fa437b4eb907
+2026-08-26T18:20:38.3631167Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 2e2fa8c53c7eefc5
+2026-08-26T18:20:38.3632819Z   GITHUB_AW_OTEL_JOB_START_MS: 1787768427940
+2026-08-26T18:20:38.3634322Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-08-26T18:20:38.3635783Z   GH_AW_COMMENT_ID: 5429092303
+2026-08-26T18:20:38.3637095Z   GH_AW_COMMENT_REPO: sameerkhansf/Sameer-Khan
+2026-08-26T18:20:38.3639466Z   GH_AW_RUN_URL: https://github.com/sameerkhansf/Sameer-Khan/actions/runs/32996216121
+2026-08-26T18:20:38.3641403Z   GH_AW_WORKFLOW_NAME: TIL Writer
+2026-08-26T18:20:38.3643411Z   GH_AW_AGENT_CONCLUSION: success
+2026-08-26T18:20:38.3645278Z   GH_AW_SAFE_OUTPUTS_RESULT: success
+2026-08-26T18:20:38.3646966Z   GH_AW_DETECTION_CONCLUSION: skipped
+2026-08-26T18:20:38.3648289Z   GH_AW_DETECTION_REASON: 
+2026-08-26T18:20:38.3649606Z ##[endgroup]
+2026-08-26T18:20:38.5357085Z Comment ID: 5429092303
+2026-08-26T18:20:38.5363318Z Comment Repo: sameerkhansf/Sameer-Khan
+2026-08-26T18:20:38.5367565Z Run URL: https://github.com/sameerkhansf/Sameer-Khan/actions/runs/32996216121
+2026-08-26T18:20:38.5375472Z Workflow Name: TIL Writer
+2026-08-26T18:20:38.5378345Z Agent Conclusion: success
+2026-08-26T18:20:38.5383938Z Detection Conclusion: skipped
+2026-08-26T18:20:38.5387165Z Safe Outputs Result: success
+2026-08-26T18:20:38.5392345Z Agent output content length: 24
+2026-08-26T18:20:38.5395118Z Updating comment in sameerkhansf/Sameer-Khan
+2026-08-26T18:20:39.5061081Z Successfully updated comment
+2026-08-26T18:20:39.5065070Z Comment ID: 5429092303
+2026-08-26T18:20:39.5069477Z Comment URL: https://github.com/sameerkhansf/Sameer-Khan/issues/10#issuecomment-5429092303

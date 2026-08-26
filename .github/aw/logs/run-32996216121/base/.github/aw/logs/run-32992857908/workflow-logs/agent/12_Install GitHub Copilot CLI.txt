@@ -1,0 +1,45 @@
+﻿2026-08-26T17:14:49.5041547Z ##[group]Run bash "${RUNNER_TEMP}/gh-aw/actions/install_copilot_cli.sh"
+2026-08-26T17:14:49.5042479Z [36;1mbash "${RUNNER_TEMP}/gh-aw/actions/install_copilot_cli.sh"[0m
+2026-08-26T17:14:49.5095048Z shell: /usr/bin/bash -e {0}
+2026-08-26T17:14:49.5095338Z env:
+2026-08-26T17:14:49.5095558Z   DEFAULT_BRANCH: main
+2026-08-26T17:14:49.5095826Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-08-26T17:14:49.5096130Z   GH_AW_ASSETS_BRANCH: 
+2026-08-26T17:14:49.5096372Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-08-26T17:14:49.5096680Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-08-26T17:14:49.5097014Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:14:49.5097287Z   GH_AW_WORKFLOW_ID_SANITIZED: tilwriter
+2026-08-26T17:14:49.5097635Z   GITHUB_AW_OTEL_TRACE_ID: 4f2b70eb5c2bda3aaef715147050ff46
+2026-08-26T17:14:49.5098003Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: ea79d1e1c50c21ab
+2026-08-26T17:14:49.5098333Z   GITHUB_AW_OTEL_JOB_START_MS: 1787764475821
+2026-08-26T17:14:49.5098623Z   GH_HOST: github.com
+2026-08-26T17:14:49.5098861Z   GH_AW_COMPILED_VERSION: v0.86.2
+2026-08-26T17:14:49.5099166Z ##[endgroup]
+2026-08-26T17:14:49.5218967Z Ensuring correct ownership of /home/runner/.copilot...
+2026-08-26T17:14:49.5356059Z Cleaning up stale AWF chroot directories...
+2026-08-26T17:14:49.5544550Z Installing GitHub Copilot CLI (os: Linux, arch: x86_64)...
+2026-08-26T17:14:49.5568519Z No explicit Copilot CLI version requested. Attempting compat-driven version resolution...
+2026-08-26T17:14:49.5574633Z Attempting to download compatibility matrix from https://raw.githubusercontent.com/github/gh-aw-actions/main/.github/aw/compat.json...
+2026-08-26T17:14:49.6036349Z Successfully downloaded compatibility matrix from https://raw.githubusercontent.com/github/gh-aw-actions/main/.github/aw/compat.json
+2026-08-26T17:14:49.6096141Z Compatibility matrix source: https://raw.githubusercontent.com/github/gh-aw-actions/main/.github/aw/compat.json
+2026-08-26T17:14:49.6097493Z Compatibility matrix matched row 0: gh-aw 0.72.0..*, copilot 1.0.21..1.0.80
+2026-08-26T17:14:49.6098441Z Resolved Copilot CLI version from compatibility matrix: 1.0.80
+2026-08-26T17:14:49.6099106Z Cache TTL: 14 days
+2026-08-26T17:14:49.6101801Z Using compat-resolved Copilot CLI window: 1.0.21..1.0.80
+2026-08-26T17:14:49.6102686Z Will install compat max-agent 1.0.80 if no cached version satisfies the window.
+2026-08-26T17:14:49.6108819Z Searching toolcache for GitHub Copilot CLI (requested: latest, arch: x64, range: 1.0.21..1.0.80)...
+2026-08-26T17:14:49.6109796Z   Cache TTL enabled: 14 days
+2026-08-26T17:14:49.6110748Z   Scanning toolcache root: /opt/hostedtoolcache/copilot-cli
+2026-08-26T17:14:49.6230968Z   Found candidate: /opt/hostedtoolcache/copilot-cli/1.0.80/x64/bin/copilot (version: 1.0.80, arch: x64)
+2026-08-26T17:14:49.6237236Z   Cache TTL skipped (candidate equals max-agent: 1.0.80)
+2026-08-26T17:14:49.6238234Z   New best candidate: /opt/hostedtoolcache/copilot-cli/1.0.80/x64/bin/copilot (1.0.80 > none)
+2026-08-26T17:14:49.6239410Z   Selected best cached version: 1.0.80 at /opt/hostedtoolcache/copilot-cli/1.0.80/x64/bin/copilot
+2026-08-26T17:14:49.6242793Z Using cached GitHub Copilot CLI from /opt/hostedtoolcache/copilot-cli/1.0.80/x64/bin/copilot
+2026-08-26T17:14:49.6258527Z Activating cached Copilot CLI from /opt/hostedtoolcache/copilot-cli/1.0.80/x64/bin/copilot...
+2026-08-26T17:14:49.6259514Z   Prepended /opt/hostedtoolcache/copilot-cli/1.0.80/x64/bin to PATH
+2026-08-26T17:14:49.6261225Z   Exporting /opt/hostedtoolcache/copilot-cli/1.0.80/x64/bin to GITHUB_PATH (/home/runner/work/_temp/_runner_file_commands/add_path_4cac5474-7dfa-4fdb-b939-353d7a468a85)
+2026-08-26T17:14:49.6262803Z Verifying cached Copilot CLI installation...
+2026-08-26T17:14:49.6270862Z   Resolved copilot binary: /opt/hostedtoolcache/copilot-cli/1.0.80/x64/bin/copilot
+2026-08-26T17:14:57.3727062Z GitHub Copilot CLI 1.0.80.
+2026-08-26T17:14:57.3727901Z Run 'copilot update' to check for updates.
+2026-08-26T17:14:57.3994143Z ✓ Copilot CLI installation complete (cached)

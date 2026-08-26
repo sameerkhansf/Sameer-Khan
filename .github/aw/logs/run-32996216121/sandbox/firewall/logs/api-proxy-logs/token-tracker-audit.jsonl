@@ -1,0 +1,12 @@
+{"ts":1787767263733,"event":"TRACK_START","rid":"b22a798e-cf02-449a-996d-868d025e9661","provider":"copilot","path":"/chat/completions","streaming":true,"ct":"text/event-stream","ce":"(none)","status":200}
+{"ts":1787767461480,"event":"TRACK_END","rid":"b22a798e-cf02-449a-996d-868d025e9661","result":"ok","streaming":true,"model":"nvidia/nemotron-3.5-lightning:free","input":29928,"output":273,"cache_read":0}
+{"ts":1787767471861,"event":"TRACK_START","rid":"b62d437e-29e8-413b-b12b-09392ae4b79b","provider":"copilot","path":"/chat/completions","streaming":true,"ct":"text/event-stream","ce":"(none)","status":200}
+{"ts":1787767642790,"event":"TRACK_END","rid":"b62d437e-29e8-413b-b12b-09392ae4b79b","result":"ok","streaming":true,"model":"nvidia/nemotron-3.5-lightning:free","input":31191,"output":144,"cache_read":0}
+{"ts":1787767653369,"event":"TRACK_START","rid":"ec6b8fd7-cf78-4766-a1aa-785852120d93","provider":"copilot","path":"/chat/completions","streaming":true,"ct":"text/event-stream","ce":"(none)","status":200}
+{"ts":1787767813180,"event":"TRACK_END","rid":"ec6b8fd7-cf78-4766-a1aa-785852120d93","result":"ok","streaming":true,"model":"nvidia/nemotron-3.5-lightning:free","input":31808,"output":150,"cache_read":0}
+{"ts":1787767823624,"event":"TRACK_START","rid":"f5e89d50-f032-4f46-923a-dc76d5360d54","provider":"copilot","path":"/chat/completions","streaming":true,"ct":"text/event-stream","ce":"(none)","status":200}
+{"ts":1787767986501,"event":"TRACK_END","rid":"f5e89d50-f032-4f46-923a-dc76d5360d54","result":"ok","streaming":true,"model":"nvidia/nemotron-3.5-lightning:free","input":32197,"output":84,"cache_read":6528}
+{"ts":1787767996984,"event":"TRACK_START","rid":"df48e330-8058-4841-8850-a4cc63fa502d","provider":"copilot","path":"/chat/completions","streaming":true,"ct":"text/event-stream","ce":"(none)","status":200}
+{"ts":1787768154654,"event":"TRACK_END","rid":"df48e330-8058-4841-8850-a4cc63fa502d","result":"ok","streaming":true,"model":"nvidia/nemotron-3.5-lightning:free","input":32301,"output":73,"cache_read":0}
+{"ts":1787768165024,"event":"TRACK_START","rid":"2844fd05-eec3-45fc-aca9-6a1628db1872","provider":"copilot","path":"/chat/completions","streaming":true,"ct":"text/event-stream","ce":"(none)","status":200}
+{"ts":1787768326996,"event":"TRACK_END","rid":"2844fd05-eec3-45fc-aca9-6a1628db1872","result":"ok","streaming":true,"model":"nvidia/nemotron-3.5-lightning:free","input":32392,"output":36,"cache_read":0}

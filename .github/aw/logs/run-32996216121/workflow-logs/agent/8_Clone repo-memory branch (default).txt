@@ -1,0 +1,38 @@
+﻿2026-08-26T17:59:04.7283095Z ##[group]Run bash "${RUNNER_TEMP}/gh-aw/actions/clone_repo_memory_branch.sh"
+2026-08-26T17:59:04.7283757Z [36;1mbash "${RUNNER_TEMP}/gh-aw/actions/clone_repo_memory_branch.sh"[0m
+2026-08-26T17:59:04.7308052Z shell: /usr/bin/bash -e {0}
+2026-08-26T17:59:04.7308441Z env:
+2026-08-26T17:59:04.7308757Z   DEFAULT_BRANCH: main
+2026-08-26T17:59:04.7309281Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-08-26T17:59:04.7309675Z   GH_AW_ASSETS_BRANCH: 
+2026-08-26T17:59:04.7310043Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-08-26T17:59:04.7310570Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-08-26T17:59:04.7311066Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:59:04.7311444Z   GH_AW_WORKFLOW_ID_SANITIZED: tilwriter
+2026-08-26T17:59:04.7311846Z   GITHUB_AW_OTEL_TRACE_ID: 4b30332db371f993d125fa437b4eb907
+2026-08-26T17:59:04.7312350Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: bd4c8e651d31cf6d
+2026-08-26T17:59:04.7312747Z   GITHUB_AW_OTEL_JOB_START_MS: 1787767141025
+2026-08-26T17:59:04.7315270Z   GH_TOKEN: ***
+2026-08-26T17:59:04.7315593Z   GITHUB_SERVER_URL: https://github.com
+2026-08-26T17:59:04.7316082Z   BRANCH_NAME: memory/til-writer
+2026-08-26T17:59:04.7316435Z   TARGET_REPO: sameerkhansf/Sameer-Khan
+2026-08-26T17:59:04.7316867Z   MEMORY_DIR: /tmp/gh-aw/repo-memory/default
+2026-08-26T17:59:04.7317246Z   CREATE_ORPHAN: true
+2026-08-26T17:59:04.7317541Z ##[endgroup]
+2026-08-26T17:59:05.3536027Z Branch memory/til-writer does not exist, creating orphan branch
+2026-08-26T17:59:05.3612627Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-08-26T17:59:05.3613695Z Initialized empty Git repository in /tmp/gh-aw/repo-memory/default/.git/
+2026-08-26T17:59:05.3614812Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-08-26T17:59:05.3615791Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-08-26T17:59:05.3616933Z hint: call:
+2026-08-26T17:59:05.3617530Z hint:
+2026-08-26T17:59:05.3618101Z hint: 	git config --global init.defaultBranch <name>
+2026-08-26T17:59:05.3618745Z hint:
+2026-08-26T17:59:05.3619470Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-08-26T17:59:05.3620594Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-08-26T17:59:05.3621323Z hint:
+2026-08-26T17:59:05.3621778Z hint: 	git branch -m <name>
+2026-08-26T17:59:05.3622371Z hint:
+2026-08-26T17:59:05.3623090Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-08-26T17:59:05.3632187Z Switched to a new branch 'memory/til-writer'
+2026-08-26T17:59:05.3691497Z Repo memory directory ready at /tmp/gh-aw/repo-memory/default

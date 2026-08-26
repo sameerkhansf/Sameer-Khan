@@ -1,0 +1,40 @@
+﻿2026-08-26T18:20:29.4897604Z ##[group]Run mkdir -p /tmp/gh-aw/
+2026-08-26T18:20:29.4898389Z [36;1mmkdir -p /tmp/gh-aw/[0m
+2026-08-26T18:20:29.4899310Z [36;1mfind "/tmp/gh-aw/" -type f -print[0m
+2026-08-26T18:20:29.4900185Z [36;1mecho "GH_AW_AGENT_OUTPUT=/tmp/gh-aw/agent_output.json" >> "$GITHUB_OUTPUT"[0m
+2026-08-26T18:20:29.4910172Z shell: /usr/bin/bash -e {0}
+2026-08-26T18:20:29.4910767Z env:
+2026-08-26T18:20:29.4911200Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T18:20:29.4911833Z   GITHUB_AW_OTEL_TRACE_ID: 4b30332db371f993d125fa437b4eb907
+2026-08-26T18:20:29.4912571Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 2e2fa8c53c7eefc5
+2026-08-26T18:20:29.4913220Z   GITHUB_AW_OTEL_JOB_START_MS: 1787768427940
+2026-08-26T18:20:29.4913799Z ##[endgroup]
+2026-08-26T18:20:29.4996037Z /tmp/gh-aw/pre-agent-audit.txt
+2026-08-26T18:20:29.4996896Z /tmp/gh-aw/awf-config.json
+2026-08-26T18:20:29.5037807Z /tmp/gh-aw/agent_output.json
+2026-08-26T18:20:29.5038421Z /tmp/gh-aw/aw-prompts/prompt.txt
+2026-08-26T18:20:29.5039363Z /tmp/gh-aw/github_rate_limits.jsonl
+2026-08-26T18:20:29.5040016Z /tmp/gh-aw/agent_usage.json
+2026-08-26T18:20:29.5040534Z /tmp/gh-aw/otel.jsonl
+2026-08-26T18:20:29.5041045Z /tmp/gh-aw/agent-stdio.log
+2026-08-26T18:20:29.5041578Z /tmp/gh-aw/mcp-logs/github.log
+2026-08-26T18:20:29.5042130Z /tmp/gh-aw/mcp-logs/gateway.md
+2026-08-26T18:20:29.5042693Z /tmp/gh-aw/mcp-logs/safeoutputs/server.log
+2026-08-26T18:20:29.5043475Z /tmp/gh-aw/mcp-logs/safeoutputs.log
+2026-08-26T18:20:29.5044091Z /tmp/gh-aw/mcp-logs/observed-url-domains.json
+2026-08-26T18:20:29.5044724Z /tmp/gh-aw/mcp-logs/rpc-messages.jsonl
+2026-08-26T18:20:29.5045310Z /tmp/gh-aw/mcp-logs/tools.json
+2026-08-26T18:20:29.5046022Z /tmp/gh-aw/mcp-logs/mcp-gateway.log
+2026-08-26T18:20:29.5046692Z /tmp/gh-aw/sandbox/agent/logs/process-1787767253011-118.log
+2026-08-26T18:20:29.5047402Z /tmp/gh-aw/sandbox/firewall/logs/audit.jsonl
+2026-08-26T18:20:29.5048117Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/models.json
+2026-08-26T18:20:29.5051046Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-08-26T18:20:29.5053726Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-tracker-audit.jsonl
+2026-08-26T18:20:29.5054689Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-08-26T18:20:29.5055566Z /tmp/gh-aw/sandbox/firewall/logs/access.log
+2026-08-26T18:20:29.5056202Z /tmp/gh-aw/sandbox/firewall/logs/cache.log
+2026-08-26T18:20:29.5056916Z /tmp/gh-aw/sandbox/firewall/audit/awf-resolved-config.json
+2026-08-26T18:20:29.5057715Z /tmp/gh-aw/sandbox/firewall/audit/docker-compose.redacted.yml
+2026-08-26T18:20:29.5058434Z /tmp/gh-aw/sandbox/firewall/audit/squid.conf
+2026-08-26T18:20:29.5059475Z /tmp/gh-aw/sandbox/firewall/audit/policy-manifest.json
+2026-08-26T18:20:29.5060187Z /tmp/gh-aw/sandbox/firewall/awf-reflect.json

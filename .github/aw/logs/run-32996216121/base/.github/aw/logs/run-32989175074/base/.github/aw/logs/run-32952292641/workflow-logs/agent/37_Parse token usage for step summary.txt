@@ -1,0 +1,60 @@
+﻿2026-08-26T09:35:03.5465816Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T09:35:03.5466595Z with:
+2026-08-26T09:35:03.5468221Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/parse_token_usage.cjs');
+await main();
+
+2026-08-26T09:35:03.5475629Z   github-token: ***
+2026-08-26T09:35:03.5476044Z   debug: false
+2026-08-26T09:35:03.5476451Z   user-agent: actions/github-script
+2026-08-26T09:35:03.5476930Z   result-encoding: json
+2026-08-26T09:35:03.5477346Z   retries: 0
+2026-08-26T09:35:03.5477778Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T09:35:03.5478594Z env:
+2026-08-26T09:35:03.5479214Z   DEFAULT_BRANCH: main
+2026-08-26T09:35:03.5479643Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-08-26T09:35:03.5480095Z   GH_AW_ASSETS_BRANCH: 
+2026-08-26T09:35:03.5480529Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-08-26T09:35:03.5481065Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-08-26T09:35:03.5481686Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T09:35:03.5482174Z   GH_AW_WORKFLOW_ID_SANITIZED: weeklyresearch
+2026-08-26T09:35:03.5482830Z   GITHUB_AW_OTEL_TRACE_ID: b7f2b17ec9fad9fdc5d755c655f9b216
+2026-08-26T09:35:03.5483771Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 0dcc92855ae54ecc
+2026-08-26T09:35:03.5484350Z   GITHUB_AW_OTEL_JOB_START_MS: 1787735933972
+2026-08-26T09:35:03.5484927Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-08-26T09:35:03.5485495Z   GH_AW_AMBIENT_CONTEXT: 36733
+2026-08-26T09:35:03.5485932Z ##[endgroup]
+2026-08-26T09:35:03.6677390Z Parsing token usage from 1 file(s): /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl (12686 bytes)
+2026-08-26T09:35:03.6862362Z Token Usage
+2026-08-26T09:35:03.6863482Z 
+2026-08-26T09:35:03.6864592Z # | Alias | Input | Output | Cache Read | Cache Write | ΔAI Credits | AI Credits | Duration 
+2026-08-26T09:35:03.6865741Z 
+2026-08-26T09:35:03.6866256Z  1 | nvi35 | 36,733 | 313 | 0 | 0 |  |  | 8.6s 
+2026-08-26T09:35:03.6867128Z  2 | nvi35 | 37,921 | 174 | 34,816 | 0 |  |  | 4.2s 
+2026-08-26T09:35:03.6867950Z  3 | nvi35 | 39,632 | 217 | 36,992 | 0 |  |  | 9.4s 
+2026-08-26T09:35:03.6869031Z  4 | nvi35 | 41,087 | 220 | 39,168 | 0 |  |  | 4.9s 
+2026-08-26T09:35:03.6869888Z  5 | nvi35 | 41,848 | 195 | 39,168 | 0 |  |  | 4.6s 
+2026-08-26T09:35:03.6870672Z  6 | nvi35 | 42,245 | 182 | 41,344 | 0 |  |  | 5.2s 
+2026-08-26T09:35:03.6871474Z  7 | nvi35 | 43,044 | 218 | 41,344 | 0 |  |  | 5.1s 
+2026-08-26T09:35:03.6872296Z  8 | nvi35 | 44,281 | 229 | 41,344 | 0 |  |  | 6.5s 
+2026-08-26T09:35:03.6873133Z  9 | nvi35 | 44,550 | 162 | 43,520 | 0 |  |  | 3.9s 
+2026-08-26T09:35:03.6873971Z  10 | nvi35 | 44,838 | 168 | 43,520 | 0 |  |  | 6.6s 
+2026-08-26T09:35:03.6874823Z  11 | nvi35 | 49,738 | 340 | 43,520 | 0 |  |  | 13.3s 
+2026-08-26T09:35:03.6875668Z  12 | nvi35 | 52,922 | 218 | 47,872 | 0 |  |  | 8.1s 
+2026-08-26T09:35:03.6876492Z  13 | nvi35 | 53,988 | 245 | 52,224 | 0 |  |  | 7.7s 
+2026-08-26T09:35:03.6877251Z  14 | nvi35 | 54,273 | 278 | 52,224 | 0 |  |  | 9.3s 
+2026-08-26T09:35:03.6877974Z  15 | nvi35 | 54,591 | 129 | 54,400 | 0 |  |  | 3.8s 
+2026-08-26T09:35:03.6879138Z  16 | nvi35 | 54,824 | 151 | 54,400 | 0 |  |  | 5.2s 
+2026-08-26T09:35:03.6891278Z  17 | nvi35 | 60,265 | 461 | 54,400 | 0 |  |  | 11.7s 
+2026-08-26T09:35:03.6892928Z  18 | nvi35 | 60,752 | 84 | 0 | 0 |  |  | 10.4s 
+2026-08-26T09:35:03.6895196Z  19 | nvi35 | 60,866 | 3,880 | 58,752 | 0 |  |  | 1m43s 
+2026-08-26T09:35:03.6898944Z  20 | nvi35 | 64,767 | 195 | 63,104 | 0 |  |  | 14.2s 
+2026-08-26T09:35:03.6904811Z  21 | nvi35 | 65,425 | 136 | 63,104 | 0 |  |  | 3.4s 
+2026-08-26T09:35:03.6908083Z  22 | nvi35 | 65,582 | 520 | 65,280 | 0 |  |  | 26.4s 
+2026-08-26T09:35:03.6909677Z  Total |  | 1,114,172 | 8,715 | 970,496 | 0 |  |  | 4m35s 
+2026-08-26T09:35:03.6914464Z 
+2026-08-26T09:35:03.6934638Z Legend: `Alias` shows the model shorthand used in the table. `ΔAI Credits` is the per-request cost, and `AI Credits` is the running total computed with the current AI credits pricing model.
+2026-08-26T09:35:03.6936896Z Token usage summary appended to step summary
+2026-08-26T09:35:03.6937518Z Primary model: nvidia/nemotron-3.5-lightning-30b-a3b
+2026-08-26T09:35:03.6938261Z Ambient context: 36733

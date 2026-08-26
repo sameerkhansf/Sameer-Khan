@@ -1,0 +1,104 @@
+﻿2026-08-26T16:57:28.3771851Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T16:57:28.3773573Z with:
+2026-08-26T16:57:28.3783284Z   github-token: ***
+2026-08-26T16:57:28.3787186Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/handle_agent_failure.cjs');
+await main();
+
+2026-08-26T16:57:28.3791581Z   debug: false
+2026-08-26T16:57:28.3792548Z   user-agent: actions/github-script
+2026-08-26T16:57:28.3793686Z   result-encoding: json
+2026-08-26T16:57:28.3794654Z   retries: 0
+2026-08-26T16:57:28.3795650Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T16:57:28.3797255Z env:
+2026-08-26T16:57:28.3798111Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T16:57:28.3799757Z   GITHUB_AW_OTEL_TRACE_ID: 2fd6cdcd7159bf783419589e5eb40dc4
+2026-08-26T16:57:28.3801488Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 61243763b886c5d0
+2026-08-26T16:57:28.3803256Z   GITHUB_AW_OTEL_JOB_START_MS: 1787763441375
+2026-08-26T16:57:28.3804568Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-08-26T16:57:28.3806202Z   GH_AW_WORKFLOW_NAME: Weekly Research
+2026-08-26T16:57:28.3808344Z   GH_AW_WORKFLOW_SOURCE: githubnext/agentics/workflows/weekly-research.md@ae8d551f07c7ed7619f8c58c7bb4c3ac89395d38
+2026-08-26T16:57:28.3812111Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/githubnext/agentics/blob/ae8d551f07c7ed7619f8c58c7bb4c3ac89395d38/workflows/weekly-research.md
+2026-08-26T16:57:28.3815672Z   GH_AW_RUN_URL: https://github.com/sameerkhansf/Sameer-Khan/actions/runs/32989175074
+2026-08-26T16:57:28.3817441Z   GH_AW_AGENT_CONCLUSION: success
+2026-08-26T16:57:28.3818573Z   GH_AW_WORKFLOW_ID: weekly-research
+2026-08-26T16:57:28.3820148Z   GH_AW_ACTION_FAILURE_ISSUE_EXPIRES_HOURS: 168
+2026-08-26T16:57:28.3821569Z   GH_AW_ENGINE_ID: copilot
+2026-08-26T16:57:28.3822619Z   GH_AW_CHECKOUT_PR_SUCCESS: true
+2026-08-26T16:57:28.3824211Z   GH_AW_EFFECTIVE_TOKENS: 
+2026-08-26T16:57:28.3825331Z   GH_AW_AI_CREDITS_RATE_LIMIT_ERROR: false
+2026-08-26T16:57:28.3826605Z   GH_AW_UNKNOWN_MODEL_AI_CREDITS: false
+2026-08-26T16:57:28.3828104Z   GH_AW_AIC: 
+2026-08-26T16:57:28.3829019Z   GH_AW_THREAT_DETECTION_AIC: 
+2026-08-26T16:57:28.3830079Z   GH_AW_MAX_AI_CREDITS: 1000
+2026-08-26T16:57:28.3831416Z   GH_AW_INFERENCE_ACCESS_ERROR: false
+2026-08-26T16:57:28.3833587Z   GH_AW_MCP_POLICY_ERROR: false
+2026-08-26T16:57:28.3834772Z   GH_AW_AGENTIC_ENGINE_TIMEOUT: false
+2026-08-26T16:57:28.3835992Z   GH_AW_MODEL_NOT_SUPPORTED_ERROR: false
+2026-08-26T16:57:28.3837195Z   GH_AW_HTTP_400_RESPONSE_ERROR: false
+2026-08-26T16:57:28.3838905Z   GH_AW_MAX_CACHE_MISSES_EXCEEDED: false
+2026-08-26T16:57:28.3840213Z   GH_AW_MISSING_MODEL_PRICING_ERROR: false
+2026-08-26T16:57:28.3841660Z   GH_AW_MISSING_MODEL_PRICING_MODEL_NAME: 
+2026-08-26T16:57:28.3844879Z   GH_AW_ENGINE_API_HOSTS: api.enterprise.githubcopilot.com,api.githubcopilot.com,api.business.githubcopilot.com,api.individual.githubcopilot.com
+2026-08-26T16:57:28.3848048Z   GH_AW_CREATE_DISCUSSION_ERRORS: 
+2026-08-26T16:57:28.3849211Z   GH_AW_CREATE_DISCUSSION_ERROR_COUNT: 
+2026-08-26T16:57:28.3850994Z   GH_AW_LOCKDOWN_CHECK_FAILED: false
+2026-08-26T16:57:28.3852221Z   GH_AW_OAUTH_TOKEN_CHECK_FAILED: false
+2026-08-26T16:57:28.3853798Z   GH_AW_STALE_LOCK_FILE_FAILED: false
+2026-08-26T16:57:28.3855000Z   GH_AW_DAILY_AI_CREDITS_EXCEEDED: false
+2026-08-26T16:57:28.3856376Z   GH_AW_DAILY_AI_CREDITS_TOTAL_EFFECTIVE_TOKENS: 
+2026-08-26T16:57:28.3857701Z   GH_AW_DAILY_AI_CREDITS_THRESHOLD: 
+2026-08-26T16:57:28.3859209Z   GH_AW_GROUP_REPORTS: false
+2026-08-26T16:57:28.3860318Z   GH_AW_FAILURE_REPORT_AS_ISSUE: true
+2026-08-26T16:57:28.3861846Z   GH_AW_MISSING_TOOL_REPORT_AS_FAILURE: true
+2026-08-26T16:57:28.3863564Z   GH_AW_MISSING_DATA_REPORT_AS_FAILURE: true
+2026-08-26T16:57:28.3864818Z   GH_AW_TIMEOUT_MINUTES: 30
+2026-08-26T16:57:28.3866151Z ##[endgroup]
+2026-08-26T16:57:28.6204563Z [ai-credits] aiCredits source=none GH_AW_AIC=(unset)
+2026-08-26T16:57:28.6212364Z [ai-credits] maxAICredits source=env(GH_AW_MAX_AI_CREDITS) value=1000
+2026-08-26T16:57:28.6217612Z [ai-credits] rateLimitSignal source=none
+2026-08-26T16:57:28.6230582Z Agent conclusion: success
+2026-08-26T16:57:28.6234998Z Workflow name: Weekly Research
+2026-08-26T16:57:28.6238745Z Workflow ID: weekly-research
+2026-08-26T16:57:28.6242658Z Secret verification result: 
+2026-08-26T16:57:28.6246110Z Engine secret failure message: (none)
+2026-08-26T16:57:28.6251985Z Assignment error count: 0
+2026-08-26T16:57:28.6257465Z Assign copilot failure count: 0
+2026-08-26T16:57:28.6260250Z Skill install failure count: 0
+2026-08-26T16:57:28.6263079Z Create discussion error count: 0
+2026-08-26T16:57:28.6265423Z Code push failure count: 0
+2026-08-26T16:57:28.6269225Z Checkout PR success: true
+2026-08-26T16:57:28.6271813Z AI credits: (none)
+2026-08-26T16:57:28.6273707Z Configured max AI credits: 1000
+2026-08-26T16:57:28.6275685Z AI credits rate-limit error: false
+2026-08-26T16:57:28.6277843Z Max AI credits exceeded (harness budget abort): false
+2026-08-26T16:57:28.6280105Z Daily workflow AIC guardrail exceeded: false
+2026-08-26T16:57:28.6282601Z Inference access error: false
+2026-08-26T16:57:28.6294557Z MCP policy error: false
+2026-08-26T16:57:28.6295666Z Agentic engine timeout: false
+2026-08-26T16:57:28.6296792Z Model not supported error: false
+2026-08-26T16:57:28.6297920Z HTTP 400 response error: false
+2026-08-26T16:57:28.6299044Z Unknown model AI credits error: false
+2026-08-26T16:57:28.6300425Z Unknown model AI credits sources (audit/output): false/false
+2026-08-26T16:57:28.6314495Z Missing model pricing error: false (model: (unknown))
+2026-08-26T16:57:28.6316053Z Push repo-memory result: 
+2026-08-26T16:57:28.6317562Z App token minting failed (safe_outputs/conclusion/activation): false/false/false
+2026-08-26T16:57:28.6319207Z Lockdown check failed: false
+2026-08-26T16:57:28.6320295Z OAuth token check failed: false
+2026-08-26T16:57:28.6321609Z Stale lock file check failed: false
+2026-08-26T16:57:28.6325880Z Cache memory enabled: false
+2026-08-26T16:57:28.6327167Z Cache memory restored (from restore outputs): false
+2026-08-26T16:57:28.6328549Z Missing tool report-as-failure: true
+2026-08-26T16:57:28.6330193Z Missing data report-as-failure: true
+2026-08-26T16:57:28.6331657Z Agent output content length: 24
+2026-08-26T16:57:28.6332836Z Agent succeeded but produced no safe outputs
+2026-08-26T16:57:28.6569651Z Searching for pull request from branch: main
+2026-08-26T16:57:29.0442073Z No pull request found for branch: main
+2026-08-26T16:57:29.0684062Z Parent issue creation is disabled (group-reports: false)
+2026-08-26T16:57:29.0896122Z Checking for existing issue with precise failure metadata for title: "[aw] Weekly Research produced no safe outputs"
+2026-08-26T16:57:29.4174268Z No existing issue found, creating a new one
+2026-08-26T16:57:29.6150685Z Generating failure issue footer with aiCredits context: (none)
+2026-08-26T16:57:30.0843841Z [@octokit/request] "POST https://api.github.com/repos/sameerkhansf/Sameer-Khan/issues" is deprecated. It is scheduled to be removed on Fri, 10 Mar 2028 00:00:00 GMT. See https://docs.github.com/en/rest/about-the-rest-api/api-versions
+2026-08-26T16:57:30.0848727Z ✓ Created new issue #8: https://github.com/sameerkhansf/Sameer-Khan/issues/8
+2026-08-26T16:57:30.5448348Z Cascade check: 1 failure issue(s) in the last 60 min (threshold: 10) — no cascade

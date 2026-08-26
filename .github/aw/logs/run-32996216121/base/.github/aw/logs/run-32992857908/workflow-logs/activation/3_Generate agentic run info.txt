@@ -1,0 +1,83 @@
+﻿2026-08-26T17:14:09.9657986Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T17:14:09.9658985Z with:
+2026-08-26T17:14:09.9660824Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/generate_aw_info.cjs');
+await main(core, context);
+
+2026-08-26T17:14:09.9666791Z   github-token: ***
+2026-08-26T17:14:09.9667299Z   debug: false
+2026-08-26T17:14:09.9667787Z   user-agent: actions/github-script
+2026-08-26T17:14:09.9668380Z   result-encoding: json
+2026-08-26T17:14:09.9668885Z   retries: 0
+2026-08-26T17:14:09.9669398Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T17:14:09.9670040Z env:
+2026-08-26T17:14:09.9670513Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-08-26T17:14:09.9671091Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:14:09.9671726Z   GITHUB_AW_OTEL_TRACE_ID: 4f2b70eb5c2bda3aaef715147050ff46
+2026-08-26T17:14:09.9672499Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 513d53e148c8f8b1
+2026-08-26T17:14:09.9673240Z   GITHUB_AW_OTEL_JOB_START_MS: 1787764449814
+2026-08-26T17:14:09.9673856Z   GH_AW_INFO_ENGINE_ID: copilot
+2026-08-26T17:14:09.9674470Z   GH_AW_INFO_ENGINE_NAME: GitHub Copilot CLI
+2026-08-26T17:14:09.9675131Z   GH_AW_INFO_MODEL: auto
+2026-08-26T17:14:09.9675655Z   GH_AW_INFO_VERSION: 1.0.79
+2026-08-26T17:14:09.9676191Z   GH_AW_INFO_AGENT_VERSION: 1.0.79
+2026-08-26T17:14:09.9676996Z   GH_AW_INFO_CLI_VERSION: v0.86.2
+2026-08-26T17:14:09.9677585Z   GH_AW_INFO_WORKFLOW_NAME: TIL Writer
+2026-08-26T17:14:09.9678187Z   GH_AW_INFO_EXPERIMENTAL: false
+2026-08-26T17:14:09.9678779Z   GH_AW_INFO_SUPPORTS_TOOLS_ALLOWLIST: true
+2026-08-26T17:14:09.9679407Z   GH_AW_INFO_STAGED: false
+2026-08-26T17:14:09.9680110Z   GH_AW_INFO_ALLOWED_DOMAINS: ["defaults","integrate.api.nvidia.com"]
+2026-08-26T17:14:09.9680896Z   GH_AW_INFO_FIREWALL_ENABLED: true
+2026-08-26T17:14:09.9709625Z   GH_AW_INFO_AWF_VERSION: v0.27.44
+2026-08-26T17:14:09.9710509Z   GH_AW_INFO_AWMG_VERSION: 
+2026-08-26T17:14:09.9711133Z   GH_AW_INFO_FIREWALL_TYPE: squid
+2026-08-26T17:14:09.9711717Z   GH_AW_INFO_AGENT_RUNTIME: 
+2026-08-26T17:14:09.9712265Z   GH_AW_COMPILED_STRICT: true
+2026-08-26T17:14:09.9712810Z ##[endgroup]
+2026-08-26T17:14:11.0203299Z Starting context variable validation...
+2026-08-26T17:14:11.0323871Z ✓ github.event.issue.number is valid: 9
+2026-08-26T17:14:11.0324868Z ✓ github.event.comment.id is valid: 5428462367
+2026-08-26T17:14:11.0325719Z ✓ github.event.repository.id is valid: 1002526648
+2026-08-26T17:14:11.0326824Z ✓ github.event.sender.id is valid: 101021315
+2026-08-26T17:14:11.0327508Z Validated 4 context variables
+2026-08-26T17:14:11.0328154Z ✅ All context variables validated successfully
+2026-08-26T17:14:11.0328903Z Lockdown mode not explicitly enabled, skipping validation
+2026-08-26T17:14:11.0329624Z Repository visibility: unknown
+2026-08-26T17:14:11.0330187Z Compiled with strict mode: true
+2026-08-26T17:14:11.1619248Z Generated merged models.json at: /tmp/gh-aw/models.json
+2026-08-26T17:14:11.1620433Z Generated aw_info.json at: /tmp/gh-aw/aw_info.json
+2026-08-26T17:14:11.1621089Z {
+2026-08-26T17:14:11.1621522Z   "engine_id": "copilot",
+2026-08-26T17:14:11.1622069Z   "engine_name": "GitHub Copilot CLI",
+2026-08-26T17:14:11.1622650Z   "model": "auto",
+2026-08-26T17:14:11.1623134Z   "version": "1.0.79",
+2026-08-26T17:14:11.1623629Z   "agent_version": "1.0.79",
+2026-08-26T17:14:11.1624518Z   "workflow_name": "TIL Writer",
+2026-08-26T17:14:11.1625073Z   "experimental": false,
+2026-08-26T17:14:11.1625598Z   "supports_tools_allowlist": true,
+2026-08-26T17:14:11.1626160Z   "run_id": 32992857908,
+2026-08-26T17:14:11.1627160Z   "run_number": 3,
+2026-08-26T17:14:11.1627641Z   "run_attempt": "1",
+2026-08-26T17:14:11.1628172Z   "repository": "sameerkhansf/Sameer-Khan",
+2026-08-26T17:14:11.1628794Z   "ref": "refs/heads/main",
+2026-08-26T17:14:11.1629378Z   "sha": "1aa8120f3c0ddbadf1346d0869003fc3b117d2d5",
+2026-08-26T17:14:11.1630021Z   "actor": "sameerkhansf",
+2026-08-26T17:14:11.1630773Z   "event_name": "issue_comment",
+2026-08-26T17:14:11.1631359Z   "target_repo": "",
+2026-08-26T17:14:11.1631840Z   "staged": false,
+2026-08-26T17:14:11.1632322Z   "allowed_domains": [
+2026-08-26T17:14:11.1632812Z     "defaults",
+2026-08-26T17:14:11.1633319Z     "integrate.api.nvidia.com"
+2026-08-26T17:14:11.1633852Z   ],
+2026-08-26T17:14:11.1634303Z   "firewall_enabled": true,
+2026-08-26T17:14:11.1634840Z   "awf_version": "v0.27.44",
+2026-08-26T17:14:11.1635367Z   "awmg_version": "",
+2026-08-26T17:14:11.1635875Z   "agent_runtime": "",
+2026-08-26T17:14:11.1636387Z   "steps": {
+2026-08-26T17:14:11.1637086Z     "firewall": "squid"
+2026-08-26T17:14:11.1637597Z   },
+2026-08-26T17:14:11.1638068Z   "created_at": "2026-08-26T17:14:11.032Z",
+2026-08-26T17:14:11.1638670Z   "cli_version": "v0.86.2"
+2026-08-26T17:14:11.1639173Z }
+2026-08-26T17:14:11.1683873Z Generated workflow overview in step summary

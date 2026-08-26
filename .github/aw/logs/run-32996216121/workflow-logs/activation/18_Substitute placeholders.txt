@@ -1,0 +1,78 @@
+﻿2026-08-26T17:58:44.6142280Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T17:58:44.6144100Z with:
+2026-08-26T17:58:44.6164591Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+
+const substitutePlaceholders = require('/home/runner/work/_temp/gh-aw/actions/substitute_placeholders.cjs');
+
+// Call the substitution function
+return await substitutePlaceholders({
+  file: process.env.GH_AW_PROMPT,
+  substitutions: {
+    GH_AW_EXPR_1A3A194A: process.env.GH_AW_EXPR_1A3A194A,
+    GH_AW_EXPR_463A214A: process.env.GH_AW_EXPR_463A214A,
+    GH_AW_EXPR_802A9F6A: process.env.GH_AW_EXPR_802A9F6A,
+    GH_AW_EXPR_FF1D34CE: process.env.GH_AW_EXPR_FF1D34CE,
+    GH_AW_GITHUB_ACTOR: process.env.GH_AW_GITHUB_ACTOR,
+    GH_AW_GITHUB_EVENT_ISSUE_NUMBER: process.env.GH_AW_GITHUB_EVENT_ISSUE_NUMBER,
+    GH_AW_GITHUB_REPOSITORY: process.env.GH_AW_GITHUB_REPOSITORY,
+    GH_AW_GITHUB_RUN_ID: process.env.GH_AW_GITHUB_RUN_ID,
+    GH_AW_GITHUB_WORKSPACE: process.env.GH_AW_GITHUB_WORKSPACE,
+    GH_AW_INCLUDE_PR_CONTEXT: process.env.GH_AW_INCLUDE_PR_CONTEXT,
+    GH_AW_MCP_CLI_SERVERS_LIST: process.env.GH_AW_MCP_CLI_SERVERS_LIST,
+    GH_AW_MEMORY_BRANCH_NAME: process.env.GH_AW_MEMORY_BRANCH_NAME,
+    GH_AW_MEMORY_CONSTRAINTS: process.env.GH_AW_MEMORY_CONSTRAINTS,
+    GH_AW_MEMORY_DESCRIPTION: process.env.GH_AW_MEMORY_DESCRIPTION,
+    GH_AW_MEMORY_DIR: process.env.GH_AW_MEMORY_DIR,
+    GH_AW_MEMORY_TARGET_REPO: process.env.GH_AW_MEMORY_TARGET_REPO,
+    GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ACTIVATED: process.env.GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ACTIVATED,
+    GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_MATCHED_COMMAND: process.env.GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_MATCHED_COMMAND,
+    GH_AW_STEPS_SANITIZED_OUTPUTS_TEXT: process.env.GH_AW_STEPS_SANITIZED_OUTPUTS_TEXT,
+    GH_AW_WIKI_NOTE: process.env.GH_AW_WIKI_NOTE
+  }
+});
+
+2026-08-26T17:58:44.6194016Z   github-token: ***
+2026-08-26T17:58:44.6194875Z   debug: false
+2026-08-26T17:58:44.6195734Z   user-agent: actions/github-script
+2026-08-26T17:58:44.6196742Z   result-encoding: json
+2026-08-26T17:58:44.6197597Z   retries: 0
+2026-08-26T17:58:44.6198465Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T17:58:44.6199538Z env:
+2026-08-26T17:58:44.6201218Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-08-26T17:58:44.6202230Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:58:44.6203511Z   GITHUB_AW_OTEL_TRACE_ID: 4b30332db371f993d125fa437b4eb907
+2026-08-26T17:58:44.6204827Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: f4f51a0acaf88220
+2026-08-26T17:58:44.6205995Z   GITHUB_AW_OTEL_JOB_START_MS: 1787767113979
+2026-08-26T17:58:44.6207299Z   GH_AW_PROMPT: /home/runner/work/_temp/gh-aw/aw-prompts/prompt.txt
+2026-08-26T17:58:44.6208619Z   GH_AW_EXPR_1A3A194A: false
+2026-08-26T17:58:44.6209539Z   GH_AW_EXPR_463A214A: false
+2026-08-26T17:58:44.6210448Z   GH_AW_EXPR_802A9F6A: 10
+2026-08-26T17:58:44.6211328Z   GH_AW_EXPR_FF1D34CE: 
+2026-08-26T17:58:44.6212218Z   GH_AW_GITHUB_ACTOR: sameerkhansf
+2026-08-26T17:58:44.6213411Z   GH_AW_GITHUB_EVENT_ISSUE_NUMBER: 10
+2026-08-26T17:58:44.6214552Z   GH_AW_GITHUB_REPOSITORY: sameerkhansf/Sameer-Khan
+2026-08-26T17:58:44.6215709Z   GH_AW_GITHUB_RUN_ID: 32996216121
+2026-08-26T17:58:44.6216936Z   GH_AW_GITHUB_WORKSPACE: /home/runner/work/Sameer-Khan/Sameer-Khan
+2026-08-26T17:58:44.6218254Z   GH_AW_INCLUDE_PR_CONTEXT: false
+2026-08-26T17:58:44.6220310Z   GH_AW_MCP_CLI_SERVERS_LIST: - `github` — run `github --help` to see available tools
+- `safeoutputs` — run `safeoutputs --help` to see available tools
+2026-08-26T17:58:44.6222558Z   GH_AW_MEMORY_BRANCH_NAME: memory/til-writer
+2026-08-26T17:58:44.6225477Z   GH_AW_MEMORY_CONSTRAINTS: 
+
+**Constraints:**
+- **Max File Size**: 1048576 bytes (1.00 MB) per file
+- **Max File Count**: 100 files per commit
+- **Max Patch Size**: 10240 bytes (10 KB) total per push (max: 1024 KB)
+
+2026-08-26T17:58:44.6229070Z   GH_AW_MEMORY_DESCRIPTION:  Evidence bundles per TIL: source URLs, accessed dates, versions, command outputs, factual claims
+2026-08-26T17:58:44.6231413Z   GH_AW_MEMORY_DIR: /tmp/gh-aw/repo-memory/default/
+2026-08-26T17:58:44.6232674Z   GH_AW_MEMORY_TARGET_REPO:  of the current repository
+2026-08-26T17:58:44.6234141Z   GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ACTIVATED: true
+2026-08-26T17:58:44.6235434Z   GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_MATCHED_COMMAND: til
+2026-08-26T17:58:44.6252524Z   GH_AW_STEPS_SANITIZED_OUTPUTS_TEXT: Running gh-aw agents on NVIDIA free NIM endpoints
+
+/til Write up today's real setup (retry on resilient routing): wiring this repo's GitHub Agentic Workflows (github/gh-aw) to NVIDIA's free hosted NIM endpoints (integrate.api.nvidia.com, nvidia/nemotron-3.5-lightning-30b-a3b, 40 RPM free) via the Copilot BYOK engine mode. Three real failures hit before a green run, in order: (1) AWF proxy rejected every request with 400 'Model has no AI credits pricing' — fixed with frontmatter models.default-ai-credits-pricing input/output 0.000001 (compiler rejects literal 0); (2) proxy token steering silently rewrote the model to claude-sonnet-5 — fixed with sandbox.agent.token-steering: false and model-fallback: false; (3) the agentics sample's timeout-minutes: 15 killed a successful 16.3-minute research session — raised to 30. Additional facts: NIM serves /v1/chat/completions but 404s /v1/responses and /v1/messages (verified with curl), so copilot engine's default completions wire API is the only fit; the threat-detection step needed the larger free nvidia/nemotron-3-super-120b-a12b to emit the strict THREAT_DETECTION_RESULT JSON; and sustained sessions can hit free-tier 403 throttling, solved by routing through OpenRouter with the NVIDIA BYOK integration (NVIDIA quota first, automatic fallback). Diagnosis workhorse: gh aw audit (run-id). Primary sources: https://github.github.com/gh-aw/ , https://github.com/githubnext/agentics , (build.nvidia.com/redacted)
+2026-08-26T17:58:44.6281545Z   GH_AW_WIKI_NOTE: 
+2026-08-26T17:58:44.6282372Z ##[endgroup]
+2026-08-26T17:58:44.7801116Z [substitutePlaceholders] /home/runner/work/_temp/gh-aw/aw-prompts/prompt.txt (20 substitution(s))

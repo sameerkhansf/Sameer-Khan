@@ -1,0 +1,25 @@
+﻿2026-08-26T09:37:42.4702795Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T09:37:42.4704192Z with:
+2026-08-26T09:37:42.4709652Z   github-token: ***
+2026-08-26T09:37:42.4712445Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/report_incomplete_handler.cjs');
+await main();
+
+2026-08-26T09:37:42.4715348Z   debug: false
+2026-08-26T09:37:42.4716278Z   user-agent: actions/github-script
+2026-08-26T09:37:42.4717321Z   result-encoding: json
+2026-08-26T09:37:42.4718238Z   retries: 0
+2026-08-26T09:37:42.4719186Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T09:37:42.4720503Z env:
+2026-08-26T09:37:42.4721350Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T09:37:42.4722480Z   GITHUB_AW_OTEL_TRACE_ID: b7f2b17ec9fad9fdc5d755c655f9b216
+2026-08-26T09:37:42.4723793Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: f639defd182f881e
+2026-08-26T09:37:42.4725027Z   GITHUB_AW_OTEL_JOB_START_MS: 1787737055093
+2026-08-26T09:37:42.4726209Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-08-26T09:37:42.4727406Z   GH_AW_REPORT_INCOMPLETE_CREATE_ISSUE: true
+2026-08-26T09:37:42.4728534Z   GH_AW_WORKFLOW_NAME: Weekly Research
+2026-08-26T09:37:42.4730427Z   GH_AW_WORKFLOW_SOURCE: githubnext/agentics/workflows/weekly-research.md@ae8d551f07c7ed7619f8c58c7bb4c3ac89395d38
+2026-08-26T09:37:42.4732987Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/githubnext/agentics/blob/ae8d551f07c7ed7619f8c58c7bb4c3ac89395d38/workflows/weekly-research.md
+2026-08-26T09:37:42.4734880Z ##[endgroup]
+2026-08-26T09:37:42.5940075Z Max count: unlimited

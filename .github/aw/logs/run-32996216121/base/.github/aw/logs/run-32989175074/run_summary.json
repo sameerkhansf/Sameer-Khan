@@ -1,0 +1,1608 @@
+{
+  "cli_version": "v0.86.2",
+  "run_id": 32989175074,
+  "processed_at": "2026-08-26T09:58:32.523709-07:00",
+  "run": {
+    "databaseId": 32989175074,
+    "number": 5,
+    "url": "https://github.com/sameerkhansf/Sameer-Khan/actions/runs/32989175074",
+    "status": "completed",
+    "conclusion": "success",
+    "workflowName": "Weekly Research",
+    "workflowPath": ".github/workflows/weekly-research.lock.yml",
+    "createdAt": "2026-08-26T16:34:44Z",
+    "startedAt": "2026-08-26T16:34:44Z",
+    "updatedAt": "2026-08-26T16:57:34Z",
+    "event": "workflow_dispatch",
+    "headBranch": "main",
+    "headSha": "00c4dc5852769d6be78ae3b54b5e4d4e3315bf9c",
+    "displayTitle": "Weekly Research",
+    "Duration": 1370000000000,
+    "ActionMinutes": 0,
+    "TokenUsage": 2837222,
+    "Turns": 33,
+    "TurnsAvailable": false,
+    "ErrorCount": 0,
+    "WarningCount": 0,
+    "MissingToolCount": 0,
+    "MissingDataCount": 0,
+    "NoopCount": 0,
+    "EffectiveTokens": 0,
+    "AvgTimeBetweenTurns": 0,
+    "LogsPath": "/Users/sameerkhan/Documents/Sameer-Khan/.github/aw/logs/run-32989175074"
+  },
+  "metrics": {
+    "TokenUsage": 2837222,
+    "EstimatedCost": 0,
+    "Turns": 33,
+    "ToolCalls": [
+      {
+        "Name": "bash",
+        "CallCount": 37,
+        "MaxInputSize": 237,
+        "MaxOutputSize": 0,
+        "MaxDuration": 0,
+        "OutputSample": ""
+      },
+      {
+        "Name": "github-list_issues",
+        "CallCount": 1,
+        "MaxInputSize": 73,
+        "MaxOutputSize": 0,
+        "MaxDuration": 0,
+        "OutputSample": ""
+      },
+      {
+        "Name": "github-list_pull_requests",
+        "CallCount": 1,
+        "MaxInputSize": 73,
+        "MaxOutputSize": 0,
+        "MaxDuration": 0,
+        "OutputSample": ""
+      },
+      {
+        "Name": "github-search_code",
+        "CallCount": 1,
+        "MaxInputSize": 87,
+        "MaxOutputSize": 0,
+        "MaxDuration": 0,
+        "OutputSample": ""
+      },
+      {
+        "Name": "github-search_issues",
+        "CallCount": 1,
+        "MaxInputSize": 87,
+        "MaxOutputSize": 0,
+        "MaxDuration": 0,
+        "OutputSample": ""
+      },
+      {
+        "Name": "noop",
+        "CallCount": 1,
+        "MaxInputSize": 509,
+        "MaxOutputSize": 0,
+        "MaxDuration": 0,
+        "OutputSample": ""
+      },
+      {
+        "Name": "safeoutputs-create_discussion",
+        "CallCount": 1,
+        "MaxInputSize": 15826,
+        "MaxOutputSize": 0,
+        "MaxDuration": 0,
+        "OutputSample": ""
+      },
+      {
+        "Name": "safeoutputs-noop",
+        "CallCount": 1,
+        "MaxInputSize": 509,
+        "MaxOutputSize": 0,
+        "MaxDuration": 0,
+        "OutputSample": ""
+      },
+      {
+        "Name": "bash",
+        "CallCount": 63,
+        "MaxInputSize": 252,
+        "MaxOutputSize": 0,
+        "MaxDuration": 0,
+        "OutputSample": ""
+      }
+    ],
+    "ToolSequences": null,
+    "AvgTimeBetweenTurns": 0,
+    "MaxTimeBetweenTurns": 0,
+    "MedianTimeBetweenTurns": 0,
+    "StdDevTimeBetweenTurns": 0
+  },
+  "task_domain": {
+    "name": "research",
+    "label": "Research",
+    "reason": "Workflow naming and instructions suggest exploratory analysis or reporting."
+  },
+  "behavior_fingerprint": {
+    "execution_style": "exploratory",
+    "tool_breadth": "broad",
+    "actuation_style": "read_only",
+    "resource_profile": "heavy",
+    "dispatch_mode": "standalone",
+    "agentic_fraction": 0.5
+  },
+  "agentic_assessments": [
+    {
+      "kind": "resource_heavy_for_domain",
+      "severity": "high",
+      "summary": "This Research run consumed a heavy execution profile for its task shape.",
+      "evidence": "turns=33 tool_types=8 duration=22m50s write_actions=0",
+      "recommendation": "Compare this run to similar successful runs and trim unnecessary turns, tools, or write actions."
+    },
+    {
+      "kind": "partially_reducible",
+      "severity": "low",
+      "summary": "About 50% of this run's turns appear to be data-gathering that could move to deterministic steps.",
+      "evidence": "agentic_fraction=0.50 turns=33",
+      "recommendation": "Move data-fetching work to frontmatter steps: (pre-agent) writing to /tmp/gh-aw/agent/ or post-steps: (post-agent) to reduce inference cost. See the DeterministicOps guide."
+    }
+  ],
+  "access_analysis": null,
+  "firewall_analysis": {
+    "allowed_domains": [
+      "integrate.api.nvidia.com:443"
+    ],
+    "total_requests": 71,
+    "allowed_requests": 71,
+    "blocked_requests": 0,
+    "requests_by_domain": {
+      "integrate.api.nvidia.com:443": {
+        "allowed": 71,
+        "blocked": 0
+      }
+    }
+  },
+  "policy_analysis": {
+    "policy_summary": "10 rules, SSL Bump disabled, DLP disabled",
+    "rule_hits": [],
+    "total_requests": 0,
+    "allowed_count": 0,
+    "denied_count": 0,
+    "unique_domains": 0
+  },
+  "redacted_domains_analysis": null,
+  "missing_tools": null,
+  "missing_data": null,
+  "noops": null,
+  "mcp_failures": null,
+  "token_usage_summary": {
+    "total_input_tokens": 1815384,
+    "total_output_tokens": 8703,
+    "total_cache_read_tokens": 1383936,
+    "total_cache_write_tokens": 0,
+    "total_requests": 33,
+    "total_duration_ms": 515451,
+    "total_response_bytes": 1065153,
+    "cache_efficiency": 0,
+    "ambient_context": {
+      "input_tokens": 36733,
+      "cached_tokens": 0
+    },
+    "by_model": {
+      "nvidia/nemotron-3.5-lightning-30b-a3b": {
+        "provider": "copilot",
+        "input_tokens": 1815384,
+        "output_tokens": 8703,
+        "cache_read_tokens": 1383936,
+        "cache_write_tokens": 0,
+        "requests": 33,
+        "duration_ms": 515451,
+        "response_bytes": 1065153
+      }
+    },
+    "subagent_model_requests": [
+      {
+        "agent_name": "container",
+        "requested_model": "s",
+        "invocation_count": 1,
+        "effective_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "reason_code": "REQUESTED_MODEL_NOT_OBSERVED"
+      },
+      {
+        "agent_name": "host",
+        "requested_model": "s",
+        "invocation_count": 1,
+        "effective_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "reason_code": "REQUESTED_MODEL_NOT_OBSERVED"
+      },
+      {
+        "agent_name": "peer",
+        "requested_model": "s",
+        "invocation_count": 1,
+        "effective_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "reason_code": "REQUESTED_MODEL_NOT_OBSERVED"
+      },
+      {
+        "agent_name": "server",
+        "requested_model": "s",
+        "invocation_count": 1,
+        "effective_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "reason_code": "REQUESTED_MODEL_NOT_OBSERVED"
+      },
+      {
+        "agent_name": "shell",
+        "requested_model": "cat",
+        "invocation_count": 2,
+        "effective_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "reason_code": "REQUESTED_MODEL_NOT_OBSERVED"
+      },
+      {
+        "agent_name": "shell",
+        "requested_model": "date",
+        "invocation_count": 1,
+        "effective_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "reason_code": "REQUESTED_MODEL_NOT_OBSERVED"
+      },
+      {
+        "agent_name": "shell",
+        "requested_model": "echo",
+        "invocation_count": 1,
+        "effective_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "reason_code": "REQUESTED_MODEL_NOT_OBSERVED"
+      },
+      {
+        "agent_name": "shell",
+        "requested_model": "find",
+        "invocation_count": 1,
+        "effective_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "reason_code": "REQUESTED_MODEL_NOT_OBSERVED"
+      },
+      {
+        "agent_name": "shell",
+        "requested_model": "grep",
+        "invocation_count": 1,
+        "effective_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "reason_code": "REQUESTED_MODEL_NOT_OBSERVED"
+      },
+      {
+        "agent_name": "shell",
+        "requested_model": "head",
+        "invocation_count": 1,
+        "effective_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "reason_code": "REQUESTED_MODEL_NOT_OBSERVED"
+      },
+      {
+        "agent_name": "shell",
+        "requested_model": "ls",
+        "invocation_count": 1,
+        "effective_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "reason_code": "REQUESTED_MODEL_NOT_OBSERVED"
+      },
+      {
+        "agent_name": "shell",
+        "requested_model": "printf",
+        "invocation_count": 1,
+        "effective_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "reason_code": "REQUESTED_MODEL_NOT_OBSERVED"
+      },
+      {
+        "agent_name": "shell",
+        "requested_model": "pwd",
+        "invocation_count": 1,
+        "effective_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "reason_code": "REQUESTED_MODEL_NOT_OBSERVED"
+      },
+      {
+        "agent_name": "shell",
+        "requested_model": "sort",
+        "invocation_count": 1,
+        "effective_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "reason_code": "REQUESTED_MODEL_NOT_OBSERVED"
+      },
+      {
+        "agent_name": "shell",
+        "requested_model": "tail",
+        "invocation_count": 1,
+        "effective_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "reason_code": "REQUESTED_MODEL_NOT_OBSERVED"
+      },
+      {
+        "agent_name": "shell",
+        "requested_model": "uniq",
+        "invocation_count": 1,
+        "effective_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "reason_code": "REQUESTED_MODEL_NOT_OBSERVED"
+      },
+      {
+        "agent_name": "shell",
+        "requested_model": "wc",
+        "invocation_count": 1,
+        "effective_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "reason_code": "REQUESTED_MODEL_NOT_OBSERVED"
+      },
+      {
+        "agent_name": "shell",
+        "requested_model": "yq",
+        "invocation_count": 1,
+        "effective_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "reason_code": "REQUESTED_MODEL_NOT_OBSERVED"
+      }
+    ],
+    "subagent_model_actuals": [
+      {
+        "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "provider": "copilot",
+        "requests": 33
+      }
+    ],
+    "mismatch_count": 19,
+    "warnings": [
+      "partial or incorrect data: sub-agent model requests are inferred from agent-stdio.log; use token_usage.jsonl for reliable token consumption"
+    ]
+  },
+  "github_rate_limit_usage": {
+    "total_requests_made": 2,
+    "core_consumed": 1,
+    "core_consumed_source": "response_headers_delta",
+    "core_remaining": 4998,
+    "core_limit": 5000,
+    "resources": [
+      {
+        "resource": "core",
+        "requests_made": 2,
+        "quota_consumed": 1,
+        "final_remaining": 4998,
+        "limit": 5000
+      }
+    ]
+  },
+  "artifacts_list": [
+    ".downloaded-artifacts/all",
+    "agent-stdio.log",
+    "agent_output.json",
+    "agent_usage.json",
+    "agentic-workflow-usage-cache.jsonl",
+    "aw-prompts/prompt-import-tree.json",
+    "aw-prompts/prompt-template.txt",
+    "aw-prompts/prompt.txt",
+    "aw_info.json",
+    "awf-config.json",
+    "base/.github/aw/actions-lock.json",
+    "base/.github/aw/logs/run-32949965312/.downloaded-artifacts/all",
+    "base/.github/aw/logs/run-32949965312/agent-stdio.log",
+    "base/.github/aw/logs/run-32949965312/agent_output.json",
+    "base/.github/aw/logs/run-32949965312/agentic-workflow-usage-cache.jsonl",
+    "base/.github/aw/logs/run-32949965312/aw-prompts/prompt-import-tree.json",
+    "base/.github/aw/logs/run-32949965312/aw-prompts/prompt-template.txt",
+    "base/.github/aw/logs/run-32949965312/aw-prompts/prompt.txt",
+    "base/.github/aw/logs/run-32949965312/aw_info.json",
+    "base/.github/aw/logs/run-32949965312/awf-config.json",
+    "base/.github/aw/logs/run-32949965312/base/.github/aw/actions-lock.json",
+    "base/.github/aw/logs/run-32949965312/base/.github/skills/agentic-workflows/SKILL.md",
+    "base/.github/aw/logs/run-32949965312/base/.github/workflows/agentics-maintenance.yml",
+    "base/.github/aw/logs/run-32949965312/base/.github/workflows/ci.yml",
+    "base/.github/aw/logs/run-32949965312/base/.github/workflows/repo-ask.lock.yml",
+    "base/.github/aw/logs/run-32949965312/base/.github/workflows/repo-ask.md",
+    "base/.github/aw/logs/run-32949965312/base/.github/workflows/til-writer.lock.yml",
+    "base/.github/aw/logs/run-32949965312/base/.github/workflows/til-writer.md",
+    "base/.github/aw/logs/run-32949965312/base/.github/workflows/weekly-research.lock.yml",
+    "base/.github/aw/logs/run-32949965312/base/.github/workflows/weekly-research.md",
+    "base/.github/aw/logs/run-32949965312/github_rate_limits.jsonl",
+    "base/.github/aw/logs/run-32949965312/mcp-logs/gateway.md",
+    "base/.github/aw/logs/run-32949965312/mcp-logs/github.log",
+    "base/.github/aw/logs/run-32949965312/mcp-logs/mcp-gateway.log",
+    "base/.github/aw/logs/run-32949965312/mcp-logs/observed-url-domains.json",
+    "base/.github/aw/logs/run-32949965312/mcp-logs/rpc-messages.jsonl",
+    "base/.github/aw/logs/run-32949965312/mcp-logs/safeoutputs/server.log",
+    "base/.github/aw/logs/run-32949965312/mcp-logs/safeoutputs.log",
+    "base/.github/aw/logs/run-32949965312/mcp-logs/tools.json",
+    "base/.github/aw/logs/run-32949965312/models.json",
+    "base/.github/aw/logs/run-32949965312/pre-agent-audit.txt",
+    "base/.github/aw/logs/run-32949965312/safe-output-items.jsonl",
+    "base/.github/aw/logs/run-32949965312/sandbox/firewall/audit/awf-resolved-config.json",
+    "base/.github/aw/logs/run-32949965312/sandbox/firewall/audit/docker-compose.redacted.yml",
+    "base/.github/aw/logs/run-32949965312/sandbox/firewall/audit/policy-manifest.json",
+    "base/.github/aw/logs/run-32949965312/sandbox/firewall/audit/squid.conf",
+    "base/.github/aw/logs/run-32949965312/sandbox/firewall/awf-reflect.json",
+    "base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/access.log",
+    "base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/api-proxy-logs/models.json",
+    "base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/api-proxy-logs/otel.jsonl",
+    "base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl",
+    "base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/audit.jsonl",
+    "base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/cache.log",
+    "base/.github/aw/logs/run-32949965312/usage/activity/summary.json",
+    "base/.github/aw/logs/run-32949965312/usage/agent/token_usage.jsonl",
+    "base/.github/aw/logs/run-32949965312/usage/detection/token_usage.jsonl",
+    "base/.github/aw/logs/run-32949965312/usage/github_rate_limits.jsonl",
+    "base/.github/aw/logs/run-32950532586/.downloaded-artifacts/all",
+    "base/.github/aw/logs/run-32950532586/agent-stdio.log",
+    "base/.github/aw/logs/run-32950532586/agent_output.json",
+    "base/.github/aw/logs/run-32950532586/aw-prompts/prompt-import-tree.json",
+    "base/.github/aw/logs/run-32950532586/aw-prompts/prompt-template.txt",
+    "base/.github/aw/logs/run-32950532586/aw-prompts/prompt.txt",
+    "base/.github/aw/logs/run-32950532586/aw_info.json",
+    "base/.github/aw/logs/run-32950532586/awf-config.json",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/actions-lock.json",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/.downloaded-artifacts/all",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/agent-stdio.log",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/agent_output.json",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/agentic-workflow-usage-cache.jsonl",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/aw-prompts/prompt-import-tree.json",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/aw-prompts/prompt-template.txt",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/aw-prompts/prompt.txt",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/aw_info.json",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/awf-config.json",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/aw/actions-lock.json",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/skills/agentic-workflows/SKILL.md",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/workflows/agentics-maintenance.yml",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/workflows/ci.yml",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/workflows/repo-ask.lock.yml",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/workflows/repo-ask.md",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/workflows/til-writer.lock.yml",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/workflows/til-writer.md",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/workflows/weekly-research.lock.yml",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/workflows/weekly-research.md",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/github_rate_limits.jsonl",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/mcp-logs/gateway.md",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/mcp-logs/github.log",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/mcp-logs/mcp-gateway.log",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/mcp-logs/observed-url-domains.json",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/mcp-logs/rpc-messages.jsonl",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/mcp-logs/safeoutputs/server.log",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/mcp-logs/safeoutputs.log",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/mcp-logs/tools.json",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/models.json",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/pre-agent-audit.txt",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/safe-output-items.jsonl",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/audit/awf-resolved-config.json",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/audit/docker-compose.redacted.yml",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/audit/policy-manifest.json",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/audit/squid.conf",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/awf-reflect.json",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/access.log",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/api-proxy-logs/models.json",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/api-proxy-logs/otel.jsonl",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/audit.jsonl",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/cache.log",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/usage/activity/summary.json",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/usage/agent/token_usage.jsonl",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/usage/detection/token_usage.jsonl",
+    "base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/usage/github_rate_limits.jsonl",
+    "base/.github/aw/logs/run-32950532586/base/.github/skills/agentic-workflows/SKILL.md",
+    "base/.github/aw/logs/run-32950532586/base/.github/workflows/agentics-maintenance.yml",
+    "base/.github/aw/logs/run-32950532586/base/.github/workflows/ci.yml",
+    "base/.github/aw/logs/run-32950532586/base/.github/workflows/repo-ask.lock.yml",
+    "base/.github/aw/logs/run-32950532586/base/.github/workflows/repo-ask.md",
+    "base/.github/aw/logs/run-32950532586/base/.github/workflows/til-writer.lock.yml",
+    "base/.github/aw/logs/run-32950532586/base/.github/workflows/til-writer.md",
+    "base/.github/aw/logs/run-32950532586/base/.github/workflows/weekly-research.lock.yml",
+    "base/.github/aw/logs/run-32950532586/base/.github/workflows/weekly-research.md",
+    "base/.github/aw/logs/run-32950532586/github_rate_limits.jsonl",
+    "base/.github/aw/logs/run-32950532586/mcp-logs/gateway.md",
+    "base/.github/aw/logs/run-32950532586/mcp-logs/github.log",
+    "base/.github/aw/logs/run-32950532586/mcp-logs/mcp-gateway.log",
+    "base/.github/aw/logs/run-32950532586/mcp-logs/observed-url-domains.json",
+    "base/.github/aw/logs/run-32950532586/mcp-logs/rpc-messages.jsonl",
+    "base/.github/aw/logs/run-32950532586/mcp-logs/safeoutputs/server.log",
+    "base/.github/aw/logs/run-32950532586/mcp-logs/safeoutputs.log",
+    "base/.github/aw/logs/run-32950532586/mcp-logs/tools.json",
+    "base/.github/aw/logs/run-32950532586/models.json",
+    "base/.github/aw/logs/run-32950532586/pre-agent-audit.txt",
+    "base/.github/aw/logs/run-32950532586/sandbox/firewall/audit/awf-resolved-config.json",
+    "base/.github/aw/logs/run-32950532586/sandbox/firewall/audit/docker-compose.redacted.yml",
+    "base/.github/aw/logs/run-32950532586/sandbox/firewall/audit/policy-manifest.json",
+    "base/.github/aw/logs/run-32950532586/sandbox/firewall/audit/squid.conf",
+    "base/.github/aw/logs/run-32950532586/sandbox/firewall/awf-reflect.json",
+    "base/.github/aw/logs/run-32950532586/sandbox/firewall/logs/access.log",
+    "base/.github/aw/logs/run-32950532586/sandbox/firewall/logs/api-proxy-logs/models.json",
+    "base/.github/aw/logs/run-32950532586/sandbox/firewall/logs/api-proxy-logs/otel.jsonl",
+    "base/.github/aw/logs/run-32950532586/sandbox/firewall/logs/api-proxy-logs/token-tracker-audit.jsonl",
+    "base/.github/aw/logs/run-32950532586/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl",
+    "base/.github/aw/logs/run-32950532586/sandbox/firewall/logs/audit.jsonl",
+    "base/.github/aw/logs/run-32950532586/sandbox/firewall/logs/cache.log",
+    "base/.github/aw/logs/run-32952292641/.downloaded-artifacts/all",
+    "base/.github/aw/logs/run-32952292641/agent-stdio.log",
+    "base/.github/aw/logs/run-32952292641/agent_output.json",
+    "base/.github/aw/logs/run-32952292641/agent_usage.json",
+    "base/.github/aw/logs/run-32952292641/agentic-workflow-usage-cache.jsonl",
+    "base/.github/aw/logs/run-32952292641/aw-prompts/prompt-import-tree.json",
+    "base/.github/aw/logs/run-32952292641/aw-prompts/prompt-template.txt",
+    "base/.github/aw/logs/run-32952292641/aw-prompts/prompt.txt",
+    "base/.github/aw/logs/run-32952292641/aw_info.json",
+    "base/.github/aw/logs/run-32952292641/awf-config.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/actions-lock.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/.downloaded-artifacts/all",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/agent-stdio.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/agent_output.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/agentic-workflow-usage-cache.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/aw-prompts/prompt-import-tree.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/aw-prompts/prompt-template.txt",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/aw-prompts/prompt.txt",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/aw_info.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/awf-config.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/base/.github/aw/actions-lock.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/base/.github/skills/agentic-workflows/SKILL.md",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/base/.github/workflows/agentics-maintenance.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/base/.github/workflows/ci.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/base/.github/workflows/repo-ask.lock.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/base/.github/workflows/repo-ask.md",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/base/.github/workflows/til-writer.lock.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/base/.github/workflows/til-writer.md",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/base/.github/workflows/weekly-research.lock.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/base/.github/workflows/weekly-research.md",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/github_rate_limits.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/mcp-logs/gateway.md",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/mcp-logs/github.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/mcp-logs/mcp-gateway.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/mcp-logs/observed-url-domains.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/mcp-logs/rpc-messages.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/mcp-logs/safeoutputs/server.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/mcp-logs/safeoutputs.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/mcp-logs/tools.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/models.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/pre-agent-audit.txt",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/safe-output-items.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/sandbox/firewall/audit/awf-resolved-config.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/sandbox/firewall/audit/docker-compose.redacted.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/sandbox/firewall/audit/policy-manifest.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/sandbox/firewall/audit/squid.conf",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/sandbox/firewall/awf-reflect.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/access.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/api-proxy-logs/models.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/api-proxy-logs/otel.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/audit.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/cache.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/usage/activity/summary.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/usage/agent/token_usage.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/usage/detection/token_usage.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32949965312/usage/github_rate_limits.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/.downloaded-artifacts/all",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/agent-stdio.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/agent_output.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/aw-prompts/prompt-import-tree.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/aw-prompts/prompt-template.txt",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/aw-prompts/prompt.txt",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/aw_info.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/awf-config.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/actions-lock.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/.downloaded-artifacts/all",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/agent-stdio.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/agent_output.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/agentic-workflow-usage-cache.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/aw-prompts/prompt-import-tree.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/aw-prompts/prompt-template.txt",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/aw-prompts/prompt.txt",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/aw_info.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/awf-config.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/aw/actions-lock.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/skills/agentic-workflows/SKILL.md",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/workflows/agentics-maintenance.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/workflows/ci.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/workflows/repo-ask.lock.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/workflows/repo-ask.md",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/workflows/til-writer.lock.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/workflows/til-writer.md",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/workflows/weekly-research.lock.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/base/.github/workflows/weekly-research.md",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/github_rate_limits.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/mcp-logs/gateway.md",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/mcp-logs/github.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/mcp-logs/mcp-gateway.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/mcp-logs/observed-url-domains.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/mcp-logs/rpc-messages.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/mcp-logs/safeoutputs/server.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/mcp-logs/safeoutputs.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/mcp-logs/tools.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/models.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/pre-agent-audit.txt",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/safe-output-items.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/audit/awf-resolved-config.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/audit/docker-compose.redacted.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/audit/policy-manifest.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/audit/squid.conf",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/awf-reflect.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/access.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/api-proxy-logs/models.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/api-proxy-logs/otel.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/audit.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/sandbox/firewall/logs/cache.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/usage/activity/summary.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/usage/agent/token_usage.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/usage/detection/token_usage.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/aw/logs/run-32949965312/usage/github_rate_limits.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/skills/agentic-workflows/SKILL.md",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/workflows/agentics-maintenance.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/workflows/ci.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/workflows/repo-ask.lock.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/workflows/repo-ask.md",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/workflows/til-writer.lock.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/workflows/til-writer.md",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/workflows/weekly-research.lock.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/base/.github/workflows/weekly-research.md",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/github_rate_limits.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/mcp-logs/gateway.md",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/mcp-logs/github.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/mcp-logs/mcp-gateway.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/mcp-logs/observed-url-domains.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/mcp-logs/rpc-messages.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/mcp-logs/safeoutputs/server.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/mcp-logs/safeoutputs.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/mcp-logs/tools.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/models.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/pre-agent-audit.txt",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/sandbox/firewall/audit/awf-resolved-config.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/sandbox/firewall/audit/docker-compose.redacted.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/sandbox/firewall/audit/policy-manifest.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/sandbox/firewall/audit/squid.conf",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/sandbox/firewall/awf-reflect.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/sandbox/firewall/logs/access.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/sandbox/firewall/logs/api-proxy-logs/models.json",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/sandbox/firewall/logs/api-proxy-logs/otel.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/sandbox/firewall/logs/api-proxy-logs/token-tracker-audit.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/sandbox/firewall/logs/audit.jsonl",
+    "base/.github/aw/logs/run-32952292641/base/.github/aw/logs/run-32950532586/sandbox/firewall/logs/cache.log",
+    "base/.github/aw/logs/run-32952292641/base/.github/skills/agentic-workflows/SKILL.md",
+    "base/.github/aw/logs/run-32952292641/base/.github/workflows/agentics-maintenance.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/workflows/ci.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/workflows/repo-ask.lock.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/workflows/repo-ask.md",
+    "base/.github/aw/logs/run-32952292641/base/.github/workflows/til-writer.lock.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/workflows/til-writer.md",
+    "base/.github/aw/logs/run-32952292641/base/.github/workflows/weekly-research.lock.yml",
+    "base/.github/aw/logs/run-32952292641/base/.github/workflows/weekly-research.md",
+    "base/.github/aw/logs/run-32952292641/detection.log",
+    "base/.github/aw/logs/run-32952292641/github_rate_limits.jsonl",
+    "base/.github/aw/logs/run-32952292641/mcp-logs/gateway.md",
+    "base/.github/aw/logs/run-32952292641/mcp-logs/github.log",
+    "base/.github/aw/logs/run-32952292641/mcp-logs/mcp-gateway.log",
+    "base/.github/aw/logs/run-32952292641/mcp-logs/observed-url-domains.json",
+    "base/.github/aw/logs/run-32952292641/mcp-logs/rpc-messages.jsonl",
+    "base/.github/aw/logs/run-32952292641/mcp-logs/safeoutputs/server.log",
+    "base/.github/aw/logs/run-32952292641/mcp-logs/safeoutputs.log",
+    "base/.github/aw/logs/run-32952292641/mcp-logs/tools.json",
+    "base/.github/aw/logs/run-32952292641/models.json",
+    "base/.github/aw/logs/run-32952292641/pre-agent-audit.txt",
+    "base/.github/aw/logs/run-32952292641/safe-output-items.jsonl",
+    "base/.github/aw/logs/run-32952292641/safeoutputs.jsonl",
+    "base/.github/aw/logs/run-32952292641/sandbox/agent/logs/process-1787736005675-124.log",
+    "base/.github/aw/logs/run-32952292641/sandbox/firewall/audit/awf-resolved-config.json",
+    "base/.github/aw/logs/run-32952292641/sandbox/firewall/audit/docker-compose.redacted.yml",
+    "base/.github/aw/logs/run-32952292641/sandbox/firewall/audit/policy-manifest.json",
+    "base/.github/aw/logs/run-32952292641/sandbox/firewall/audit/squid.conf",
+    "base/.github/aw/logs/run-32952292641/sandbox/firewall/awf-reflect.json",
+    "base/.github/aw/logs/run-32952292641/sandbox/firewall/logs/access.log",
+    "base/.github/aw/logs/run-32952292641/sandbox/firewall/logs/api-proxy-logs/models.json",
+    "base/.github/aw/logs/run-32952292641/sandbox/firewall/logs/api-proxy-logs/otel.jsonl",
+    "base/.github/aw/logs/run-32952292641/sandbox/firewall/logs/api-proxy-logs/token-tracker-audit.jsonl",
+    "base/.github/aw/logs/run-32952292641/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl",
+    "base/.github/aw/logs/run-32952292641/sandbox/firewall/logs/audit.jsonl",
+    "base/.github/aw/logs/run-32952292641/sandbox/firewall/logs/cache.log",
+    "base/.github/aw/logs/run-32952292641/temporary-id-map.json",
+    "base/.github/aw/logs/run-32952292641/usage/activity/summary.json",
+    "base/.github/aw/logs/run-32952292641/usage/agent/token_usage.jsonl",
+    "base/.github/aw/logs/run-32952292641/usage/agent_usage.json",
+    "base/.github/aw/logs/run-32952292641/usage/detection/token_usage.jsonl",
+    "base/.github/aw/logs/run-32952292641/usage/github_rate_limits.jsonl",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/0_conclusion.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/1_safe_outputs.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/2_detection.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/3_agent.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/4_activation.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/10_Check workflow lock file.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/11_Check compile-agentic version.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/13_Create prompt with built-in context.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/14_Interpolate variables and render templates.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/15_Substitute placeholders.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/16_Validate prompt placeholders.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/17_Print prompt.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/18_Stage prompt files for artifact upload.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/19_Upload activation artifact.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/1_Set up job.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/2_Setup Scripts.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/37_Post Checkout .github and .agents folders.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/38_Post Setup Scripts.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/39_Complete job.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/3_Generate agentic run info.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/4_Restore daily AIC usage cache.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/5_Restore daily AIC usage cache (artifact fallback).txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/6_Check daily workflow token guardrail.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/7_Check for OAuth tokens.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/8_Checkout .github and .agents folders.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/9_Save agent config folders for base branch restoration.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/activation/system.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/10_Install ripgrep.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/11_Install GitHub Copilot CLI.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/12_Install AWF binary.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/13_Determine automatic lockdown mode for GitHub MCP Server.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/14_Parse integrity filter lists.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/16_Restore inline sub-agents from activation artifact.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/17_Restore inline skills from activation artifact.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/18_Download container images.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/19_Generate Safe Outputs Config.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/1_Set up job.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/20_Generate Safe Outputs Tools.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/21_Start MCP Gateway.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/22_Mount MCP servers as CLIs.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/23_Clean credentials.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/24_Audit pre-agent workspace.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/25_Execute GitHub Copilot CLI.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/26_Detect agent errors.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/28_Copy Copilot session state files to logs.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/29_Stop MCP Gateway.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/2_Setup Scripts.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/30_Redact secrets in logs.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/31_Append agent step summary.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/32_Copy Safe Outputs.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/33_Ingest agent output.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/34_Parse agent logs for step summary.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/35_Parse MCP Gateway logs for step summary.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/36_Print firewall logs.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/37_Parse token usage for step summary.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/38_Print AWF reflect summary.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/39_Write agent output placeholder if missing.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/3_Set runtime paths.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/40_Upload agent artifacts.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/4_Checkout repository.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/5_Create gh-aw temp directory.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/6_Configure gh CLI for GitHub Enterprise.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/79_Post Checkout repository.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/7_Download activation artifact.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/80_Post Setup Scripts.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/81_Complete job.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/8_Configure Git credentials.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/agent/system.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/10_Save daily AIC usage cache.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/11_Upload daily AIC usage cache artifact.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/12_Process no-op messages.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/13_Log detection run.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/14_Record missing tool.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/15_Record incomplete.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/16_Handle agent failure.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/17_Report failed jobs.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/1_Set up job.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/2_Setup Scripts.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/34_Post Setup Scripts.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/35_Complete job.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/3_Download agent output artifact.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/4_Setup agent output environment variable.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/5_Download Safe Outputs Items Manifest.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/6_Collect usage artifact files.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/7_Upload usage artifact.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/8_Restore daily AIC usage cache.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/9_Write daily AIC usage cache entry.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/conclusion/system.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/10_Prepare threat detection files.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/11_Setup threat detection.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/12_Ensure threat-detection directory and log.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/13_Setup Node.js.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/14_Install ripgrep.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/15_Install GitHub Copilot CLI.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/16_Install AWF binary.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/17_Execute GitHub Copilot CLI.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/18_Echo detection step summary.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/19_Render detection log.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/1_Set up job.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/20_Parse threat detection token usage for step summary.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/21_Upload threat detection log.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/22_Parse and conclude threat detection.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/2_Setup Scripts.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/3_Download agent output artifact.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/43_Post Setup Node.js.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/44_Post Setup Scripts.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/45_Complete job.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/4_Setup agent output environment variable.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/6_Clean stale firewall files from agent artifact.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/7_Download container images.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/8_Check if detection needed.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/9_Clear MCP Config for detection.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/detection/system.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/safe_outputs/14_Post Setup Scripts.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/safe_outputs/15_Complete job.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/safe_outputs/1_Set up job.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/safe_outputs/2_Setup Scripts.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/safe_outputs/3_Download agent output artifact.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/safe_outputs/4_Setup agent output environment variable.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/safe_outputs/5_Configure GH_HOST for enterprise compatibility.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/safe_outputs/6_Process Safe Outputs.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/safe_outputs/7_Upload Safe Outputs Items.txt",
+    "base/.github/aw/logs/run-32952292641/workflow-logs/safe_outputs/system.txt",
+    "base/.github/skills/agentic-workflows/SKILL.md",
+    "base/.github/workflows/agentics-maintenance.yml",
+    "base/.github/workflows/ci.yml",
+    "base/.github/workflows/repo-ask.lock.yml",
+    "base/.github/workflows/repo-ask.md",
+    "base/.github/workflows/til-writer.lock.yml",
+    "base/.github/workflows/til-writer.md",
+    "base/.github/workflows/weekly-research.lock.yml",
+    "base/.github/workflows/weekly-research.md",
+    "github_rate_limits.jsonl",
+    "mcp-logs/gateway.md",
+    "mcp-logs/github.log",
+    "mcp-logs/mcp-gateway.log",
+    "mcp-logs/observed-url-domains.json",
+    "mcp-logs/rpc-messages.jsonl",
+    "mcp-logs/safeoutputs/server.log",
+    "mcp-logs/safeoutputs.log",
+    "mcp-logs/tools.json",
+    "models.json",
+    "pre-agent-audit.txt",
+    "safe-output-items.jsonl",
+    "sandbox/agent/logs/process-1787762178960-113.log",
+    "sandbox/firewall/audit/awf-resolved-config.json",
+    "sandbox/firewall/audit/docker-compose.redacted.yml",
+    "sandbox/firewall/audit/policy-manifest.json",
+    "sandbox/firewall/audit/squid.conf",
+    "sandbox/firewall/awf-reflect.json",
+    "sandbox/firewall/logs/access.log",
+    "sandbox/firewall/logs/api-proxy-logs/models.json",
+    "sandbox/firewall/logs/api-proxy-logs/otel.jsonl",
+    "sandbox/firewall/logs/api-proxy-logs/token-tracker-audit.jsonl",
+    "sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl",
+    "sandbox/firewall/logs/audit.jsonl",
+    "sandbox/firewall/logs/cache.log",
+    "usage/activity/summary.json",
+    "usage/agent/token_usage.jsonl",
+    "usage/agent_usage.json",
+    "usage/detection/token_usage.jsonl",
+    "usage/github_rate_limits.jsonl",
+    "workflow-logs/0_conclusion.txt",
+    "workflow-logs/1_safe_outputs.txt",
+    "workflow-logs/2_detection.txt",
+    "workflow-logs/3_agent.txt",
+    "workflow-logs/4_activation.txt",
+    "workflow-logs/activation/10_Check workflow lock file.txt",
+    "workflow-logs/activation/11_Check compile-agentic version.txt",
+    "workflow-logs/activation/13_Create prompt with built-in context.txt",
+    "workflow-logs/activation/14_Interpolate variables and render templates.txt",
+    "workflow-logs/activation/15_Substitute placeholders.txt",
+    "workflow-logs/activation/16_Validate prompt placeholders.txt",
+    "workflow-logs/activation/17_Print prompt.txt",
+    "workflow-logs/activation/18_Stage prompt files for artifact upload.txt",
+    "workflow-logs/activation/19_Upload activation artifact.txt",
+    "workflow-logs/activation/1_Set up job.txt",
+    "workflow-logs/activation/2_Setup Scripts.txt",
+    "workflow-logs/activation/37_Post Checkout .github and .agents folders.txt",
+    "workflow-logs/activation/38_Post Setup Scripts.txt",
+    "workflow-logs/activation/39_Complete job.txt",
+    "workflow-logs/activation/3_Generate agentic run info.txt",
+    "workflow-logs/activation/4_Restore daily AIC usage cache.txt",
+    "workflow-logs/activation/5_Restore daily AIC usage cache (artifact fallback).txt",
+    "workflow-logs/activation/6_Check daily workflow token guardrail.txt",
+    "workflow-logs/activation/7_Check for OAuth tokens.txt",
+    "workflow-logs/activation/8_Checkout .github and .agents folders.txt",
+    "workflow-logs/activation/9_Save agent config folders for base branch restoration.txt",
+    "workflow-logs/activation/system.txt",
+    "workflow-logs/agent/10_Install ripgrep.txt",
+    "workflow-logs/agent/11_Install GitHub Copilot CLI.txt",
+    "workflow-logs/agent/12_Install AWF binary.txt",
+    "workflow-logs/agent/13_Determine automatic lockdown mode for GitHub MCP Server.txt",
+    "workflow-logs/agent/14_Parse integrity filter lists.txt",
+    "workflow-logs/agent/16_Restore inline sub-agents from activation artifact.txt",
+    "workflow-logs/agent/17_Restore inline skills from activation artifact.txt",
+    "workflow-logs/agent/18_Download container images.txt",
+    "workflow-logs/agent/19_Generate Safe Outputs Config.txt",
+    "workflow-logs/agent/1_Set up job.txt",
+    "workflow-logs/agent/20_Generate Safe Outputs Tools.txt",
+    "workflow-logs/agent/21_Start MCP Gateway.txt",
+    "workflow-logs/agent/22_Mount MCP servers as CLIs.txt",
+    "workflow-logs/agent/23_Clean credentials.txt",
+    "workflow-logs/agent/24_Audit pre-agent workspace.txt",
+    "workflow-logs/agent/25_Execute GitHub Copilot CLI.txt",
+    "workflow-logs/agent/26_Detect agent errors.txt",
+    "workflow-logs/agent/27_Configure Git credentials.txt",
+    "workflow-logs/agent/28_Copy Copilot session state files to logs.txt",
+    "workflow-logs/agent/29_Stop MCP Gateway.txt",
+    "workflow-logs/agent/2_Setup Scripts.txt",
+    "workflow-logs/agent/30_Redact secrets in logs.txt",
+    "workflow-logs/agent/31_Append agent step summary.txt",
+    "workflow-logs/agent/32_Copy Safe Outputs.txt",
+    "workflow-logs/agent/33_Ingest agent output.txt",
+    "workflow-logs/agent/34_Parse agent logs for step summary.txt",
+    "workflow-logs/agent/35_Parse MCP Gateway logs for step summary.txt",
+    "workflow-logs/agent/36_Print firewall logs.txt",
+    "workflow-logs/agent/37_Parse token usage for step summary.txt",
+    "workflow-logs/agent/38_Print AWF reflect summary.txt",
+    "workflow-logs/agent/39_Write agent output placeholder if missing.txt",
+    "workflow-logs/agent/3_Set runtime paths.txt",
+    "workflow-logs/agent/40_Upload agent artifacts.txt",
+    "workflow-logs/agent/4_Checkout repository.txt",
+    "workflow-logs/agent/5_Create gh-aw temp directory.txt",
+    "workflow-logs/agent/6_Configure gh CLI for GitHub Enterprise.txt",
+    "workflow-logs/agent/79_Post Checkout repository.txt",
+    "workflow-logs/agent/7_Download activation artifact.txt",
+    "workflow-logs/agent/80_Post Setup Scripts.txt",
+    "workflow-logs/agent/81_Complete job.txt",
+    "workflow-logs/agent/8_Configure Git credentials.txt",
+    "workflow-logs/agent/system.txt",
+    "workflow-logs/conclusion/10_Save daily AIC usage cache.txt",
+    "workflow-logs/conclusion/11_Upload daily AIC usage cache artifact.txt",
+    "workflow-logs/conclusion/12_Process no-op messages.txt",
+    "workflow-logs/conclusion/13_Log detection run.txt",
+    "workflow-logs/conclusion/14_Record missing tool.txt",
+    "workflow-logs/conclusion/15_Record incomplete.txt",
+    "workflow-logs/conclusion/16_Handle agent failure.txt",
+    "workflow-logs/conclusion/17_Report failed jobs.txt",
+    "workflow-logs/conclusion/1_Set up job.txt",
+    "workflow-logs/conclusion/2_Setup Scripts.txt",
+    "workflow-logs/conclusion/34_Post Setup Scripts.txt",
+    "workflow-logs/conclusion/35_Complete job.txt",
+    "workflow-logs/conclusion/3_Download agent output artifact.txt",
+    "workflow-logs/conclusion/4_Setup agent output environment variable.txt",
+    "workflow-logs/conclusion/5_Download Safe Outputs Items Manifest.txt",
+    "workflow-logs/conclusion/6_Collect usage artifact files.txt",
+    "workflow-logs/conclusion/7_Upload usage artifact.txt",
+    "workflow-logs/conclusion/8_Restore daily AIC usage cache.txt",
+    "workflow-logs/conclusion/9_Write daily AIC usage cache entry.txt",
+    "workflow-logs/conclusion/system.txt",
+    "workflow-logs/detection/13_Setup Node.js.txt",
+    "workflow-logs/detection/14_Install ripgrep.txt",
+    "workflow-logs/detection/15_Install GitHub Copilot CLI.txt",
+    "workflow-logs/detection/16_Install AWF binary.txt",
+    "workflow-logs/detection/1_Set up job.txt",
+    "workflow-logs/detection/20_Parse threat detection token usage for step summary.txt",
+    "workflow-logs/detection/22_Parse and conclude threat detection.txt",
+    "workflow-logs/detection/2_Setup Scripts.txt",
+    "workflow-logs/detection/3_Download agent output artifact.txt",
+    "workflow-logs/detection/43_Post Setup Node.js.txt",
+    "workflow-logs/detection/44_Post Setup Scripts.txt",
+    "workflow-logs/detection/45_Complete job.txt",
+    "workflow-logs/detection/4_Setup agent output environment variable.txt",
+    "workflow-logs/detection/6_Clean stale firewall files from agent artifact.txt",
+    "workflow-logs/detection/7_Download container images.txt",
+    "workflow-logs/detection/8_Check if detection needed.txt",
+    "workflow-logs/detection/system.txt",
+    "workflow-logs/safe_outputs/14_Post Setup Scripts.txt",
+    "workflow-logs/safe_outputs/15_Complete job.txt",
+    "workflow-logs/safe_outputs/1_Set up job.txt",
+    "workflow-logs/safe_outputs/2_Setup Scripts.txt",
+    "workflow-logs/safe_outputs/3_Download agent output artifact.txt",
+    "workflow-logs/safe_outputs/4_Setup agent output environment variable.txt",
+    "workflow-logs/safe_outputs/5_Configure GH_HOST for enterprise compatibility.txt",
+    "workflow-logs/safe_outputs/6_Process Safe Outputs.txt",
+    "workflow-logs/safe_outputs/7_Upload Safe Outputs Items.txt",
+    "workflow-logs/safe_outputs/system.txt"
+  ],
+  "job_details": [
+    {
+      "name": "activation",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-26T16:34:49Z",
+      "completed_at": "2026-08-26T16:35:05Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Setup Scripts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Generate agentic run info",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Restore daily AIC usage cache",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Restore daily AIC usage cache (artifact fallback)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check daily workflow token guardrail",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check for OAuth tokens",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Checkout .github and .agents folders",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Save agent config folders for base branch restoration",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check workflow lock file",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check compile-agentic version",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Log runtime features",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Create prompt with built-in context",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Interpolate variables and render templates",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Substitute placeholders",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Validate prompt placeholders",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Print prompt",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Stage prompt files for artifact upload",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Upload activation artifact",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Checkout .github and .agents folders",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Setup Scripts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "Duration": 16000000000
+    },
+    {
+      "name": "agent",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-26T16:35:08Z",
+      "completed_at": "2026-08-26T16:55:17Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Setup Scripts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Set runtime paths",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Checkout repository",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Create gh-aw temp directory",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Configure gh CLI for GitHub Enterprise",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Download activation artifact",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Configure Git credentials",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Checkout PR branch",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Install ripgrep",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install GitHub Copilot CLI",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install AWF binary",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Determine automatic lockdown mode for GitHub MCP Server",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Parse integrity filter lists",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Restore agent config folders from base branch",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Restore inline sub-agents from activation artifact",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Restore inline skills from activation artifact",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Download container images",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Generate Safe Outputs Config",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Generate Safe Outputs Tools",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Start MCP Gateway",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Mount MCP servers as CLIs",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Clean credentials",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Audit pre-agent workspace",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Execute GitHub Copilot CLI",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Detect agent errors",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Configure Git credentials",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Copy Copilot session state files to logs",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Stop MCP Gateway",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Redact secrets in logs",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Append agent step summary",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Copy Safe Outputs",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Ingest agent output",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Parse agent logs for step summary",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Parse MCP Gateway logs for step summary",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Print firewall logs",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Parse token usage for step summary",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Print AWF reflect summary",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Write agent output placeholder if missing",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Upload agent artifacts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Checkout repository",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Setup Scripts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "Duration": 1209000000000
+    },
+    {
+      "name": "detection",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-26T16:55:20Z",
+      "completed_at": "2026-08-26T16:56:10Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Setup Scripts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Download agent output artifact",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Setup agent output environment variable",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Checkout repository for patch context",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Clean stale firewall files from agent artifact",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Download container images",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check if detection needed",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Clear MCP Config for detection",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Prepare threat detection files",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Setup threat detection",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Ensure threat-detection directory and log",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Setup Node.js",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install ripgrep",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install GitHub Copilot CLI",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install AWF binary",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Execute GitHub Copilot CLI",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Echo detection step summary",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Render detection log",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Parse threat detection token usage for step summary",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Upload threat detection log",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Parse and conclude threat detection",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Setup Node.js",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Setup Scripts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "Duration": 50000000000
+    },
+    {
+      "name": "safe_outputs",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-26T16:56:14Z",
+      "completed_at": "2026-08-26T16:56:24Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Setup Scripts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Download agent output artifact",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Setup agent output environment variable",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Configure GH_HOST for enterprise compatibility",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Process Safe Outputs",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Upload Safe Outputs Items",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Setup Scripts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "Duration": 10000000000
+    },
+    {
+      "name": "conclusion",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-08-26T16:57:12Z",
+      "completed_at": "2026-08-26T16:57:33Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Setup Scripts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Download agent output artifact",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Setup agent output environment variable",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Download Safe Outputs Items Manifest",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Collect usage artifact files",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Upload usage artifact",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Restore daily AIC usage cache",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Write daily AIC usage cache entry",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Save daily AIC usage cache",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Upload daily AIC usage cache artifact",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Process no-op messages",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Log detection run",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Record missing tool",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Record incomplete",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Handle agent failure",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Report failed jobs",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Setup Scripts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "Duration": 21000000000
+    }
+  ]
+}

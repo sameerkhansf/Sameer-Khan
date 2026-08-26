@@ -1,0 +1,20 @@
+﻿2026-08-26T18:00:10.1550557Z ##[group]Run mkdir -p "${RUNNER_TEMP}/gh-aw/safeoutputs"
+2026-08-26T18:00:10.1551359Z [36;1mmkdir -p "${RUNNER_TEMP}/gh-aw/safeoutputs"[0m
+2026-08-26T18:00:10.1551971Z [36;1mmkdir -p /tmp/gh-aw/safeoutputs[0m
+2026-08-26T18:00:10.1552446Z [36;1mmkdir -p /tmp/gh-aw/mcp-logs/safeoutputs[0m
+2026-08-26T18:00:10.1553123Z [36;1mcat > "${RUNNER_TEMP}/gh-aw/safeoutputs/config.json" << 'GH_AW_SAFE_OUTPUTS_CONFIG_c51f7312db4d6120_EOF'[0m
+2026-08-26T18:00:10.1558573Z [36;1m{"create_pull_request":{"allowed_files":["content/blog/**","public/blog/**"],"draft":true,"labels":["til","automated"],"max":1,"max_patch_files":100,"max_patch_size":4096,"protect_top_level_dot_folders":true,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","README.md","CONTRIBUTING.md","CHANGELOG.md","SECURITY.md","CODE_OF_CONDUCT.md","AGENTS.md"],"protected_files_policy":"request_review","title_prefix":"[til] "},"create_report_incomplete_issue":{},"missing_data":{},"missing_tool":{},"noop":{"max":1,"report-as-issue":"false"},"push_repo_memory":{"memories":[{"dir":"/tmp/gh-aw/repo-memory/default","id":"default","max_file_count":100,"max_file_size":1048576,"max_patch_size":10240}]},"report_incomplete":{}}[0m
+2026-08-26T18:00:10.1564630Z [36;1mGH_AW_SAFE_OUTPUTS_CONFIG_c51f7312db4d6120_EOF[0m
+2026-08-26T18:00:10.1593024Z shell: /usr/bin/bash -e {0}
+2026-08-26T18:00:10.1593339Z env:
+2026-08-26T18:00:10.1593560Z   DEFAULT_BRANCH: main
+2026-08-26T18:00:10.1593813Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-08-26T18:00:10.1594067Z   GH_AW_ASSETS_BRANCH: 
+2026-08-26T18:00:10.1594335Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-08-26T18:00:10.1594633Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-08-26T18:00:10.1594950Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T18:00:10.1595218Z   GH_AW_WORKFLOW_ID_SANITIZED: tilwriter
+2026-08-26T18:00:10.1595549Z   GITHUB_AW_OTEL_TRACE_ID: 4b30332db371f993d125fa437b4eb907
+2026-08-26T18:00:10.1595902Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: bd4c8e651d31cf6d
+2026-08-26T18:00:10.1596227Z   GITHUB_AW_OTEL_JOB_START_MS: 1787767141025
+2026-08-26T18:00:10.1596501Z ##[endgroup]

@@ -1,0 +1,30 @@
+﻿2026-08-26T18:20:34.3258711Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T18:20:34.3260087Z with:
+2026-08-26T18:20:34.3264817Z   github-token: ***
+2026-08-26T18:20:34.3267115Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/handle_detection_runs.cjs');
+await main();
+
+2026-08-26T18:20:34.3269769Z   debug: false
+2026-08-26T18:20:34.3270335Z   user-agent: actions/github-script
+2026-08-26T18:20:34.3271018Z   result-encoding: json
+2026-08-26T18:20:34.3271566Z   retries: 0
+2026-08-26T18:20:34.3272170Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T18:20:34.3272896Z env:
+2026-08-26T18:20:34.3273393Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T18:20:34.3274113Z   GITHUB_AW_OTEL_TRACE_ID: 4b30332db371f993d125fa437b4eb907
+2026-08-26T18:20:34.3274989Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 2e2fa8c53c7eefc5
+2026-08-26T18:20:34.3275812Z   GITHUB_AW_OTEL_JOB_START_MS: 1787768427940
+2026-08-26T18:20:34.3276586Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-08-26T18:20:34.3277349Z   GH_AW_WORKFLOW_NAME: TIL Writer
+2026-08-26T18:20:34.3278566Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/sameerkhansf/Sameer-Khan/blob/main/.github/workflows/til-writer.md
+2026-08-26T18:20:34.3280373Z   GH_AW_RUN_URL: https://github.com/sameerkhansf/Sameer-Khan/actions/runs/32996216121
+2026-08-26T18:20:34.3281420Z   GH_AW_DETECTION_CONCLUSION: skipped
+2026-08-26T18:20:34.3282100Z   GH_AW_DETECTION_REASON: 
+2026-08-26T18:20:34.3282669Z ##[endgroup]
+2026-08-26T18:20:34.4543443Z Detection conclusion: skipped
+2026-08-26T18:20:34.4548418Z Detection reason: 
+2026-08-26T18:20:34.4551831Z Workflow name: TIL Writer
+2026-08-26T18:20:34.4555007Z Run URL: https://github.com/sameerkhansf/Sameer-Khan/actions/runs/32996216121
+2026-08-26T18:20:34.4558423Z Detection conclusion is "skipped", no issue comment needed

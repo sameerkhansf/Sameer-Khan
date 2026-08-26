@@ -1,0 +1,53 @@
+﻿2026-08-26T18:18:53.8554305Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-08-26T18:18:53.8554993Z with:
+2026-08-26T18:18:53.8555308Z   name: agent
+2026-08-26T18:18:53.8557828Z   path: /tmp/gh-aw/aw-prompts/prompt.txt
+/tmp/gh-aw/sandbox/agent/logs/
+/tmp/gh-aw/redacted-urls.log
+/tmp/gh-aw/mcp-logs/
+/tmp/gh-aw/agent_usage.json
+/tmp/gh-aw/agent-stdio.log
+/tmp/gh-aw/pre-agent-audit.txt
+/tmp/gh-aw/agent/
+/tmp/gh-aw/github_rate_limits.jsonl
+/tmp/gh-aw/safeoutputs.jsonl
+/tmp/gh-aw/agent_output.json
+/tmp/gh-aw/aw-*.patch
+/tmp/gh-aw/aw-*.bundle
+/tmp/gh-aw/awf-config.json
+/tmp/gh-aw/sandbox/firewall/logs/
+/tmp/gh-aw/sandbox/firewall/audit/
+/tmp/gh-aw/sandbox/firewall/awf-reflect.json
+
+2026-08-26T18:18:53.8560789Z   if-no-files-found: ignore
+2026-08-26T18:18:53.8561207Z   compression-level: 6
+2026-08-26T18:18:53.8561574Z   overwrite: false
+2026-08-26T18:18:53.8561932Z   include-hidden-files: false
+2026-08-26T18:18:53.8562329Z   archive: true
+2026-08-26T18:18:53.8562649Z env:
+2026-08-26T18:18:53.8562950Z   DEFAULT_BRANCH: main
+2026-08-26T18:18:53.8563355Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-08-26T18:18:53.8563736Z   GH_AW_ASSETS_BRANCH: 
+2026-08-26T18:18:53.8564107Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-08-26T18:18:53.8564554Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-08-26T18:18:53.8565147Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T18:18:53.8565555Z   GH_AW_WORKFLOW_ID_SANITIZED: tilwriter
+2026-08-26T18:18:53.8566276Z   GITHUB_AW_OTEL_TRACE_ID: 4b30332db371f993d125fa437b4eb907
+2026-08-26T18:18:53.8566855Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: bd4c8e651d31cf6d
+2026-08-26T18:18:53.8567361Z   GITHUB_AW_OTEL_JOB_START_MS: 1787767141025
+2026-08-26T18:18:53.8567863Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-08-26T18:18:53.8568356Z   GH_AW_AMBIENT_CONTEXT: 29928
+2026-08-26T18:18:53.8568832Z   GH_AW_PRIMARY_MODEL: nvidia/nemotron-3.5-lightning:free
+2026-08-26T18:18:53.8581239Z ##[endgroup]
+2026-08-26T18:18:54.0623926Z With the provided path, there will be 28 files uploaded
+2026-08-26T18:18:54.0624930Z Artifact name is valid!
+2026-08-26T18:18:54.0625452Z Root directory input is valid!
+2026-08-26T18:18:54.2731712Z Uploading artifact: agent.zip
+2026-08-26T18:18:54.2782394Z Beginning upload of artifact content to blob storage
+2026-08-26T18:18:54.5836142Z Uploaded bytes 273079
+2026-08-26T18:18:54.6166351Z Finished uploading artifact content to blob storage!
+2026-08-26T18:18:54.6168749Z SHA256 digest of uploaded artifact is f22a71f3ac294bb10d5bdcc2e5cb43be1c026b43cc673dbc29d079acdc20e5e7
+2026-08-26T18:18:54.6169802Z Finalizing artifact upload
+2026-08-26T18:18:54.8741350Z Artifact agent successfully finalized. Artifact ID 9617725988
+2026-08-26T18:18:54.8742227Z Artifact agent has been successfully uploaded! Final size is 273079 bytes. Artifact ID is 9617725988
+2026-08-26T18:18:54.8743291Z Artifact download URL: https://github.com/sameerkhansf/Sameer-Khan/actions/runs/32996216121/artifacts/9617725988

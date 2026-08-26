@@ -1,0 +1,43 @@
+﻿2026-08-26T17:29:47.7155170Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T17:29:47.7155868Z with:
+2026-08-26T17:29:47.7157362Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/parse_token_usage.cjs');
+await main();
+
+2026-08-26T17:29:47.7164468Z   github-token: ***
+2026-08-26T17:29:47.7164882Z   debug: false
+2026-08-26T17:29:47.7165235Z   user-agent: actions/github-script
+2026-08-26T17:29:47.7165646Z   result-encoding: json
+2026-08-26T17:29:47.7166009Z   retries: 0
+2026-08-26T17:29:47.7166384Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T17:29:47.7166863Z env:
+2026-08-26T17:29:47.7167170Z   DEFAULT_BRANCH: main
+2026-08-26T17:29:47.7167531Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-08-26T17:29:47.7167907Z   GH_AW_ASSETS_BRANCH: 
+2026-08-26T17:29:47.7168250Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-08-26T17:29:47.7168689Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-08-26T17:29:47.7169253Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:29:47.7169658Z   GH_AW_WORKFLOW_ID_SANITIZED: tilwriter
+2026-08-26T17:29:47.7170205Z   GITHUB_AW_OTEL_TRACE_ID: 4f2b70eb5c2bda3aaef715147050ff46
+2026-08-26T17:29:47.7170980Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: ea79d1e1c50c21ab
+2026-08-26T17:29:47.7171462Z   GITHUB_AW_OTEL_JOB_START_MS: 1787764475821
+2026-08-26T17:29:47.7172010Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-08-26T17:29:47.7172481Z   GH_AW_AMBIENT_CONTEXT: 29572
+2026-08-26T17:29:47.7172844Z ##[endgroup]
+2026-08-26T17:29:47.8451511Z Parsing token usage from 1 file(s): /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl (2872 bytes)
+2026-08-26T17:29:47.8610138Z Token Usage
+2026-08-26T17:29:47.8610752Z 
+2026-08-26T17:29:47.8611603Z # | Alias | Input | Output | Cache Read | Cache Write | ΔAI Credits | AI Credits | Duration 
+2026-08-26T17:29:47.8612283Z 
+2026-08-26T17:29:47.8612542Z  1 | nvi35 | 29,572 | 308 | 0 | 0 |  |  | 3m6s 
+2026-08-26T17:29:47.8613145Z  2 | nvi35 | 31,557 | 287 | 0 | 0 |  |  | 2m40s 
+2026-08-26T17:29:47.8613702Z  3 | nvi35 | 32,343 | 256 | 0 | 0 |  |  | 2m26s 
+2026-08-26T17:29:47.8614250Z  4 | nvi35 | 33,977 | 147 | 0 | 0 |  |  | 3m24s 
+2026-08-26T17:29:47.8614789Z  5 | nvi35 | 34,153 | 134 | 0 | 0 |  |  | 2m20s 
+2026-08-26T17:29:47.8615349Z  Total |  | 161,602 | 1,132 | 0 | 0 |  |  | 13m57s 
+2026-08-26T17:29:47.8615803Z 
+2026-08-26T17:29:47.8617001Z Legend: `Alias` shows the model shorthand used in the table. `ΔAI Credits` is the per-request cost, and `AI Credits` is the running total computed with the current AI credits pricing model.
+2026-08-26T17:29:47.8618432Z Token usage summary appended to step summary
+2026-08-26T17:29:47.8622027Z Primary model: nvidia/nemotron-3.5-lightning-30b-a3b
+2026-08-26T17:29:47.8623533Z Ambient context: 29572

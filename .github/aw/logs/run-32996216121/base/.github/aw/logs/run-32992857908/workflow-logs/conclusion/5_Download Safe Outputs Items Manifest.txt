@@ -1,0 +1,26 @@
+﻿2026-08-26T17:31:27.3710206Z ##[group]Run actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+2026-08-26T17:31:27.3711060Z with:
+2026-08-26T17:31:27.3711484Z   name: safe-outputs-items
+2026-08-26T17:31:27.3713424Z   path: /tmp/gh-aw/
+2026-08-26T17:31:27.3713906Z   merge-multiple: false
+2026-08-26T17:31:27.3714409Z   repository: sameerkhansf/Sameer-Khan
+2026-08-26T17:31:27.3715191Z   run-id: 32992857908
+2026-08-26T17:31:27.3715661Z   skip-decompress: false
+2026-08-26T17:31:27.3716152Z   digest-mismatch: error
+2026-08-26T17:31:27.3716628Z env:
+2026-08-26T17:31:27.3717034Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:31:27.3717634Z   GITHUB_AW_OTEL_TRACE_ID: 4f2b70eb5c2bda3aaef715147050ff46
+2026-08-26T17:31:27.3718331Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 9b02b24a2e82e64a
+2026-08-26T17:31:27.3718963Z   GITHUB_AW_OTEL_JOB_START_MS: 1787765485137
+2026-08-26T17:31:27.3719514Z ##[endgroup]
+2026-08-26T17:31:27.8475267Z Downloading single artifact
+2026-08-26T17:31:28.0658407Z Preparing to download the following artifacts:
+2026-08-26T17:31:28.0663573Z - safe-outputs-items (ID: 9615951289, Size: 162, Expected Digest: sha256:f321675b81530bb79692de60229f200813aa632f3ac500e1238a2c00087ae053)
+2026-08-26T17:31:28.3787874Z Redirecting to blob download url: https://productionresultssa8.blob.core.windows.net/actions-results/1e5c9f9a-4ac4-4d62-afff-e7c0ead2f50f/workflow-job-run-aecd75e1-2098-5621-aa63-b1cf013ba818/artifacts/140086647422da92f7ddc36c3ae296f3ebb1dfa20d074a5f6305bad1022cc591.zip
+2026-08-26T17:31:28.3792284Z Starting download of artifact to: /tmp/gh-aw
+2026-08-26T17:31:28.5050272Z (node:1412) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-08-26T17:31:28.5052441Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-08-26T17:31:28.5219819Z SHA256 digest of downloaded artifact is f321675b81530bb79692de60229f200813aa632f3ac500e1238a2c00087ae053
+2026-08-26T17:31:28.5262707Z Artifact download completed successfully.
+2026-08-26T17:31:28.5265118Z Total of 1 artifact(s) downloaded
+2026-08-26T17:31:28.5276995Z Download artifact has finished successfully

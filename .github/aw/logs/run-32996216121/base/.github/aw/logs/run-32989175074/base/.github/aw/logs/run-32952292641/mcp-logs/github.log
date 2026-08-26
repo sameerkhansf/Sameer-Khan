@@ -1,0 +1,42 @@
+[2026-08-26T09:19:36.106Z] [INFO] [difc] Guard policy: {"allow-only":{"approval-labels":[],"blocked-users":[],"min-integrity":"none","repos":"all","trusted-users":[]}}
+[2026-08-26T09:19:36.353Z] [INFO] [difc] Loaded discovered WASM guard from file: 00-github-guard.wasm
+[2026-08-26T09:19:37.031Z] [INFO] [difc] Registered guard 'github'
+[2026-08-26T09:19:37.053Z] [DEBUG] [backend] GetOrLaunch called for server: github
+[2026-08-26T09:19:37.368Z] [INFO] [backend] Launching MCP backend server: server=github, command=docker, args=[run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_FEATURES=fiel... -e GITHUB_HOST=http... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=... ghcr.io/github/github-mcp-server:v1.9.0]
+[2026-08-26T09:19:39.719Z] [INFO] [backend] [stderr] time=2026-08-26T09:19:39.685Z level=INFO msg="starting server" version=v1.9.0 host=https://github.com readOnly=true lockdownEnabled=false
+[2026-08-26T09:19:39.823Z] [INFO] [backend] [stderr] GitHub MCP Server running on stdio
+[2026-08-26T09:19:39.825Z] [INFO] [backend] [stderr] time=2026-08-26T09:19:39.824Z level=INFO msg="server run start"
+[2026-08-26T09:19:39.826Z] [INFO] [backend] [stderr] time=2026-08-26T09:19:39.824Z level=INFO msg="server connecting"
+[2026-08-26T09:19:39.827Z] [INFO] [backend] [stderr] time=2026-08-26T09:19:39.824Z level=INFO msg="server session connected" session_id=""
+[2026-08-26T09:19:39.828Z] [INFO] [backend] [stderr] time=2026-08-26T09:19:39.824Z level=INFO msg="client log level set" level=""
+[2026-08-26T09:19:39.828Z] [INFO] [backend] Successfully launched MCP backend server: server=github
+[2026-08-26T09:19:39.830Z] [INFO] [backend] Backend server info: name=github-mcp-server, version=v1.9.0
+[2026-08-26T09:19:39.836Z] [INFO] [backend] [stderr] time=2026-08-26T09:19:39.835Z level=INFO msg="client log level set" level=""
+[2026-08-26T09:19:40.149Z] [INFO] [backend] [stderr] time=2026-08-26T09:19:40.149Z level=INFO msg="client log level set" level=""
+[2026-08-26T09:19:40.164Z] [INFO] [backend] Successfully registered tools from github (took 3.110550214s)
+[2026-08-26T09:21:07.889Z] [INFO] [difc] Initializing guard session state: session=***REDACTED***, policy_source=server
+[2026-08-26T09:21:07.890Z] [INFO] [difc] Calling label_agent: session=***REDACTED***, guard=github, policy={"allow-only":{"repos":"all","min-integrity":"none"}}
+[2026-08-26T09:21:07.911Z] [INFO] [difc] label_agent response: session=***REDACTED***, guard=github, response={"agent":{"secrecy":[],"integrity":["none:all"]},"difc_mode":"filter","normalized_policy":{"min-integrity":"none","scope_kind":"All"}}
+[2026-08-26T09:21:07.911Z] [INFO] [difc] Guard policy initialized: session=***REDACTED***, guard_policy.source=server, difc_mode=filter, guard_policy.normalized=map[min-integrity:none scope_kind:all]
+[2026-08-26T09:21:07.924Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=***REDACTED***
+[2026-08-26T09:21:07.927Z] [INFO] [backend] Launching MCP backend server for session 'LnflDV6Q...': server=github for session 'LnflDV6Q...', command=docker, args=[run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_FEATURES=fiel... -e GITHUB_HOST=http... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=... ghcr.io/github/github-mcp-server:v1.9.0]
+[2026-08-26T09:21:08.096Z] [INFO] [backend] [stderr] time=2026-08-26T09:21:08.095Z level=INFO msg="starting server" version=v1.9.0 host=https://github.com readOnly=true lockdownEnabled=false
+[2026-08-26T09:21:08.105Z] [INFO] [backend] [stderr] GitHub MCP Server running on stdio
+[2026-08-26T09:21:08.106Z] [INFO] [backend] [stderr] time=2026-08-26T09:21:08.104Z level=INFO msg="server run start"
+[2026-08-26T09:21:08.108Z] [INFO] [backend] [stderr] time=2026-08-26T09:21:08.105Z level=INFO msg="server connecting"
+[2026-08-26T09:21:08.108Z] [INFO] [backend] Successfully launched MCP backend server for session 'LnflDV6Q...': server=github for session 'LnflDV6Q...'
+[2026-08-26T09:21:08.109Z] [INFO] [backend] [stderr] time=2026-08-26T09:21:08.105Z level=INFO msg="server session connected" session_id=""
+[2026-08-26T09:21:08.110Z] [INFO] [backend] [stderr] time=2026-08-26T09:21:08.105Z level=INFO msg="client log level set" level=""
+[2026-08-26T09:21:08.116Z] [INFO] [backend] [stderr] time=2026-08-26T09:21:08.116Z level=INFO msg="client log level set" level=""
+[2026-08-26T09:21:08.686Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=***REDACTED***
+[2026-08-26T09:21:08.688Z] [DEBUG] [backend] Reusing session connection: server=github, session=***REDACTED***
+[2026-08-26T09:21:08.693Z] [INFO] [backend] [stderr] time=2026-08-26T09:21:08.693Z level=INFO msg="client log level set" level=""
+[2026-08-26T09:21:09.273Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=***REDACTED***
+[2026-08-26T09:21:09.275Z] [DEBUG] [backend] Reusing session connection: server=github, session=***REDACTED***
+[2026-08-26T09:21:09.281Z] [INFO] [backend] [stderr] time=2026-08-26T09:21:09.280Z level=INFO msg="client log level set" level=""
+[2026-08-26T09:21:58.436Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=***REDACTED***
+[2026-08-26T09:21:58.438Z] [DEBUG] [backend] Reusing session connection: server=github, session=***REDACTED***
+[2026-08-26T09:21:58.443Z] [INFO] [backend] [stderr] time=2026-08-26T09:21:58.443Z level=INFO msg="client log level set" level=""
+[2026-08-26T09:21:59.008Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=***REDACTED***
+[2026-08-26T09:21:59.010Z] [DEBUG] [backend] Reusing session connection: server=github, session=***REDACTED***
+[2026-08-26T09:21:59.017Z] [INFO] [backend] [stderr] time=2026-08-26T09:21:59.017Z level=INFO msg="client log level set" level=""

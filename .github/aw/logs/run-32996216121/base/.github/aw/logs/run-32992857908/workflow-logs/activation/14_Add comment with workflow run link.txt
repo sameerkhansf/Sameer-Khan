@@ -1,0 +1,29 @@
+﻿2026-08-26T17:14:20.1592241Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T17:14:20.1594308Z with:
+2026-08-26T17:14:20.1598978Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/add_workflow_run_comment.cjs');
+await main();
+
+2026-08-26T17:14:20.1636675Z   github-token: ***
+2026-08-26T17:14:20.1637697Z   debug: false
+2026-08-26T17:14:20.1638555Z   user-agent: actions/github-script
+2026-08-26T17:14:20.1639555Z   result-encoding: json
+2026-08-26T17:14:20.1640417Z   retries: 0
+2026-08-26T17:14:20.1641294Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T17:14:20.1642378Z env:
+2026-08-26T17:14:20.1643251Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-08-26T17:14:20.1644239Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:14:20.1645321Z   GITHUB_AW_OTEL_TRACE_ID: 4f2b70eb5c2bda3aaef715147050ff46
+2026-08-26T17:14:20.1646772Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 513d53e148c8f8b1
+2026-08-26T17:14:20.1648008Z   GITHUB_AW_OTEL_JOB_START_MS: 1787764449814
+2026-08-26T17:14:20.1649122Z   GH_AW_WORKFLOW_NAME: TIL Writer
+2026-08-26T17:14:20.1650999Z ##[endgroup]
+2026-08-26T17:14:20.3195057Z Run ID: 32992857908
+2026-08-26T17:14:20.3202469Z Run URL: https://github.com/sameerkhansf/Sameer-Khan/actions/runs/32992857908
+2026-08-26T17:14:20.3207146Z Event source: native
+2026-08-26T17:14:20.3211019Z Creating comment on: POST /repos/{owner}/{repo}/issues/{issue_number}/comments
+2026-08-26T17:14:21.0776059Z Successfully created comment with workflow link
+2026-08-26T17:14:21.0782140Z Comment ID: 5428559155
+2026-08-26T17:14:21.0785751Z Comment URL: https://github.com/sameerkhansf/Sameer-Khan/issues/9#issuecomment-5428559155
+2026-08-26T17:14:21.0790700Z Comment Repo: sameerkhansf/Sameer-Khan

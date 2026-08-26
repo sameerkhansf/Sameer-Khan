@@ -1,0 +1,24 @@
+﻿2026-08-26T18:20:34.4711837Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T18:20:34.4712844Z with:
+2026-08-26T18:20:34.4717465Z   github-token: ***
+2026-08-26T18:20:34.4719934Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/missing_tool.cjs');
+await main();
+
+2026-08-26T18:20:34.4722295Z   debug: false
+2026-08-26T18:20:34.4722829Z   user-agent: actions/github-script
+2026-08-26T18:20:34.4723497Z   result-encoding: json
+2026-08-26T18:20:34.4724042Z   retries: 0
+2026-08-26T18:20:34.4724601Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T18:20:34.4725329Z env:
+2026-08-26T18:20:34.4725809Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T18:20:34.4726518Z   GITHUB_AW_OTEL_TRACE_ID: 4b30332db371f993d125fa437b4eb907
+2026-08-26T18:20:34.4727383Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 2e2fa8c53c7eefc5
+2026-08-26T18:20:34.4728146Z   GITHUB_AW_OTEL_JOB_START_MS: 1787768427940
+2026-08-26T18:20:34.4729164Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-08-26T18:20:34.4729957Z   GH_AW_MISSING_TOOL_CREATE_ISSUE: true
+2026-08-26T18:20:34.4742288Z   GH_AW_WORKFLOW_NAME: TIL Writer
+2026-08-26T18:20:34.4743702Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/sameerkhansf/Sameer-Khan/blob/main/.github/workflows/til-writer.md
+2026-08-26T18:20:34.4756932Z ##[endgroup]
+2026-08-26T18:20:34.5934285Z Max count: unlimited

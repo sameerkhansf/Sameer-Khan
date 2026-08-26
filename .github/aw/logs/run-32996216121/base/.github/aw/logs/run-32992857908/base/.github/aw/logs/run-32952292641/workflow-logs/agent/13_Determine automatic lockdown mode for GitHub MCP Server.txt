@@ -1,0 +1,35 @@
+﻿2026-08-26T09:19:14.3607568Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T09:19:14.3608016Z with:
+2026-08-26T09:19:14.3609096Z   script: const determineAutomaticLockdown = require('/home/runner/work/_temp/gh-aw/actions/determine_automatic_lockdown.cjs');
+await determineAutomaticLockdown(github, context, core);
+
+2026-08-26T09:19:14.3612404Z   github-token: ***
+2026-08-26T09:19:14.3612630Z   debug: false
+2026-08-26T09:19:14.3612848Z   user-agent: actions/github-script
+2026-08-26T09:19:14.3613119Z   result-encoding: json
+2026-08-26T09:19:14.3613344Z   retries: 0
+2026-08-26T09:19:14.3613574Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T09:19:14.3613862Z env:
+2026-08-26T09:19:14.3614053Z   DEFAULT_BRANCH: main
+2026-08-26T09:19:14.3614280Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-08-26T09:19:14.3614518Z   GH_AW_ASSETS_BRANCH: 
+2026-08-26T09:19:14.3614738Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-08-26T09:19:14.3615029Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-08-26T09:19:14.3615380Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T09:19:14.3615632Z   GH_AW_WORKFLOW_ID_SANITIZED: weeklyresearch
+2026-08-26T09:19:14.3615974Z   GITHUB_AW_OTEL_TRACE_ID: b7f2b17ec9fad9fdc5d755c655f9b216
+2026-08-26T09:19:14.3616336Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 0dcc92855ae54ecc
+2026-08-26T09:19:14.3616645Z   GITHUB_AW_OTEL_JOB_START_MS: 1787735933972
+2026-08-26T09:19:14.3616914Z   GH_AW_GITHUB_TOKEN: 
+2026-08-26T09:19:14.3617146Z   GH_AW_GITHUB_MCP_SERVER_TOKEN: 
+2026-08-26T09:19:14.3617409Z   GH_AW_GITHUB_MIN_INTEGRITY: none
+2026-08-26T09:19:14.3617657Z ##[endgroup]
+2026-08-26T09:19:14.4691225Z Determining automatic guard policy for GitHub MCP server
+2026-08-26T09:19:14.4692462Z Checking repository: sameerkhansf/Sameer-Khan
+2026-08-26T09:19:14.8225873Z Repository visibility: private
+2026-08-26T09:19:14.8227565Z Repository is private: true
+2026-08-26T09:19:14.8359180Z Configured min-integrity: none
+2026-08-26T09:19:14.8359894Z Configured repos: (not set)
+2026-08-26T09:19:14.8361120Z min-integrity already configured as 'none' — not overriding
+2026-08-26T09:19:14.8362398Z repos not configured — automatically setting to 'all' for private repository
+2026-08-26T09:19:14.8363374Z Automatic guard policy determination complete for private/internal repository

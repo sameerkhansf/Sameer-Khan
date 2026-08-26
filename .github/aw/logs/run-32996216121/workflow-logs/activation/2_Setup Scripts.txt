@@ -1,0 +1,29 @@
+﻿2026-08-26T17:58:32.1851235Z ##[group]Run github/gh-aw-actions/setup@6aab9e5b5c91c615506061f09bedd81a23babe3c
+2026-08-26T17:58:32.1852407Z with:
+2026-08-26T17:58:32.1852919Z   destination: /home/runner/work/_temp/gh-aw/actions
+2026-08-26T17:58:32.1853909Z   job-name: activation
+2026-08-26T17:58:32.1854405Z   trace-id: 4b30332db371f993d125fa437b4eb907
+2026-08-26T17:58:32.1855009Z   parent-span-id: 35c40b18fbcaab00
+2026-08-26T17:58:32.1855569Z   safe-output-artifact-client: true
+2026-08-26T17:58:32.1856392Z env:
+2026-08-26T17:58:32.1856828Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-08-26T17:58:32.1857365Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:58:32.1857874Z   GH_AW_SETUP_WORKFLOW_NAME: TIL Writer
+2026-08-26T17:58:32.1858822Z   GH_AW_CURRENT_WORKFLOW_REF: sameerkhansf/Sameer-Khan/.github/workflows/til-writer.lock.yml@refs/heads/main
+2026-08-26T17:58:32.1859766Z   GH_AW_INFO_VERSION: 1.0.79
+2026-08-26T17:58:32.1860281Z   GH_AW_INFO_AWF_VERSION: v0.27.44
+2026-08-26T17:58:32.1860810Z   GH_AW_INFO_ENGINE_ID: copilot
+2026-08-26T17:58:32.1861320Z ##[endgroup]
+2026-08-26T17:58:33.6528839Z Successfully copied 462 files to /home/runner/work/_temp/gh-aw/actions
+2026-08-26T17:58:33.8601835Z Successfully copied 26 mcp-scripts files to /home/runner/work/_temp/gh-aw/mcp-scripts
+2026-08-26T17:58:33.9525333Z Successfully copied 85 safe-outputs files to /home/runner/work/_temp/gh-aw/safeoutputs
+2026-08-26T17:58:33.9745641Z [info] [otlp] INPUT_TRACE_ID=4b30332db371f993d125fa437b4eb907 (will reuse activation trace)
+2026-08-26T17:58:33.9749986Z [info] [otlp] INPUT_PARENT_SPAN_ID=35c40b18fbcaab00 (will parent setup span)
+2026-08-26T17:58:33.9752305Z [info] [otlp] GH_AW_OTLP_ENDPOINTS not set, skipping setup span
+2026-08-26T17:58:33.9775971Z [info] [otlp] resolved trace-id=4b30332db371f993d125fa437b4eb907
+2026-08-26T17:58:33.9780175Z [info] [otlp] trace-id=4b30332db371f993d125fa437b4eb907 written to GITHUB_OUTPUT
+2026-08-26T17:58:33.9783113Z [info] [otlp] span-id=f4f51a0acaf88220 written to GITHUB_OUTPUT
+2026-08-26T17:58:33.9785652Z [info] [otlp] parent-span-id=35c40b18fbcaab00 written to GITHUB_OUTPUT
+2026-08-26T17:58:33.9787683Z [info] [otlp] GITHUB_AW_OTEL_TRACE_ID written to GITHUB_ENV
+2026-08-26T17:58:33.9790081Z [info] [otlp] GITHUB_AW_OTEL_PARENT_SPAN_ID written to GITHUB_ENV
+2026-08-26T17:58:33.9794531Z [info] [otlp] GITHUB_AW_OTEL_JOB_START_MS written to GITHUB_ENV
