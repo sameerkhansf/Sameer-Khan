@@ -1,0 +1,26 @@
+﻿2026-08-26T16:57:21.4028638Z ##[group]Run actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+2026-08-26T16:57:21.4030194Z with:
+2026-08-26T16:57:21.4030637Z   name: agent
+2026-08-26T16:57:21.4031364Z   path: /tmp/gh-aw/
+2026-08-26T16:57:21.4031831Z   merge-multiple: false
+2026-08-26T16:57:21.4032336Z   repository: sameerkhansf/Sameer-Khan
+2026-08-26T16:57:21.4032881Z   run-id: 32989175074
+2026-08-26T16:57:21.4033336Z   skip-decompress: false
+2026-08-26T16:57:21.4033802Z   digest-mismatch: error
+2026-08-26T16:57:21.4034281Z env:
+2026-08-26T16:57:21.4035371Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T16:57:21.4036011Z   GITHUB_AW_OTEL_TRACE_ID: 2fd6cdcd7159bf783419589e5eb40dc4
+2026-08-26T16:57:21.4036705Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 61243763b886c5d0
+2026-08-26T16:57:21.4037314Z   GITHUB_AW_OTEL_JOB_START_MS: 1787763441375
+2026-08-26T16:57:21.4037856Z ##[endgroup]
+2026-08-26T16:57:21.6379178Z Downloading single artifact
+2026-08-26T16:57:21.7827591Z Preparing to download the following artifacts:
+2026-08-26T16:57:21.7832324Z - agent (ID: 9614642663, Size: 1375934, Expected Digest: sha256:b885c60c31a557346dcaa02e670cb186300c5886668fb657d64a1d0b3c71d589)
+2026-08-26T16:57:22.0573259Z Redirecting to blob download url: https://productionresultssa11.blob.core.windows.net/actions-results/b91ba3d1-990b-482c-b15f-b958c8ea50f7/workflow-job-run-15d2bf26-7903-560b-8aa0-06b123d3054c/artifacts/d4f0bc5a29de06b510f9aa428f1eedba926012b591fef7a518e776a7c9bd1824.zip
+2026-08-26T16:57:22.0586747Z Starting download of artifact to: /tmp/gh-aw
+2026-08-26T16:57:22.2197227Z (node:1421) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-08-26T16:57:22.2199247Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-08-26T16:57:22.4407511Z SHA256 digest of downloaded artifact is b885c60c31a557346dcaa02e670cb186300c5886668fb657d64a1d0b3c71d589
+2026-08-26T16:57:22.4412366Z Artifact download completed successfully.
+2026-08-26T16:57:22.4415679Z Total of 1 artifact(s) downloaded
+2026-08-26T16:57:22.4425540Z Download artifact has finished successfully

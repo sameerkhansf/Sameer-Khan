@@ -1,0 +1,45 @@
+﻿2026-08-26T16:56:21.1703056Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T16:56:21.1703835Z with:
+2026-08-26T16:56:21.1707553Z   github-token: ***
+2026-08-26T16:56:21.1709551Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/process_safe_outputs.cjs');
+await main();
+
+2026-08-26T16:56:21.1713251Z   debug: false
+2026-08-26T16:56:21.1713725Z   user-agent: actions/github-script
+2026-08-26T16:56:21.1714274Z   result-encoding: json
+2026-08-26T16:56:21.1714761Z   retries: 0
+2026-08-26T16:56:21.1715248Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T16:56:21.1716106Z env:
+2026-08-26T16:56:21.1716538Z   GH_AW_AGENT_AIC: 
+2026-08-26T16:56:21.1716972Z   GH_AW_AIC: 
+2026-08-26T16:56:21.1717399Z   GH_AW_AMBIENT_CONTEXT: 36733
+2026-08-26T16:56:21.1718039Z   GH_AW_CALLER_WORKFLOW_ID: sameerkhansf/Sameer-Khan/weekly-research
+2026-08-26T16:56:21.1719010Z   GH_AW_DETECTION_CONCLUSION: skipped
+2026-08-26T16:56:21.1719616Z   GH_AW_DETECTION_REASON: 
+2026-08-26T16:56:21.1720101Z   GH_AW_EFFECTIVE_TOKENS: 
+2026-08-26T16:56:21.1720580Z   GH_AW_ENGINE_ID: copilot
+2026-08-26T16:56:21.1721055Z   GH_AW_ENGINE_MODEL: auto
+2026-08-26T16:56:21.1721517Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T16:56:21.1721996Z   GH_AW_THREAT_DETECTION_AIC: 
+2026-08-26T16:56:21.1722507Z   GH_AW_WORKFLOW_ID: weekly-research
+2026-08-26T16:56:21.1723047Z   GH_AW_WORKFLOW_NAME: Weekly Research
+2026-08-26T16:56:21.1724286Z   GH_AW_WORKFLOW_SOURCE: githubnext/agentics/workflows/weekly-research.md@ae8d551f07c7ed7619f8c58c7bb4c3ac89395d38
+2026-08-26T16:56:21.1726055Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/githubnext/agentics/blob/ae8d551f07c7ed7619f8c58c7bb4c3ac89395d38/workflows/weekly-research.md
+2026-08-26T16:56:21.1727295Z   GITHUB_AW_OTEL_TRACE_ID: 2fd6cdcd7159bf783419589e5eb40dc4
+2026-08-26T16:56:21.1727984Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 65cbbacfa2006600
+2026-08-26T16:56:21.1728788Z   GITHUB_AW_OTEL_JOB_START_MS: 1787763379913
+2026-08-26T16:56:21.1729350Z   GH_HOST: github.com
+2026-08-26T16:56:21.1729861Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-08-26T16:56:21.1730449Z   GH_AW_COMMENT_ID: 
+2026-08-26T16:56:21.1743384Z   GH_AW_ALLOWED_DOMAINS: api.business.githubcopilot.com,api.enterprise.githubcopilot.com,api.github.com,api.githubcopilot.com,api.individual.githubcopilot.com,api.snapcraft.io,archive.ubuntu.com,azure.archive.ubuntu.com,crl.geotrust.com,crl.globalsign.com,crl.identrust.com,crl.sectigo.com,crl.thawte.com,crl.usertrust.com,crl.verisign.com,crl3.digicert.com,crl4.digicert.com,crls.ssl.com,github.com,host.docker.internal,integrate.api.nvidia.com,json-schema.org,json.schemastore.org,keyserver.ubuntu.com,ocsp.digicert.com,ocsp.geotrust.com,ocsp.globalsign.com,ocsp.identrust.com,ocsp.sectigo.com,ocsp.ssl.com,ocsp.thawte.com,ocsp.usertrust.com,ocsp.verisign.com,packagecloud.io,packages.cloud.google.com,packages.microsoft.com,ppa.launchpad.net,raw.githubusercontent.com,registry.npmjs.org,s.symcb.com,s.symcd.com,security.ubuntu.com,telemetry.enterprise.githubcopilot.com,ts-crl.ws.symantec.com,ts-ocsp.ws.symantec.com,www.googleapis.com
+2026-08-26T16:56:21.1756432Z   GITHUB_SERVER_URL: https://github.com
+2026-08-26T16:56:21.1757035Z   GITHUB_API_URL: https://api.github.com
+2026-08-26T16:56:21.1759032Z   GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG: {"create_discussion":{"category":"ideas","expires":168,"fallback_to_issue":true,"max":1,"title_prefix":"[weekly-research] "},"create_report_incomplete_issue":{},"missing_data":{},"missing_tool":{},"noop":{"max":1,"report-as-issue":"false"},"report_incomplete":{}}
+2026-08-26T16:56:21.1760844Z ##[endgroup]
+2026-08-26T16:56:21.3336613Z Safe Output Handler Manager starting...
+2026-08-26T16:56:21.3339206Z Loaded config from GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG: {"create_discussion":{"category":"ideas","expires":168,"fallback_to_issue":true,"max":1,"title_prefix":"[weekly-research] "},"create_report_incomplete_issue":{},"missing_data":{},"missing_tool":{},"noop":{"max":1,"report-as-issue":"false"},"report_incomplete":{}}
+2026-08-26T16:56:21.3342105Z Agent output content length: 24
+2026-08-26T16:56:21.3342658Z Found 0 message(s) in agent output
+2026-08-26T16:56:21.3343282Z No safe-output messages available - nothing to process

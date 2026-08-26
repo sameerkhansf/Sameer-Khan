@@ -1,0 +1,33 @@
+﻿2026-08-26T16:57:27.3852939Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T16:57:27.3854921Z with:
+2026-08-26T16:57:27.3866390Z   github-token: ***
+2026-08-26T16:57:27.3870671Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/handle_noop_message.cjs');
+await main();
+
+2026-08-26T16:57:27.3875516Z   debug: false
+2026-08-26T16:57:27.3876608Z   user-agent: actions/github-script
+2026-08-26T16:57:27.3877962Z   result-encoding: json
+2026-08-26T16:57:27.3879083Z   retries: 0
+2026-08-26T16:57:27.3880203Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T16:57:27.3881836Z env:
+2026-08-26T16:57:27.3882772Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T16:57:27.3884158Z   GITHUB_AW_OTEL_TRACE_ID: 2fd6cdcd7159bf783419589e5eb40dc4
+2026-08-26T16:57:27.3887281Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 61243763b886c5d0
+2026-08-26T16:57:27.3889779Z   GITHUB_AW_OTEL_JOB_START_MS: 1787763441375
+2026-08-26T16:57:27.3891577Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-08-26T16:57:27.3893504Z   GH_AW_NOOP_MAX: 1
+2026-08-26T16:57:27.3895607Z   GH_AW_WORKFLOW_NAME: Weekly Research
+2026-08-26T16:57:27.3898517Z   GH_AW_WORKFLOW_SOURCE: githubnext/agentics/workflows/weekly-research.md@ae8d551f07c7ed7619f8c58c7bb4c3ac89395d38
+2026-08-26T16:57:27.3905182Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/githubnext/agentics/blob/ae8d551f07c7ed7619f8c58c7bb4c3ac89395d38/workflows/weekly-research.md
+2026-08-26T16:57:27.3909170Z   GH_AW_RUN_URL: https://github.com/sameerkhansf/Sameer-Khan/actions/runs/32989175074
+2026-08-26T16:57:27.3912422Z   GH_AW_AGENT_CONCLUSION: success
+2026-08-26T16:57:27.3914955Z   GH_AW_NOOP_REPORT_AS_ISSUE: false
+2026-08-26T16:57:27.3916214Z   GH_AW_AIC: 
+2026-08-26T16:57:27.3917203Z   GH_AW_THREAT_DETECTION_AIC: 
+2026-08-26T16:57:27.3918511Z   GH_AW_AMBIENT_CONTEXT: 36733
+2026-08-26T16:57:27.3919734Z   GH_AW_WORKFLOW_ID: weekly-research
+2026-08-26T16:57:27.3921249Z ##[endgroup]
+2026-08-26T16:57:27.6336237Z Agent output content length: 24
+2026-08-26T16:57:27.6344638Z No noop items found in agent output

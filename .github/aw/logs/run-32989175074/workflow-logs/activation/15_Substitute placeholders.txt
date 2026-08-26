@@ -1,0 +1,48 @@
+﻿2026-08-26T16:35:00.5915038Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T16:35:00.5916193Z with:
+2026-08-26T16:35:00.5922575Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+
+const substitutePlaceholders = require('/home/runner/work/_temp/gh-aw/actions/substitute_placeholders.cjs');
+
+// Call the substitution function
+return await substitutePlaceholders({
+  file: process.env.GH_AW_PROMPT,
+  substitutions: {
+    GH_AW_EXPR_1A3A194A: process.env.GH_AW_EXPR_1A3A194A,
+    GH_AW_EXPR_463A214A: process.env.GH_AW_EXPR_463A214A,
+    GH_AW_EXPR_802A9F6A: process.env.GH_AW_EXPR_802A9F6A,
+    GH_AW_EXPR_FF1D34CE: process.env.GH_AW_EXPR_FF1D34CE,
+    GH_AW_GITHUB_ACTOR: process.env.GH_AW_GITHUB_ACTOR,
+    GH_AW_GITHUB_REPOSITORY: process.env.GH_AW_GITHUB_REPOSITORY,
+    GH_AW_GITHUB_RUN_ID: process.env.GH_AW_GITHUB_RUN_ID,
+    GH_AW_GITHUB_WORKSPACE: process.env.GH_AW_GITHUB_WORKSPACE,
+    GH_AW_MCP_CLI_SERVERS_LIST: process.env.GH_AW_MCP_CLI_SERVERS_LIST
+  }
+});
+
+2026-08-26T16:35:00.5933166Z   github-token: ***
+2026-08-26T16:35:00.5933631Z   debug: false
+2026-08-26T16:35:00.5934083Z   user-agent: actions/github-script
+2026-08-26T16:35:00.5934649Z   result-encoding: json
+2026-08-26T16:35:00.5935115Z   retries: 0
+2026-08-26T16:35:00.5935596Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T16:35:00.5936196Z env:
+2026-08-26T16:35:00.5936615Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-08-26T16:35:00.5937172Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T16:35:00.5937774Z   GITHUB_AW_OTEL_TRACE_ID: 2fd6cdcd7159bf783419589e5eb40dc4
+2026-08-26T16:35:00.5938701Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: f58f19ac054c256f
+2026-08-26T16:35:00.5939369Z   GITHUB_AW_OTEL_JOB_START_MS: 1787762095888
+2026-08-26T16:35:00.5940142Z   GH_AW_PROMPT: /home/runner/work/_temp/gh-aw/aw-prompts/prompt.txt
+2026-08-26T16:35:00.5940897Z   GH_AW_EXPR_1A3A194A: false
+2026-08-26T16:35:00.5941403Z   GH_AW_EXPR_463A214A: false
+2026-08-26T16:35:00.5941914Z   GH_AW_EXPR_802A9F6A: false
+2026-08-26T16:35:00.5942418Z   GH_AW_EXPR_FF1D34CE: 
+2026-08-26T16:35:00.5942898Z   GH_AW_GITHUB_ACTOR: sameerkhansf
+2026-08-26T16:35:00.5943526Z   GH_AW_GITHUB_REPOSITORY: sameerkhansf/Sameer-Khan
+2026-08-26T16:35:00.5944170Z   GH_AW_GITHUB_RUN_ID: 32989175074
+2026-08-26T16:35:00.5944953Z   GH_AW_GITHUB_WORKSPACE: /home/runner/work/Sameer-Khan/Sameer-Khan
+2026-08-26T16:35:00.5946393Z   GH_AW_MCP_CLI_SERVERS_LIST: - `github` — run `github --help` to see available tools
+- `safeoutputs` — run `safeoutputs --help` to see available tools
+2026-08-26T16:35:00.5947693Z ##[endgroup]
+2026-08-26T16:35:00.7213415Z [substitutePlaceholders] /home/runner/work/_temp/gh-aw/aw-prompts/prompt.txt (9 substitution(s))

@@ -1,0 +1,14 @@
+﻿2026-08-26T16:57:25.4530779Z ##[group]Run actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+2026-08-26T16:57:25.4531965Z with:
+2026-08-26T16:57:25.4532553Z   key: agentic-workflow-usage-weeklyresearch-32989175074
+2026-08-26T16:57:25.4533340Z   path: /tmp/gh-aw/agentic-workflow-usage-cache.jsonl
+2026-08-26T16:57:25.4534222Z   enableCrossOsArchive: false
+2026-08-26T16:57:25.4534877Z env:
+2026-08-26T16:57:25.4535343Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T16:57:25.4535996Z   GITHUB_AW_OTEL_TRACE_ID: 2fd6cdcd7159bf783419589e5eb40dc4
+2026-08-26T16:57:25.4536742Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 61243763b886c5d0
+2026-08-26T16:57:25.4537415Z   GITHUB_AW_OTEL_JOB_START_MS: 1787763441375
+2026-08-26T16:57:25.4538028Z ##[endgroup]
+2026-08-26T16:57:25.7142106Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/Sameer-Khan/Sameer-Khan --files-from manifest.txt --use-compress-program zstdmt
+2026-08-26T16:57:26.0752411Z Sent 340 of 340 (100.0%), 0.0 MBs/sec
+2026-08-26T16:57:26.2300266Z Cache saved with key: agentic-workflow-usage-weeklyresearch-32989175074

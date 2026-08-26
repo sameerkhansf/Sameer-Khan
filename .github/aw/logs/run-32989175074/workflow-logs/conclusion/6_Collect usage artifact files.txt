@@ -1,0 +1,31 @@
+﻿2026-08-26T16:57:23.2048191Z ##[group]Run bash "${RUNNER_TEMP}/gh-aw/actions/collect_usage_artifact_files.sh"
+2026-08-26T16:57:23.2049298Z [36;1mbash "${RUNNER_TEMP}/gh-aw/actions/collect_usage_artifact_files.sh"[0m
+2026-08-26T16:57:23.2055570Z shell: /usr/bin/bash -e {0}
+2026-08-26T16:57:23.2056138Z env:
+2026-08-26T16:57:23.2056590Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T16:57:23.2058121Z   GITHUB_AW_OTEL_TRACE_ID: 2fd6cdcd7159bf783419589e5eb40dc4
+2026-08-26T16:57:23.2058931Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 61243763b886c5d0
+2026-08-26T16:57:23.2059597Z   GITHUB_AW_OTEL_JOB_START_MS: 1787763441375
+2026-08-26T16:57:23.2060679Z ##[endgroup]
+2026-08-26T16:57:23.2128746Z Usage artifact source file status:
+2026-08-26T16:57:23.2129699Z MISSING: /tmp/gh-aw/aw_info.json
+2026-08-26T16:57:23.2130495Z MISSING: /tmp/gh-aw/aw-info.jsonl
+2026-08-26T16:57:23.2158624Z FOUND: /tmp/gh-aw/agent_usage.json
+2026-08-26T16:57:23.2159308Z MISSING: /tmp/gh-aw/agent_usage.jsonl
+2026-08-26T16:57:23.2159936Z MISSING: /tmp/gh-aw/detection_usage.jsonl
+2026-08-26T16:57:23.2160625Z MISSING: /tmp/gh-aw/evals/evals.jsonl
+2026-08-26T16:57:23.2161619Z FOUND: /tmp/gh-aw/github_rate_limits.jsonl
+2026-08-26T16:57:23.2162274Z FOUND: /tmp/gh-aw/safe-output-items.jsonl
+2026-08-26T16:57:23.2163102Z MISSING: /tmp/gh-aw/sandbox/firewall-audit-logs/api-proxy-logs/token-usage.jsonl
+2026-08-26T16:57:23.2164085Z FOUND: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-08-26T16:57:23.2165033Z MISSING: /tmp/gh-aw/sandbox/firewall/audit/api-proxy-logs/token-usage.jsonl
+2026-08-26T16:57:23.2166129Z MISSING: /tmp/gh-aw/threat-detection/sandbox/firewall-audit-logs/api-proxy-logs/token-usage.jsonl
+2026-08-26T16:57:23.2167348Z MISSING: /tmp/gh-aw/threat-detection/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-08-26T16:57:23.2168521Z MISSING: /tmp/gh-aw/threat-detection/sandbox/firewall/audit/api-proxy-logs/token-usage.jsonl
+2026-08-26T16:57:23.2832660Z [info] safe-output-items manifest: 0 item(s) logged (file present but contained no loggable items)
+2026-08-26T16:57:23.2842529Z [info] /tmp/gh-aw/usage/activity/summary.json
+2026-08-26T16:57:23.2933104Z /tmp/gh-aw/usage/activity/summary.json
+2026-08-26T16:57:23.2934235Z /tmp/gh-aw/usage/agent/token_usage.jsonl
+2026-08-26T16:57:23.2935054Z /tmp/gh-aw/usage/agent_usage.json
+2026-08-26T16:57:23.2935849Z /tmp/gh-aw/usage/detection/token_usage.jsonl
+2026-08-26T16:57:23.2982504Z /tmp/gh-aw/usage/github_rate_limits.jsonl

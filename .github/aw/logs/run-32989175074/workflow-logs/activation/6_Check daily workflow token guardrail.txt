@@ -1,0 +1,28 @@
+﻿2026-08-26T16:34:57.1116857Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T16:34:57.1117642Z with:
+2026-08-26T16:34:57.1121932Z   github-token: ***
+2026-08-26T16:34:57.1123678Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/check_daily_aic_workflow_guardrail.cjs');
+await main();
+
+2026-08-26T16:34:57.1127205Z   debug: false
+2026-08-26T16:34:57.1127705Z   user-agent: actions/github-script
+2026-08-26T16:34:57.1128462Z   result-encoding: json
+2026-08-26T16:34:57.1128913Z   retries: 0
+2026-08-26T16:34:57.1129378Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T16:34:57.1129951Z env:
+2026-08-26T16:34:57.1130366Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-08-26T16:34:57.1130889Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T16:34:57.1131461Z   GITHUB_AW_OTEL_TRACE_ID: 2fd6cdcd7159bf783419589e5eb40dc4
+2026-08-26T16:34:57.1132191Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: f58f19ac054c256f
+2026-08-26T16:34:57.1132812Z   GITHUB_AW_OTEL_JOB_START_MS: 1787762095888
+2026-08-26T16:34:57.1133396Z   GH_AW_WORKFLOW_NAME: Weekly Research
+2026-08-26T16:34:57.1133955Z   GH_AW_WORKFLOW_ID: weekly-research
+2026-08-26T16:34:57.1134702Z   GH_AW_RUN_URL: https://github.com/sameerkhansf/Sameer-Khan/actions/runs/32989175074
+2026-08-26T16:34:57.1135485Z   GH_AW_WORKFLOW_DISPATCH_AW_CONTEXT: 
+2026-08-26T16:34:57.1136034Z   GH_AW_HAS_SLASH_COMMAND: false
+2026-08-26T16:34:57.1136556Z   GH_AW_HAS_LABEL_COMMAND: false
+2026-08-26T16:34:57.1140650Z   GH_AW_GITHUB_TOKEN: ***
+2026-08-26T16:34:57.1141132Z ##[endgroup]
+2026-08-26T16:34:57.2637654Z Skipping daily workflow AI Credits guardrail for manual or command-driven runs.

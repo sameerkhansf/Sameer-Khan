@@ -1,0 +1,21 @@
+﻿2026-08-26T16:34:56.0914110Z ##[group]Run actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
+2026-08-26T16:34:56.0914870Z with:
+2026-08-26T16:34:56.0916318Z   key: agentic-workflow-usage-weeklyresearch-32989175074
+2026-08-26T16:34:56.0917082Z   restore-keys: agentic-workflow-usage-weeklyresearch-
+2026-08-26T16:34:56.0917765Z   path: /tmp/gh-aw/agentic-workflow-usage-cache.jsonl
+2026-08-26T16:34:56.0919053Z   enableCrossOsArchive: false
+2026-08-26T16:34:56.0919631Z   fail-on-cache-miss: false
+2026-08-26T16:34:56.0920107Z   lookup-only: false
+2026-08-26T16:34:56.0920547Z env:
+2026-08-26T16:34:56.0920948Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-08-26T16:34:56.0921487Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T16:34:56.0922031Z   GITHUB_AW_OTEL_TRACE_ID: 2fd6cdcd7159bf783419589e5eb40dc4
+2026-08-26T16:34:56.0922694Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: f58f19ac054c256f
+2026-08-26T16:34:56.0923287Z   GITHUB_AW_OTEL_JOB_START_MS: 1787762095888
+2026-08-26T16:34:56.0923808Z ##[endgroup]
+2026-08-26T16:34:56.9691627Z Cache hit for restore-key: agentic-workflow-usage-weeklyresearch-32952292641
+2026-08-26T16:34:56.9694904Z Received 322 of 322 (100.0%), 0.0 MBs/sec
+2026-08-26T16:34:56.9695466Z Cache Size: ~0 MB (322 B)
+2026-08-26T16:34:56.9696751Z [command]/usr/bin/tar -xf /home/runner/work/_temp/60aeb008-532a-4fb4-9ef5-198da0087cd5/cache.tzst -P -C /home/runner/work/Sameer-Khan/Sameer-Khan --use-compress-program unzstd
+2026-08-26T16:34:56.9700140Z Cache restored successfully
+2026-08-26T16:34:56.9700901Z Cache restored from key: agentic-workflow-usage-weeklyresearch-32952292641

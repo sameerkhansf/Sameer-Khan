@@ -1,0 +1,206 @@
+﻿2026-08-26T09:36:49.9155185Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T09:36:49.9155632Z with:
+2026-08-26T09:36:49.9156569Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/render_detection_log.cjs');
+await main();
+
+2026-08-26T09:36:49.9159752Z   github-token: ***
+2026-08-26T09:36:49.9160023Z   debug: false
+2026-08-26T09:36:49.9160260Z   user-agent: actions/github-script
+2026-08-26T09:36:49.9160551Z   result-encoding: json
+2026-08-26T09:36:49.9160785Z   retries: 0
+2026-08-26T09:36:49.9161064Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T09:36:49.9161369Z env:
+2026-08-26T09:36:49.9161584Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T09:36:49.9161907Z   GITHUB_AW_OTEL_TRACE_ID: b7f2b17ec9fad9fdc5d755c655f9b216
+2026-08-26T09:36:49.9162289Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: f403f005ae8543e5
+2026-08-26T09:36:49.9162656Z   GITHUB_AW_OTEL_JOB_START_MS: 1787736917592
+2026-08-26T09:36:49.9162993Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-08-26T09:36:49.9163306Z ##[endgroup]
+2026-08-26T09:36:50.0268906Z ##[group]Detection Log
+2026-08-26T09:36:50.0276355Z ::stop-commands::***
+2026-08-26T09:36:50.0277648Z [INFO] Auto-detected DNS servers from /run/systemd/resolve/resolv.conf: 168.63.129.16
+2026-08-26T09:36:50.0279490Z [WARN] ⚠️  Using --env-all: All host environment variables will be passed to container
+2026-08-26T09:36:50.0280920Z [WARN]    This may expose sensitive credentials if logs or configs are shared
+2026-08-26T09:36:50.0282272Z [INFO] API proxy enabled: OpenAI=false, Anthropic=false, Copilot=true (byok-direct), Gemini=false, Vertex=false
+2026-08-26T09:36:50.0285854Z [INFO] Allowed domains: api.business.githubcopilot.com, api.enterprise.githubcopilot.com, api.github.com, api.githubcopilot.com, api.individual.githubcopilot.com, github.com, host.docker.internal, integrate.api.nvidia.com, registry.npmjs.org, telemetry.enterprise.githubcopilot.com, https://integrate.api.nvidia.com
+2026-08-26T09:36:50.0288665Z [INFO] Network-isolation mode: enforcing egress via Docker network topology (no host iptables, no sudo).
+2026-08-26T09:36:50.0289767Z [INFO] Generating configuration files...
+2026-08-26T09:36:50.0291598Z [WARN] Network-isolation: removing 1 non-portable DNS server(s) that may become unreachable from Docker bridge containers when host routing is modified by tools like Tailscale: 168.63.129.16
+2026-08-26T09:36:50.0294266Z [WARN] Network-isolation: no portable DNS servers remain after filtering; falling back to 8.8.8.8, 8.8.4.4. If your environment requires specific DNS, use --dns-servers to override.
+2026-08-26T09:36:50.0296676Z [INFO] API proxy sidecar enabled - API keys will be held securely in sidecar container
+2026-08-26T09:36:50.0297901Z [INFO] API proxy will route through Squid to respect domain whitelisting
+2026-08-26T09:36:50.0298836Z [INFO] Starting containers...
+2026-08-26T09:36:50.0299448Z  Network awf-net  Creating
+2026-08-26T09:36:50.0300089Z  Network awf-net  Created
+2026-08-26T09:36:50.0300768Z  Network awf-1787736953696_awf-ext  Creating
+2026-08-26T09:36:50.0301509Z  Network awf-1787736953696_awf-ext  Created
+2026-08-26T09:36:50.0302216Z  Container awf-api-proxy  Creating
+2026-08-26T09:36:50.0302954Z  Container awf-squid  Creating
+2026-08-26T09:36:50.0303628Z  Container awf-api-proxy  Created
+2026-08-26T09:36:50.0304247Z  Container awf-squid  Created
+2026-08-26T09:36:50.0306054Z  Container awf-agent  Creating
+2026-08-26T09:36:50.0306727Z  Container awf-agent  Created
+2026-08-26T09:36:50.0307396Z  Container awf-api-proxy  Starting
+2026-08-26T09:36:50.0308053Z  Container awf-squid  Starting
+2026-08-26T09:36:50.0308690Z  Container awf-api-proxy  Started
+2026-08-26T09:36:50.0309299Z  Container awf-squid  Started
+2026-08-26T09:36:50.0309879Z  Container awf-squid  Waiting
+2026-08-26T09:36:50.0310489Z  Container awf-api-proxy  Waiting
+2026-08-26T09:36:50.0311123Z  Container awf-api-proxy  Healthy
+2026-08-26T09:36:50.0312047Z  Container awf-squid  Healthy
+2026-08-26T09:36:50.0312660Z  Container awf-agent  Starting
+2026-08-26T09:36:50.0313237Z  Container awf-agent  Started
+2026-08-26T09:36:50.0313923Z [SUCCESS] Containers started successfully
+2026-08-26T09:36:50.0314794Z [INFO] Executing agent command...
+2026-08-26T09:36:50.0315688Z [entrypoint] Agentic Workflow Firewall - Agent Container
+2026-08-26T09:36:50.0316683Z [entrypoint] ==================================
+2026-08-26T09:36:50.0317747Z [entrypoint] Adjusting awfuser UID:GID from 1000:1000 to 1001:1001
+2026-08-26T09:36:50.0318641Z [entrypoint] UID/GID adjustment complete
+2026-08-26T09:36:50.0319366Z [entrypoint] Configuring DNS...
+2026-08-26T09:36:50.0320231Z [entrypoint] DNS configured with Docker embedded DNS (127.0.0.11) only
+2026-08-26T09:36:50.0321404Z [entrypoint] iptables-init skipped (proxy-based egress): skipping init container wait
+2026-08-26T09:36:50.0322385Z [health-check] API Proxy Pre-flight Check
+2026-08-26T09:36:50.0323192Z [health-check] ==========================================
+2026-08-26T09:36:50.0324142Z [health-check] Checking GitHub Copilot API proxy configuration...
+2026-08-26T09:36:50.0325282Z [health-check] COPILOT_API_URL=http://172.30.0.30:10002
+2026-08-26T09:36:50.0326408Z [health-check] ✓ COPILOT_TOKEN is placeholder value (correct)
+2026-08-26T09:36:50.0327520Z [health-check] ✓ COPILOT_PROVIDER_API_KEY is placeholder value (correct)
+2026-08-26T09:36:50.0328749Z [health-check] COPILOT_PROVIDER_BASE_URL=http://172.30.0.30:10002 (offline+BYOK mode)
+2026-08-26T09:36:50.0329993Z [health-check] ✓ COPILOT_PROVIDER_BASE_URL matches COPILOT_API_URL
+2026-08-26T09:36:50.0331077Z [health-check] ✓ Copilot CLI offline+BYOK mode configured
+2026-08-26T09:36:50.0332333Z [health-check] Testing connectivity to GitHub Copilot API proxy at http://172.30.0.30:10002...
+2026-08-26T09:36:50.0333837Z [health-check] ✓ GitHub Copilot API proxy is reachable at http://172.30.0.30:10002
+2026-08-26T09:36:50.0335248Z [health-check] ==========================================
+2026-08-26T09:36:50.0336352Z [health-check] ✓ All API proxy health checks passed
+2026-08-26T09:36:50.0337288Z [health-check] ✓ Credential isolation verified
+2026-08-26T09:36:50.0338189Z [health-check] ✓ Connectivity established
+2026-08-26T09:36:50.0339043Z [health-check] ==========================================
+2026-08-26T09:36:50.0340176Z [entrypoint] Pre-seeding JVM build tool proxy configuration (squid-proxy:3128)...
+2026-08-26T09:36:50.0341699Z [entrypoint] ✓ Created Maven proxy config (/host/home/runner/.m2/settings.xml)
+2026-08-26T09:36:50.0343121Z [entrypoint] ✓ Created Gradle proxy config (/host/home/runner/.gradle/gradle.properties)
+2026-08-26T09:36:50.0345184Z [entrypoint] ✓ Set JAVA_TOOL_OPTIONS with proxy and nonProxyHosts flags
+2026-08-26T09:36:50.0346167Z [entrypoint] Proxy configuration:
+2026-08-26T09:36:50.0346989Z [entrypoint]   HTTP_PROXY=http://172.30.0.10:3128
+2026-08-26T09:36:50.0347912Z [entrypoint]   HTTPS_PROXY=http://172.30.0.10:3128
+2026-08-26T09:36:50.0348706Z [entrypoint] Network information:
+2026-08-26T09:36:50.0349588Z [entrypoint]   IP address: 172.30.0.20 
+2026-08-26T09:36:50.0350572Z [entrypoint]   Hostname: c558d92f8e3a
+2026-08-26T09:36:50.0351479Z [entrypoint] ==================================
+2026-08-26T09:36:50.0352594Z [entrypoint] Chroot mode enabled - dropping CAP_SYS_CHROOT and CAP_SYS_ADMIN
+2026-08-26T09:36:50.0353755Z [entrypoint] Switching to awfuser (UID: 1001, GID: 1001)
+2026-08-26T09:36:50.0364131Z [entrypoint] Executing command: /bin/bash -c /bin/bash -c 'set +o histexpand; : "${RUNNER_TOOL_CACHE:?RUNNER_TOOL_CACHE must be set}"; GH_AW_TOOL_CACHE="$RUNNER_TOOL_CACHE"; export PATH="$(find "$GH_AW_TOOL_CACHE" -maxdepth 5 -type d -name bin 2>/dev/null | tr '\''\n'\'' '\'':'\'')$PATH"; [ -n "$GOROOT" ] && export PATH="$GOROOT/bin:$PATH" || true; [ -n "$ERLANG_HOME" ] && export PATH="$ERLANG_HOME/bin:$PATH" || true && GH_AW_NODE_EXEC="${GH_AW_NODE_BIN:-}"; if [ -z "$GH_AW_NODE_EXEC" ] || [ ! -x "$GH_AW_NODE_EXEC" ]; then GH_AW_NODE_EXEC="$(command -v node 2>/dev/null || true)"; fi; if [ -z "$GH_AW_NODE_EXEC" ]; then echo "node runtime missing on this runner — check runtimes.node in workflow YAML" >&2; exit 127; fi; GH_AW_NPM_GLOBAL_ROOT="$(npm root -g 2>/dev/null || true)"; if [ -n "$GH_AW_NPM_GLOBAL_ROOT" ]; then export NODE_PATH="${GH_AW_NPM_GLOBAL_ROOT}${NODE_PATH:+:${NODE_PATH}}"; fi; "$GH_AW_NODE_EXEC" "${RUNNER_TEMP}/gh-aw/actions/copilot_harness.cjs" "${RUNNER_TEMP}/gh-aw/bin/copilot" --add-dir /tmp/gh-aw/ --log-level all --log-dir /tmp/gh-aw/sandbox/agent/logs/ --disable-builtin-mcps --no-ask-user --allow-all-tools --add-dir "${GITHUB_WORKSPACE}" --prompt-file /tmp/gh-aw/aw-prompts/prompt.txt'
+2026-08-26T09:36:50.0374593Z 
+2026-08-26T09:36:50.0375293Z [entrypoint] Chroot mode: running command inside host filesystem (/host)
+2026-08-26T09:36:50.0376419Z [entrypoint] Mounted procfs at /host/proc (nosuid,nodev,noexec,hidepid=2)
+2026-08-26T09:36:50.0377584Z [entrypoint] One-shot token library copied to chroot at /tmp/awf-lib/one-shot-token.so
+2026-08-26T09:36:50.0379381Z [entrypoint] System CA bundle found at /etc/ssl/certs/ca-certificates.crt (already accessible in chroot)
+2026-08-26T09:36:50.0381080Z [entrypoint] DNS configuration created in chroot (/host/etc/resolv.conf)
+2026-08-26T09:36:50.0382513Z [entrypoint] Running as host user: runner (UID: 1001)
+2026-08-26T09:36:50.0384746Z [entrypoint] Chroot working directory: /home/runner/work/Sameer-Khan/Sameer-Khan
+2026-08-26T09:36:50.0385766Z [entrypoint] Using host PATH for chroot
+2026-08-26T09:36:50.0386790Z [entrypoint] Adding JAVA_HOME/bin to PATH: /usr/lib/jvm/temurin-17-jdk-amd64/bin
+2026-08-26T09:36:50.0387890Z [entrypoint] DNS configuration will be removed on exit
+2026-08-26T09:36:50.0389005Z [entrypoint] Transferred /host/tmp/gh-aw ownership to chroot user (1001:1001)
+2026-08-26T09:36:50.0390453Z [entrypoint] Node.js available via GH_AW_NODE_BIN: /opt/hostedtoolcache/node/24.19.0/x64/bin/node
+2026-08-26T09:36:50.0392733Z [copilot-harness] starting: command=/home/runner/work/_temp/gh-aw/bin/copilot maxRetries=3 initialDelayMs=5000 backoffMultiplier=2 maxDelayMs=60000 nodeVersion=v24.19.0 platform=linux
+2026-08-26T09:36:50.0395169Z [copilot-harness] pre-flight: command is accessible and executable: /home/runner/work/_temp/gh-aw/bin/copilot
+2026-08-26T09:36:50.0396724Z [copilot-harness] resolved --prompt-file: path=/tmp/gh-aw/aw-prompts/prompt.txt size=6641B
+2026-08-26T09:36:50.0398163Z [copilot-harness] awf-reflect: fetching http://api-proxy:10000/reflect (timeout=60000ms)
+2026-08-26T09:36:50.0400860Z [copilot-harness] awf-reflect: saved 20078B to /tmp/gh-aw/sandbox/firewall/awf-reflect.json
+2026-08-26T09:36:50.0403747Z [copilot-harness] attempt 1: spawning: /home/runner/work/_temp/gh-aw/bin/copilot --add-dir /tmp/gh-aw/ --log-level all --log-dir /tmp/gh-aw/sandbox/agent/logs/ --disable-builtin-mcps --no-ask-user --allow-all-tools --add-dir /home/runner/work/Sameer-Khan/Sameer-Khan -p <redacted>
+2026-08-26T09:36:50.0407110Z [copilot-harness] attempt 1: process started (pid=111)
+2026-08-26T09:36:50.0408107Z [entrypoint] Unsetting sensitive tokens from parent shell environment...
+2026-08-26T09:36:50.0409123Z [entrypoint] Unset COPILOT_PROVIDER_API_KEY from /proc/1/environ
+2026-08-26T09:36:50.0409727Z 
+2026-08-26T09:36:50.0411709Z 400 400 400 Model "nvidia/nemotron-3.5-lightning-30b-a3b" has no AI credits pricing and no default pricing is configured. Set apiProxy.defaultAiCreditsPricing in the AWF config (e.g. {"input": 3.0, "output": 15.0}) to provide a fallback rate, or add the model to the pricing table.
+2026-08-26T09:36:50.0413932Z 
+2026-08-26T09:36:50.0414116Z 
+2026-08-26T09:36:50.0414744Z Changes    +0 -0
+2026-08-26T09:36:50.0415349Z Duration   0s
+2026-08-26T09:36:50.0416201Z Resume     copilot --resume=6d252a60-bee1-42f0-8b29-7e37a2ce1ef8
+2026-08-26T09:36:50.0417383Z [copilot-harness] attempt 1: process exit event exitCode=1
+2026-08-26T09:36:50.0418803Z [copilot-harness] attempt 1: process closed exitCode=1 duration=1s stdout=0B stderr=381B hasOutput=true
+2026-08-26T09:36:50.0423668Z [copilot-harness] attempt 1 failed: exitCode=1 failureClass=partial_execution isCAPIError400=false isCAPIQuotaExceededError=false isInvocationCapExceeded=false isMCPPolicyError=false isModelNotSupportedError=false isHTTP400ResponseError=false isNullTypeToolCallError=false isSDKSessionIdleTimeoutError=false isMCPGatewayShutdownError=false isAuthError=false isAuthenticationFailedError=false permissionDeniedCount=0 hasNumerousPermissionDenied=false hasOutput=true tokenCount=0 attemptDurationMs=1451 retriesRemaining=3
+2026-08-26T09:36:50.0431517Z [copilot-harness] attempt 1: outputTail="400 400 400 Model \"nvidia/nemotron-3.5-lightning-30b-a3b\" has no AI credits pricing and no default pricing is configured. Set apiProxy.defaultAiCreditsPricing in the AWF config (e.g. {\"input\": 3.0, \"output\": 15.0}) to provide a fallback rate, or add the model to the pricing table.\nChanges    +0 -0\nDuration   0s\nResume     copilot --resume=6d252a60-bee1-42f0-8b29-7e37a2ce1ef8"
+2026-08-26T09:36:50.0435899Z [copilot-harness] attempt 1: partial execution — will retry with --continue (attempt 2/4)
+2026-08-26T09:36:50.0437461Z [copilot-harness] retry 1/3: sleeping 5000ms before next attempt (--continue)
+2026-08-26T09:36:50.0438963Z [copilot-harness] retry 1/3: woke up, next delay cap will be 20000ms
+2026-08-26T09:36:50.0442048Z [copilot-harness] attempt 2: spawning: /home/runner/work/_temp/gh-aw/bin/copilot --add-dir /tmp/gh-aw/ --log-level all --log-dir /tmp/gh-aw/sandbox/agent/logs/ --disable-builtin-mcps --no-ask-user --allow-all-tools --add-dir /home/runner/work/Sameer-Khan/Sameer-Khan -p <redacted> 
+2026-08-26T09:36:50.0444797Z [copilot-harness] attempt 2: process started (pid=184)
+2026-08-26T09:36:50.0445638Z 
+2026-08-26T09:36:50.0447948Z 400 400 400 Model "nvidia/nemotron-3.5-lightning-30b-a3b" has no AI credits pricing and no default pricing is configured. Set apiProxy.defaultAiCreditsPricing in the AWF config (e.g. {"input": 3.0, "output": 15.0}) to provide a fallback rate, or add the model to the pricing table.
+2026-08-26T09:36:50.0449931Z 
+2026-08-26T09:36:50.0450152Z 
+2026-08-26T09:36:50.0450596Z Changes    +0 -0
+2026-08-26T09:36:50.0451414Z Duration   6s
+2026-08-26T09:36:50.0474657Z Resume     copilot --resume=6d252a60-bee1-42f0-8b29-7e37a2ce1ef8
+2026-08-26T09:36:50.0476105Z [copilot-harness] attempt 2: process exit event exitCode=1
+2026-08-26T09:36:50.0477511Z [copilot-harness] attempt 2: process closed exitCode=1 duration=1s stdout=0B stderr=381B hasOutput=true
+2026-08-26T09:36:50.0482436Z [copilot-harness] attempt 2 failed: exitCode=1 failureClass=partial_execution isCAPIError400=false isCAPIQuotaExceededError=false isInvocationCapExceeded=false isMCPPolicyError=false isModelNotSupportedError=false isHTTP400ResponseError=false isNullTypeToolCallError=false isSDKSessionIdleTimeoutError=false isMCPGatewayShutdownError=false isAuthError=false isAuthenticationFailedError=false permissionDeniedCount=0 hasNumerousPermissionDenied=false hasOutput=true tokenCount=0 attemptDurationMs=1435 retriesRemaining=2
+2026-08-26T09:36:50.0489361Z [copilot-harness] attempt 2: outputTail="400 400 400 Model \"nvidia/nemotron-3.5-lightning-30b-a3b\" has no AI credits pricing and no default pricing is configured. Set apiProxy.defaultAiCreditsPricing in the AWF config (e.g. {\"input\": 3.0, \"output\": 15.0}) to provide a fallback rate, or add the model to the pricing table.\nChanges    +0 -0\nDuration   6s\nResume     copilot --resume=6d252a60-bee1-42f0-8b29-7e37a2ce1ef8"
+2026-08-26T09:36:50.0493030Z [copilot-harness] attempt 2: partial execution — will retry with --continue (attempt 3/4)
+2026-08-26T09:36:50.0494194Z [copilot-harness] retry 2/3: sleeping 10000ms before next attempt (--continue)
+2026-08-26T09:36:50.0495682Z [copilot-harness] retry 2/3: woke up, next delay cap will be 40000ms
+2026-08-26T09:36:50.0498348Z [copilot-harness] attempt 3: spawning: /home/runner/work/_temp/gh-aw/bin/copilot --add-dir /tmp/gh-aw/ --log-level all --log-dir /tmp/gh-aw/sandbox/agent/logs/ --disable-builtin-mcps --no-ask-user --allow-all-tools --add-dir /home/runner/work/Sameer-Khan/Sameer-Khan -p <redacted> 
+2026-08-26T09:36:50.0500805Z [copilot-harness] attempt 3: process started (pid=299)
+2026-08-26T09:36:50.0501403Z 
+2026-08-26T09:36:50.0503637Z 400 400 400 Model "nvidia/nemotron-3.5-lightning-30b-a3b" has no AI credits pricing and no default pricing is configured. Set apiProxy.defaultAiCreditsPricing in the AWF config (e.g. {"input": 3.0, "output": 15.0}) to provide a fallback rate, or add the model to the pricing table.
+2026-08-26T09:36:50.0505708Z 
+2026-08-26T09:36:50.0505893Z 
+2026-08-26T09:36:50.0506239Z Changes    +0 -0
+2026-08-26T09:36:50.0506788Z Duration   18s
+2026-08-26T09:36:50.0507574Z Resume     copilot --resume=6d252a60-bee1-42f0-8b29-7e37a2ce1ef8
+2026-08-26T09:36:50.0508600Z [copilot-harness] attempt 3: process exit event exitCode=1
+2026-08-26T09:36:50.0509938Z [copilot-harness] attempt 3: process closed exitCode=1 duration=1s stdout=0B stderr=382B hasOutput=true
+2026-08-26T09:36:50.0515378Z [copilot-harness] attempt 3 failed: exitCode=1 failureClass=partial_execution isCAPIError400=false isCAPIQuotaExceededError=false isInvocationCapExceeded=false isMCPPolicyError=false isModelNotSupportedError=false isHTTP400ResponseError=false isNullTypeToolCallError=false isSDKSessionIdleTimeoutError=false isMCPGatewayShutdownError=false isAuthError=false isAuthenticationFailedError=false permissionDeniedCount=0 hasNumerousPermissionDenied=false hasOutput=true tokenCount=0 attemptDurationMs=1365 retriesRemaining=1
+2026-08-26T09:36:50.0522367Z [copilot-harness] attempt 3: outputTail="400 400 400 Model \"nvidia/nemotron-3.5-lightning-30b-a3b\" has no AI credits pricing and no default pricing is configured. Set apiProxy.defaultAiCreditsPricing in the AWF config (e.g. {\"input\": 3.0, \"output\": 15.0}) to provide a fallback rate, or add the model to the pricing table.\nChanges    +0 -0\nDuration   18s\nResume     copilot --resume=6d252a60-bee1-42f0-8b29-7e37a2ce1ef8"
+2026-08-26T09:36:50.0525627Z [copilot-harness] attempt 3: partial execution — will retry with --continue (attempt 4/4)
+2026-08-26T09:36:50.0526727Z [copilot-harness] retry 3/3: sleeping 20000ms before next attempt (--continue)
+2026-08-26T09:36:50.0527637Z [copilot-harness] retry 3/3: woke up, next delay cap will be 60000ms
+2026-08-26T09:36:50.0529684Z [copilot-harness] attempt 4: spawning: /home/runner/work/_temp/gh-aw/bin/copilot --add-dir /tmp/gh-aw/ --log-level all --log-dir /tmp/gh-aw/sandbox/agent/logs/ --disable-builtin-mcps --no-ask-user --allow-all-tools --add-dir /home/runner/work/Sameer-Khan/Sameer-Khan -p <redacted> 
+2026-08-26T09:36:50.0530842Z [copilot-harness] attempt 4: process started (pid=474)
+2026-08-26T09:36:50.0531092Z 
+2026-08-26T09:36:50.0532214Z 400 400 400 Model "nvidia/nemotron-3.5-lightning-30b-a3b" has no AI credits pricing and no default pricing is configured. Set apiProxy.defaultAiCreditsPricing in the AWF config (e.g. {"input": 3.0, "output": 15.0}) to provide a fallback rate, or add the model to the pricing table.
+2026-08-26T09:36:50.0533346Z 
+2026-08-26T09:36:50.0533353Z 
+2026-08-26T09:36:50.0533460Z Changes    +0 -0
+2026-08-26T09:36:50.0533700Z Duration   39s
+2026-08-26T09:36:50.0534074Z Resume     copilot --resume=6d252a60-bee1-42f0-8b29-7e37a2ce1ef8
+2026-08-26T09:36:50.0535113Z [copilot-harness] attempt 4: process exit event exitCode=1
+2026-08-26T09:36:50.0536262Z [copilot-harness] attempt 4: process closed exitCode=1 duration=1s stdout=0B stderr=382B hasOutput=true
+2026-08-26T09:36:50.0541277Z [copilot-harness] attempt 4 failed: exitCode=1 failureClass=partial_execution isCAPIError400=false isCAPIQuotaExceededError=false isInvocationCapExceeded=false isMCPPolicyError=false isModelNotSupportedError=false isHTTP400ResponseError=false isNullTypeToolCallError=false isSDKSessionIdleTimeoutError=false isMCPGatewayShutdownError=false isAuthError=false isAuthenticationFailedError=false permissionDeniedCount=0 hasNumerousPermissionDenied=false hasOutput=true tokenCount=0 attemptDurationMs=1435 retriesRemaining=0
+2026-08-26T09:36:50.0548170Z [copilot-harness] attempt 4: outputTail="400 400 400 Model \"nvidia/nemotron-3.5-lightning-30b-a3b\" has no AI credits pricing and no default pricing is configured. Set apiProxy.defaultAiCreditsPricing in the AWF config (e.g. {\"input\": 3.0, \"output\": 15.0}) to provide a fallback rate, or add the model to the pricing table.\nChanges    +0 -0\nDuration   39s\nResume     copilot --resume=6d252a60-bee1-42f0-8b29-7e37a2ce1ef8"
+2026-08-26T09:36:50.0551448Z [copilot-harness] all 3 retries exhausted — giving up (exitCode=1)
+2026-08-26T09:36:50.0552550Z [copilot-harness] awf-reflect: fetching http://api-proxy:10000/reflect (timeout=60000ms)
+2026-08-26T09:36:50.0553785Z [copilot-harness] awf-reflect: saved 20078B to /tmp/gh-aw/sandbox/firewall/awf-reflect.json
+2026-08-26T09:36:50.0554945Z [copilot-harness] done: exitCode=1 totalDuration=40s
+2026-08-26T09:36:50.0555549Z [INFO] Stopping containers...
+2026-08-26T09:36:50.0556034Z  Container awf-agent  Stopping
+2026-08-26T09:36:50.0556477Z  Container awf-agent  Stopped
+2026-08-26T09:36:50.0556919Z  Container awf-agent  Removing
+2026-08-26T09:36:50.0557343Z  Container awf-agent  Removed
+2026-08-26T09:36:50.0557797Z  Container awf-squid  Stopping
+2026-08-26T09:36:50.0558278Z  Container awf-api-proxy  Stopping
+2026-08-26T09:36:50.0558787Z  Container awf-api-proxy  Stopped
+2026-08-26T09:36:50.0559280Z  Container awf-api-proxy  Removing
+2026-08-26T09:36:50.0559777Z  Container awf-api-proxy  Removed
+2026-08-26T09:36:50.0560224Z  Container awf-squid  Stopped
+2026-08-26T09:36:50.0560699Z  Container awf-squid  Removing
+2026-08-26T09:36:50.0561123Z  Container awf-squid  Removed
+2026-08-26T09:36:50.0561544Z  Network awf-net  Removing
+2026-08-26T09:36:50.0562034Z  Network awf-1787736953696_awf-ext  Removing
+2026-08-26T09:36:50.0562595Z  Network awf-1787736953696_awf-ext  Removed
+2026-08-26T09:36:50.0563082Z  Network awf-net  Removed
+2026-08-26T09:36:50.0563592Z [SUCCESS] Containers stopped successfully
+2026-08-26T09:36:50.0564744Z [INFO] Agent session state preserved at: /tmp/awf-agent-session-state-1787736953696
+2026-08-26T09:36:50.0565869Z [INFO] API proxy logs available at: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs
+2026-08-26T09:36:50.0566986Z [INFO] CLI proxy logs available at: /tmp/gh-aw/sandbox/firewall/logs/cli-proxy-logs
+2026-08-26T09:36:50.0567958Z [INFO] Squid logs available at: /tmp/gh-aw/sandbox/firewall/logs
+2026-08-26T09:36:50.0568857Z [INFO] Audit artifacts available at: /tmp/gh-aw/sandbox/firewall/audit
+2026-08-26T09:36:50.0569625Z [WARN] Command completed with exit code: 1
+2026-08-26T09:36:50.0570159Z Process exiting with code: 1
+2026-08-26T09:36:50.0571153Z ::***::
+2026-08-26T09:36:50.0571781Z ##[endgroup]
+2026-08-26T09:36:50.0572436Z Log rendered (16528 bytes): /tmp/gh-aw/threat-detection/detection.log

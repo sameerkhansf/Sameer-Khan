@@ -69,13 +69,40 @@ ${post.content}
     console.log(`✓ Generated: ${filePath}`);
   }
 
+  // Regenerate the article index inside llms.txt between markers (Simon-style),
+  // so agent-published posts are discoverable the moment they build.
+  const publicDir = path.join(process.cwd(), "public");
+  const llmsPath = path.join(publicDir, "llms.txt");
+  const byCategory = new Map<string, typeof posts>();
+  for (const post of posts) {
+    const list = byCategory.get(post.category) ?? [];
+    list.push(post);
+    byCategory.set(post.category, list);
+  }
+  const articleLines = ["<!-- articles starts -->"];
+  for (const [category, categoryPosts] of byCategory) {
+    articleLines.push(`**${category}:**`);
+    for (const post of categoryPosts) {
+      articleLines.push(
+        `- [${post.title}](https://samkhan.net/blog/${post.slug}): ${post.description}`
+      );
+    }
+    articleLines.push("");
+  }
+  if (articleLines[articleLines.length - 1] === "") articleLines.pop();
+  articleLines.push("<!-- articles ends -->");
+  const llms = fs
+    .readFileSync(llmsPath, "utf-8")
+    .replace(
+      /<!-- articles starts -->[\s\S]*<!-- articles ends -->/,
+      articleLines.join("\n")
+    );
+  fs.writeFileSync(llmsPath, llms);
+  console.log(`✓ Updated: public/llms.txt article index (${posts.length} posts)`);
+
   // Homepage markdown for Accept: text/markdown negotiation — llms.txt is
   // already the maintained markdown overview of the site, so reuse it.
-  const publicDir = path.join(process.cwd(), "public");
-  fs.copyFileSync(
-    path.join(publicDir, "llms.txt"),
-    path.join(publicDir, "index.md")
-  );
+  fs.copyFileSync(llmsPath, path.join(publicDir, "index.md"));
   console.log("✓ Generated: public/index.md (from llms.txt)");
 
   console.log(`\n✅ Generated ${posts.length} markdown files in public/blog/`);

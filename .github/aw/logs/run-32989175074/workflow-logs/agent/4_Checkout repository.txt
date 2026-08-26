@@ -1,0 +1,125 @@
+﻿2026-08-26T16:35:14.6145270Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-08-26T16:35:14.6145731Z with:
+2026-08-26T16:35:14.6145964Z   persist-credentials: false
+2026-08-26T16:35:14.6146242Z   repository: sameerkhansf/Sameer-Khan
+2026-08-26T16:35:14.6148909Z   token: ***
+2026-08-26T16:35:14.6149124Z   ssh-strict: true
+2026-08-26T16:35:14.6149342Z   ssh-user: git
+2026-08-26T16:35:14.6149542Z   clean: true
+2026-08-26T16:35:14.6150071Z   sparse-checkout-cone-mode: true
+2026-08-26T16:35:14.6150363Z   fetch-depth: 1
+2026-08-26T16:35:14.6150577Z   fetch-tags: false
+2026-08-26T16:35:14.6150793Z   show-progress: true
+2026-08-26T16:35:14.6151009Z   lfs: false
+2026-08-26T16:35:14.6151204Z   submodules: false
+2026-08-26T16:35:14.6151424Z   set-safe-directory: true
+2026-08-26T16:35:14.6151906Z   allow-unsafe-pr-checkout: false
+2026-08-26T16:35:14.6152170Z env:
+2026-08-26T16:35:14.6152367Z   DEFAULT_BRANCH: main
+2026-08-26T16:35:14.6152601Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-08-26T16:35:14.6152848Z   GH_AW_ASSETS_BRANCH: 
+2026-08-26T16:35:14.6153109Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-08-26T16:35:14.6153399Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-08-26T16:35:14.6153723Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T16:35:14.6153983Z   GH_AW_WORKFLOW_ID_SANITIZED: weeklyresearch
+2026-08-26T16:35:14.6154346Z   GITHUB_AW_OTEL_TRACE_ID: 2fd6cdcd7159bf783419589e5eb40dc4
+2026-08-26T16:35:14.6154717Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: c4e075ab71cfe4c2
+2026-08-26T16:35:14.6155039Z   GITHUB_AW_OTEL_JOB_START_MS: 1787762114569
+2026-08-26T16:35:14.6155319Z ##[endgroup]
+2026-08-26T16:35:14.7205583Z Syncing repository: sameerkhansf/Sameer-Khan
+2026-08-26T16:35:14.7207463Z ##[group]Getting Git version info
+2026-08-26T16:35:14.7208182Z Working directory is '/home/runner/work/Sameer-Khan/Sameer-Khan'
+2026-08-26T16:35:14.7240722Z [command]/usr/bin/git version
+2026-08-26T16:35:14.7400292Z git version 2.55.0
+2026-08-26T16:35:14.7451862Z ##[endgroup]
+2026-08-26T16:35:14.7461397Z Temporarily overriding HOME='/home/runner/work/_temp/48c1023e-b9e8-489c-a746-46d27742fecd' before making global git config changes
+2026-08-26T16:35:14.7463059Z Adding repository directory to the temporary git global config as a safe directory
+2026-08-26T16:35:14.7472536Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Sameer-Khan/Sameer-Khan
+2026-08-26T16:35:14.7554196Z Deleting the contents of '/home/runner/work/Sameer-Khan/Sameer-Khan'
+2026-08-26T16:35:14.7555646Z ##[group]Determining repository object format
+2026-08-26T16:35:14.7556794Z ##[endgroup]
+2026-08-26T16:35:14.7581180Z ##[group]Initializing the repository
+2026-08-26T16:35:14.7582185Z [command]/usr/bin/git init /home/runner/work/Sameer-Khan/Sameer-Khan
+2026-08-26T16:35:14.7702608Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-08-26T16:35:14.7722865Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-08-26T16:35:14.7743863Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-08-26T16:35:14.7758935Z hint: call:
+2026-08-26T16:35:14.7790448Z hint:
+2026-08-26T16:35:14.7802442Z hint: 	git config --global init.defaultBranch <name>
+2026-08-26T16:35:14.7803276Z hint:
+2026-08-26T16:35:14.7821069Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-08-26T16:35:14.7822359Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-08-26T16:35:14.7839625Z hint:
+2026-08-26T16:35:14.7840600Z hint: 	git branch -m <name>
+2026-08-26T16:35:14.7841276Z hint:
+2026-08-26T16:35:14.7842138Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-08-26T16:35:14.7843679Z Initialized empty Git repository in /home/runner/work/Sameer-Khan/Sameer-Khan/.git/
+2026-08-26T16:35:14.7846378Z [command]/usr/bin/git remote add origin https://github.com/sameerkhansf/Sameer-Khan
+2026-08-26T16:35:14.7852393Z ##[endgroup]
+2026-08-26T16:35:14.7853280Z ##[group]Disabling automatic garbage collection
+2026-08-26T16:35:14.7854126Z [command]/usr/bin/git config --local gc.auto 0
+2026-08-26T16:35:14.7893025Z ##[endgroup]
+2026-08-26T16:35:14.7894112Z ##[group]Setting up auth
+2026-08-26T16:35:14.7894902Z Removing SSH command configuration
+2026-08-26T16:35:14.7895995Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-08-26T16:35:14.7951672Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-08-26T16:35:14.8493046Z Removing HTTP extra header
+2026-08-26T16:35:14.8508695Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-08-26T16:35:14.8561360Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-08-26T16:35:14.8858326Z Removing includeIf entries pointing to credentials config files
+2026-08-26T16:35:14.8867215Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-08-26T16:35:14.8935592Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-08-26T16:35:14.9312739Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-ef7dd551-fe09-45eb-895b-ae9447f3ef48.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-08-26T16:35:14.9371643Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Sameer-Khan/Sameer-Khan/.git.path /home/runner/work/_temp/git-credentials-ef7dd551-fe09-45eb-895b-ae9447f3ef48.config
+2026-08-26T16:35:14.9441707Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Sameer-Khan/Sameer-Khan/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-ef7dd551-fe09-45eb-895b-ae9447f3ef48.config
+2026-08-26T16:35:14.9486483Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-ef7dd551-fe09-45eb-895b-ae9447f3ef48.config
+2026-08-26T16:35:14.9540125Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-ef7dd551-fe09-45eb-895b-ae9447f3ef48.config
+2026-08-26T16:35:14.9622281Z ##[endgroup]
+2026-08-26T16:35:14.9623258Z ##[group]Fetching the repository
+2026-08-26T16:35:14.9628392Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +00c4dc5852769d6be78ae3b54b5e4d4e3315bf9c:refs/remotes/origin/main
+2026-08-26T16:35:15.6476929Z From https://github.com/sameerkhansf/Sameer-Khan
+2026-08-26T16:35:15.6478242Z  * [new ref]         00c4dc5852769d6be78ae3b54b5e4d4e3315bf9c -> origin/main
+2026-08-26T16:35:15.6491882Z [command]/usr/bin/git branch --list --remote origin/main
+2026-08-26T16:35:15.6540614Z   origin/main
+2026-08-26T16:35:15.6580337Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-08-26T16:35:15.6600655Z 00c4dc5852769d6be78ae3b54b5e4d4e3315bf9c
+2026-08-26T16:35:15.6612045Z ##[endgroup]
+2026-08-26T16:35:15.6612928Z ##[group]Determining the checkout info
+2026-08-26T16:35:15.6613912Z ##[endgroup]
+2026-08-26T16:35:15.6614582Z [command]/usr/bin/git sparse-checkout disable
+2026-08-26T16:35:15.6726655Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-08-26T16:35:15.6791811Z ##[group]Checking out the ref
+2026-08-26T16:35:15.6792990Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-08-26T16:35:15.7948990Z Switched to a new branch 'main'
+2026-08-26T16:35:15.7960699Z branch 'main' set up to track 'origin/main'.
+2026-08-26T16:35:15.7989604Z ##[endgroup]
+2026-08-26T16:35:15.8077779Z [command]/usr/bin/git log -1 --format=%H
+2026-08-26T16:35:15.8111579Z 00c4dc5852769d6be78ae3b54b5e4d4e3315bf9c
+2026-08-26T16:35:15.8120742Z ##[group]Removing auth
+2026-08-26T16:35:15.8122456Z Removing SSH command configuration
+2026-08-26T16:35:15.8127029Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-08-26T16:35:15.8173619Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-08-26T16:35:15.8422022Z Removing HTTP extra header
+2026-08-26T16:35:15.8428217Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-08-26T16:35:15.8466730Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-08-26T16:35:15.8715495Z Removing includeIf entries pointing to credentials config files
+2026-08-26T16:35:15.8719329Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-08-26T16:35:15.8755372Z includeif.gitdir:/home/runner/work/Sameer-Khan/Sameer-Khan/.git.path
+2026-08-26T16:35:15.8761447Z includeif.gitdir:/home/runner/work/Sameer-Khan/Sameer-Khan/.git/worktrees/*.path
+2026-08-26T16:35:15.8762565Z includeif.gitdir:/github/workspace/.git.path
+2026-08-26T16:35:15.8763416Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-08-26T16:35:15.8766737Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Sameer-Khan/Sameer-Khan/.git.path
+2026-08-26T16:35:15.8799357Z /home/runner/work/_temp/git-credentials-ef7dd551-fe09-45eb-895b-ae9447f3ef48.config
+2026-08-26T16:35:15.8820267Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Sameer-Khan/Sameer-Khan/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-ef7dd551\-fe09\-45eb\-895b\-ae9447f3ef48\.config
+2026-08-26T16:35:15.8861662Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Sameer-Khan/Sameer-Khan/.git/worktrees/*.path
+2026-08-26T16:35:15.8908778Z /home/runner/work/_temp/git-credentials-ef7dd551-fe09-45eb-895b-ae9447f3ef48.config
+2026-08-26T16:35:15.8913199Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Sameer-Khan/Sameer-Khan/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-ef7dd551\-fe09\-45eb\-895b\-ae9447f3ef48\.config
+2026-08-26T16:35:15.9028805Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-08-26T16:35:15.9077476Z /github/runner_temp/git-credentials-ef7dd551-fe09-45eb-895b-ae9447f3ef48.config
+2026-08-26T16:35:15.9081881Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-ef7dd551\-fe09\-45eb\-895b\-ae9447f3ef48\.config
+2026-08-26T16:35:15.9118229Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-08-26T16:35:15.9147382Z /github/runner_temp/git-credentials-ef7dd551-fe09-45eb-895b-ae9447f3ef48.config
+2026-08-26T16:35:15.9162796Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-ef7dd551\-fe09\-45eb\-895b\-ae9447f3ef48\.config
+2026-08-26T16:35:15.9201295Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-08-26T16:35:15.9444152Z Removing credentials config '/home/runner/work/_temp/git-credentials-ef7dd551-fe09-45eb-895b-ae9447f3ef48.config'
+2026-08-26T16:35:15.9451493Z ##[endgroup]
