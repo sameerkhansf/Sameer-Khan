@@ -19,7 +19,7 @@ The definitive guide to choosing between TypeScript's type and interface. Learn 
 **Author:** Sameer Khan
 **Category:** Web Development
 **Reading Time:** 10 min read
-**Word Count:** 1873
+**Word Count:** 1853
 
 ---
 
@@ -103,7 +103,7 @@ type Admin = User & {
 **Use `interface` when defining object structures that might be extended:**
 
 ```typescript
-// ✅ Good: Interface for extendable object
+// Good: Interface for extendable object
 interface ApiResponse {
   status: number;
   data: unknown;
@@ -127,7 +127,7 @@ interface ErrorResponse extends ApiResponse {
 **Use `interface` for React component props (community convention):**
 
 ```typescript
-// ✅ Good: Interface for React props
+// Good: Interface for React props
 interface ButtonProps {
   label: string;
   onClick: () => void;
@@ -151,7 +151,7 @@ function Button({ label, onClick, variant, disabled }: ButtonProps) {
 **Use `interface` when defining public APIs that others might extend:**
 
 ```typescript
-// ✅ Good: Interface for library API
+// Good: Interface for library API
 interface DatabaseConfig {
   host: string;
   port: number;
@@ -172,7 +172,7 @@ interface MyDatabaseConfig extends DatabaseConfig {
 **Use `interface` when you need TypeScript's declaration merging:**
 
 ```typescript
-// ✅ Good: Interface allows merging
+// Good: Interface allows merging
 interface Window {
   myCustomProperty: string;
 }
@@ -198,18 +198,18 @@ window.anotherProperty = 42;
 **Use `type` for unions, intersections, and computed types:**
 
 ```typescript
-// ✅ Good: Type for unions
+// Good: Type for unions
 type Status = 'pending' | 'approved' | 'rejected';
 
 type UserRole = 'admin' | 'user' | 'guest';
 
-// ✅ Good: Type for intersections
+// Good: Type for intersections
 type AdminUser = User & {
   role: 'admin';
   permissions: string[];
 }
 
-// ✅ Good: Type for complex unions
+// Good: Type for complex unions
 type ApiResponse = 
   | { status: 200; data: User }
   | { status: 400; error: string }
@@ -223,15 +223,15 @@ type ApiResponse =
 **Use `type` for non-object types:**
 
 ```typescript
-// ✅ Good: Type for primitives
+// Good: Type for primitives
 type ID = string | number;
 
-// ✅ Good: Type for tuples
+// Good: Type for tuples
 type Coordinate = [number, number];
 
 type Point3D = [number, number, number];
 
-// ✅ Good: Type for mapped types
+// Good: Type for mapped types
 type Optional<T> = {
   [K in keyof T]?: T[K];
 }
@@ -246,7 +246,7 @@ type ReadonlyUser = Readonly<User>;
 **Use `type` when creating aliases or computed types:**
 
 ```typescript
-// ✅ Good: Type alias for clarity
+// Good: Type alias for clarity
 type UserID = string;
 type Email = string;
 
@@ -254,12 +254,12 @@ function getUser(id: UserID): User {
   // ...
 }
 
-// ✅ Good: Computed types
+// Good: Computed types
 type Keys = keyof User; // 'name' | 'email' | 'age'
 
 type UserValues = User[keyof User]; // string | number | undefined
 
-// ✅ Good: Conditional types
+// Good: Conditional types
 type NonNullable<T> = T extends null | undefined ? never : T;
 ```
 
@@ -270,7 +270,7 @@ type NonNullable<T> = T extends null | undefined ? never : T;
 **Use `type` for complex type manipulations:**
 
 ```typescript
-// ✅ Good: Complex type transformations
+// Good: Complex type transformations
 type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
 }
@@ -433,17 +433,17 @@ Is it an object shape?
 ### Mistake 1: Using Interface for Unions
 
 ```typescript
-// ❌ Bad: Interface can't represent unions
+// Bad: Interface can't represent unions
 interface Status = 'pending' | 'approved'; // Error!
 
-// ✅ Good: Use type for unions
+// Good: Use type for unions
 type Status = 'pending' | 'approved';
 ```
 
 ### Mistake 2: Using Type When Declaration Merging is Needed
 
 ```typescript
-// ❌ Bad: Type doesn't support declaration merging
+// Bad: Type doesn't support declaration merging
 type Window = {
   myProperty: string;
 }
@@ -452,7 +452,7 @@ type Window = { // Error: Duplicate identifier
   anotherProperty: number;
 }
 
-// ✅ Good: Use interface for merging
+// Good: Use interface for merging
 interface Window {
   myProperty: string;
 }
@@ -465,7 +465,7 @@ interface Window {
 ### Mistake 3: Inconsistent Usage in Same Codebase
 
 ```typescript
-// ❌ Bad: Mixing interface and type for similar things
+// Bad: Mixing interface and type for similar things
 interface User {
   name: string;
 }
@@ -474,7 +474,7 @@ type Product = {
   name: string;
 }
 
-// ✅ Good: Be consistent
+// Good: Be consistent
 interface User {
   name: string;
 }

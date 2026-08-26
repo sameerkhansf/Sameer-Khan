@@ -61,17 +61,9 @@ function Callout({
       "bg-green-50 dark:bg-green-950 border-green-200 dark:border-green-800 text-green-800 dark:text-green-200",
   };
 
-  const icons = {
-    info: "💡",
-    warning: "⚠️",
-    error: "🚫",
-    success: "✅",
-  };
-
   return (
     <div className={`my-6 rounded-lg border p-4 ${styles[type]}`}>
       <div className="flex gap-3">
-        <span className="text-xl">{icons[type]}</span>
         <div className="flex-1">{children}</div>
       </div>
     </div>

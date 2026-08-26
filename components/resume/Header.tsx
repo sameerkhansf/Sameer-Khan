@@ -91,7 +91,6 @@ const Sidebar = () => {
                   key={language.name}
                   className="inline-flex items-center gap-2 px-3 py-1 text-sm bg-card rounded-full border border-border text-foreground hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all duration-200"
                 >
-                  <span className="text-base">{language.flag}</span>
                   {language.name}
                 </span>
               ))}

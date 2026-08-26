@@ -193,13 +193,7 @@ export default async function Home({ params }: HomePageProps) {
                   github
                 </Link>
               </div>
-              <p className="text-center">
-                {dict.common.madeWith}{" "}
-                <span role="img" aria-label="love">
-                  ❤️
-                </span>{" "}
-                {dict.common.in} {dict.common.sanFrancisco}
-              </p>
+              <p className="text-center">{dict.common.sanFrancisco}</p>
             </div>
           </footer>
         </div>

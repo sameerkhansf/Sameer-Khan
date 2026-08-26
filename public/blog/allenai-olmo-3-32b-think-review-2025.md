@@ -19,7 +19,7 @@ Complete review of OLMo 3 32B Think, AllenAI's open-source reasoning model. Benc
 **Author:** Sameer Khan
 **Category:** AI
 **Reading Time:** 8 min read
-**Word Count:** 1525
+**Word Count:** 1513
 
 ---
 
@@ -117,7 +117,7 @@ This transparency allows researchers to understand and improve the model.
 - Arrived at correct answer
 - Explained each step
 
-**Quality:** ✅ Good. Clear reasoning, correct answer. GPT-5.2's explanation was slightly clearer, but OLMo's was solid.
+**Quality:** Good. Clear reasoning, correct answer. GPT-5.2's explanation was slightly clearer, but OLMo's was solid.
 
 ### Task 2: Code Debugging
 
@@ -130,7 +130,7 @@ This transparency allows researchers to understand and improve the model.
 - Provided fixes
 - Added tests
 
-**Quality:** ✅ Good. Found most issues, though GPT-5.2 caught one additional edge case.
+**Quality:** Good. Found most issues, though GPT-5.2 caught one additional edge case.
 
 ### Task 3: Scientific Explanation
 
@@ -143,7 +143,7 @@ This transparency allows researchers to understand and improve the model.
 - Addressed common misconceptions
 - Connected to real-world applications
 
-**Quality:** ✅ Good. Clear explanation, though GPT-5.2's was more intuitive.
+**Quality:** Good. Clear explanation, though GPT-5.2's was more intuitive.
 
 ### Task 4: Multi-Step Planning
 
@@ -156,7 +156,7 @@ This transparency allows researchers to understand and improve the model.
 - Proposed timeline
 - Highlighted risks
 
-**Quality:** ✅ Good. Solid planning, though GPT-5.2's plan was more detailed.
+**Quality:** Good. Solid planning, though GPT-5.2's plan was more detailed.
 
 ---
 
@@ -250,10 +250,10 @@ CMD ["python", "scripts/run_inference.py", "--model", "olmo-3-32b-think"]
 
 | Model | ARC-AGI-2 | SWE-Bench Pro | Open Weights | Open Data | Cost (API) |
 | ------- | ----------- | --------------- | -------------- | ----------- | ------------ |
-| **OLMo 3 32B Think** | 38.2% | 42.1% | ✅ Yes | ✅ Yes | $0.10/$0.80 |
-| **DeepSeek-V3.2-Speciale** | 52.3% | 54.1% | ✅ Yes | ❌ No | $0.14/$1.40 |
-| **Llama 3.3 70B** | 28.5% | 35.2% | ✅ Yes | ❌ No | Free (self-host) |
-| **Mistral Large 3** | 49.8% | 53.2% | ❌ No | ❌ No | $0.50/$1.50 |
+| **OLMo 3 32B Think** | 38.2% | 42.1% | Yes | Yes | $0.10/$0.80 |
+| **DeepSeek-V3.2-Speciale** | 52.3% | 54.1% | Yes | No | $0.14/$1.40 |
+| **Llama 3.3 70B** | 28.5% | 35.2% | Yes | No | Free (self-host) |
+| **Mistral Large 3** | 49.8% | 53.2% | No | No | $0.50/$1.50 |
 
 **Analysis:** OLMo 3 32B Think leads in transparency but trails DeepSeek-V3.2-Speciale in performance. For research and privacy-sensitive applications, OLMo's transparency is valuable.
 

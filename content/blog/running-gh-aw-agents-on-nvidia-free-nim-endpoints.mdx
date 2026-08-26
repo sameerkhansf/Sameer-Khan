@@ -8,11 +8,11 @@ category: Developer Tools
 published: true
 ---
 
-I needed to configure GitHub's Agentic Workflows framework (gh-aw) to work with NVIDIA's free hosted NIM endpoints. The capture note documents the exact configuration and three specific failures encountered before achieving a successful run.
+I configured GitHub's Agentic Workflows framework (gh-aw) to work with NVIDIA's free hosted NIM endpoints. This post documents the exact configuration and the three failures I hit before getting a successful run.
 
-The core task involves wiring the repo's GitHub Agentic Workflows (github/gh-aw) to NVIDIA's free hosted NIM endpoints (integrate.api.nvidia.com, specifically nvidia/nemotron-3.5-lightning-30b-a3b at 40 RPM free tier) via the Copilot BYOK (Bring Your Own Key) engine mode.
+The task: wire the repo's GitHub Agentic Workflows (github/gh-aw) to NVIDIA's free hosted NIM endpoints (integrate.api.nvidia.com, specifically nvidia/nemotron-3.5-lightning-30b-a3b at 40 RPM free tier) via the Copilot BYOK (Bring Your Own Key) engine mode.
 
-Three real failures occurred in sequence before achieving a green run:
+Three failures occurred in sequence before a green run:
 
 1. **AWF proxy rejected every request with 400 'Model has no AI credits pricing'** - This was fixed by adding frontmatter configuration: `models.default-ai-credits-pricing input/output 0.000001` (note that the compiler rejects literal 0, so a tiny value is required)
 
@@ -34,6 +34,4 @@ Sources consulted:
 - GitHub next agentics repository: [https://github.com/githubnext/agentics](https://github.com/githubnext/agentics) (accessed 2026-08-26)
 - NVIDIA models catalog: [https://build.nvidia.com/models](https://build.nvidia.com/models) (accessed 2026-08-26)
 
-The working configuration involves setting appropriate values in the agent configuration files to bypass the AWF proxy limitations, disable unwanted token steering, and increase session timeouts to enable productive research sessions with NVIDIA's free AI models.
-
-This setup enables developers to leverage NVIDIA's free AI offerings within GitHub's agentic workflow framework without incurring costs, while maintaining the ability to handle complex multi-step reasoning tasks that require strict JSON output formats for steps like threat detection.
+In short: set the tiny credits-pricing value to get past the AWF proxy, disable token steering and model fallback, and raise the session timeout. That's enough to run gh-aw agents on NVIDIA's free models at no cost — including multi-step reasoning tasks and steps like threat detection that require strict JSON output.

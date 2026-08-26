@@ -28,11 +28,11 @@ LLMs are prediction engines. They don't "understand" your intent—they predict 
 
 This means the quality of your output depends entirely on how you ask.
 
-After months of building AI features and experimenting with different models, I've developed a mental framework for prompt engineering that actually works. Here's everything I've learned.
+After months of building AI features and experimenting with different models, I've developed a mental framework for prompt engineering that actually works. Here's what I've learned.
 
 ## The Foundation: How LLMs Actually Work
 
-Before diving into techniques, you need to understand one thing:
+Before getting to techniques, you need to understand one thing:
 
 **LLMs predict the next token based on probability distributions.**
 

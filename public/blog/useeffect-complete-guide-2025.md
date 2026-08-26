@@ -19,7 +19,7 @@ Master React's useEffect hook with practical solutions to infinite loops, cleanu
 **Author:** Sameer Khan
 **Category:** Web Development
 **Reading Time:** 12 min read
-**Word Count:** 2318
+**Word Count:** 2292
 
 ---
 
@@ -76,7 +76,7 @@ The dependency array tells React **when** to run your effect:
 Your component re-renders infinitely, crashing the browser.
 
 ```typescript
-// ❌ Bad: Infinite loop
+// Bad: Infinite loop
 function UserProfile({ userId }) {
   const [user, setUser] = useState(null);
 
@@ -95,7 +95,7 @@ function UserProfile({ userId }) {
 ### Solution 1: Add Dependency Array
 
 ```typescript
-// ✅ Good: Only runs when userId changes
+// Good: Only runs when userId changes
 function UserProfile({ userId }) {
   const [user, setUser] = useState(null);
 
@@ -112,7 +112,7 @@ function UserProfile({ userId }) {
 ### Solution 2: Fix Object/Array Dependencies
 
 ```typescript
-// ❌ Bad: Object reference changes every render
+// Bad: Object reference changes every render
 function Component({ config }) {
   useEffect(() => {
     doSomething(config);
@@ -121,7 +121,7 @@ function Component({ config }) {
   return <div>...</div>;
 }
 
-// ✅ Good: Depend on specific values
+// Good: Depend on specific values
 function Component({ config }) {
   useEffect(() => {
     doSomething(config);
@@ -130,7 +130,7 @@ function Component({ config }) {
   return <div>...</div>;
 }
 
-// ✅ Better: Memoize the config
+// Better: Memoize the config
 function Component({ config }) {
   const memoizedConfig = useMemo(() => config, [config.apiUrl, config.timeout]);
 
@@ -145,7 +145,7 @@ function Component({ config }) {
 ### Solution 3: Use Functional Updates
 
 ```typescript
-// ❌ Bad: Depends on state that changes
+// Bad: Depends on state that changes
 function Counter() {
   const [count, setCount] = useState(0);
 
@@ -159,7 +159,7 @@ function Counter() {
   return <div>{count}</div>;
 }
 
-// ✅ Good: Functional update doesn't need count in deps
+// Good: Functional update doesn't need count in deps
 function Counter() {
   const [count, setCount] = useState(0);
 
@@ -183,7 +183,7 @@ function Counter() {
 Your effect uses old values, even though state has updated.
 
 ```typescript
-// ❌ Bad: Stale closure
+// Bad: Stale closure
 function ChatRoom({ roomId }) {
   const [messages, setMessages] = useState([]);
 
@@ -204,7 +204,7 @@ function ChatRoom({ roomId }) {
 ### Solution 1: Include All Dependencies
 
 ```typescript
-// ✅ Good: Includes messages in dependencies
+// Good: Includes messages in dependencies
 function ChatRoom({ roomId }) {
   const [messages, setMessages] = useState([]);
 
@@ -224,7 +224,7 @@ function ChatRoom({ roomId }) {
 **Better:** Use functional updates to avoid needing `messages` in deps:
 
 ```typescript
-// ✅ Better: Functional update, no messages dependency needed
+// Better: Functional update, no messages dependency needed
 function ChatRoom({ roomId }) {
   const [messages, setMessages] = useState([]);
 
@@ -244,7 +244,7 @@ function ChatRoom({ roomId }) {
 ### Solution 2: Use Refs for Values That Shouldn't Trigger Effects
 
 ```typescript
-// ✅ Good: Use ref for value that shouldn't trigger re-runs
+// Good: Use ref for value that shouldn't trigger re-runs
 function SearchBox({ onSearch }) {
   const [query, setQuery] = useState('');
   const queryRef = useRef(query);
@@ -275,7 +275,7 @@ function SearchBox({ onSearch }) {
 Your cleanup function doesn't run, causing memory leaks or stale subscriptions.
 
 ```typescript
-// ❌ Bad: No cleanup
+// Bad: No cleanup
 function Timer() {
   const [seconds, setSeconds] = useState(0);
 
@@ -295,7 +295,7 @@ function Timer() {
 ### Solution: Always Return Cleanup
 
 ```typescript
-// ✅ Good: Cleanup function
+// Good: Cleanup function
 function Timer() {
   const [seconds, setSeconds] = useState(0);
 
@@ -314,7 +314,7 @@ function Timer() {
 ### Real-World Example: API Subscriptions
 
 ```typescript
-// ✅ Good: Cleanup for subscriptions
+// Good: Cleanup for subscriptions
 function UserStatus({ userId }) {
   const [status, setStatus] = useState('offline');
 
@@ -341,7 +341,7 @@ function UserStatus({ userId }) {
 Multiple API calls race each other, and an older response overwrites a newer one.
 
 ```typescript
-// ❌ Bad: Race condition
+// Bad: Race condition
 function UserProfile({ userId }) {
   const [user, setUser] = useState(null);
 
@@ -360,7 +360,7 @@ function UserProfile({ userId }) {
 ### Solution: Cancel Previous Requests
 
 ```typescript
-// ✅ Good: Cancel previous requests
+// Good: Cancel previous requests
 function UserProfile({ userId }) {
   const [user, setUser] = useState(null);
 
@@ -387,7 +387,7 @@ function UserProfile({ userId }) {
 ### Better Solution: Use AbortController
 
 ```typescript
-// ✅ Better: AbortController for fetch
+// Better: AbortController for fetch
 function UserProfile({ userId }) {
   const [user, setUser] = useState(null);
 
@@ -421,7 +421,7 @@ function UserProfile({ userId }) {
 Your effect runs on every render, even when it shouldn't.
 
 ```typescript
-// ❌ Bad: Runs too often
+// Bad: Runs too often
 function ExpensiveComponent({ data }) {
   useEffect(() => {
     expensiveOperation(data); // Runs every render!
@@ -434,7 +434,7 @@ function ExpensiveComponent({ data }) {
 ### Solution 1: Memoize Dependencies
 
 ```typescript
-// ✅ Good: Memoize object dependencies
+// Good: Memoize object dependencies
 function ExpensiveComponent({ config }) {
   const memoizedConfig = useMemo(() => config, [
     config.apiUrl,
@@ -453,7 +453,7 @@ function ExpensiveComponent({ config }) {
 ### Solution 2: Use Refs for Callbacks
 
 ```typescript
-// ✅ Good: Use ref for callback that shouldn't trigger effect
+// Good: Use ref for callback that shouldn't trigger effect
 function Component({ onSave }) {
   const onSaveRef = useRef(onSave);
 
@@ -654,7 +654,7 @@ Sometimes, `useEffect` isn't the right tool:
 ### 1. Transforming Data for Render
 
 ```typescript
-// ❌ Bad: Using useEffect for derived state
+// Bad: Using useEffect for derived state
 function UserList({ users }) {
   const [filteredUsers, setFilteredUsers] = useState([]);
 
@@ -665,7 +665,7 @@ function UserList({ users }) {
   return <div>...</div>;
 }
 
-// ✅ Good: Compute during render
+// Good: Compute during render
 function UserList({ users }) {
   const filteredUsers = users.filter(u => u.active);
   return <div>...</div>;
@@ -675,7 +675,7 @@ function UserList({ users }) {
 ### 2. Handling Events
 
 ```typescript
-// ❌ Bad: Using useEffect for event handlers
+// Bad: Using useEffect for event handlers
 function Button() {
   useEffect(() => {
     const handleClick = () => console.log('clicked');
@@ -686,7 +686,7 @@ function Button() {
   return <button>Click me</button>;
 }
 
-// ✅ Good: Use event handler prop
+// Good: Use event handler prop
 function Button({ onClick }) {
   return <button onClick={onClick}>Click me</button>;
 }
@@ -695,7 +695,7 @@ function Button({ onClick }) {
 ### 3. Resetting State on Prop Change
 
 ```typescript
-// ❌ Bad: useEffect to reset state
+// Bad: useEffect to reset state
 function Form({ userId }) {
   const [name, setName] = useState('');
 
@@ -706,7 +706,7 @@ function Form({ userId }) {
   return <input value={name} onChange={e => setName(e.target.value)} />;
 }
 
-// ✅ Good: Use key prop
+// Good: Use key prop
 function Form({ userId }) {
   const [name, setName] = useState('');
   return <input key={userId} value={name} onChange={e => setName(e.target.value)} />;

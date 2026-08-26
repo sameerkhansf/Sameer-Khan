@@ -19,20 +19,20 @@ A deep dive into the architecture, design decisions, and optimizations that went
 **Author:** Sameer Khan
 **Category:** Projects
 **Reading Time:** 2 min read
-**Word Count:** 375
+**Word Count:** 351
 
 ---
 
 
-Building a portfolio website might seem straightforward, but creating one that's fast, accessible, SEO-optimized, and genuinely useful is a different story. In this post, I'll walk you through the key decisions and implementations that went into building this site.
+Building a portfolio website is straightforward. Building one that's fast, accessible, SEO-optimized, and useful takes more thought. Here are the key decisions that went into this site.
 
 ## Why Next.js 16?
 
-Next.js has become my go-to framework for React projects, and version 16 brings some fantastic improvements:
+Next.js has become my go-to framework for React projects, and version 16 brings several improvements:
 
 - **App Router**: The new app directory structure makes routing intuitive
 - **Server Components**: Reduced client-side JavaScript for better performance
-- **Static Export**: Perfect for hosting on Vercel or any static host
+- **Static Export**: Works on Vercel or any static host
 - **Built-in Optimizations**: Image optimization, font loading, and more
 
 ```typescript
@@ -108,5 +108,5 @@ This blog you're reading is part of the next phase. I'm planning to write about:
 - Career insights for developers
 - Deep dives into interesting problems
 
-Stay tuned for more content, and feel free to reach out if you have questions!
+Reach out if you have questions.
 

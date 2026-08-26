@@ -38,7 +38,7 @@ async function submitToIndexNow(urls: string[]): Promise<void> {
     urlList: urls,
   };
 
-  console.log(`\n📤 Submitting ${urls.length} URLs to IndexNow...\n`);
+  console.log(`\nSubmitting ${urls.length} URLs to IndexNow...\n`);
   console.log("URLs:");
   urls.forEach((url) => console.log(`  - ${url}`));
   console.log("");
@@ -53,21 +53,21 @@ async function submitToIndexNow(urls: string[]): Promise<void> {
         body: JSON.stringify(payload),
       });
 
-      const statusEmoji = response.status === 200 || response.status === 202 ? "✅" : "❌";
-      console.log(`${statusEmoji} ${endpoint}: ${response.status} ${response.statusText}`);
+      const statusLabel = response.status === 200 || response.status === 202 ? "OK" : "FAIL";
+      console.log(`${statusLabel} ${endpoint}: ${response.status} ${response.statusText}`);
       
       // Only need to submit to one endpoint - they share with each other
       if (response.status === 200 || response.status === 202) {
-        console.log("\n✨ Success! URLs submitted to IndexNow.");
+        console.log("\nSuccess! URLs submitted to IndexNow.");
         console.log("   Search engines will be notified and may crawl soon.\n");
         return;
       }
     } catch (error) {
-      console.log(`❌ ${endpoint}: Error - ${error}`);
+      console.log(`${endpoint}: Error - ${error}`);
     }
   }
 
-  console.log("\n⚠️  Failed to submit to all endpoints.\n");
+  console.log("\n Failed to submit to all endpoints.\n");
 }
 
 function getAllBlogSlugs(): string[] {
@@ -93,7 +93,7 @@ async function main() {
     urls = args.filter((url) => url.startsWith("http"));
     
     if (urls.length === 0) {
-      console.error("❌ Please provide valid URLs starting with http/https");
+      console.error("Please provide valid URLs starting with http/https");
       process.exit(1);
     }
   } else {

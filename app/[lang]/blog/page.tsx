@@ -204,7 +204,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
         {popularPosts.length > 0 && (
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
-              📈 {dict.blog.popularPosts}
+              {dict.blog.popularPosts}
             </h2>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {popularPosts.slice(0, 3).map((post) => (

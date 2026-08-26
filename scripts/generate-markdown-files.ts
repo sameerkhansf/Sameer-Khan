@@ -66,7 +66,7 @@ ${post.content}
     // Write markdown file
     const filePath = path.join(publicBlogDir, `${post.slug}.md`);
     fs.writeFileSync(filePath, markdown, "utf-8");
-    console.log(`✓ Generated: ${filePath}`);
+    console.log(`Generated: ${filePath}`);
   }
 
   // Regenerate the article index inside llms.txt between markers (Simon-style),
@@ -98,14 +98,14 @@ ${post.content}
       articleLines.join("\n")
     );
   fs.writeFileSync(llmsPath, llms);
-  console.log(`✓ Updated: public/llms.txt article index (${posts.length} posts)`);
+  console.log(`Updated: public/llms.txt article index (${posts.length} posts)`);
 
   // Homepage markdown for Accept: text/markdown negotiation — llms.txt is
   // already the maintained markdown overview of the site, so reuse it.
   fs.copyFileSync(llmsPath, path.join(publicDir, "index.md"));
-  console.log("✓ Generated: public/index.md (from llms.txt)");
+  console.log("Generated: public/index.md (from llms.txt)");
 
-  console.log(`\n✅ Generated ${posts.length} markdown files in public/blog/`);
+  console.log(`\nGenerated ${posts.length} markdown files in public/blog/`);
 }
 
 // Run if called directly

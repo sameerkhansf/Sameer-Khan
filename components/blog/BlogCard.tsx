@@ -39,7 +39,7 @@ export default function BlogCard({ post, lang }: BlogCardProps) {
             {/* Featured Badge on Image */}
             {post.featured && (
               <div className="absolute top-3 left-3 px-2.5 py-1 bg-gradient-to-r from-yellow-400 to-yellow-500 text-yellow-900 text-xs font-bold rounded-md shadow-lg backdrop-blur-sm z-10">
-                ⭐ Featured
+                Featured
               </div>
             )}
           </div>
@@ -101,7 +101,7 @@ export default function BlogCard({ post, lang }: BlogCardProps) {
           {/* Right side: Featured Badge (if no image) */}
           {!post.image && post.featured && (
             <div className="px-2.5 py-1 bg-gradient-to-r from-yellow-400 to-yellow-500 text-yellow-900 text-xs font-bold rounded-lg shadow-sm flex-shrink-0 self-start">
-              ⭐ Featured
+              Featured
             </div>
           )}
         </div>

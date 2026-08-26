@@ -82,7 +82,7 @@ The capture note is: "${{ steps.sanitized.outputs.text }}"
    - **Opening**: first sentence states the concrete first-person trigger — what you were doing and what forced the learning ("I needed…", "I noticed…", "For X I found…") — with a link to the real project or issue. The first paragraph doubles as the summary; no throat-clearing.
    - **Length**: target the 150–900 word range, median ~320. Go longer (up to ~1,500) only when the material genuinely demands a deep-dive.
    - **Body**: prose interleaved with at least one fenced code block containing real commands and real output (88% of Simon's posts have code). 3–5 external links to primary sources. H2 subheads only if the post runs long. End with the working final version or a pointer to it.
-   - **Never**: "In today's fast-paced world" intros, unsupported superlatives, invented anecdotes, "what is X" boilerplate.
+   - **Never**: "In today's fast-paced world" intros, unsupported superlatives, invented anecdotes, "what is X" boilerplate, emoji anywhere (headings, tables, lists — use "Yes"/"No" in comparison tables, plain words everywhere else).
 
 5. **Evidence bundle.** Write a JSON evidence file to cache-memory named after the slug: source URLs with access dates, versions of any tools referenced, commands run with outputs, and the list of factual claims mapped to sources. Repeat the evidence summary in the PR description — that is its permanent record.
 

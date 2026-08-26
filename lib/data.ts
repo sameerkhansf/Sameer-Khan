@@ -78,9 +78,9 @@ export const profileData = {
     },
   ] as Expertise[],
   languages: [
-    { name: "English", flag: "🇺🇸", proficiency: "Native" },
-    { name: "Urdu", flag: "🇵🇰", proficiency: "Native" },
-    { name: "Hindi", flag: "🇮🇳", proficiency: "Fluent" },
+    { name: "English", proficiency: "Native" },
+    { name: "Urdu", proficiency: "Native" },
+    { name: "Hindi", proficiency: "Fluent" },
   ],
   socialLinks: [
     {

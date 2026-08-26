@@ -57,7 +57,7 @@ submit_to_indexnow() {
     local payload="$1"
     local endpoint="https://api.indexnow.org/indexnow"
     
-    echo "${YELLOW}📤 Submitting to IndexNow...${NC}"
+    echo "${YELLOW}Submitting to IndexNow...${NC}"
     echo ""
     
     response=$(curl -s -w "\n%{http_code}" -X POST "$endpoint" \
@@ -68,17 +68,17 @@ submit_to_indexnow() {
     body=$(echo "$response" | sed '$d')
     
     if [ "$http_code" = "200" ] || [ "$http_code" = "202" ]; then
-        echo "${GREEN}✅ Success! HTTP ${http_code}${NC}"
-        echo "${GREEN}✨ URLs submitted to IndexNow. Search engines will be notified.${NC}"
+        echo "${GREEN}Success! HTTP ${http_code}${NC}"
+        echo "${GREEN}URLs submitted to IndexNow. Search engines will be notified.${NC}"
     else
-        echo "${RED}❌ Failed! HTTP ${http_code}${NC}"
+        echo "${RED}Failed! HTTP ${http_code}${NC}"
         echo "Response: $body"
     fi
 }
 
 # Main
 echo ""
-echo "🔍 IndexNow URL Submission"
+echo "IndexNow URL Submission"
 echo "=========================="
 
 if [ $# -eq 0 ]; then

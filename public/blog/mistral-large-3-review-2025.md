@@ -19,7 +19,7 @@ Complete review of Mistral Large 3 (2512), the latest frontier model from Mistra
 **Author:** Sameer Khan
 **Category:** AI
 **Reading Time:** 9 min read
-**Word Count:** 1675
+**Word Count:** 1671
 
 ---
 
@@ -119,7 +119,7 @@ Mistral took a different approach than GPT-5.2's three-tier system (Instant/Thin
 - Added monitoring and metrics collection
 - Created comprehensive tests
 
-**Quality:** ✅ Very good. Architecture was sound, implementation was clean. GPT-5.2's version was slightly more polished, but Large 3's was production-ready.
+**Quality:** Very good. Architecture was sound, implementation was clean. GPT-5.2's version was slightly more polished, but Large 3's was production-ready.
 
 ### Task 2: Mathematical Proof
 
@@ -132,7 +132,7 @@ Mistral took a different approach than GPT-5.2's three-tier system (Instant/Thin
 - Provided step-by-step proof
 - Explained each step clearly
 
-**Quality:** ✅ Excellent. Clear, rigorous proof. Matched GPT-5.2's quality.
+**Quality:** Excellent. Clear, rigorous proof. Matched GPT-5.2's quality.
 
 ### Task 3: Scientific Explanation
 
@@ -146,7 +146,7 @@ Mistral took a different approach than GPT-5.2's three-tier system (Instant/Thin
 - Addressed common misconceptions
 - Connected to real-world applications
 
-**Quality:** ✅ Very good. Clear explanation, though GPT-5.2's was slightly more intuitive.
+**Quality:** Very good. Clear explanation, though GPT-5.2's was slightly more intuitive.
 
 ### Task 4: Multi-Step Reasoning
 
@@ -159,7 +159,7 @@ Mistral took a different approach than GPT-5.2's three-tier system (Instant/Thin
 - Showed work clearly
 - Arrived at correct answer
 
-**Quality:** ✅ Good. Handled multi-step reasoning well, though GPT-5.2 was slightly more reliable on complex chains.
+**Quality:** Good. Handled multi-step reasoning well, though GPT-5.2 was slightly more reliable on complex chains.
 
 ### Task 5: Code Review and Refactoring
 
@@ -173,7 +173,7 @@ Mistral took a different approach than GPT-5.2's three-tier system (Instant/Thin
 - Explained reasoning for each change
 - Maintained functionality
 
-**Quality:** ✅ Excellent. Comprehensive review, clean refactor. Matched GPT-5.2's quality.
+**Quality:** Excellent. Comprehensive review, clean refactor. Matched GPT-5.2's quality.
 
 ---
 
@@ -330,7 +330,7 @@ Large 3's responses are:
 
 If you need GPT-5.2-level capabilities but can't justify the cost, Large 3 delivers 92% of the performance at 15% of the price. For most applications, that 8% performance gap isn't worth the 6-9x cost premium.
 
-Large 3 particularly shines for:
+Large 3 is particularly strong for:
 
 - High-volume applications where cost compounds
 - Coding tasks where it's competitive with GPT-5.2

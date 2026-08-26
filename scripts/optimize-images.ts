@@ -84,7 +84,7 @@ async function optimizeImage(filePath: string): Promise<void> {
 
   // Skip if WebP version already exists and is newer
   if (isAlreadyOptimized(filePath)) {
-    console.log(`⏭️  Skipped: ${relativePath} (already optimized)`);
+    console.log(`⏭  Skipped: ${relativePath} (already optimized)`);
     return;
   }
 
@@ -136,9 +136,9 @@ async function optimizeImage(filePath: string): Promise<void> {
       }
     }
 
-    console.log(`✅ Optimized: ${relativePath} (${formatBytes(originalSize)} → ${formatBytes(webpSize)}, ${savingsPercent}% smaller)`);
+    console.log(`Optimized: ${relativePath} (${formatBytes(originalSize)} → ${formatBytes(webpSize)}, ${savingsPercent}% smaller)`);
   } catch (error) {
-    console.error(`❌ Error optimizing ${filePath}:`, error);
+    console.error(`Error optimizing ${filePath}:`, error);
   }
 }
 
@@ -189,17 +189,17 @@ function findImages(dir: string): string[] {
  * Main function
  */
 async function main() {
-  console.log('🖼️  Starting image optimization...\n');
+  console.log(' Starting image optimization...\n');
 
   if (!fs.existsSync(PUBLIC_DIR)) {
-    console.error(`❌ Public directory not found: ${PUBLIC_DIR}`);
+    console.error(`Public directory not found: ${PUBLIC_DIR}`);
     process.exit(1);
   }
 
   const images = findImages(PUBLIC_DIR);
   
   if (images.length === 0) {
-    console.log('ℹ️  No images found to optimize.');
+    console.log('No images found to optimize.');
     return;
   }
 
@@ -212,7 +212,7 @@ async function main() {
 
   // Print summary
   console.log('\n' + '='.repeat(60));
-  console.log('📊 Optimization Summary');
+  console.log('Optimization Summary');
   console.log('='.repeat(60));
 
   if (stats.length > 0) {
@@ -241,12 +241,12 @@ async function main() {
     }
   }
 
-  console.log('\n✅ Image optimization complete!');
+  console.log('\nImage optimization complete!');
   
   if (stats.length === 0) {
-    console.log('ℹ️  All images were already optimized. No changes needed.\n');
+    console.log('All images were already optimized. No changes needed.\n');
   } else {
-    console.log('\n💡 Note: Already-optimized images are automatically skipped.');
+    console.log('\nNote: Already-optimized images are automatically skipped.');
     console.log('   To force re-optimization, delete the .webp files and run again.\n');
   }
 }

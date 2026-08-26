@@ -91,7 +91,6 @@ const MobileHeader = () => {
                 key={language.name}
                 className="inline-flex items-center gap-2 px-3 py-1 text-sm bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:bg-resumx-purple hover:text-white hover:border-resumx-purple transition-all duration-200"
               >
-                <span className="text-base">{language.flag}</span>
                 {language.name}
               </span>
             ))}
