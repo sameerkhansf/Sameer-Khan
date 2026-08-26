@@ -12,10 +12,7 @@ on:
 
 permissions: read-all
 
-network:
-  allowed:
-    - defaults
-    - integrate.api.nvidia.com
+network: defaults
 
 models:
   default-ai-credits-pricing:
@@ -37,17 +34,11 @@ tools:
 timeout-minutes: 15
 
 engine:
-  id: copilot
+  id: claude
   env:
-    COPILOT_PROVIDER_BASE_URL: https://integrate.api.nvidia.com/v1
-    COPILOT_MODEL: nvidia/nemotron-3.5-lightning-30b-a3b
-    COPILOT_PROVIDER_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
-
-sandbox:
-  agent:
-    id: awf
-    model-fallback: false
-    token-steering: false
+    ANTHROPIC_MODEL: "nvidia/nemotron-3.5-lightning:free"
+    ANTHROPIC_BASE_URL: "https://openrouter.ai/api/v1"
+    ANTHROPIC_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
 
 source: githubnext/agentics/workflows/weekly-research.md@ae8d551f07c7ed7619f8c58c7bb4c3ac89395d38
 ---
