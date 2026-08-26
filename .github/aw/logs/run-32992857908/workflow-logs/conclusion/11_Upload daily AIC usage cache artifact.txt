@@ -1,0 +1,28 @@
+﻿2026-08-26T17:31:33.7972288Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-08-26T17:31:33.7973343Z with:
+2026-08-26T17:31:33.7973941Z   name: aic-usage-cache
+2026-08-26T17:31:33.7974926Z   path: /tmp/gh-aw/agentic-workflow-usage-cache.jsonl
+2026-08-26T17:31:33.7975718Z   if-no-files-found: ignore
+2026-08-26T17:31:33.7976352Z   retention-days: 7
+2026-08-26T17:31:33.7976960Z   compression-level: 6
+2026-08-26T17:31:33.7977571Z   overwrite: false
+2026-08-26T17:31:33.7978187Z   include-hidden-files: false
+2026-08-26T17:31:33.7981754Z   archive: true
+2026-08-26T17:31:33.7982427Z env:
+2026-08-26T17:31:33.7983001Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:31:33.7983740Z   GITHUB_AW_OTEL_TRACE_ID: 4f2b70eb5c2bda3aaef715147050ff46
+2026-08-26T17:31:33.7984539Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 9b02b24a2e82e64a
+2026-08-26T17:31:33.7985804Z   GITHUB_AW_OTEL_JOB_START_MS: 1787765485137
+2026-08-26T17:31:33.7986512Z ##[endgroup]
+2026-08-26T17:31:34.0582926Z With the provided path, there will be 1 file uploaded
+2026-08-26T17:31:34.0595015Z Artifact name is valid!
+2026-08-26T17:31:34.0598758Z Root directory input is valid!
+2026-08-26T17:31:34.3015823Z Uploading artifact: aic-usage-cache.zip
+2026-08-26T17:31:34.3087331Z Beginning upload of artifact content to blob storage
+2026-08-26T17:31:34.4608488Z Uploaded bytes 254
+2026-08-26T17:31:34.4982513Z Finished uploading artifact content to blob storage!
+2026-08-26T17:31:34.4989763Z SHA256 digest of uploaded artifact is 3f7c0acef62b4dea2ba4ae9bb75416fbfb0b614004c3499495a2d9685c102817
+2026-08-26T17:31:34.4992023Z Finalizing artifact upload
+2026-08-26T17:31:34.7941150Z Artifact aic-usage-cache successfully finalized. Artifact ID 9615974110
+2026-08-26T17:31:34.7943454Z Artifact aic-usage-cache has been successfully uploaded! Final size is 254 bytes. Artifact ID is 9615974110
+2026-08-26T17:31:34.7951082Z Artifact download URL: https://github.com/sameerkhansf/Sameer-Khan/actions/runs/32992857908/artifacts/9615974110

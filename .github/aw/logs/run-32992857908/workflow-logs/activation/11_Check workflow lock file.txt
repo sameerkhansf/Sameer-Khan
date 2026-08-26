@@ -1,0 +1,36 @@
+﻿2026-08-26T17:14:18.1134674Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T17:14:18.1138570Z with:
+2026-08-26T17:14:18.1166400Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/check_workflow_timestamp_api.cjs');
+await main();
+
+2026-08-26T17:14:18.1193696Z   github-token: ***
+2026-08-26T17:14:18.1194787Z   debug: false
+2026-08-26T17:14:18.1196273Z   user-agent: actions/github-script
+2026-08-26T17:14:18.1199822Z   result-encoding: json
+2026-08-26T17:14:18.1200810Z   retries: 0
+2026-08-26T17:14:18.1203472Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T17:14:18.1209496Z env:
+2026-08-26T17:14:18.1210551Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-08-26T17:14:18.1211652Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:14:18.1213335Z   GITHUB_AW_OTEL_TRACE_ID: 4f2b70eb5c2bda3aaef715147050ff46
+2026-08-26T17:14:18.1214797Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 513d53e148c8f8b1
+2026-08-26T17:14:18.1217067Z   GITHUB_AW_OTEL_JOB_START_MS: 1787764449814
+2026-08-26T17:14:18.1218300Z   GH_AW_WORKFLOW_FILE: til-writer.lock.yml
+2026-08-26T17:14:18.1223736Z   GH_AW_CONTEXT_WORKFLOW_REF: sameerkhansf/Sameer-Khan/.github/workflows/til-writer.lock.yml@refs/heads/main
+2026-08-26T17:14:18.1227589Z ##[endgroup]
+2026-08-26T17:14:18.4018528Z Checking for stale lock file using frontmatter hash:
+2026-08-26T17:14:18.4025340Z   Source: .github/workflows/til-writer.md
+2026-08-26T17:14:18.4108369Z   Lock file: .github/workflows/til-writer.lock.yml
+2026-08-26T17:14:18.4110833Z Env workflow ref already identifies this workflow, skipping referenced_workflows API lookup
+2026-08-26T17:14:18.4113342Z GITHUB_WORKFLOW_REF: sameerkhansf/Sameer-Khan/.github/workflows/til-writer.lock.yml@refs/heads/main
+2026-08-26T17:14:18.4117231Z GH_AW_CONTEXT_WORKFLOW_REF: sameerkhansf/Sameer-Khan/.github/workflows/til-writer.lock.yml@refs/heads/main (available as env fallback)
+2026-08-26T17:14:18.4120000Z GITHUB_REPOSITORY: sameerkhansf/Sameer-Khan
+2026-08-26T17:14:18.4122064Z Resolved source repo: sameerkhansf/Sameer-Khan @ refs/heads/main
+2026-08-26T17:14:18.4125962Z Same-repo invocation: checking out sameerkhansf/Sameer-Khan @ refs/heads/main
+2026-08-26T17:14:19.0012977Z Frontmatter hash comparison:
+2026-08-26T17:14:19.0018946Z   Lock file hash:    4989ca783f9cb466c4ba0a49f686ebfe8f2ca04c0e41cb89e8f6d24c0abe6157
+2026-08-26T17:14:19.0025588Z   Recomputed hash:   4989ca783f9cb466c4ba0a49f686ebfe8f2ca04c0e41cb89e8f6d24c0abe6157
+2026-08-26T17:14:19.0029501Z   Status: ✅ Hashes match
+2026-08-26T17:14:19.0031544Z ✅ Lock file is up to date (hashes match)

@@ -1,0 +1,164 @@
+﻿2026-08-26T17:15:16.2717422Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T17:15:16.2717830Z with:
+2026-08-26T17:15:16.2718761Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/generate_safe_outputs_tools.cjs');
+await main();
+
+2026-08-26T17:15:16.2722863Z   github-token: ***
+2026-08-26T17:15:16.2723102Z   debug: false
+2026-08-26T17:15:16.2723338Z   user-agent: actions/github-script
+2026-08-26T17:15:16.2723624Z   result-encoding: json
+2026-08-26T17:15:16.2723868Z   retries: 0
+2026-08-26T17:15:16.2724113Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T17:15:16.2724409Z env:
+2026-08-26T17:15:16.2724620Z   DEFAULT_BRANCH: main
+2026-08-26T17:15:16.2724859Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-08-26T17:15:16.2725123Z   GH_AW_ASSETS_BRANCH: 
+2026-08-26T17:15:16.2725351Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-08-26T17:15:16.2725671Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-08-26T17:15:16.2725987Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:15:16.2726249Z   GH_AW_WORKFLOW_ID_SANITIZED: tilwriter
+2026-08-26T17:15:16.2726602Z   GITHUB_AW_OTEL_TRACE_ID: 4f2b70eb5c2bda3aaef715147050ff46
+2026-08-26T17:15:16.2726972Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: ea79d1e1c50c21ab
+2026-08-26T17:15:16.2727308Z   GITHUB_AW_OTEL_JOB_START_MS: 1787764475821
+2026-08-26T17:15:16.2728395Z   GH_AW_TOOLS_META_JSON: {
+  "description_suffixes": {
+    "create_pull_request": " CONSTRAINTS: Maximum 1 pull request(s) can be created. Title will be prefixed with \"[til] \". Labels [\"til\" \"automated\"] will be automatically added. PRs will be created as drafts."
+  },
+  "repo_params": {},
+  "dynamic_tools": []
+}
+
+2026-08-26T17:15:16.2734823Z   GH_AW_VALIDATION_JSON: {
+  "create_pull_request": {
+    "defaultMax": 1,
+    "fields": {
+      "base": {
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 128
+      },
+      "body": {
+        "required": true,
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 65000
+      },
+      "branch": {
+        "required": true,
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 256
+      },
+      "draft": {
+        "type": "boolean"
+      },
+      "labels": {
+        "type": "array",
+        "itemType": "string",
+        "itemSanitize": true,
+        "itemMaxLength": 128
+      },
+      "repo": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "temporary_id": {
+        "type": "string",
+        "pattern": "^#?aw_[A-Za-z0-9_]{3,12}$"
+      },
+      "title": {
+        "required": true,
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 128
+      }
+    }
+  },
+  "missing_data": {
+    "defaultMax": 20,
+    "fields": {
+      "alternatives": {
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 256
+      },
+      "context": {
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 256
+      },
+      "data_type": {
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 128
+      },
+      "reason": {
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 256
+      }
+    }
+  },
+  "missing_tool": {
+    "defaultMax": 20,
+    "fields": {
+      "alternatives": {
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 512
+      },
+      "reason": {
+        "required": true,
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 256
+      },
+      "tool": {
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 128
+      }
+    }
+  },
+  "noop": {
+    "defaultMax": 1,
+    "fields": {
+      "message": {
+        "required": true,
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 65000
+      }
+    }
+  },
+  "push_repo_memory": {
+    "defaultMax": 1,
+    "fields": {
+      "memory_id": {
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 128
+      }
+    }
+  },
+  "report_incomplete": {
+    "defaultMax": 5,
+    "fields": {
+      "details": {
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 65000
+      },
+      "reason": {
+        "required": true,
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 1024
+      }
+    }
+  }
+}
+
+2026-08-26T17:15:16.2741207Z ##[endgroup]

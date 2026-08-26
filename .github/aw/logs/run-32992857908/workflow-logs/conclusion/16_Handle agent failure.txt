@@ -1,0 +1,107 @@
+﻿2026-08-26T17:31:36.3612430Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T17:31:36.3614279Z with:
+2026-08-26T17:31:36.3618908Z   github-token: ***
+2026-08-26T17:31:36.3620395Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/handle_agent_failure.cjs');
+await main();
+
+2026-08-26T17:31:36.3623340Z   debug: false
+2026-08-26T17:31:36.3623960Z   user-agent: actions/github-script
+2026-08-26T17:31:36.3626608Z   result-encoding: json
+2026-08-26T17:31:36.3627277Z   retries: 0
+2026-08-26T17:31:36.3627993Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T17:31:36.3628663Z env:
+2026-08-26T17:31:36.3629661Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:31:36.3641815Z   GITHUB_AW_OTEL_TRACE_ID: 4f2b70eb5c2bda3aaef715147050ff46
+2026-08-26T17:31:36.3642645Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 9b02b24a2e82e64a
+2026-08-26T17:31:36.3645270Z   GITHUB_AW_OTEL_JOB_START_MS: 1787765485137
+2026-08-26T17:31:36.3649270Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-08-26T17:31:36.3650046Z   GH_AW_WORKFLOW_NAME: TIL Writer
+2026-08-26T17:31:36.3651032Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/sameerkhansf/Sameer-Khan/blob/main/.github/workflows/til-writer.md
+2026-08-26T17:31:36.3653405Z   GH_AW_RUN_URL: https://github.com/sameerkhansf/Sameer-Khan/actions/runs/32992857908
+2026-08-26T17:31:36.3658812Z   GH_AW_AGENT_CONCLUSION: failure
+2026-08-26T17:31:36.3659526Z   GH_AW_WORKFLOW_ID: til-writer
+2026-08-26T17:31:36.3662240Z   GH_AW_ACTION_FAILURE_ISSUE_EXPIRES_HOURS: 168
+2026-08-26T17:31:36.3663291Z   GH_AW_ENGINE_ID: copilot
+2026-08-26T17:31:36.3665987Z   GH_AW_CHECKOUT_PR_SUCCESS: true
+2026-08-26T17:31:36.3667296Z   GH_AW_EFFECTIVE_TOKENS: 
+2026-08-26T17:31:36.3668780Z   GH_AW_AI_CREDITS_RATE_LIMIT_ERROR: false
+2026-08-26T17:31:36.3669837Z   GH_AW_UNKNOWN_MODEL_AI_CREDITS: false
+2026-08-26T17:31:36.3670759Z   GH_AW_AIC: 
+2026-08-26T17:31:36.3671360Z   GH_AW_THREAT_DETECTION_AIC: 
+2026-08-26T17:31:36.3671986Z   GH_AW_MAX_AI_CREDITS: 1000
+2026-08-26T17:31:36.3672601Z   GH_AW_INFERENCE_ACCESS_ERROR: false
+2026-08-26T17:31:36.3673235Z   GH_AW_MCP_POLICY_ERROR: false
+2026-08-26T17:31:36.3673852Z   GH_AW_AGENTIC_ENGINE_TIMEOUT: false
+2026-08-26T17:31:36.3674501Z   GH_AW_MODEL_NOT_SUPPORTED_ERROR: false
+2026-08-26T17:31:36.3675353Z   GH_AW_HTTP_400_RESPONSE_ERROR: false
+2026-08-26T17:31:36.3676004Z   GH_AW_MAX_CACHE_MISSES_EXCEEDED: false
+2026-08-26T17:31:36.3676671Z   GH_AW_MISSING_MODEL_PRICING_ERROR: false
+2026-08-26T17:31:36.3677767Z   GH_AW_MISSING_MODEL_PRICING_MODEL_NAME: 
+2026-08-26T17:31:36.3678927Z   GH_AW_ENGINE_API_HOSTS: api.enterprise.githubcopilot.com,api.githubcopilot.com,api.business.githubcopilot.com,api.individual.githubcopilot.com
+2026-08-26T17:31:36.3680069Z   GH_AW_CODE_PUSH_FAILURE_ERRORS: 
+2026-08-26T17:31:36.3680704Z   GH_AW_CODE_PUSH_FAILURE_COUNT: 
+2026-08-26T17:31:36.3681327Z   GH_AW_LOCKDOWN_CHECK_FAILED: false
+2026-08-26T17:31:36.3682077Z   GH_AW_OAUTH_TOKEN_CHECK_FAILED: false
+2026-08-26T17:31:36.3682736Z   GH_AW_STALE_LOCK_FILE_FAILED: false
+2026-08-26T17:31:36.3683371Z   GH_AW_DAILY_AI_CREDITS_EXCEEDED: false
+2026-08-26T17:31:36.3684046Z   GH_AW_DAILY_AI_CREDITS_TOTAL_EFFECTIVE_TOKENS: 
+2026-08-26T17:31:36.3684894Z   GH_AW_DAILY_AI_CREDITS_THRESHOLD: 
+2026-08-26T17:31:36.3685547Z   GH_AW_PUSH_REPO_MEMORY_RESULT: skipped
+2026-08-26T17:31:36.3686234Z   GH_AW_REPO_MEMORY_VALIDATION_FAILED_default: 
+2026-08-26T17:31:36.3687486Z   GH_AW_REPO_MEMORY_VALIDATION_ERROR_default: 
+2026-08-26T17:31:36.3688218Z   GH_AW_REPO_MEMORY_PATCH_SIZE_EXCEEDED_default: 
+2026-08-26T17:31:36.3688895Z   GH_AW_GROUP_REPORTS: false
+2026-08-26T17:31:36.3689509Z   GH_AW_FAILURE_REPORT_AS_ISSUE: true
+2026-08-26T17:31:36.3690508Z   GH_AW_MISSING_TOOL_REPORT_AS_FAILURE: true
+2026-08-26T17:31:36.3691213Z   GH_AW_MISSING_DATA_REPORT_AS_FAILURE: true
+2026-08-26T17:31:36.3691866Z   GH_AW_TIMEOUT_MINUTES: 25
+2026-08-26T17:31:36.3704413Z ##[endgroup]
+2026-08-26T17:31:37.0174159Z [ai-credits] aiCredits source=none GH_AW_AIC=(unset)
+2026-08-26T17:31:37.0187609Z [ai-credits] maxAICredits source=env(GH_AW_MAX_AI_CREDITS) value=1000
+2026-08-26T17:31:37.0194396Z [ai-credits] rateLimitSignal source=none
+2026-08-26T17:31:37.0220485Z Agent conclusion: failure
+2026-08-26T17:31:37.0225633Z Workflow name: TIL Writer
+2026-08-26T17:31:37.0231415Z Workflow ID: til-writer
+2026-08-26T17:31:37.0238536Z Secret verification result: 
+2026-08-26T17:31:37.0250298Z Engine secret failure message: (none)
+2026-08-26T17:31:37.0362049Z Assignment error count: 0
+2026-08-26T17:31:37.0528502Z Assign copilot failure count: 0
+2026-08-26T17:31:37.0529214Z Skill install failure count: 0
+2026-08-26T17:31:37.0529723Z Create discussion error count: 0
+2026-08-26T17:31:37.0530355Z Code push failure count: 0
+2026-08-26T17:31:37.0530887Z Checkout PR success: true
+2026-08-26T17:31:37.0531372Z AI credits: (none)
+2026-08-26T17:31:37.0531833Z Configured max AI credits: 1000
+2026-08-26T17:31:37.0532369Z AI credits rate-limit error: false
+2026-08-26T17:31:37.0533640Z Max AI credits exceeded (harness budget abort): false
+2026-08-26T17:31:37.0534915Z Daily workflow AIC guardrail exceeded: false
+2026-08-26T17:31:37.0535514Z Inference access error: false
+2026-08-26T17:31:37.0536026Z MCP policy error: false
+2026-08-26T17:31:37.0536514Z Agentic engine timeout: false
+2026-08-26T17:31:37.0537032Z Model not supported error: false
+2026-08-26T17:31:37.0537545Z HTTP 400 response error: false
+2026-08-26T17:31:37.0538061Z Unknown model AI credits error: false
+2026-08-26T17:31:37.0538720Z Unknown model AI credits sources (audit/output): false/false
+2026-08-26T17:31:37.0539405Z Missing model pricing error: false (model: (unknown))
+2026-08-26T17:31:37.0540003Z Push repo-memory result: skipped
+2026-08-26T17:31:37.0540694Z App token minting failed (safe_outputs/conclusion/activation): false/false/false
+2026-08-26T17:31:37.0541386Z Lockdown check failed: false
+2026-08-26T17:31:37.0541845Z OAuth token check failed: false
+2026-08-26T17:31:37.0542530Z Stale lock file check failed: false
+2026-08-26T17:31:37.0543017Z Cache memory enabled: false
+2026-08-26T17:31:37.0543502Z Cache memory restored (from restore outputs): false
+2026-08-26T17:31:37.0544053Z Missing tool report-as-failure: true
+2026-08-26T17:31:37.0544548Z Missing data report-as-failure: true
+2026-08-26T17:31:37.0602154Z Agent output content length: 24
+2026-08-26T17:31:37.1163276Z Searching for pull request from branch: main
+2026-08-26T17:31:37.4959936Z No pull request found for branch: main
+2026-08-26T17:31:37.5366884Z Parent issue creation is disabled (group-reports: false)
+2026-08-26T17:31:37.5649684Z Checking for existing issue with precise failure metadata for title: "[aw] TIL Writer failed"
+2026-08-26T17:31:37.7629320Z No existing issue found, creating a new one
+2026-08-26T17:31:38.0570646Z No specific error patterns found; including last 10 line(s) of agent-stdio.log as fallback
+2026-08-26T17:31:38.0593211Z Generating failure issue footer with aiCredits context: (none)
+2026-08-26T17:31:39.0037114Z [@octokit/request] "POST https://api.github.com/repos/sameerkhansf/Sameer-Khan/issues" is deprecated. It is scheduled to be removed on Fri, 10 Mar 2028 00:00:00 GMT. See https://docs.github.com/en/rest/about-the-rest-api/api-versions
+2026-08-26T17:31:39.0060052Z ✓ Created new issue #11: https://github.com/sameerkhansf/Sameer-Khan/issues/11
+2026-08-26T17:31:39.4296867Z Cascade check: 2 failure issue(s) in the last 60 min (threshold: 10) — no cascade

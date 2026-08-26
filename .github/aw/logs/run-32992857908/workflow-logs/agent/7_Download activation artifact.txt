@@ -1,0 +1,32 @@
+﻿2026-08-26T17:14:37.1332132Z ##[group]Run actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+2026-08-26T17:14:37.1332573Z with:
+2026-08-26T17:14:37.1332783Z   name: activation
+2026-08-26T17:14:37.1333000Z   path: /tmp/gh-aw
+2026-08-26T17:14:37.1333229Z   merge-multiple: false
+2026-08-26T17:14:37.1333510Z   repository: sameerkhansf/Sameer-Khan
+2026-08-26T17:14:37.1333782Z   run-id: 32992857908
+2026-08-26T17:14:37.1334113Z   skip-decompress: false
+2026-08-26T17:14:37.1334385Z   digest-mismatch: error
+2026-08-26T17:14:37.1334612Z env:
+2026-08-26T17:14:37.1334812Z   DEFAULT_BRANCH: main
+2026-08-26T17:14:37.1335047Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-08-26T17:14:37.1335296Z   GH_AW_ASSETS_BRANCH: 
+2026-08-26T17:14:37.1335520Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-08-26T17:14:37.1335798Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-08-26T17:14:37.1336109Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:14:37.1336367Z   GH_AW_WORKFLOW_ID_SANITIZED: tilwriter
+2026-08-26T17:14:37.1336702Z   GITHUB_AW_OTEL_TRACE_ID: 4f2b70eb5c2bda3aaef715147050ff46
+2026-08-26T17:14:37.1337104Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: ea79d1e1c50c21ab
+2026-08-26T17:14:37.1353254Z   GITHUB_AW_OTEL_JOB_START_MS: 1787764475821
+2026-08-26T17:14:37.1353716Z ##[endgroup]
+2026-08-26T17:14:37.3351553Z Downloading single artifact
+2026-08-26T17:14:37.4693774Z Preparing to download the following artifacts:
+2026-08-26T17:14:37.4781629Z - activation (ID: 9615323379, Size: 3501232, Expected Digest: sha256:f01d970953595df7871c050e50a83201f89dc5267be969a8c8ba19f58051c77b)
+2026-08-26T17:14:37.6310706Z Redirecting to blob download url: https://productionresultssa8.blob.core.windows.net/actions-results/1e5c9f9a-4ac4-4d62-afff-e7c0ead2f50f/workflow-job-run-f6271267-a1d5-5bca-ab16-0d287a9462e8/artifacts/b15526c9c0e75acea3d1f8055de216c85f0330baf8604e13d8c6ce90fb90d6d7.zip
+2026-08-26T17:14:37.6313007Z Starting download of artifact to: /tmp/gh-aw
+2026-08-26T17:14:37.6934279Z (node:3419) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-08-26T17:14:37.6936389Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-08-26T17:14:38.0451359Z SHA256 digest of downloaded artifact is f01d970953595df7871c050e50a83201f89dc5267be969a8c8ba19f58051c77b
+2026-08-26T17:14:38.0452520Z Artifact download completed successfully.
+2026-08-26T17:14:38.0453277Z Total of 1 artifact(s) downloaded
+2026-08-26T17:14:38.0457584Z Download artifact has finished successfully

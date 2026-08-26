@@ -1,0 +1,76 @@
+﻿2026-08-26T17:14:21.5215114Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T17:14:21.5216703Z with:
+2026-08-26T17:14:21.5235023Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+
+const substitutePlaceholders = require('/home/runner/work/_temp/gh-aw/actions/substitute_placeholders.cjs');
+
+// Call the substitution function
+return await substitutePlaceholders({
+  file: process.env.GH_AW_PROMPT,
+  substitutions: {
+    GH_AW_EXPR_1A3A194A: process.env.GH_AW_EXPR_1A3A194A,
+    GH_AW_EXPR_463A214A: process.env.GH_AW_EXPR_463A214A,
+    GH_AW_EXPR_802A9F6A: process.env.GH_AW_EXPR_802A9F6A,
+    GH_AW_EXPR_FF1D34CE: process.env.GH_AW_EXPR_FF1D34CE,
+    GH_AW_GITHUB_ACTOR: process.env.GH_AW_GITHUB_ACTOR,
+    GH_AW_GITHUB_EVENT_ISSUE_NUMBER: process.env.GH_AW_GITHUB_EVENT_ISSUE_NUMBER,
+    GH_AW_GITHUB_REPOSITORY: process.env.GH_AW_GITHUB_REPOSITORY,
+    GH_AW_GITHUB_RUN_ID: process.env.GH_AW_GITHUB_RUN_ID,
+    GH_AW_GITHUB_WORKSPACE: process.env.GH_AW_GITHUB_WORKSPACE,
+    GH_AW_INCLUDE_PR_CONTEXT: process.env.GH_AW_INCLUDE_PR_CONTEXT,
+    GH_AW_MCP_CLI_SERVERS_LIST: process.env.GH_AW_MCP_CLI_SERVERS_LIST,
+    GH_AW_MEMORY_BRANCH_NAME: process.env.GH_AW_MEMORY_BRANCH_NAME,
+    GH_AW_MEMORY_CONSTRAINTS: process.env.GH_AW_MEMORY_CONSTRAINTS,
+    GH_AW_MEMORY_DESCRIPTION: process.env.GH_AW_MEMORY_DESCRIPTION,
+    GH_AW_MEMORY_DIR: process.env.GH_AW_MEMORY_DIR,
+    GH_AW_MEMORY_TARGET_REPO: process.env.GH_AW_MEMORY_TARGET_REPO,
+    GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ACTIVATED: process.env.GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ACTIVATED,
+    GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_MATCHED_COMMAND: process.env.GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_MATCHED_COMMAND,
+    GH_AW_STEPS_SANITIZED_OUTPUTS_TEXT: process.env.GH_AW_STEPS_SANITIZED_OUTPUTS_TEXT,
+    GH_AW_WIKI_NOTE: process.env.GH_AW_WIKI_NOTE
+  }
+});
+
+2026-08-26T17:14:21.5261450Z   github-token: ***
+2026-08-26T17:14:21.5262237Z   debug: false
+2026-08-26T17:14:21.5263026Z   user-agent: actions/github-script
+2026-08-26T17:14:21.5263974Z   result-encoding: json
+2026-08-26T17:14:21.5264781Z   retries: 0
+2026-08-26T17:14:21.5265614Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T17:14:21.5347247Z env:
+2026-08-26T17:14:21.5348038Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-08-26T17:14:21.5349062Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:14:21.5350090Z   GITHUB_AW_OTEL_TRACE_ID: 4f2b70eb5c2bda3aaef715147050ff46
+2026-08-26T17:14:21.5351324Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 513d53e148c8f8b1
+2026-08-26T17:14:21.5352420Z   GITHUB_AW_OTEL_JOB_START_MS: 1787764449814
+2026-08-26T17:14:21.5353643Z   GH_AW_PROMPT: /home/runner/work/_temp/gh-aw/aw-prompts/prompt.txt
+2026-08-26T17:14:21.5354890Z   GH_AW_EXPR_1A3A194A: false
+2026-08-26T17:14:21.5355771Z   GH_AW_EXPR_463A214A: false
+2026-08-26T17:14:21.5356819Z   GH_AW_EXPR_802A9F6A: 9
+2026-08-26T17:14:21.5357668Z   GH_AW_EXPR_FF1D34CE: 5428462367
+2026-08-26T17:14:21.5358595Z   GH_AW_GITHUB_ACTOR: sameerkhansf
+2026-08-26T17:14:21.5359554Z   GH_AW_GITHUB_EVENT_ISSUE_NUMBER: 9
+2026-08-26T17:14:21.5360598Z   GH_AW_GITHUB_REPOSITORY: sameerkhansf/Sameer-Khan
+2026-08-26T17:14:21.5361697Z   GH_AW_GITHUB_RUN_ID: 32992857908
+2026-08-26T17:14:21.5362833Z   GH_AW_GITHUB_WORKSPACE: /home/runner/work/Sameer-Khan/Sameer-Khan
+2026-08-26T17:14:21.5364092Z   GH_AW_INCLUDE_PR_CONTEXT: false
+2026-08-26T17:14:21.5366067Z   GH_AW_MCP_CLI_SERVERS_LIST: - `github` — run `github --help` to see available tools
+- `safeoutputs` — run `safeoutputs --help` to see available tools
+2026-08-26T17:14:21.5368391Z   GH_AW_MEMORY_BRANCH_NAME: memory/til-writer
+2026-08-26T17:14:21.5370991Z   GH_AW_MEMORY_CONSTRAINTS: 
+
+**Constraints:**
+- **Max File Size**: 1048576 bytes (1.00 MB) per file
+- **Max File Count**: 100 files per commit
+- **Max Patch Size**: 10240 bytes (10 KB) total per push (max: 1024 KB)
+
+2026-08-26T17:14:21.5374509Z   GH_AW_MEMORY_DESCRIPTION:  Evidence bundles per TIL: source URLs, accessed dates, versions, command outputs, factual claims
+2026-08-26T17:14:21.5376914Z   GH_AW_MEMORY_DIR: /tmp/gh-aw/repo-memory/default/
+2026-08-26T17:14:21.5378104Z   GH_AW_MEMORY_TARGET_REPO:  of the current repository
+2026-08-26T17:14:21.5379298Z   GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_ACTIVATED: true
+2026-08-26T17:14:21.5380530Z   GH_AW_NEEDS_PRE_ACTIVATION_OUTPUTS_MATCHED_COMMAND: til
+2026-08-26T17:14:21.5382809Z   GH_AW_STEPS_SANITIZED_OUTPUTS_TEXT: /til write this up from the capture note above — the gh-aw + NVIDIA NIM free endpoint setup with the three failures and fixes
+2026-08-26T17:14:21.5384955Z   GH_AW_WIKI_NOTE: 
+2026-08-26T17:14:21.5385707Z ##[endgroup]
+2026-08-26T17:14:21.6871016Z [substitutePlaceholders] /home/runner/work/_temp/gh-aw/aw-prompts/prompt.txt (20 substitution(s))

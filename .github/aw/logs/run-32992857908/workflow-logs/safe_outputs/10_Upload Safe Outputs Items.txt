@@ -1,0 +1,46 @@
+﻿2026-08-26T17:30:58.9226076Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-08-26T17:30:58.9226953Z with:
+2026-08-26T17:30:58.9227395Z   name: safe-outputs-items
+2026-08-26T17:30:58.9228122Z   path: /tmp/gh-aw/safe-output-items.jsonl
+/tmp/gh-aw/temporary-id-map.json
+
+2026-08-26T17:30:58.9229322Z   if-no-files-found: ignore
+2026-08-26T17:30:58.9229833Z   compression-level: 6
+2026-08-26T17:30:58.9230309Z   overwrite: false
+2026-08-26T17:30:58.9230770Z   include-hidden-files: false
+2026-08-26T17:30:58.9231281Z   archive: true
+2026-08-26T17:30:58.9231697Z env:
+2026-08-26T17:30:58.9232097Z   GH_AW_AGENT_AIC: 
+2026-08-26T17:30:58.9232531Z   GH_AW_AIC: 
+2026-08-26T17:30:58.9232962Z   GH_AW_AMBIENT_CONTEXT: 29572
+2026-08-26T17:30:58.9233611Z   GH_AW_CALLER_WORKFLOW_ID: sameerkhansf/Sameer-Khan/til-writer
+2026-08-26T17:30:58.9234294Z   GH_AW_COMMANDS: ["til"]
+2026-08-26T17:30:58.9234801Z   GH_AW_DETECTION_CONCLUSION: skipped
+2026-08-26T17:30:58.9235362Z   GH_AW_DETECTION_REASON: 
+2026-08-26T17:30:58.9235865Z   GH_AW_EFFECTIVE_TOKENS: 
+2026-08-26T17:30:58.9236590Z   GH_AW_ENGINE_ID: copilot
+2026-08-26T17:30:58.9237118Z   GH_AW_ENGINE_MODEL: auto
+2026-08-26T17:30:58.9237617Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:30:58.9238119Z   GH_AW_THREAT_DETECTION_AIC: 
+2026-08-26T17:30:58.9238866Z   GH_AW_WORKFLOW_ID: til-writer
+2026-08-26T17:30:58.9239413Z   GH_AW_WORKFLOW_NAME: TIL Writer
+2026-08-26T17:30:58.9240379Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/sameerkhansf/Sameer-Khan/blob/main/.github/workflows/til-writer.md
+2026-08-26T17:30:58.9241467Z   GITHUB_AW_OTEL_TRACE_ID: 4f2b70eb5c2bda3aaef715147050ff46
+2026-08-26T17:30:58.9242190Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 121d8a3bac6839db
+2026-08-26T17:30:58.9242827Z   GITHUB_AW_OTEL_JOB_START_MS: 1787765456854
+2026-08-26T17:30:58.9243403Z   GH_HOST: github.com
+2026-08-26T17:30:58.9243853Z ##[endgroup]
+2026-08-26T17:30:59.1076569Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-08-26T17:30:59.1182522Z The least common ancestor is /tmp/gh-aw. This will be the root directory of the artifact
+2026-08-26T17:30:59.1186577Z With the provided path, there will be 1 file uploaded
+2026-08-26T17:30:59.1200784Z Artifact name is valid!
+2026-08-26T17:30:59.1210110Z Root directory input is valid!
+2026-08-26T17:30:59.3916587Z Uploading artifact: safe-outputs-items.zip
+2026-08-26T17:30:59.3979093Z Beginning upload of artifact content to blob storage
+2026-08-26T17:30:59.5470247Z Uploaded bytes 162
+2026-08-26T17:30:59.5795716Z Finished uploading artifact content to blob storage!
+2026-08-26T17:30:59.5802268Z SHA256 digest of uploaded artifact is f321675b81530bb79692de60229f200813aa632f3ac500e1238a2c00087ae053
+2026-08-26T17:30:59.5806102Z Finalizing artifact upload
+2026-08-26T17:30:59.8881616Z Artifact safe-outputs-items successfully finalized. Artifact ID 9615951289
+2026-08-26T17:30:59.8883078Z Artifact safe-outputs-items has been successfully uploaded! Final size is 162 bytes. Artifact ID is 9615951289
+2026-08-26T17:30:59.8884577Z Artifact download URL: https://github.com/sameerkhansf/Sameer-Khan/actions/runs/32992857908/artifacts/9615951289

@@ -1,0 +1,39 @@
+﻿2026-08-26T09:37:37.2381588Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-08-26T09:37:37.2382449Z with:
+2026-08-26T09:37:37.2382881Z   name: usage
+2026-08-26T09:37:37.2385143Z   path: /tmp/gh-aw/usage/aw_info.json
+/tmp/gh-aw/usage/aw-info.jsonl
+/tmp/gh-aw/usage/agent_usage.json
+/tmp/gh-aw/usage/agent_usage.jsonl
+/tmp/gh-aw/usage/detection_usage.jsonl
+/tmp/gh-aw/usage/evals.jsonl
+/tmp/gh-aw/usage/github_rate_limits.jsonl
+/tmp/gh-aw/usage/agent/token_usage.jsonl
+/tmp/gh-aw/usage/detection/token_usage.jsonl
+/tmp/gh-aw/usage/activity/summary.json
+
+2026-08-26T09:37:37.2387953Z   if-no-files-found: ignore
+2026-08-26T09:37:37.2388499Z   compression-level: 6
+2026-08-26T09:37:37.2388985Z   overwrite: false
+2026-08-26T09:37:37.2389713Z   include-hidden-files: false
+2026-08-26T09:37:37.2390257Z   archive: true
+2026-08-26T09:37:37.2390699Z env:
+2026-08-26T09:37:37.2391136Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T09:37:37.2391764Z   GITHUB_AW_OTEL_TRACE_ID: b7f2b17ec9fad9fdc5d755c655f9b216
+2026-08-26T09:37:37.2392566Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: f639defd182f881e
+2026-08-26T09:37:37.2393225Z   GITHUB_AW_OTEL_JOB_START_MS: 1787737055093
+2026-08-26T09:37:37.2393800Z ##[endgroup]
+2026-08-26T09:37:38.2513855Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-08-26T09:37:38.2518375Z The least common ancestor is /tmp/gh-aw/usage. This will be the root directory of the artifact
+2026-08-26T09:37:38.2519790Z With the provided path, there will be 5 files uploaded
+2026-08-26T09:37:38.2520822Z Artifact name is valid!
+2026-08-26T09:37:38.2521351Z Root directory input is valid!
+2026-08-26T09:37:38.2526353Z Uploading artifact: usage.zip
+2026-08-26T09:37:38.2527298Z Beginning upload of artifact content to blob storage
+2026-08-26T09:37:38.2528549Z Uploaded bytes 2891
+2026-08-26T09:37:38.2529125Z Finished uploading artifact content to blob storage!
+2026-08-26T09:37:38.2535782Z SHA256 digest of uploaded artifact is 1587ea334fe80ebced28e0da14d9dcf5a77e738075f1100e8995e5da2b735c35
+2026-08-26T09:37:38.2537504Z Finalizing artifact upload
+2026-08-26T09:37:38.2540046Z Artifact usage successfully finalized. Artifact ID 9601240524
+2026-08-26T09:37:38.2541137Z Artifact usage has been successfully uploaded! Final size is 2891 bytes. Artifact ID is 9601240524
+2026-08-26T09:37:38.2542501Z Artifact download URL: https://github.com/sameerkhansf/Sameer-Khan/actions/runs/32952292641/artifacts/9601240524

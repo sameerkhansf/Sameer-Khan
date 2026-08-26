@@ -1,0 +1,24 @@
+﻿2026-08-26T17:13:45.8600889Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T17:13:45.8602047Z with:
+2026-08-26T17:13:45.8605841Z   github-token: ***
+2026-08-26T17:13:45.8607479Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/check_membership.cjs');
+await main();
+
+2026-08-26T17:13:45.8609193Z   debug: false
+2026-08-26T17:13:45.8609636Z   user-agent: actions/github-script
+2026-08-26T17:13:45.8610155Z   result-encoding: json
+2026-08-26T17:13:45.8610601Z   retries: 0
+2026-08-26T17:13:45.8611058Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T17:13:45.8611827Z env:
+2026-08-26T17:13:45.8612228Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:13:45.8612803Z   GITHUB_AW_OTEL_TRACE_ID: 4f2b70eb5c2bda3aaef715147050ff46
+2026-08-26T17:13:45.8613483Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: af18648f13f40797
+2026-08-26T17:13:45.8614092Z   GITHUB_AW_OTEL_JOB_START_MS: 1787764425390
+2026-08-26T17:13:45.8614709Z   GH_AW_REQUIRED_ROLES: admin,maintainer,write
+2026-08-26T17:13:45.8615264Z ##[endgroup]
+2026-08-26T17:13:45.9776475Z Checking if user 'sameerkhansf' has required permissions for sameerkhansf/Sameer-Khan
+2026-08-26T17:13:46.2864939Z Required permissions: admin, maintainer, write
+2026-08-26T17:13:46.2894360Z Repository permission level: admin
+2026-08-26T17:13:46.2916498Z ✅ User has admin access to repository

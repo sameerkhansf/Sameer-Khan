@@ -1,0 +1,34 @@
+﻿2026-08-26T17:14:57.9874062Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T17:14:57.9874480Z with:
+2026-08-26T17:14:57.9875213Z   script: const determineAutomaticLockdown = require('/home/runner/work/_temp/gh-aw/actions/determine_automatic_lockdown.cjs');
+await determineAutomaticLockdown(github, context, core);
+
+2026-08-26T17:14:57.9878791Z   github-token: ***
+2026-08-26T17:14:57.9879045Z   debug: false
+2026-08-26T17:14:57.9879287Z   user-agent: actions/github-script
+2026-08-26T17:14:57.9879609Z   result-encoding: json
+2026-08-26T17:14:57.9879848Z   retries: 0
+2026-08-26T17:14:57.9880100Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T17:14:57.9880664Z env:
+2026-08-26T17:14:57.9880887Z   DEFAULT_BRANCH: main
+2026-08-26T17:14:57.9881156Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-08-26T17:14:57.9881411Z   GH_AW_ASSETS_BRANCH: 
+2026-08-26T17:14:57.9881651Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-08-26T17:14:57.9881957Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-08-26T17:14:57.9882319Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:14:57.9882590Z   GH_AW_WORKFLOW_ID_SANITIZED: tilwriter
+2026-08-26T17:14:57.9882957Z   GITHUB_AW_OTEL_TRACE_ID: 4f2b70eb5c2bda3aaef715147050ff46
+2026-08-26T17:14:57.9883340Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: ea79d1e1c50c21ab
+2026-08-26T17:14:57.9883667Z   GITHUB_AW_OTEL_JOB_START_MS: 1787764475821
+2026-08-26T17:14:57.9883956Z   GH_AW_GITHUB_TOKEN: 
+2026-08-26T17:14:57.9884207Z   GH_AW_GITHUB_MCP_SERVER_TOKEN: 
+2026-08-26T17:14:57.9884476Z ##[endgroup]
+2026-08-26T17:14:58.0934398Z Determining automatic guard policy for GitHub MCP server
+2026-08-26T17:14:58.0936018Z Checking repository: sameerkhansf/Sameer-Khan
+2026-08-26T17:14:58.3558994Z Repository visibility: private
+2026-08-26T17:14:58.3568080Z Repository is private: true
+2026-08-26T17:14:58.3585834Z Configured min-integrity: (not set)
+2026-08-26T17:14:58.3610919Z Configured repos: (not set)
+2026-08-26T17:14:58.3612314Z min-integrity not configured — automatically setting to 'none' for private repository
+2026-08-26T17:14:58.3631437Z repos not configured — automatically setting to 'all' for private repository
+2026-08-26T17:14:58.3634674Z Automatic guard policy determination complete for private/internal repository

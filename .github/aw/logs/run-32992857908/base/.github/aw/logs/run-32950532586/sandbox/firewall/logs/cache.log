@@ -1,0 +1,110 @@
+2026/08/26 08:59:44| Processing Configuration File: /etc/squid/squid.conf (depth 0)
+2026/08/26 08:59:44| ERROR: 'pinger_enable' requires --enable-icmp
+2026/08/26 08:59:44| WARNING: HTTP requires the use of Via
+2026/08/26 08:59:44| Created PID file (/var/run/squid/squid.pid)
+2026/08/26 08:59:44| Current Directory is /
+2026/08/26 08:59:44| Starting Squid Cache version 7.6-VCS for x86_64-alpine-linux-musl...
+2026/08/26 08:59:44| Service Name: squid
+2026/08/26 08:59:44| Process ID 1
+2026/08/26 08:59:44| Process Roles: master worker
+2026/08/26 08:59:44| With 65536 file descriptors available
+2026/08/26 08:59:44| Initializing IP Cache...
+2026/08/26 08:59:44| DNS IPv6 socket created at [::], FD 8
+2026/08/26 08:59:44| DNS IPv4 socket created at 0.0.0.0, FD 9
+2026/08/26 08:59:44| Adding nameserver 8.8.8.8 from squid.conf
+2026/08/26 08:59:44| Adding nameserver 8.8.4.4 from squid.conf
+2026/08/26 08:59:44| Logfile: opening log /var/log/squid/access.log
+2026/08/26 08:59:44| WARNING: log name now starts with a module name. Use 'stdio:/var/log/squid/access.log'
+2026/08/26 08:59:44| Logfile: opening log /var/log/squid/audit.jsonl
+2026/08/26 08:59:44| WARNING: log name now starts with a module name. Use 'stdio:/var/log/squid/audit.jsonl'
+2026/08/26 08:59:44| Local cache digest enabled; rebuild/rewrite every 3600/3600 sec
+2026/08/26 08:59:44| Store logging disabled
+2026/08/26 08:59:44| Swap maxSize 0 + 65536 KB, estimated 5041 objects
+2026/08/26 08:59:44| Target number of buckets: 252
+2026/08/26 08:59:44| Using 8192 Store buckets
+2026/08/26 08:59:44| Max Mem  size: 65536 KB
+2026/08/26 08:59:44| Max Swap size: 0 KB
+2026/08/26 08:59:44| Using Least Load store dir selection
+2026/08/26 08:59:44| Current Directory is /
+2026/08/26 08:59:44| Finished loading MIME types and icons.
+2026/08/26 08:59:44| HTCP Disabled.
+2026/08/26 08:59:44| Squid plugin modules loaded: 0
+2026/08/26 08:59:44| Adaptation support is off.
+2026/08/26 08:59:44| Accepting HTTP Socket connections at conn3 local=[::]:3128 remote=[::] FD 12 flags=9
+    listening port: 3128
+2026/08/26 08:59:44| Accepting HTTP Socket connections at conn5 local=[::]:3128 remote=[::] FD 13 flags=9
+    listening port: [::]:3128
+2026/08/26 08:59:44| ERROR: listen(..., 16384) system call failed: (98) Address in use
+    listening port: [::]:3128
+2026/08/26 08:59:44| Preparing for shutdown after 0 requests
+2026/08/26 08:59:44| Waiting 0 seconds for active connections to finish
+2026/08/26 08:59:44| Closing HTTP(S) port [::]:3128
+    listening port: 3128
+2026/08/26 08:59:44| Closing HTTP(S) port [::]:3128
+    listening port: [::]:3128
+2026/08/26 08:59:45| storeLateRelease: released 0 objects
+2026/08/26 08:59:45| Shutdown: Negotiate authentication.
+2026/08/26 08:59:45| Shutdown: Digest authentication.
+2026/08/26 08:59:45| Shutdown: Basic authentication.
+2026/08/26 08:59:46| Shutting down...
+2026/08/26 08:59:46| storeDirWriteCleanLogs: Starting...
+2026/08/26 08:59:46|   Finished.  Wrote 0 entries.
+2026/08/26 08:59:46|   Took 0.00 seconds (  0.00 entries/sec).
+CPU Usage: 0.119 seconds = 0.074 user + 0.045 sys
+Maximum Resident Size: 124848 KB
+Page faults with physical i/o: 54
+2026/08/26 08:59:46| Logfile: closing log stdio:/var/log/squid/access.log
+2026/08/26 08:59:46| Logfile: closing log stdio:/var/log/squid/audit.jsonl
+2026/08/26 08:59:46| Open FD UNSTARTED     0 stdin
+2026/08/26 08:59:46| Open FD UNSTARTED     1 stdout
+2026/08/26 08:59:46| Open FD UNSTARTED     2 stderr
+2026/08/26 08:59:46| Squid Cache (Version 7.6-VCS): Exiting normally.
+2026/08/26 08:59:46| Removing PID file (/var/run/squid/squid.pid)
+2026/08/26 08:59:46| Processing Configuration File: /etc/squid/squid.conf (depth 0)
+2026/08/26 08:59:46| ERROR: 'pinger_enable' requires --enable-icmp
+2026/08/26 08:59:46| WARNING: HTTP requires the use of Via
+2026/08/26 08:59:46| Created PID file (/var/run/squid/squid.pid)
+2026/08/26 08:59:46| Current Directory is /
+2026/08/26 08:59:46| Starting Squid Cache version 7.6-VCS for x86_64-alpine-linux-musl...
+2026/08/26 08:59:46| Service Name: squid
+2026/08/26 08:59:46| Process ID 1
+2026/08/26 08:59:46| Process Roles: master worker
+2026/08/26 08:59:46| With 65536 file descriptors available
+2026/08/26 08:59:46| Initializing IP Cache...
+2026/08/26 08:59:46| DNS IPv6 socket created at [::], FD 8
+2026/08/26 08:59:46| DNS IPv4 socket created at 0.0.0.0, FD 9
+2026/08/26 08:59:46| Adding nameserver 8.8.8.8 from squid.conf
+2026/08/26 08:59:46| Adding nameserver 8.8.4.4 from squid.conf
+2026/08/26 08:59:46| Logfile: opening log /var/log/squid/access.log
+2026/08/26 08:59:46| WARNING: log name now starts with a module name. Use 'stdio:/var/log/squid/access.log'
+2026/08/26 08:59:46| Logfile: opening log /var/log/squid/audit.jsonl
+2026/08/26 08:59:46| WARNING: log name now starts with a module name. Use 'stdio:/var/log/squid/audit.jsonl'
+2026/08/26 08:59:46| Local cache digest enabled; rebuild/rewrite every 3600/3600 sec
+2026/08/26 08:59:46| Store logging disabled
+2026/08/26 08:59:46| Swap maxSize 0 + 65536 KB, estimated 5041 objects
+2026/08/26 08:59:46| Target number of buckets: 252
+2026/08/26 08:59:46| Using 8192 Store buckets
+2026/08/26 08:59:46| Max Mem  size: 65536 KB
+2026/08/26 08:59:46| Max Swap size: 0 KB
+2026/08/26 08:59:46| Using Least Load store dir selection
+2026/08/26 08:59:46| Current Directory is /
+2026/08/26 08:59:46| Finished loading MIME types and icons.
+2026/08/26 08:59:46| HTCP Disabled.
+2026/08/26 08:59:46| Squid plugin modules loaded: 0
+2026/08/26 08:59:46| Adaptation support is off.
+2026/08/26 08:59:46| Accepting HTTP Socket connections at conn3 local=[::]:3128 remote=[::] FD 12 flags=9
+    listening port: 3128
+2026/08/26 08:59:46| Accepting HTTP Socket connections at conn5 local=[::]:3128 remote=[::] FD 13 flags=9
+    listening port: [::]:3128
+2026/08/26 08:59:46| ERROR: listen(..., 16384) system call failed: (98) Address in use
+    listening port: [::]:3128
+2026/08/26 08:59:47| storeLateRelease: released 0 objects
+2026/08/26 09:00:36| Preparing for shutdown after 38 requests
+2026/08/26 09:00:36| Waiting 0 seconds for active connections to finish
+2026/08/26 09:00:36| Closing HTTP(S) port [::]:3128
+    listening port: 3128
+2026/08/26 09:00:36| Closing HTTP(S) port [::]:3128
+    listening port: [::]:3128
+2026/08/26 09:00:37| Shutdown: Negotiate authentication.
+2026/08/26 09:00:37| Shutdown: Digest authentication.
+2026/08/26 09:00:37| Shutdown: Basic authentication.

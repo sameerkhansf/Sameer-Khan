@@ -1,0 +1,23 @@
+﻿2026-08-26T17:13:45.4120505Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T17:13:45.4121287Z with:
+2026-08-26T17:13:45.4123206Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/check_command_position.cjs');
+await main();
+
+2026-08-26T17:13:45.4128320Z   github-token: ***
+2026-08-26T17:13:45.4128769Z   debug: false
+2026-08-26T17:13:45.4129210Z   user-agent: actions/github-script
+2026-08-26T17:13:45.4129987Z   result-encoding: json
+2026-08-26T17:13:45.4130435Z   retries: 0
+2026-08-26T17:13:45.4130888Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T17:13:45.4131683Z env:
+2026-08-26T17:13:45.4132094Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:13:45.4132667Z   GITHUB_AW_OTEL_TRACE_ID: 4f2b70eb5c2bda3aaef715147050ff46
+2026-08-26T17:13:45.4133342Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: af18648f13f40797
+2026-08-26T17:13:45.4133986Z   GITHUB_AW_OTEL_JOB_START_MS: 1787764425390
+2026-08-26T17:13:45.4134535Z   GH_AW_COMMANDS: ["til"]
+2026-08-26T17:13:45.4134981Z ##[endgroup]
+2026-08-26T17:13:45.8496600Z Checking command position. First word in text: /til
+2026-08-26T17:13:45.8497367Z Looking for commands: /til
+2026-08-26T17:13:45.8498176Z ✓ Command '/til' matched at the start of the text

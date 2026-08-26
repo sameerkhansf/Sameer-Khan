@@ -1,0 +1,30 @@
+﻿2026-08-26T17:31:39.4584101Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T17:31:39.4585212Z with:
+2026-08-26T17:31:39.4588361Z   github-token: ***
+2026-08-26T17:31:39.4589622Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/report_failed_jobs.cjs');
+await main();
+
+2026-08-26T17:31:39.4590937Z   debug: false
+2026-08-26T17:31:39.4591352Z   user-agent: actions/github-script
+2026-08-26T17:31:39.4591836Z   result-encoding: json
+2026-08-26T17:31:39.4592258Z   retries: 0
+2026-08-26T17:31:39.4592699Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T17:31:39.4593205Z env:
+2026-08-26T17:31:39.4593602Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:31:39.4594114Z   GITHUB_AW_OTEL_TRACE_ID: 4f2b70eb5c2bda3aaef715147050ff46
+2026-08-26T17:31:39.4594916Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 9b02b24a2e82e64a
+2026-08-26T17:31:39.4595525Z   GITHUB_AW_OTEL_JOB_START_MS: 1787765485137
+2026-08-26T17:31:39.4596114Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-08-26T17:31:39.4596647Z   GH_AW_WORKFLOW_NAME: TIL Writer
+2026-08-26T17:31:39.4597475Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/sameerkhansf/Sameer-Khan/blob/main/.github/workflows/til-writer.md
+2026-08-26T17:31:39.4598533Z   GH_AW_RUN_URL: https://github.com/sameerkhansf/Sameer-Khan/actions/runs/32992857908
+2026-08-26T17:31:39.4599415Z   GH_AW_REPORT_FAILED_JOBS: true
+2026-08-26T17:31:39.4769399Z ##[endgroup]
+2026-08-26T17:31:39.6251190Z Checking GitHub API rate limit before querying jobs
+2026-08-26T17:31:39.8775454Z Querying jobs for workflow run 32992857908
+2026-08-26T17:31:40.2231736Z Page 1: retrieved 7 jobs
+2026-08-26T17:31:40.2265878Z Skipping builtin job: agent (already reported by agent failure handler)
+2026-08-26T17:31:40.2272260Z Checking GitHub API rate limit after querying jobs
+2026-08-26T17:31:40.3430697Z No failed non-builtin jobs found, skipping issue creation

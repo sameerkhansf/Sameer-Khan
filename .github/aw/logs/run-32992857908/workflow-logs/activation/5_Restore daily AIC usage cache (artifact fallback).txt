@@ -1,0 +1,25 @@
+﻿2026-08-26T17:14:11.7188441Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-08-26T17:14:11.7189380Z with:
+2026-08-26T17:14:11.7200573Z   github-token: ***
+2026-08-26T17:14:11.7203734Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/restore_aic_usage_cache_fallback.cjs');
+await main();
+
+2026-08-26T17:14:11.7207066Z   debug: false
+2026-08-26T17:14:11.7207587Z   user-agent: actions/github-script
+2026-08-26T17:14:11.7208456Z   result-encoding: json
+2026-08-26T17:14:11.7208963Z   retries: 0
+2026-08-26T17:14:11.7210768Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-08-26T17:14:11.7211635Z env:
+2026-08-26T17:14:11.7245116Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-08-26T17:14:11.7245828Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T17:14:11.7246629Z   GITHUB_AW_OTEL_TRACE_ID: 4f2b70eb5c2bda3aaef715147050ff46
+2026-08-26T17:14:11.7247865Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 513d53e148c8f8b1
+2026-08-26T17:14:11.7250028Z   GITHUB_AW_OTEL_JOB_START_MS: 1787764449814
+2026-08-26T17:14:11.7256390Z   GH_AW_RESTORE_DAILY_AIC_CACHE_HIT: 
+2026-08-26T17:14:11.7259163Z   GH_AW_RESTORE_DAILY_AIC_CACHE_MATCHED_KEY: 
+2026-08-26T17:14:11.7259852Z ##[endgroup]
+2026-08-26T17:14:12.4600555Z [daily-aic-cache-fallback] Searching for aic-usage-cache artifact from recent runs: {"workflowId":342749153,"currentRunId":32992857908,"maxRunsToSearch":30}
+2026-08-26T17:14:12.8322747Z [daily-aic-cache-fallback] No aic-usage-cache artifact in run: {"runId":32992200223}
+2026-08-26T17:14:12.8328034Z [daily-aic-cache-fallback] No aic-usage-cache artifact found in recent runs; proceeding without cache: {"runsSearched":1}
