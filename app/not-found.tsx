@@ -47,6 +47,23 @@ export default function NotFound() {
             View Resume
           </Link>
         </div>
+        <nav aria-label="Site map" className="mt-10 text-sm text-gray-500 dark:text-gray-400">
+          <p className="mb-2">Where to look next:</p>
+          <ul className="space-y-1">
+            <li>
+              <Link href="/blog/" className="text-blue-600 hover:underline">/blog/</Link> — articles and AI model reviews
+            </li>
+            <li>
+              <a href="/sitemap.xml" className="text-blue-600 hover:underline">/sitemap.xml</a> — full list of pages
+            </li>
+            <li>
+              <a href="/llms.txt" className="text-blue-600 hover:underline">/llms.txt</a> — markdown site overview for agents
+            </li>
+            <li>
+              <a href="/openapi.json" className="text-blue-600 hover:underline">/openapi.json</a> — machine-readable endpoints
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
+    "test:agents": "node --test scripts/agent-readiness.test.mjs",
     "indexnow": "./scripts/indexnow-submit.sh",
     "generate-md": "npx tsx scripts/generate-markdown-files.ts",
     "optimize-images": "npx tsx scripts/optimize-images.ts"

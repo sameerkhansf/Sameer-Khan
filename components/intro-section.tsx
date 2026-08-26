@@ -78,18 +78,22 @@ export default function IntroSection({ translations, lang }: IntroSectionProps) 
         {/* Technical Skills Section */}
         <h2 className="text-xl font-semibold pt-4">{translations.technicalSkills}</h2>
         <div className="text-base leading-relaxed space-y-2">
-          <p>
-            <strong>{translations.frontend}:</strong> {translations.frontendSkills}
-          </p>
-          <p>
-            <strong>{translations.backend}:</strong> {translations.backendSkills}
-          </p>
-          <p>
-            <strong>{translations.aiml}:</strong> {translations.aimlSkills}
-          </p>
-          <p>
-            <strong>{translations.cloudDevops}:</strong> {translations.cloudDevopsSkills}
-          </p>
+          <div>
+            <h3 className="inline text-base font-bold">{translations.frontend}:</h3>{" "}
+            {translations.frontendSkills}
+          </div>
+          <div>
+            <h3 className="inline text-base font-bold">{translations.backend}:</h3>{" "}
+            {translations.backendSkills}
+          </div>
+          <div>
+            <h3 className="inline text-base font-bold">{translations.aiml}:</h3>{" "}
+            {translations.aimlSkills}
+          </div>
+          <div>
+            <h3 className="inline text-base font-bold">{translations.cloudDevops}:</h3>{" "}
+            {translations.cloudDevopsSkills}
+          </div>
         </div>
 
         {/* What I Write About Section */}

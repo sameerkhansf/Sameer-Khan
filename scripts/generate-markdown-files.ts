@@ -69,6 +69,15 @@ ${post.content}
     console.log(`✓ Generated: ${filePath}`);
   }
 
+  // Homepage markdown for Accept: text/markdown negotiation — llms.txt is
+  // already the maintained markdown overview of the site, so reuse it.
+  const publicDir = path.join(process.cwd(), "public");
+  fs.copyFileSync(
+    path.join(publicDir, "llms.txt"),
+    path.join(publicDir, "index.md")
+  );
+  console.log("✓ Generated: public/index.md (from llms.txt)");
+
   console.log(`\n✅ Generated ${posts.length} markdown files in public/blog/`);
 }
 
