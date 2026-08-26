@@ -45,35 +45,35 @@ Technical articles on AI, React, Next.js, TypeScript, and software development.
 
 **Note:** All blog posts are available in LLM-friendly markdown format. Append `.md` to any blog post URL to get the markdown version. For example: `https://samkhan.net/blog/gpt-5-2-technical-review.md`
 
-### Recent Articles
+### Articles
 
-**AI & LLM Reviews (December 2025):**
-- [Claude Opus 4.5: Complete Developer Review](https://samkhan.net/blog/claude-opus-4-5-complete-review-2025): Comprehensive review of Claude Opus 4.5, Anthropic's latest frontier model. Complete capabilities analysis, benchmark performance, real-world testing, cost evaluation, and developer use case recommendations.
-- [GPT-5.2 Technical Review: OpenAI's Response to the 'Code Red' Moment](https://samkhan.net/blog/gpt-5-2-technical-review): GPT-5.2 lands in the middle of an unprecedented AI arms race. With a 400K context window, 30% fewer hallucinations, and the first 90%+ ARC-AGI score, here's what developers need to know about OpenAI's most capable model yet.
-- [GPT-5.2 for Developers: First Look](https://samkhan.net/blog/gpt-5-2-developer-review): Comprehensive review of OpenAI's GPT-5.2 released December 2025, comparing Instant, Thinking, and Pro variants.
-- [GPT-5.1-Codex-Max vs Claude Opus 4.5: Coding Specialist Showdown](https://samkhan.net/blog/gpt-5-1-codex-max-coding-review-2025): Complete comparison of GPT-5.1-Codex-Max and Claude Opus 4.5 for coding tasks. Benchmark performance, real-world coding tests, cost analysis, and developer workflow recommendations.
-- [DeepSeek-V3.2-Speciale Review: The Open-Source Model That Matches GPT-5.2](https://samkhan.net/blog/deepseek-v3-2-speciale-review-2025): DeepSeek-V3.2-Speciale delivers frontier-level reasoning capabilities with open weights. Complete technical review, benchmark comparisons, and developer testing of this free alternative to GPT-5.2 and Claude Opus 4.5.
-- [Mistral Large 3 Review: Can It Compete with GPT-5.2 and Claude Opus 4.5?](https://samkhan.net/blog/mistral-large-3-review-2025): Complete review of Mistral Large 3 (2512), the latest frontier model from Mistral AI. Benchmark comparisons, coding performance, cost analysis, and real-world testing against GPT-5.2 and Claude Opus 4.5.
-- [Mistral Devstral 2: The Agentic Coding Model That Rivals Cursor](https://samkhan.net/blog/mistral-devstral-2-agentic-coding-review-2025): Mistral Devstral 2 is purpose-built for agentic coding workflows. Complete review of its coding capabilities, agent performance, and how it compares to GPT-5.2, Claude Opus 4.5, and specialized coding tools.
-- [Grok 4.1 Review: xAI's Latest Model Tested](https://samkhan.net/blog/grok-4-1-review-2025): Complete review of Grok 4.1, xAI's latest language model. Benchmark performance, real-world testing, cost analysis, and comparison with GPT-5.2, Claude Opus 4.5, and other frontier models.
-- [AllenAI's OLMo 3 32B Think: The Best Fully Open-Source Reasoning Model](https://samkhan.net/blog/allenai-olmo-3-32b-think-review-2025): Complete review of OLMo 3 32B Think, AllenAI's open-source reasoning model. Benchmark performance, self-hosting guide, cost analysis, and comparison with GPT-5.2, DeepSeek-V3.2-Speciale, and other open-source models.
-- [Amazon Nova 2 Lite: A Technical Examination of AWS's Latest Model](https://samkhan.net/blog/amazon-nova-2-lite-review-2025): Complete technical review of Amazon Nova 2 Lite, AWS's latest language model. Benchmark performance, AWS integration, cost analysis, and comparison with GPT-5.2, Claude, and other frontier models.
-
-**Developer Tools & Comparisons:**
-- [Browser Automation with Claude Code: Setting Up Playwright MCP](https://samkhan.net/blog/playwright-mcp-claude-code-browser-automation): How to set up Playwright MCP with Claude Code for AI-powered browser automation. Control Chrome, fill forms, scrape data, and automate web testing with natural language commands.
-- [Cursor vs GitHub Copilot vs Claude Code: Complete Comparison (2025)](https://samkhan.net/blog/ai-coding-tools-comparison-2025): The definitive comparison of AI coding assistants in 2025. Learn which tool is best for your workflow: Cursor, GitHub Copilot, or Claude Code, with pricing, features, and real-world recommendations.
-- [I Tested GPT-5.2 vs Gemini 3 with 5 Real Coding Tasks](https://samkhan.net/blog/gpt-5-2-vs-gemini-3-tested): Head-to-head comparison of GPT-5.2 and Gemini 3 on real development tasks: debugging, refactoring, API design, and more.
-
-**Web Development & React:**
-- [useEffect Complete Guide: Common Problems and Solutions (2025)](https://samkhan.net/blog/useeffect-complete-guide-2025): Master React's useEffect hook with practical solutions to infinite loops, cleanup issues, dependency arrays, and more. Real-world examples and debugging strategies.
-- [TypeScript Type vs Interface: When to Use Each (2025)](https://samkhan.net/blog/typescript-type-vs-interface-2025): The definitive guide to choosing between TypeScript's type and interface. Learn when to use each with real-world examples, common patterns, and practical decision guidelines.
+<!-- articles starts -->
+**Developer Tools:**
+- [Playwright MCP Setup Guide for Claude Code](https://samkhan.net/blog/playwright-mcp-claude-code-browser-automation): How to set up Playwright MCP with Claude Code for AI-powered browser automation. Control Chrome, fill forms, scrape data, and automate web testing with natural language commands.
 - [How I Cut My Debugging Time in Half as a React Developer](https://samkhan.net/blog/how-i-cut-debugging-time-in-half): After tracking my debugging sessions for a month, I discovered that 80% of my bugs fell into 5 categories. Here's what I changed and the tools that actually made a difference.
+- [Cursor vs Copilot vs Claude Code: 2025 Comparison](https://samkhan.net/blog/ai-coding-tools-comparison-2025): The definitive comparison of AI coding assistants in 2025. Learn which tool is best for your workflow: Cursor, GitHub Copilot, or Claude Code, with pricing, features, and real-world recommendations.
 
-**AI & Prompt Engineering:**
-- [The Art of Prompt Engineering: A Developer's Guide to Getting Better AI Outputs](https://samkhan.net/blog/the-art-of-prompt-engineering): Complete guide to prompt engineering techniques including Chain-of-Thought, ReAct, Tree of Thoughts, sampling parameters, and production-level patterns like XML-structured prompts and the Manager Prompt pattern from Parahelp.
+**AI:**
+- [Mistral Devstral 2 Review: Agentic Coding Model](https://samkhan.net/blog/mistral-devstral-2-agentic-coding-review-2025): Mistral Devstral 2 is purpose-built for agentic coding workflows. Complete review of its coding capabilities, agent performance, and how it compares to GPT-5.2, Claude Opus 4.5, and specialized coding tools.
+- [Mistral Large 3 Review: GPT-5.2 Competitor?](https://samkhan.net/blog/mistral-large-3-review-2025): Complete review of Mistral Large 3 (2512), the latest frontier model from Mistral AI. Benchmark comparisons, coding performance, cost analysis, and real-world testing against GPT-5.2 and Claude Opus 4.5.
+- [Prompt Engineering Guide: Better AI Outputs](https://samkhan.net/blog/the-art-of-prompt-engineering): LLMs are prediction engines. The quality of your output depends entirely on how you ask. From basic techniques to advanced strategies like Chain-of-Thought and ReAct, plus production-level patterns from Parahelp's XML-structured prompts.
+- [OLMo 3 32B Think Review: Best Open-Source LLM](https://samkhan.net/blog/allenai-olmo-3-32b-think-review-2025): Complete review of OLMo 3 32B Think, AllenAI's open-source reasoning model. Benchmark performance, self-hosting guide, cost analysis, and comparison with GPT-5.2, DeepSeek-V3.2-Speciale, and other open-source models.
+- [Amazon Nova 2 Lite Review: AWS AI Model Guide](https://samkhan.net/blog/amazon-nova-2-lite-review-2025): Complete technical review of Amazon Nova 2 Lite, AWS's latest language model. Benchmark performance, AWS integration, cost analysis, and comparison with GPT-5.2, Claude, and other frontier models.
+- [Claude Opus 4.5: Complete Developer Review](https://samkhan.net/blog/claude-opus-4-5-complete-review-2025): Comprehensive review of Claude Opus 4.5, Anthropic's latest frontier model. Complete capabilities analysis, benchmark performance, real-world testing, cost evaluation, and developer use case recommendations.
+- [DeepSeek V3.2 Speciale Review: Free GPT-5 Rival](https://samkhan.net/blog/deepseek-v3-2-speciale-review-2025): DeepSeek-V3.2-Speciale delivers frontier-level reasoning capabilities with open weights. Complete technical review, benchmark comparisons, and developer testing of this free alternative to GPT-5.2 and Claude Opus 4.5.
+- [GPT-5.1 Codex Max vs Claude Opus 4.5 for Coding](https://samkhan.net/blog/gpt-5-1-codex-max-coding-review-2025): Complete comparison of GPT-5.1-Codex-Max and Claude Opus 4.5 for coding tasks. Benchmark performance, real-world coding tests, cost analysis, and developer workflow recommendations.
+- [GPT-5.2 Developer Review: First Look (Dec 2025)](https://samkhan.net/blog/gpt-5-2-developer-review): A comprehensive developer review of GPT-5.2 released December 11, 2025. Comparing Instant, Thinking, and Pro variants with benchmarks, pricing, and real-world coding performance.
+- [GPT-5.2 Technical Review: OpenAI's Best Model](https://samkhan.net/blog/gpt-5-2-technical-review): GPT-5.2 lands in the middle of an unprecedented AI arms race. With a 400K context window, 30% fewer hallucinations, and the first 90%+ ARC-AGI score, here's what developers need to know about OpenAI's most capable model yet.
+- [GPT-5.2 vs Gemini 3: Real Coding Test Results](https://samkhan.net/blog/gpt-5-2-vs-gemini-3-tested): GPT-5.2 dropped yesterday. I put it head-to-head against Gemini 3 on real development tasks: debugging, refactoring, API design, and more. The results surprised me.
+- [Grok 4.1 Review: xAI's Latest Model Tested](https://samkhan.net/blog/grok-4-1-review-2025): Complete review of Grok 4.1, xAI's latest language model. Benchmark performance, real-world testing, cost analysis, and comparison with GPT-5.2, Claude Opus 4.5, and other frontier models.
 
-**Portfolio & Projects:**
-- [How I Built This Portfolio with Next.js 16 and Tailwind CSS](https://samkhan.net/blog/building-this-portfolio): Technical deep dive into building a Next.js 16 portfolio with MDX, SEO optimization, and accessibility.
+**Web Development:**
+- [TypeScript Type vs Interface: When to Use Each (2025)](https://samkhan.net/blog/typescript-type-vs-interface-2025): The definitive guide to choosing between TypeScript's type and interface. Learn when to use each with real-world examples, common patterns, and practical decision guidelines.
+- [useEffect Guide: Fix Common React Problems 2025](https://samkhan.net/blog/useeffect-complete-guide-2025): Master React's useEffect hook with practical solutions to infinite loops, cleanup issues, dependency arrays, and more. Real-world examples and debugging strategies.
+
+**Projects:**
+- [How I Built This Portfolio with Next.js 16 and Tailwind CSS](https://samkhan.net/blog/building-this-portfolio): A deep dive into the architecture, design decisions, and optimizations that went into building my personal portfolio site. From SEO to accessibility, learn what goes into a modern developer portfolio.
+<!-- articles ends -->
 
 ## Contact
 
