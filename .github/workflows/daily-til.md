@@ -51,7 +51,7 @@ safe-outputs:
 tools:
   cache-memory:
   web-fetch:
-  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date"]
+  bash: true
   edit:
   github:
     toolsets: [default]
@@ -76,11 +76,11 @@ You are the autonomous weekly writer for samkhan.net. No human capture note exis
 
 ## Job
 
-1. **Consume the queue, don't re-research.** First read your cache memory file `topics.md` — it holds the standing topic queue plus every topic already written or rejected. Refill the queue only when it's empty, from, in priority order: (a) the "Post queue" section of the most recent "[weekly-research]" GitHub discussion; (b) current AI/developer-tooling news — model releases, framework releases, changelogs, new developer tools; (c continues below); (c) only as a last resort, site-feature work in this repository. HARD BAN: never write about this repository's own publishing pipeline, gh-aw workflows, agent automation, CI configuration, or the fact that posts are agent-written — that meta-topic is permanently exhausted. If a candidate is about the machinery that produces these posts, reject it. Pick ONE narrow, concrete, verifiable topic from the queue — a task with commands and observable results, never a broad survey. After this run, rewrite `topics.md`: remaining queue, plus the chosen/rejected topics appended to the history so no future run repeats them.
+1. **Pick one TRYABLE thing.** Read your cache memory `topics.md` (queue + history). A valid topic is something you can actually execute in this Linux sandbox: a CLI tool to install and run, a library to try, a free API endpoint to call, a technique to reproduce. Refill the queue when empty from the weekly-research "Post queue", then recent tool/library releases found via web fetch. Headline news you cannot run here is not a topic. Never anything about this repository's own pipeline/automation.
 
-2. **Dedupe.** List existing posts in `content/blog/` and read the README index. If the best candidate substantially duplicates an existing post, pick the next candidate. If nothing novel remains, call `noop` explaining what was considered and why each was rejected.
+2. **DO IT — this is the post.** Install it, run it, call it. Capture the real commands you ran and the real output they printed. When something breaks or confuses you, keep that — the error message and what fixed it are the most valuable part (Simon's TILs work because they record real friction). If the sandbox genuinely cannot run it (needs a GUI, paid account, GPU), pick the next topic. Trim long outputs to the interesting lines.
 
-3. **Research and verify.** Fetch the primary sources. Every factual claim must trace to a fetched source or a command run here. Record URLs with access dates.
+3. **Write from the transcript only.** Every command in the post is one you ran; every output block is what it printed; every claim about behavior is something you observed or a documented fact you link. First person is honest here because it happened in this run. No release-notes summaries, no "What's new in vX" sections, no claims of past experience outside this session. Short is right: the median good TIL is ~320 words.
 
 4. **Write the draft.** Create one new file in `content/blog/` named `<kebab-case-slug>.mdx`, matching the existing posts' format exactly — YAML frontmatter with `title`, `description`, `date` (today, as a QUOTED string like `date: "2026-08-26"` — an unquoted date fails validation), `author: "Sameer Khan"`, `tags` (inline list, 3–6 items), `category` (one of the existing categories: AI, Developer Tools, Web Development, Projects), `published: true` — merging the PR IS the publish approval. The PR is validated by CI against `schemas/post.schema.json` and markdownlint (every fenced code block needs a language, blank lines around lists, no bare URLs — always use [text](url) links — and end the file with a newline). Study 2–3 existing posts first for MDX conventions, then follow this measured TIL register (derived from analyzing all 579 posts in simonw/til):
    - **Title**: gerund-led sentence case, ~7 words, naming the task — "Running X inside Y", "Fixing X when Y". Never "How to…", never clickbait, no first-person in titles.
