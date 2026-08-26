@@ -4,11 +4,12 @@ import { useState, useEffect } from "react";
 
 const KeyboardHint = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [isMac, setIsMac] = useState(false);
+  // Only read after the visibility timer fires client-side, so no SSR/hydration mismatch
+  const isMac =
+    typeof navigator !== "undefined" &&
+    navigator.platform.toUpperCase().indexOf("MAC") >= 0;
 
   useEffect(() => {
-    setIsMac(navigator.platform.toUpperCase().indexOf("MAC") >= 0);
-
     // Show hint after 3 seconds, hide after 8 seconds
     const showTimer = setTimeout(() => setIsVisible(true), 3000);
     const hideTimer = setTimeout(() => setIsVisible(false), 8000);

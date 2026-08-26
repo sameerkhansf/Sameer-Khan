@@ -37,3 +37,6 @@ next-env.d.ts
 
 # internal research (not for public)
 /research/
+
+# playwright-mcp debug artifacts
+/.playwright-mcp/
