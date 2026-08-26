@@ -12,14 +12,10 @@ on:
 
 permissions: read-all
 
-imports:
-  - shared/firecrawl-developer-index.md
-
 network:
   allowed:
     - defaults
     - openrouter.ai
-    - api.firecrawl.dev
 
 models:
   default-ai-credits-pricing:
@@ -70,7 +66,7 @@ source: githubnext/agentics/workflows/weekly-research.md@ae8d551f07c7ed7619f8c58
 Do a deep research investigation in ${{ github.repository }} repository, and the related industry in general.
 
 - Read selections of the latest code, issues and PRs for this repo.
-- Read latest trends and news from the software industry on the Web. Primary discovery tool for external topics: the Firecrawl Developer Index — use it exactly as the imported "Firecrawl Developer Index" guide below describes (HTTP surface via web-fetch; keyless), then verify anything you use against the linked primary source.
+- Read latest trends and news from the software industry on the Web.
 
 Exclusion for all sections: this repository's own publishing pipeline, gh-aw workflows, and agent automation are not research subjects — cover the outside world.
 
