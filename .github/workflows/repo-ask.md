@@ -27,7 +27,12 @@ tools:
 
 timeout-minutes: 20
 
-engine: claude
+engine:
+  id: claude
+  env:
+    ANTHROPIC_MODEL: "nvidia/nemotron-3.5-lightning:free"
+    ANTHROPIC_BASE_URL: "https://openrouter.ai/api/v1"
+    ANTHROPIC_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
 
 source: githubnext/agentics/workflows/repo-ask.md@ae8d551f07c7ed7619f8c58c7bb4c3ac89395d38
 ---
