@@ -68,6 +68,8 @@ Do a deep research investigation in ${{ github.repository }} repository, and the
 - Read selections of the latest code, issues and PRs for this repo.
 - Read latest trends and news from the software industry news source on the Web.
 
+Exclusion for all sections: this repository's own publishing pipeline, gh-aw workflows, and agent automation are not research subjects — cover the outside world.
+
 Create a new GitHub discussion with title starting with "[weekly-research]" containing a markdown report with
 
 - Interesting news about the area related to this software project.
