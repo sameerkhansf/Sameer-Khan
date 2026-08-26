@@ -46,7 +46,6 @@ safe-outputs:
     labels: [til, automated]
     allowed-files:
       - "content/blog/**"
-      - "public/blog/**"
 
 tools:
   cache-memory:

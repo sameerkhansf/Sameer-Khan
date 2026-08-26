@@ -5,8 +5,7 @@ on:
     branches: [main]
   pull_request:
 
-# Serialize runs per ref: back-to-back merges raced the README commit-back
-# step into rebase conflicts. Superseded runs for older commits are canceled.
+# Superseded runs for older commits on the same ref are canceled.
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
@@ -15,7 +14,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -34,17 +33,6 @@ jobs:
           fail: true
       - name: Build (MDX compile gate)
         run: npm run build
-      - name: Update README index
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          git pull --rebase --autostash origin main
-          npx tsx scripts/update-readme.ts
-      - name: Commit and push if README changed
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          git config --global user.email "actions@users.noreply.github.com"
-          git config --global user.name "README-bot"
-          git diff --quiet -- README.md || (git add README.md && git commit -m "Updated README" && git push)
 
   # GitHub-documented Dependabot automation: merge patch/minor bumps only
   # after the full gate job above passes; majors stay for human review.
