@@ -9,11 +9,14 @@ interface BlogCardProps {
   lang?: string;
 }
 
+// Captured at module load; day-granularity badge, staleness within a session is harmless
+const NOW = Date.now();
+
 export default function BlogCard({ post, lang }: BlogCardProps) {
   // Check if post is new (published within last 7 days)
   const postDate = new Date(post.date);
   const daysSincePublished = Math.floor(
-    (Date.now() - postDate.getTime()) / (1000 * 60 * 60 * 24)
+    (NOW - postDate.getTime()) / (1000 * 60 * 60 * 24)
   );
   const isNew = daysSincePublished <= 7;
 
