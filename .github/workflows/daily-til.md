@@ -1,6 +1,6 @@
 ---
 description: |
-  Autonomous weekly TIL: scouts a topic from repo activity, the latest
+  Autonomous daily TIL: scouts a topic from repo activity, the latest
   weekly-research discussion, and primary-source news, then opens a post PR.
   The human merge is the only approval.
 
@@ -56,7 +56,7 @@ tools:
   github:
     toolsets: [default]
   repo-memory:
-    branch-name: memory/weekly-til
+    branch-name: memory/daily-til
     description: "Evidence bundles per TIL: source URLs, accessed dates, versions, command outputs, factual claims"
     allowed-extensions: [".json", ".md"]
     max-file-size: 1048576
@@ -68,7 +68,7 @@ max-turns: 60
 
 ---
 
-# Weekly TIL Scout
+# Daily TIL Scout
 
 RUN CONTRACT — read first: every run MUST end with exactly one safe-output tool call — `create_pull_request` (the goal), or `noop` with the candidate topics you considered and why each was rejected, or `report_incomplete` with the blocking reason. Ending the session without one of these three calls is a failed run. Do not stop after scouting; carry the chosen topic all the way through writing and the PR call.
 
@@ -92,6 +92,13 @@ You are the autonomous weekly writer for samkhan.net. No human capture note exis
 5. **Evidence bundle.** Write a JSON evidence file to repo-memory named after the slug: source URLs with access dates, versions of any tools referenced, commands run with outputs, and the list of factual claims mapped to sources.
 
 6. **Open the PR.** This step is MANDATORY and is the entire point of the run: you MUST finish by calling the `create_pull_request` safe-output tool with the new MDX file. Call it with exactly these arguments: `title`, `body`, and `branch` (use `til/<slug>`). Do NOT pass `temporary_id` — if you include it, it must match `^aw_[A-Za-z0-9_]{3,12}$` (e.g. `aw_til1`) or the whole PR is rejected by validation. A run that researches but never calls `create_pull_request` is a failed run — if you truly cannot produce the post, call `report_incomplete` with the reason instead of ending silently. The PR description must contain: the angle chosen and why, the evidence summary (sources with dates), and a checklist of claims verified. Set `published: true` in frontmatter: the human merge is the publish decision.
+
+## Practical rules (edge cases)
+
+- **One pending post at a time.** Before anything else, check for an open pull request labeled `til`. If one exists, call `noop` naming it — never stack unreviewed posts. The human merges at their own pace.
+- **Slugs are permanent identity.** The new file's slug must not collide with any existing file in `content/blog/`; if your natural slug exists, the topic is a duplicate — pick another topic. Never rename existing files; a rename breaks URLs and requires a redirect, which is a human decision.
+- **Updates are not duplicates.** If new information materially changes a published post's conclusions, do not write a near-duplicate post; call `noop` recommending an update to the existing post (updates happen only via explicit human /til capture, which sets the `updated` frontmatter date).
+- **Same-day bursts are fine; forced posts are not.** A reasoned `noop` on a dry day is correct behavior — an unforced record is the entire value of a TIL site.
 
 ## Hard rules
 
