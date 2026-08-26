@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://storage.googleapis.com/coderabbit_public_assets/schema.v2.json
+language: "en-US"
+reviews:
+  profile: "chill"
+  high_level_summary: true
+  poem: false
+  auto_review:
+    enabled: true
+    drafts: false
+    # Dependency bumps are gated by CI + the dependabot auto-merge job;
+    # agent TIL PRs (author: github-actions[bot]) SHOULD be reviewed, so
+    # only dependabot is skipped here.
+    ignore_usernames:
+      - "dependabot[bot]"
