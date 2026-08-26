@@ -24,6 +24,13 @@ models:
     output: 0.000001
 
 safe-outputs:
+  threat-detection:
+    engine:
+      id: copilot
+      env:
+        COPILOT_PROVIDER_BASE_URL: https://integrate.api.nvidia.com/v1
+        COPILOT_MODEL: nvidia/nemotron-3-super-120b-a12b
+        COPILOT_PROVIDER_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
   add-comment:
 
 tools:

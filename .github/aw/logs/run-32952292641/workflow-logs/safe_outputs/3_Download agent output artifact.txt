@@ -1,0 +1,40 @@
+﻿2026-08-26T09:37:17.4271791Z ##[group]Run actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+2026-08-26T09:37:17.4272935Z with:
+2026-08-26T09:37:17.4274178Z   name: agent
+2026-08-26T09:37:17.4274852Z   path: /tmp/gh-aw/
+2026-08-26T09:37:17.4275511Z   merge-multiple: false
+2026-08-26T09:37:17.4276187Z   repository: sameerkhansf/Sameer-Khan
+2026-08-26T09:37:17.4276879Z   run-id: 32952292641
+2026-08-26T09:37:17.4277894Z   skip-decompress: false
+2026-08-26T09:37:17.4281010Z   digest-mismatch: error
+2026-08-26T09:37:17.4281649Z env:
+2026-08-26T09:37:17.4282183Z   GH_AW_AGENT_AIC: 
+2026-08-26T09:37:17.4284270Z   GH_AW_AIC: 
+2026-08-26T09:37:17.4284900Z   GH_AW_AMBIENT_CONTEXT: 36733
+2026-08-26T09:37:17.4285807Z   GH_AW_CALLER_WORKFLOW_ID: sameerkhansf/Sameer-Khan/weekly-research
+2026-08-26T09:37:17.4288016Z   GH_AW_DETECTION_CONCLUSION: failure
+2026-08-26T09:37:17.4288738Z   GH_AW_DETECTION_REASON: parse_error
+2026-08-26T09:37:17.4289682Z   GH_AW_EFFECTIVE_TOKENS: 
+2026-08-26T09:37:17.4290365Z   GH_AW_ENGINE_ID: copilot
+2026-08-26T09:37:17.4291756Z   GH_AW_ENGINE_MODEL: auto
+2026-08-26T09:37:17.4292423Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T09:37:17.4293079Z   GH_AW_THREAT_DETECTION_AIC: 
+2026-08-26T09:37:17.4293751Z   GH_AW_WORKFLOW_ID: weekly-research
+2026-08-26T09:37:17.4334116Z   GH_AW_WORKFLOW_NAME: Weekly Research
+2026-08-26T09:37:17.4336597Z   GH_AW_WORKFLOW_SOURCE: githubnext/agentics/workflows/weekly-research.md@ae8d551f07c7ed7619f8c58c7bb4c3ac89395d38
+2026-08-26T09:37:17.4338900Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/githubnext/agentics/blob/ae8d551f07c7ed7619f8c58c7bb4c3ac89395d38/workflows/weekly-research.md
+2026-08-26T09:37:17.4340374Z   GITHUB_AW_OTEL_TRACE_ID: b7f2b17ec9fad9fdc5d755c655f9b216
+2026-08-26T09:37:17.4341271Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: cfff834580f476ab
+2026-08-26T09:37:17.4342143Z   GITHUB_AW_OTEL_JOB_START_MS: 1787737037381
+2026-08-26T09:37:17.4342828Z ##[endgroup]
+2026-08-26T09:37:17.9165672Z Downloading single artifact
+2026-08-26T09:37:18.0401621Z Preparing to download the following artifacts:
+2026-08-26T09:37:18.0407627Z - agent (ID: 9601157400, Size: 895473, Expected Digest: sha256:a0b08e369a46144115e62433544dac924f71b81ca9e2d6b39e35eb4591afc206)
+2026-08-26T09:37:18.2335094Z Redirecting to blob download url: https://productionresultssa7.blob.core.windows.net/actions-results/9ed2c588-b3bc-4560-b541-cdf60d0e690d/workflow-job-run-cd82b0ba-a6a2-577f-8fc9-15ce2c39e39d/artifacts/d4f0bc5a29de06b510f9aa428f1eedba926012b591fef7a518e776a7c9bd1824.zip
+2026-08-26T09:37:18.2360229Z Starting download of artifact to: /tmp/gh-aw
+2026-08-26T09:37:18.2946913Z (node:1402) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-08-26T09:37:18.2951101Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-08-26T09:37:18.4610171Z SHA256 digest of downloaded artifact is a0b08e369a46144115e62433544dac924f71b81ca9e2d6b39e35eb4591afc206
+2026-08-26T09:37:18.4616112Z Artifact download completed successfully.
+2026-08-26T09:37:18.4620919Z Total of 1 artifact(s) downloaded
+2026-08-26T09:37:18.4673545Z Download artifact has finished successfully

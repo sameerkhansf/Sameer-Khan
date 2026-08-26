@@ -1,0 +1,46 @@
+﻿2026-08-26T09:37:20.5232520Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-08-26T09:37:20.5233657Z with:
+2026-08-26T09:37:20.5234162Z   name: safe-outputs-items
+2026-08-26T09:37:20.5236919Z   path: /tmp/gh-aw/safe-output-items.jsonl
+/tmp/gh-aw/temporary-id-map.json
+
+2026-08-26T09:37:20.5238199Z   if-no-files-found: ignore
+2026-08-26T09:37:20.5238771Z   compression-level: 6
+2026-08-26T09:37:20.5239292Z   overwrite: false
+2026-08-26T09:37:20.5239806Z   include-hidden-files: false
+2026-08-26T09:37:20.5240361Z   archive: true
+2026-08-26T09:37:20.5240838Z env:
+2026-08-26T09:37:20.5241291Z   GH_AW_AGENT_AIC: 
+2026-08-26T09:37:20.5243207Z   GH_AW_AIC: 
+2026-08-26T09:37:20.5243749Z   GH_AW_AMBIENT_CONTEXT: 36733
+2026-08-26T09:37:20.5244481Z   GH_AW_CALLER_WORKFLOW_ID: sameerkhansf/Sameer-Khan/weekly-research
+2026-08-26T09:37:20.5245295Z   GH_AW_DETECTION_CONCLUSION: failure
+2026-08-26T09:37:20.5245920Z   GH_AW_DETECTION_REASON: parse_error
+2026-08-26T09:37:20.5246523Z   GH_AW_EFFECTIVE_TOKENS: 
+2026-08-26T09:37:20.5248905Z   GH_AW_ENGINE_ID: copilot
+2026-08-26T09:37:20.5249546Z   GH_AW_ENGINE_MODEL: auto
+2026-08-26T09:37:20.5250098Z   GH_AW_RUNTIME_FEATURES: 
+2026-08-26T09:37:20.5250657Z   GH_AW_THREAT_DETECTION_AIC: 
+2026-08-26T09:37:20.5251239Z   GH_AW_WORKFLOW_ID: weekly-research
+2026-08-26T09:37:20.5251852Z   GH_AW_WORKFLOW_NAME: Weekly Research
+2026-08-26T09:37:20.5252943Z   GH_AW_WORKFLOW_SOURCE: githubnext/agentics/workflows/weekly-research.md@ae8d551f07c7ed7619f8c58c7bb4c3ac89395d38
+2026-08-26T09:37:20.5255528Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/githubnext/agentics/blob/ae8d551f07c7ed7619f8c58c7bb4c3ac89395d38/workflows/weekly-research.md
+2026-08-26T09:37:20.5257736Z   GITHUB_AW_OTEL_TRACE_ID: b7f2b17ec9fad9fdc5d755c655f9b216
+2026-08-26T09:37:20.5258541Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: cfff834580f476ab
+2026-08-26T09:37:20.5259246Z   GITHUB_AW_OTEL_JOB_START_MS: 1787737037381
+2026-08-26T09:37:20.5261454Z   GH_HOST: github.com
+2026-08-26T09:37:20.5262745Z ##[endgroup]
+2026-08-26T09:37:20.8625671Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-08-26T09:37:20.8637606Z The least common ancestor is /tmp/gh-aw. This will be the root directory of the artifact
+2026-08-26T09:37:20.8641278Z With the provided path, there will be 2 files uploaded
+2026-08-26T09:37:20.8700960Z Artifact name is valid!
+2026-08-26T09:37:20.8706379Z Root directory input is valid!
+2026-08-26T09:37:21.1440536Z Uploading artifact: safe-outputs-items.zip
+2026-08-26T09:37:21.1450247Z Beginning upload of artifact content to blob storage
+2026-08-26T09:37:21.3880640Z Uploaded bytes 432
+2026-08-26T09:37:21.4060877Z Finished uploading artifact content to blob storage!
+2026-08-26T09:37:21.4068583Z SHA256 digest of uploaded artifact is 2a73a1237534119947d4d1bf31fba7cd63631383e821c4a94b0b94c20b2eaa40
+2026-08-26T09:37:21.4073492Z Finalizing artifact upload
+2026-08-26T09:37:21.6769918Z Artifact safe-outputs-items successfully finalized. Artifact ID 9601231326
+2026-08-26T09:37:21.6772995Z Artifact safe-outputs-items has been successfully uploaded! Final size is 432 bytes. Artifact ID is 9601231326
+2026-08-26T09:37:21.6781213Z Artifact download URL: https://github.com/sameerkhansf/Sameer-Khan/actions/runs/32952292641/artifacts/9601231326
