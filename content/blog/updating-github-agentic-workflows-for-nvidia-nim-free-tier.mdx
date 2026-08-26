@@ -1,0 +1,81 @@
+---
+title: "Updating GitHub Agentic Workflows for NVIDIA NIM Free Tier"
+description: "When the weekly TIL workflow hit the 25-minute timeout, I updated the agentic workflow configuration to use NVIDIA's free Nemotron 3 Ultra model via OpenRouter, increasing the timeout to 40 minutes and fixing three proxy configuration issues."
+date: "2026-08-26"
+author: "Sameer Khan"
+tags: ["GitHub", "Agentic Workflows", "NVIDIA", "OpenRouter", "AI"]
+category: "Developer Tools"
+published: true
+---
+
+I was running the weekly TIL scout workflow and it kept failing at the 25-minute mark—right when the Nemotron 3 Ultra model (550B parameters) was doing real research work. The inherited timeout from the agentics sample workflow was too aggressive for this model tier.
+
+## The Problem
+
+The workflow ran on NVIDIA's free Nemotron 3 Ultra model via OpenRouter (`nvidia/nemotron-3-ultra-550b-a55b:free`). This model is significantly larger than the lightning model used in the sample, so it needs more time per request and occasionally hits a retry. The 25-minute cap killed sessions that were making genuine progress.
+
+```yaml
+# Before (inherited from agentics sample)
+timeout-minutes: 15
+
+# Then increased to 30 in a previous fix
+timeout-minutes: 30
+
+# Now set to 40 for Ultra-class model
+timeout-minutes: 40
+```
+
+## Three Configuration Fixes
+
+The workflow uses the Copilot BYOK (Bring Your Own Key) engine mode with OpenRouter as the provider. Three specific proxy issues had to be resolved:
+
+### 1. AWF Proxy Rejected Requests with "Model has no AI credits pricing"
+
+The GitHub Agentic Workflows firewall proxy requires a pricing value for every model, even free ones. Setting it to literal `0` fails validation.
+
+```yaml
+models:
+  default-ai-credits-pricing:
+    input: 0.000001
+    output: 0.000001
+```
+
+### 2. Proxy Token Steering Rewrote the Model
+
+The proxy was silently rewriting `nvidia/nemotron-3-ultra-550b-a55b:free` to `claude-sonnet-5`. Disabling token steering and model fallback prevents this.
+
+```yaml
+sandbox:
+  agent:
+    model-fallback: false
+    token-steering: false
+```
+
+### 3. Threat Detection Needs a Larger Model
+
+The threat-detection step emits strict JSON and requires the larger free model `nvidia/nemotron-3-super-120b-a12b:free` to reliably produce valid output.
+
+```yaml
+safe-outputs:
+  threat-detection:
+    engine:
+      env:
+        COPILOT_MODEL: "nvidia/nemotron-3-super-120b-a12b:free"
+```
+
+## Verified Behavior
+
+- NVIDIA NIM serves `/v1/chat/completions` but returns 404 for `/v1/responses` and `/v1/messages` — the Copilot engine's default completions wire API is the only viable fit
+- Free-tier 403 throttling occurs during sustained sessions; routing through OpenRouter with NVIDIA BYOK integration uses NVIDIA quota first, then falls back automatically
+- Primary diagnosis tool: `gh aw audit <run-id>` for inspecting workflow executions
+
+## Sources
+
+- GitHub Agentic Workflows documentation: [https://github.github.com/gh-aw/](https://github.github.com/gh-aw/) (accessed 2026-08-26)
+- GitHub next agentics repository: [https://github.com/githubnext/agentics](https://github.com/githubnext/agentics) (accessed 2026-08-26)
+- NVIDIA models catalog: [https://build.nvidia.com/models](https://build.nvidia.com/models) (accessed 2026-08-26)
+- Workflow run that triggered the fix: [33010387533](https://github.com/sameerkhansf/Sameer-Khan/actions/runs/33010387533)
+
+---
+
+*Last updated: August 26, 2026*
