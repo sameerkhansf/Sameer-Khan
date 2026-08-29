@@ -14,7 +14,7 @@ OpenAI released version 3.6.0 of their official Python SDK on August 28, 2026. T
 
 The v3.6.0 release introduces `compute_units` as an optional integer field in the usage statistics for both Chat Completions and Responses API calls. According to the release notes, this field represents "Compute units for the request. Currently null when available."[^1]
 
-[^1]: OpenAI openai-python release v3.6.0, https://github.com/openai/openai-python/releases/tag/v3.6.0
+[^1]: OpenAI openai-python [release v3.6.0](https://github.com/openai/openai-python/releases/tag/v3.6.0)
 
 ## Technical Details
 
@@ -25,6 +25,7 @@ The `compute_units` field appears in three key usage classes:
 3. `BetaResponseUsage` (for beta endpoints)
 
 Each class now includes:
+
 ```python
 compute_units: Optional[int] = None
 """Compute units for the request. Currently null when available."""
@@ -32,7 +33,7 @@ compute_units: Optional[int] = None
 
 The field is typed as `Optional[int]` with a minimum value of 0 when present, reflecting that it may return `null` (None in Python) when compute unit data isn't available for a particular request[^2].
 
-[^2]: OpenAI openai-python commit 52421d1, https://github.com/openai/openai-python/commit/52421d197e96b4480fcc16e78345578996452c79
+[^2]: OpenAI openai-python [commit 52421d1](https://github.com/openai/openai-python/commit/52421d197e96b4480fcc16e78345578996452c79)
 
 ## Usage Example
 
@@ -90,8 +91,8 @@ Developers should update to v3.6.0 to gain access to this new field, but shouldn
 ---
 
 **Evidence Summary**
+
 - Release version: v3.6.0 (published 2026-08-28)
 - Source: GitHub release notes and commit history
 - Key change: Addition of compute_units field to usage types
 - Current state: Field returns None/null for all requests
-
