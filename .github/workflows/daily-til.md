@@ -13,7 +13,16 @@ permissions: read-all
 network:
   allowed:
     - defaults
+    - github
+    - python
     - openrouter.ai
+    - openai.com
+    - anthropic.com
+    - blog.google
+    - ai.google.dev
+    - mistral.ai
+    - deepseek.com
+    - huggingface.co
 
 models:
   default-ai-credits-pricing:
