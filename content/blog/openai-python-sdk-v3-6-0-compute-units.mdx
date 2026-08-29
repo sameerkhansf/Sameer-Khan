@@ -1,0 +1,98 @@
+---
+title: "OpenAI Python SDK v3.6.0 Adds Compute Units to Usage Tracking"
+description: "The latest OpenAI Python SDK release v3.6.0 introduces compute_units tracking in API response usage, enabling developers to monitor computational resource consumption alongside token counts."
+date: "2026-08-29"
+author: "Sameer Khan"
+tags: ["AI", "OpenAI", "Python", "SDK", "Developer Tools"]
+category: "AI"
+published: true
+---
+
+OpenAI released version 3.6.0 of their official Python SDK on August 28, 2026. This update adds a new `compute_units` field to usage objects returned by API responses, providing developers with insight into computational resource consumption beyond traditional token counting.
+
+## What's New in v3.6.0
+
+The v3.6.0 release introduces `compute_units` as an optional integer field in the usage statistics for both Chat Completions and Responses API calls. According to the release notes, this field represents "Compute units for the request. Currently null when available."[^1]
+
+[^1]: OpenAI openai-python [release v3.6.0](https://github.com/openai/openai-python/releases/tag/v3.6.0)
+
+## Technical Details
+
+The `compute_units` field appears in three key usage classes:
+
+1. `CompletionUsage` (for chat completions)
+2. `ResponseUsage` (for responses API)
+3. `BetaResponseUsage` (for beta endpoints)
+
+Each class now includes:
+
+```python
+compute_units: Optional[int] = None
+"""Compute units for the request. Currently null when available."""
+```
+
+The field is typed as `Optional[int]` with a minimum value of 0 when present, reflecting that it may return `null` (None in Python) when compute unit data isn't available for a particular request[^2].
+
+[^2]: OpenAI openai-python [commit 52421d1](https://github.com/openai/openai-python/commit/52421d197e96b4480fcc16e78345578996452c79)
+
+## Usage Example
+
+Here's how to access the new field in your code:
+
+```python
+from openai import OpenAI
+
+client = OpenAI()
+
+# Chat Completions example
+response = client.chat.completions.create(
+    model="gpt-5.2",
+    messages=[{"role": "user", "content": "Explain quantum computing"}]
+)
+
+usage = response.usage
+print(f"Tokens: {usage.total_tokens}")
+print(f"Compute units: {usage.compute_units}")  # May be None
+
+# Responses API example
+response = client.responses.create(
+    model="gpt-5.2",
+    input="Explain quantum computing"
+)
+
+usage = response.usage
+print(f"Tokens: {usage.total_tokens}")
+print(f"Compute units: {usage.compute_units}")  # May be None
+```
+
+## Why This Matters
+
+While token counts have traditionally been the primary metric for API usage and cost estimation, compute units provide additional insight into the actual computational resources consumed by a request. This can be particularly valuable for:
+
+1. **Cost optimization**: Understanding the computational efficiency of different prompts or model parameters
+2. **Performance profiling**: Identifying requests that consume disproportionate computational resources
+3. **Capacity planning**: Better estimating infrastructure needs when deploying models that report compute units
+4. **Research**: Studying the relationship between token usage and actual computational work
+
+The introduction of compute units suggests OpenAI may be moving toward a more nuanced usage-based pricing model that accounts for both token generation and computational complexity.
+
+## Current Limitations
+
+As noted in the SDK documentation, the `compute_units` field is currently `null` (None in Python) for all requests[^3]. This indicates that while the field has been added to the API contract, the backend computation of compute units is not yet active or is being rolled out gradually.
+
+[^3]: Based on inspection of the SDK type definitions and release notes stating "Currently null when available."
+
+## Verdict
+
+The v3.6.0 update is a forward-looking addition that prepares developers for future enhancements to OpenAI's usage tracking capabilities. While the compute_units field currently returns no data, its inclusion in the SDK allows developers to future-proof their code by accessing the field now, ensuring compatibility when OpenAI activates compute unit reporting.
+
+Developers should update to v3.6.0 to gain access to this new field, but shouldn't expect meaningful compute unit data until OpenAI enables the backend computation. The change is backward-compatible and poses no risk to existing implementations.
+
+---
+
+**Evidence Summary**
+
+- Release version: v3.6.0 (published 2026-08-28)
+- Source: GitHub release notes and commit history
+- Key change: Addition of compute_units field to usage types
+- Current state: Field returns None/null for all requests
