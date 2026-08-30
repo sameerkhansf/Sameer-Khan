@@ -59,13 +59,13 @@ safe-outputs:
 tools:
   cache-memory:
   web-fetch:
-  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date"]
+  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "curl"]
   edit:
   github:
     toolsets: [default]
 timeout-minutes: 40
 
-max-turns: 60
+max-turns: 120
 
 ---
 
