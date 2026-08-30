@@ -31,6 +31,7 @@ models:
 
 engine:
   id: copilot
+  args: ["--allow-all-urls"]
   env:
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
     COPILOT_MODEL: "nvidia/nemotron-3-super-120b-a12b:free"
