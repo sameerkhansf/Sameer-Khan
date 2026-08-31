@@ -51,13 +51,24 @@ const config: Config = {
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
       },
+      // Fallbacks are Modern Font Stacks' "Transitional" (Charter-native) and
+      // "Monospace Code" stacks, verbatim: https://modernfontstacks.com/
       fontFamily: {
-        serif: ['var(--font-serif)', 'Charter', 'Georgia', 'Cambria', 'serif'],
+        serif: [
+          'var(--font-serif)',
+          'Charter',
+          'Bitstream Charter',
+          'Sitka Text',
+          'Cambria',
+          'serif',
+        ],
         mono: [
           'ui-monospace',
-          'SFMono-Regular',
+          'Cascadia Code',
+          'Source Code Pro',
           'Menlo',
           'Consolas',
+          'DejaVu Sans Mono',
           'monospace',
         ],
       },

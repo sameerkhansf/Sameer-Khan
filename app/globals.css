@@ -104,12 +104,14 @@
     text-wrap: pretty;
   }
 
-  button {
-    transition: transform 140ms cubic-bezier(0.23, 1, 0.32, 1);
-  }
+  @media (prefers-reduced-motion: no-preference) {
+    button {
+      transition: transform 140ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
 
-  button:active {
-    transform: scale(0.97);
+    button:active {
+      transform: scale(0.97);
+    }
   }
 }
 
