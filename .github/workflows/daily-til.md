@@ -33,6 +33,7 @@ models:
 
 engine:
   id: copilot
+  max-continuations: 8
   args: ["--allow-all-urls"]
   env:
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
