@@ -75,7 +75,7 @@ On MMLU-Pro at 4-bit quantization:
 
 **Key Hardware Insights:**
 
-- Context KV memory: <5 GB RAM for 262k context at 16-bit KV precision
+- Context KV memory: under 5 GB RAM for 262k context at 16-bit KV precision
 - Vision capability: Inherits Ornith's vision tower (separate 903 MB mmproj-BF16.gguf file)
 - Recommended approach: Ensure model + context KV fit in combined RAM+VRAM with sizable context (131k-262k tokens)
 
