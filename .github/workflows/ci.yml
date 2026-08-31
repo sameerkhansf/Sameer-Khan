@@ -34,11 +34,7 @@ jobs:
       - name: Build (MDX compile gate)
         run: npm run build
       - name: Agent-readiness tests (against production build)
-        run: |
-          npm run start & SERVER_PID=$!
-          npx wait-on -t 60000 http://localhost:3000
-          npm run test:agents
-          kill "$SERVER_PID"
+        run: npm run test:agents:ci
 
   # GitHub-documented Dependabot automation: merge patch/minor bumps only
   # after the full gate job above passes; majors stay for human review.

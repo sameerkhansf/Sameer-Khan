@@ -12,7 +12,8 @@
     "typecheck": "tsc --noEmit",
     "test:agents": "tsx --test scripts/agent-readiness.test.mjs",
     "generate-md": "npx tsx scripts/generate-markdown-files.ts",
-    "validate:content": "remark-lint-frontmatter-validation \"content/blog/**/*.mdx\" --schema schemas/post.schema.json && markdownlint-cli2"
+    "validate:content": "remark-lint-frontmatter-validation \"content/blog/**/*.mdx\" --schema schemas/post.schema.json && markdownlint-cli2",
+    "test:agents:ci": "start-server-and-test start http://localhost:3000 test:agents"
   },
   "dependencies": {
     "@next/third-parties": "^16.3.2",
@@ -47,6 +48,7 @@
     "markdownlint-cli2": "^0.23.2",
     "postcss": "^8.5.23",
     "remark-lint-frontmatter-validation": "^1.0.4",
+    "start-server-and-test": "^3.0.12",
     "tailwindcss": "^3.4.17",
     "tsx": "^4.23.12",
     "typescript": "^5.9.3",
