@@ -66,6 +66,8 @@ steps:
       mkdir -p /tmp/gh-aw/agent/scout
       date -u +%F > /tmp/gh-aw/agent/scout/today.txt
       gh pr list --label til --state open --json number,title,url > /tmp/gh-aw/agent/scout/open-til-prs.json
+      gh pr list --label til --state closed --limit 30 --json number,title,mergedAt \
+        --jq '[.[] | select(.mergedAt == null) | {number, title}]' > /tmp/gh-aw/agent/scout/rejected-til-topics.json
       ls content/blog | sed 's/\.mdx$//' > /tmp/gh-aw/agent/scout/existing-slugs.txt
       gh api graphql -f query='query($o:String!,$r:String!){repository(owner:$o,name:$r){discussions(first:5,orderBy:{field:CREATED_AT,direction:DESC}){nodes{title url createdAt body}}}}' \
         -F o="${GITHUB_REPOSITORY_OWNER}" -F r="${GITHUB_REPOSITORY#*/}" \
@@ -102,11 +104,12 @@ A deterministic step already gathered your scouting inputs under `/tmp/gh-aw/age
 
 - `today.txt` — today's date (use it verbatim for the frontmatter `date`).
 - `open-til-prs.json` — open PRs labeled `til`. If this array is non-empty, call `noop` naming the PR and stop.
+- `rejected-til-topics.json` — closed-without-merge til PRs: topics a human already rejected. Never re-propose a topic matching any of these titles.
 - `existing-slugs.txt` — every existing post slug; your new slug must not appear here.
 - `weekly-research.md` — the latest weekly-research discussion (its "Post queue" section, if present, lists pre-vetted topic candidates).
 - `hf-trending.json` — the 25 currently trending Hugging Face models with creation dates: the fastest signal for newly released models worth a review.
 
-Read all five with a single `cat` each, then choose the topic. Never run shell searches for topic queues, `topics.md`, or repo file listings — everything scouting needs is in these files.
+Read all six with a single `cat` each, then choose the topic. Never run shell searches for topic queues, `topics.md`, or repo file listings — everything scouting needs is in these files.
 
 ## Job
 
@@ -133,7 +136,8 @@ Read all five with a single `cat` each, then choose the topic. Never run shell s
 
 Your conversation context may be compacted mid-run; instructions and progress from earlier in the session can vanish. Externalize state so compaction never restarts you:
 
-- FIRST action every run: read `/tmp/gh-aw/cache-memory/til-run-progress.md` if it exists. If it is dated today and shows milestones, resume from the next unfinished step — never redo scouting or research the ledger already records.
+- FIRST action every run: read `/tmp/gh-aw/agent/til-run-progress.md` if it exists (it never exists at the start of a fresh run — this file is for THIS run only and must never be written to cache-memory, where a stale copy from a previous run would masquerade as your own progress).
+- Trust a milestone only if its artifact is on disk: "research done" counts only if the ledger's evidence file exists in cache-memory with fetched source URLs from this run; "draft written" counts only if the named MDX file exists in the working tree. A milestone whose artifact is missing was not reached — redo that step, starting with the research fetches.
 - After each milestone (topic chosen; research done; draft written), overwrite that file with today's date and one line per milestone: the topic, key source URLs, the draft file path, and the next step.
 
 Research budget: fetch primary sources deliberately — at most ~15 fetches per run. For each claim, take the first credible primary source and move on; do not re-search or seek a second confirmation unless sources conflict.
