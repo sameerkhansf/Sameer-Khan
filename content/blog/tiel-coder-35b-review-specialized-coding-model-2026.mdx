@@ -1,5 +1,5 @@
 ---
-title: "Tiel Coder 35B Review: Specialized Coding Model Beats Opus 4.6 on SWE-Bench Live"
+title: "Tiel Coder 35B Review: Local Coding Model Matches Opus 4.6 Medium on SWE-Bench Live"
 description: "A dynamically quantized MoE model that matches Opus 4.6 medium on coding benchmarks while excelling in multi-turn conversations for agentic workflows"
 date: "2026-08-31"
 author: "Sameer Khan"
@@ -13,16 +13,18 @@ published: true
 | Model | Best For | SWE-Bench Live | Multi-Turn Score | Hardware (Quantized) | Price/Access |
 | ------- | ---------- | ---------------- | ------------------ | ---------------------- | -------------- |
 | Tiel Coder 35B | Agentic coding, long conversations | 12/25 (48%) | 67.2 | 22.4 GB (Q4_K_XL) | Free (local) |
-| Opus 4.6 Medium | Complex reasoning, refactoring | 12/25 (48%) | ~65 | API only | Usage-based |
-| Nail Qwen3.6-35B | Exam knowledge, hard reasoning | ~8/25 | ~60.5 | ~18 GB (Q4) | Free (local) |
+| Opus 4.6 Medium | Complex reasoning, refactoring | 12/25 (48%) | Not measured | API only | Usage-based |
+| Nail Qwen3.6-35B | Exam knowledge, hard reasoning | 9/25 (36%) | 60.5 | ~18 GB (Q4) | Free (local) |
 | Dirk Qwen3.8-27B | Most fixes regardless of weight | 15/25 (60%) | Lower | ~27 GB | Free (local) |
-| Stock Qwen3.6-35B-A3B | Baseline comparison | 8/25 (32%) | ~65.3 | ~18 GB | Free (local) |
+| Stock Qwen3.6-35B-A3B | Baseline comparison | 8/25 (32%) | Not measured | ~18 GB | Free (local) |
 
 ## Introduction
 
-Tiel Coder 35B is a specialized coding model based on Ornith-1.5-35B-A3B that has been dynamically quantized with a custom importance matrix and the Sharp chat template. Designed specifically for agentic coding workflows and multi-turn conversations, this model delivers impressive local performance that rivals frontier API models on coding benchmarks while being freely accessible to run on consumer hardware.
+[Tiel Coder 35B](https://huggingface.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF) is a specialized coding model based on [Ornith-1.5-35B-A3B](https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B) that has been dynamically quantized with a custom importance matrix and the Sharp chat template. Designed specifically for agentic coding workflows and multi-turn conversations, this model delivers impressive local performance that rivals frontier API models on coding benchmarks while being freely accessible to run on consumer hardware.
 
 ## Performance Benchmarks
+
+All benchmark figures in this review come from the [Tiel Coder model card](https://huggingface.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF), accessed 2026-08-31; SWE-bench Live results are one run per problem and MMLU-Pro uses three seeds, so treat small differences as noise.
 
 ### SWE-Bench Live Results
 
@@ -112,8 +114,8 @@ Sampling recommendations: `temperature 1.0`, `top_p 0.95`, `top_k 20`; for agent
 
 ### Consider These Alternatives
 
-- **Nail Qwen3.6-35B-A3B-GGUF** if you need better exam-style knowledge and hard reasoning (10.3 points better on MMLU-Pro)
-- **Dirk Qwen3.8-27B-GGUF** if your priority is solving the most problems regardless of weight (solves 15/25 SWE-bench)
+- **[Nail Qwen3.6-35B-A3B-GGUF](https://huggingface.co/peculiar-ragdoll/Nail-Qwen3.6-35B-A3B-GGUF)** if you need better exam-style knowledge and hard reasoning (10.3 points better on MMLU-Pro)
+- **[Dirk Qwen3.8-27B-GGUF](https://huggingface.co/peculiar-ragdoll/Dirk-Qwen3.8-27B-GGUF)** if your priority is solving the most problems regardless of weight (solves 15/25 SWE-bench)
 - **Base Ornith-1.5-35B-A3B** if you need a model that asks more clarifying questions before acting on vague requests
 - **API models** like Opus 4.6 if you prefer not to manage local hardware infrastructure
 
@@ -142,3 +144,9 @@ Tiel Coder 35B represents a compelling option for developers seeking high-perfor
 For agentic coding, long conversations that need to stay useful, and workflows where you want Opus 4.6 medium performance without API costs or latency, Tiel Coder 35B is an excellent choice. For exam preparation, hard reasoning tasks, or when you need maximum problem-solving regardless of conversational quality, the Nail or Dirk models may be better suited.
 
 The model demonstrates how specialized quantization and template optimization can create locally-runnable models that punch above their weight class for specific developer workflows.
+
+## Sources
+
+- [Tiel Coder 35B model card](https://huggingface.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF) - all benchmarks, quantization tiers, and run commands (accessed 2026-08-31)
+- [Ornith-1.5-35B-A3B](https://huggingface.co/ornith-ai/Ornith-1.5-35B-A3B) - base model weights, MIT license
+- [Nail Qwen3.6-35B-A3B-GGUF](https://huggingface.co/peculiar-ragdoll/Nail-Qwen3.6-35B-A3B-GGUF) and [Dirk Qwen3.8-27B-GGUF](https://huggingface.co/peculiar-ragdoll/Dirk-Qwen3.8-27B-GGUF) - compared alternatives
