@@ -84,7 +84,7 @@ tools:
   edit:
   github:
     toolsets: [default]
-timeout-minutes: 40
+timeout-minutes: 60
 
 max-turns: 120
 
