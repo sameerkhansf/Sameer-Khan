@@ -80,9 +80,11 @@
     transition-delay: 0s !important;
   }
 
+  /* Butterick: line spacing 120-145% of point size; 1.5 rounds to WCAG's
+     preferred minimum for text blocks */
   body {
     @apply bg-background text-foreground font-serif;
-    line-height: 1.6;
+    line-height: 1.5;
     font-feature-settings: "liga", "kern";
   }
 

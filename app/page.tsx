@@ -59,6 +59,19 @@ export default function Home() {
                 <span className="meta shrink-0">{job.period}</span>
               </li>
             ))}
+          </ul>
+          <p className="mt-4">
+            <Link href="/resume/" className="meta link-quiet">
+              Full résumé →
+            </Link>
+          </p>
+        </section>
+
+        <section aria-labelledby="education">
+          <h2 id="education" className="section-title">
+            Education
+          </h2>
+          <ul className="space-y-2.5">
             {education.map((e) => (
               <li key={e.school} className="entry-row">
                 <span>
@@ -68,11 +81,6 @@ export default function Home() {
               </li>
             ))}
           </ul>
-          <p className="mt-4">
-            <Link href="/resume/" className="meta link-quiet">
-              Full résumé →
-            </Link>
-          </p>
         </section>
 
         <section aria-labelledby="writing">
