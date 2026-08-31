@@ -4,16 +4,9 @@ import Link from "next/link";
 import React from "react";
 import CodeBlock from "@/components/blog/CodeBlock";
 
-// Inline code
-function InlineCode({ children }: { children: React.ReactNode }) {
-  return (
-    <code className="px-2 py-0.5 rounded-md bg-gray-100 dark:bg-gray-800 text-sm font-mono text-pink-600 dark:text-pink-400 border border-gray-200 dark:border-gray-700">
-      {children}
-    </code>
-  );
-}
+// Element styling comes from the `prose` wrapper on the post page; this file
+// only maps what @tailwindcss/typography can't do on its own.
 
-// Custom link that opens external links in new tab
 function CustomLink({
   href,
   children,
@@ -23,26 +16,19 @@ function CustomLink({
 
   if (isExternal) {
     return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-600 dark:text-blue-400 hover:underline"
-        {...props}
-      >
+      <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
         {children}
       </a>
     );
   }
 
   return (
-    <Link href={href || "#"} className="text-blue-600 dark:text-blue-400 hover:underline" {...props}>
+    <Link href={href || "#"} {...props}>
       {children}
     </Link>
   );
 }
 
-// Callout/Note component
 function Callout({
   children,
   type = "info",
@@ -51,189 +37,44 @@ function Callout({
   type?: "info" | "warning" | "error" | "success";
 }) {
   const styles = {
-    info: "bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-200",
-    warning:
-      "bg-yellow-50 dark:bg-yellow-950 border-yellow-200 dark:border-yellow-800 text-yellow-800 dark:text-yellow-200",
-    error:
-      "bg-red-50 dark:bg-red-950 border-red-200 dark:border-red-800 text-red-800 dark:text-red-200",
-    success:
-      "bg-green-50 dark:bg-green-950 border-green-200 dark:border-green-800 text-green-800 dark:text-green-200",
+    info: "border-border",
+    warning: "border-yellow-600/50",
+    error: "border-destructive/50",
+    success: "border-green-600/50",
   };
 
   return (
-    <div className={`my-6 rounded-lg border p-4 ${styles[type]}`}>
-      <div className="flex gap-3">
-        <div className="flex-1">{children}</div>
-      </div>
-    </div>
+    <aside className={`my-6 border-l-2 pl-4 text-muted-foreground ${styles[type]}`}>
+      {children}
+    </aside>
   );
 }
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    // Headings with anchor links
-    h1: ({ children, ...props }) => (
-      <h1
-        className="mt-8 mb-4 text-3xl font-bold text-gray-900 dark:text-gray-100"
-        {...props}
-      >
-        {children}
-      </h1>
-    ),
-    h2: ({ children, id, ...props }) => (
-      <h2
-        id={id}
-        className="mt-8 mb-4 text-2xl font-semibold text-gray-900 dark:text-gray-100 scroll-mt-20 group"
-        {...props}
-      >
-        {children}
-        {id && (
-          <a
-            href={`#${id}`}
-            className="ml-2 opacity-0 group-hover:opacity-100 text-gray-400 hover:text-gray-600"
-            aria-label="Link to section"
-          >
-            #
-          </a>
-        )}
-      </h2>
-    ),
-    h3: ({ children, id, ...props }) => (
-      <h3
-        id={id}
-        className="mt-6 mb-3 text-xl font-semibold text-gray-900 dark:text-gray-100 scroll-mt-20 group"
-        {...props}
-      >
-        {children}
-        {id && (
-          <a
-            href={`#${id}`}
-            className="ml-2 opacity-0 group-hover:opacity-100 text-gray-400 hover:text-gray-600"
-            aria-label="Link to section"
-          >
-            #
-          </a>
-        )}
-      </h3>
-    ),
-    h4: ({ children, ...props }) => (
-      <h4
-        className="mt-4 mb-2 text-lg font-semibold text-gray-900 dark:text-gray-100"
-        {...props}
-      >
-        {children}
-      </h4>
-    ),
-
-    // Paragraph
-    p: ({ children, ...props }) => (
-      <p
-        className="my-6 text-gray-700 dark:text-gray-300 leading-relaxed text-base"
-        {...props}
-      >
-        {children}
-      </p>
-    ),
-
-    // Lists
-    ul: ({ children, ...props }) => (
-      <ul className="my-4 ml-6 list-disc text-gray-700 dark:text-gray-300" {...props}>
-        {children}
-      </ul>
-    ),
-    ol: ({ children, ...props }) => (
-      <ol className="my-4 ml-6 list-decimal text-gray-700 dark:text-gray-300" {...props}>
-        {children}
-      </ol>
-    ),
-    li: ({ children, ...props }) => (
-      <li className="my-1" {...props}>
-        {children}
-      </li>
-    ),
-
-    // Blockquote
-    blockquote: ({ children, ...props }) => (
-      <blockquote
-        className="my-8 border-l-4 border-blue-500 dark:border-blue-400 pl-6 pr-4 py-2 bg-blue-50/50 dark:bg-blue-950/20 rounded-r-lg italic text-gray-700 dark:text-gray-300"
-        {...props}
-      >
-        {children}
-      </blockquote>
-    ),
-
-    // Code
     pre: CodeBlock,
-    code: ({ children, className, ...props }) => {
-      // If it has a className, it's a code block (handled by pre)
-      if (className) {
-        return (
-          <code className={className} {...props}>
-            {children}
-          </code>
-        );
-      }
-      // Otherwise it's inline code
-      return <InlineCode>{children}</InlineCode>;
-    },
-
-    // Links
     a: CustomLink,
 
-    // Images
-    img: ({ alt = "", ...props }) => (
-      <div className="my-8">
-        <Image
-          sizes="100vw"
-          style={{ width: "100%", height: "auto" }}
-          className="rounded-xl shadow-lg border border-gray-200 dark:border-gray-700"
-          alt={alt}
-          {...(props as Omit<ImageProps, "alt">)}
-        />
-      </div>
-    ),
-
-    // Horizontal rule
-    hr: (props) => (
-      <hr className="my-12 border-0 border-t-2 border-gray-200 dark:border-gray-700" {...props} />
-    ),
-
-    // Table
+    // Wide tables scroll in their own keyboard-accessible container instead of
+    // forcing page-level horizontal scroll on mobile.
     table: ({ children, ...props }) => (
-      <div className="my-6 overflow-x-auto">
-        <table
-          className="min-w-full divide-y divide-gray-200 dark:divide-gray-700"
-          {...props}
-        >
-          {children}
-        </table>
+      <div tabIndex={0} className="overflow-x-auto">
+        <table {...props}>{children}</table>
       </div>
     ),
-    th: ({ children, ...props }) => (
-      <th
-        className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-800"
-        {...props}
-      >
-        {children}
-      </th>
-    ),
-    td: ({ children, ...props }) => (
-      <td
-        className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300 border-t border-gray-200 dark:border-gray-700"
-        {...props}
-      >
-        {children}
-      </td>
+
+    img: ({ alt = "", ...props }) => (
+      <Image
+        sizes="100vw"
+        style={{ width: "100%", height: "auto" }}
+        alt={alt}
+        {...(props as Omit<ImageProps, "alt">)}
+      />
     ),
 
-    // Custom components
     Callout,
     Image: ({ alt = "", ...props }: ImageProps) => (
-      <Image
-        className="rounded-lg my-6"
-        {...props}
-        alt={alt}
-      />
+      <Image className="my-6" {...props} alt={alt} />
     ),
 
     ...components,

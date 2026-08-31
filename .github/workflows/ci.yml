@@ -33,6 +33,8 @@ jobs:
           fail: true
       - name: Build (MDX compile gate)
         run: npm run build
+      - name: Agent-readiness tests (against production build)
+        run: npm run test:agents:ci
 
   # GitHub-documented Dependabot automation: merge patch/minor bumps only
   # after the full gate job above passes; majors stay for human review.

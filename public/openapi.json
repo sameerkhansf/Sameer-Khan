@@ -2,14 +2,18 @@
   "openapi": "3.1.0",
   "info": {
     "title": "samkhan.net content API",
-    "description": "Machine-readable, read-only content endpoints for samkhan.net, the personal site of Sameer Khan (Co-Founder, agentShop). All endpoints are static GET resources. HTML pages (/, /{lang}/blog/{slug}/) also serve markdown via `Accept: text/markdown` content negotiation. There is no interactive API: every /api/* path returns a structured JSON 404.",
+    "description": "Machine-readable, read-only content endpoints for samkhan.net, the personal site of Sameer Khan (Forward Deployed / AI Engineer). All endpoints are static GET resources. HTML pages (/, /blog/{slug}/) also serve markdown via `Accept: text/markdown` content negotiation. There is no interactive API: every /api/* path returns a structured JSON 404.",
     "version": "1.0.0",
     "contact": {
       "name": "Sameer Khan",
       "url": "https://samkhan.net"
     }
   },
-  "servers": [{ "url": "https://samkhan.net" }],
+  "servers": [
+    {
+      "url": "https://samkhan.net"
+    }
+  ],
   "paths": {
     "/llms.txt": {
       "get": {
@@ -18,19 +22,13 @@
         "responses": {
           "200": {
             "description": "Markdown overview of the site with links to key content.",
-            "content": { "text/plain": { "schema": { "type": "string" } } }
-          }
-        }
-      }
-    },
-    "/llms-full.txt": {
-      "get": {
-        "operationId": "getLlmsFullTxt",
-        "summary": "Expanded llms.txt with full content inlined",
-        "responses": {
-          "200": {
-            "description": "Full markdown content of the site in one document.",
-            "content": { "text/plain": { "schema": { "type": "string" } } }
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -42,7 +40,13 @@
         "responses": {
           "200": {
             "description": "Markdown version of the homepage.",
-            "content": { "text/markdown": { "schema": { "type": "string" } } }
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -50,22 +54,32 @@
     "/blog/{slug}.md": {
       "get": {
         "operationId": "getBlogPostMarkdown",
-        "summary": "Blog post as markdown (also served at /{lang}/blog/{slug}/ with Accept: text/markdown)",
+        "summary": "Blog post as markdown (also served at /blog/{slug}/ with Accept: text/markdown)",
         "parameters": [
           {
             "name": "slug",
             "in": "path",
             "required": true,
-            "schema": { "type": "string" },
+            "schema": {
+              "type": "string"
+            },
             "description": "Post slug. Enumerate slugs via /sitemap.xml, /rss.xml, or /llms.txt."
           }
         ],
         "responses": {
           "200": {
             "description": "Markdown source of the post with YAML frontmatter.",
-            "content": { "text/markdown": { "schema": { "type": "string" } } }
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
-          "404": { "description": "Unknown slug." }
+          "404": {
+            "description": "Unknown slug."
+          }
         }
       }
     },
@@ -76,7 +90,13 @@
         "responses": {
           "200": {
             "description": "RSS feed.",
-            "content": { "application/xml": { "schema": { "type": "string" } } }
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -88,7 +108,13 @@
         "responses": {
           "200": {
             "description": "Sitemap.",
-            "content": { "application/xml": { "schema": { "type": "string" } } }
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -100,7 +126,13 @@
         "responses": {
           "200": {
             "description": "OpenAPI 3.1 document.",
-            "content": { "application/json": { "schema": { "type": "object" } } }
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
           }
         }
       }
@@ -114,7 +146,9 @@
             "name": "path",
             "in": "path",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -122,7 +156,9 @@
             "description": "Structured JSON error.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Error" }
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
               }
             }
           }
@@ -134,15 +170,29 @@
     "schemas": {
       "Error": {
         "type": "object",
-        "required": ["error"],
+        "required": [
+          "error"
+        ],
         "properties": {
           "error": {
             "type": "object",
-            "required": ["code", "message"],
+            "required": [
+              "code",
+              "message"
+            ],
             "properties": {
-              "code": { "type": "string", "examples": ["not_found"] },
-              "message": { "type": "string" },
-              "hint": { "type": "string" }
+              "code": {
+                "type": "string",
+                "examples": [
+                  "not_found"
+                ]
+              },
+              "message": {
+                "type": "string"
+              },
+              "hint": {
+                "type": "string"
+              }
             }
           }
         }

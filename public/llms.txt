@@ -1,54 +1,53 @@
 # Sameer Khan
 
-> Sameer Khan is a Full-Stack Software Engineer based in San Francisco with a B.S. in Computer Science from Sonoma State University (graduated with honors, May 2025). He specializes in React, Next.js, TypeScript, Node.js, and AI/ML integration. His technical blog features comprehensive reviews of frontier AI models (GPT-5.2, Claude Opus 4.5, DeepSeek), React tutorials, and developer tools comparisons.
+> Forward Deployed / AI Engineer with founder experience taking ambiguous customer and product problems from discovery through production. Built AI-commerce, bookkeeping, and venture-diligence systems across TypeScript/Next.js, Node.js, Python, LLM tool calling, and AWS; strongest in fast scoping, hands-on implementation, and translating technical systems into measurable business outcomes.
 
-## Summary
+Based in San Francisco, CA. This file follows https://llmstxt.org/.
 
-Sameer Khan is a new grad Software Engineer passionate about building innovative web and mobile applications. His technical expertise spans frontend development (React, Next.js, TypeScript), backend development (Node.js, Python, Java, C++), cloud infrastructure (AWS, Docker), and databases (MongoDB). He is AWS Certified Cloud Practitioner and proficient in English, Urdu, and Hindi.
+## Experience
 
-## Skills
+- **Co-Founder & Founding Engineer at agentShop** (Nov 2025 - Aug 2026, San Francisco, CA):
+  - Co-founded agentShop, a commerce-intelligence platform for AI shopping; shipped Shopify, WordPress/WooCommerce, and Wix integrations plus an analytics dashboard for tracking AI-driven sales and visibility across ChatGPT, Gemini, and Perplexity.
+  - Took the Shopify product to the App Store, launched February 4, 2026, with AI PDP optimization, automated SEO, revenue attribution, AI revenue audits, and AI-shopping recommendation tracking.
+  - Shipped product capabilities for share-of-recommendation tracking, product-data enrichment, AI experimentation, competitor visibility, and linking AI exposure to downstream conversions.
+- **Portfolio Technology Analyst at MARL Accelerator** (Jan 2025 - Jul 2025, Remote):
+  - Conducted technical and strategic diligence on 500+ early-stage startup applications, owning the process from first call through final technical assessment.
+  - Built and deployed an AI-powered Analyst Agent that automated initial diligence and generated investment memos aligned with MARL Fund III's thesis, reducing analyst hours per deal by 70%+.
+  - Evaluated technical feasibility, architecture, team execution, and AI/product defensibility from incomplete data and unfamiliar codebases under time pressure.
+- **Software Developer, AI Bookkeeping at PomJuice** (Mar 2025 - May 2025, San Francisco, CA):
+  - Architected “Books Done Right,” an AI bookkeeping application using Next.js, React, Node.js, Python, LLM tool calling, and the QuickBooks API.
+  - Implemented an LLM-based natural-language interface that reduced manual bookkeeping effort by 80% while achieving 95%+ classification accuracy.
+  - Translated bookkeeping workflows and edge cases into model, prompt, API, and UI behavior for non-technical users.
+- **Full-Stack Software Engineer at CmdTower** (Apr 2024 - Aug 2024, San Francisco, CA):
+  - Built a vertical SaaS platform with TypeScript-based onboarding and authentication, a Django backend on AWS Elastic Beanstalk, and AWS CodePipeline CI/CD for deployment.
 
-- **Frontend**: React (Advanced), Next.js (Advanced), TypeScript (Advanced), JavaScript (Advanced), HTML, CSS, Tailwind CSS
-- **Backend**: Node.js (Advanced), Python (Advanced), Java (Intermediate), C++ (Intermediate)
-- **Cloud & DevOps**: AWS (Intermediate), Docker (Intermediate), Git (Advanced), CI/CD
-- **Databases**: MongoDB (Advanced)
-- **Other**: AI/ML, Computer Vision, LLM Integration, Data Structures & Algorithms
+## Research
 
-## Work Experience
-
-- **Software Developer at PomJuice** (Mar 2025 - May 2025): Built "Books Done Right" AI bookkeeping app using Next.js, React, Node.js, Python, LLM tool calling, and QuickBooks API. Reduced manual effort by 80%, achieved 95%+ classification accuracy.
-- **Research Intern at MESA Program, Sonoma State University** (Jun 2024 - Aug 2024): Explainable AI for cancer diagnosis - integrated explainable AI into CNNs, improving model interpretability and predictive accuracy.
-- **Full Stack Developer Intern at Stealth Startup** (Apr 2024 - Aug 2024): Built user authentication, designed AWS CodePipeline CI/CD, full-stack development with TypeScript, Python/Django, and AWS deployment.
-- **Undergraduate Teaching Assistant at Sonoma State University** (Aug 2022 - Dec 2023): Guided 140+ students in C++, OOP, data structures, and algorithms. Created coding best-practices module with 90%+ positive feedback.
+- **Explainable AI for Brain Tumor Diagnosis** (MESA Research Program, Sonoma State University): Built and evaluated CNN image-classification models (VGG16, VGG19, ResNet-50, MobileNet) on the Br-H35 brain-tumor dataset; applied LIME, SHAP, and Grad-CAM for interpretability and evaluated performance with AUC-ROC curves and confusion matrices.
 
 ## Education
 
-- [Sonoma State University](https://www.sonoma.edu): Bachelor of Science in Computer Science (Aug 2021 - May 2025). Graduated with Honors. Coursework: Database Management, Data Structures & Algorithms, Computer Architecture, Software Design & Development, Computer Networking, Analysis of Algorithms.
+- **Sonoma State University**: B.S. Computer Science (Aug 2023 - May 2025). Graduated with Honors; International Student Scholarship recipient (May 2023). Relevant coursework: Database Systems, Data Structures & Algorithms, Computer Architecture, Software Design & Development, Computer Networking, Analysis of Algorithms.
+- **City College of San Francisco**: A.S. Computer Science (Aug 2021 - May 2023).
 
-## Certifications
+## Skills
 
-- AWS Certified Cloud Practitioner
-- CodePath Technical Interview Prep
-
-## Projects
-
-- [BioSoundSCape](https://github.com/sameerkhansf/BioSoundSCape_SSU_Computer_Science): Computer Vision research project for land cover classification using machine learning. Built with Python, TensorFlow. (Spring 2025)
-- [DFA/NFA Builder](https://github.com/sameerkhansf/JFLAPAutomataBuilder): Automata theory project for building and visualizing deterministic and non-deterministic finite automata. Built with Java. (Fall 2024)
-- [C++ Interpreter](https://github.com/sameerkhansf/Interpreter): A compiler/interpreter implementation demonstrating programming language theory concepts including lexical analysis, parsing, and execution. Built with C++. (Spring 2025)
-- [Expense Tracker](https://expense-tracker-mocha-three.vercel.app): Full-stack web application for tracking personal expenses with data visualization and categorization. Built with React, Node.js, MongoDB. (Dec 2024)
+- **AI / ML**: LLM integration, prompt engineering, tool calling, RAG, TensorFlow, PyTorch, LIME, SHAP, Grad-CAM
+- **Frontend**: React, Next.js, TypeScript, Tailwind CSS, HTML/CSS
+- **Backend**: Node.js, Python, Java, Django, Express.js, REST APIs, QuickBooks API
+- **Cloud & Infra**: AWS (Certified Developer), Docker, CI/CD, MongoDB, PostgreSQL, Vercel
+- **Ways of working**: Customer discovery, technical scoping under ambiguity, technical diligence, executive communication, ROI framing, Git, Agile
 
 ## Blog
 
 Technical articles on AI, React, Next.js, TypeScript, and software development.
-
-- [Blog](https://samkhan.net/blog): All articles
-
-**Note:** All blog posts are available in LLM-friendly markdown format. Append `.md` to any blog post URL to get the markdown version. For example: `https://samkhan.net/blog/gpt-5-2-technical-review.md`
+All posts are available in LLM-friendly markdown: append `.md` to any blog post
+URL, or send `Accept: text/markdown`.
 
 ### Articles
 
-<!-- articles starts -->
 **AI:**
+- [Tiel Coder 35B Review: Local Coding Model Matches Opus 4.6 Medium on SWE-Bench Live](https://samkhan.net/blog/tiel-coder-35b-review-specialized-coding-model-2026): A dynamically quantized MoE model that matches Opus 4.6 medium on coding benchmarks while excelling in multi-turn conversations for agentic workflows
 - [OpenAI Python SDK v3.6.0 Adds Compute Units to Usage Tracking](https://samkhan.net/blog/openai-python-sdk-v3-6-0-compute-units): The latest OpenAI Python SDK release v3.6.0 introduces compute_units tracking in API response usage, enabling developers to monitor computational resource consumption alongside token counts.
 - [Grok 4.1 Review: xAI's Latest Model Tested](https://samkhan.net/blog/grok-4-1-review-2025): Complete review of Grok 4.1, xAI's latest language model. Benchmark performance, real-world testing, cost analysis, and comparison with GPT-5.2, Claude Opus 4.5, and other frontier models.
 - [Mistral Devstral 2 Review: Agentic Coding Model](https://samkhan.net/blog/mistral-devstral-2-agentic-coding-review-2025): Mistral Devstral 2 is purpose-built for agentic coding workflows. Complete review of its coding capabilities, agent performance, and how it compares to GPT-5.2, Claude Opus 4.5, and specialized coding tools.
@@ -75,19 +74,11 @@ Technical articles on AI, React, Next.js, TypeScript, and software development.
 
 **Projects:**
 - [How I Built This Portfolio with Next.js 16 and Tailwind CSS](https://samkhan.net/blog/building-this-portfolio): A deep dive into the architecture, design decisions, and optimizations that went into building my personal portfolio site. From SEO to accessibility, learn what goes into a modern developer portfolio.
-<!-- articles ends -->
 
 ## Contact
 
-- [Website](https://samkhan.net): Personal portfolio and resume
-- [Resume](https://samkhan.net/resume): Detailed professional resume
-- [Blog](https://samkhan.net/blog): Technical articles and AI model reviews
-- [RSS Feed](https://samkhan.net/rss.xml): Subscribe to new articles
-- [Email](mailto:khansam@sonoma.edu): khansam@sonoma.edu
-- [GitHub](https://github.com/sameerkhansf): Open source contributions and projects
-- [LinkedIn](https://linkedin.com/in/sameerkhansf): Professional network
-- [X/Twitter](https://x.com/sameerkhan_sf): @sameerkhan_sf
-
-## Optional
-
-- [Instagram](https://instagram.com/sam.khan007_): Personal updates
+- Email: khansam@sonoma.edu
+- Website: https://samkhan.net
+- LinkedIn: https://linkedin.com/in/sameerkhansf
+- GitHub: https://github.com/sameerkhansf
+- X: https://x.com/sameerkhan_sf

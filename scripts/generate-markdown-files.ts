@@ -1,6 +1,14 @@
 import fs from "fs";
 import path from "path";
 import { getAllPosts } from "@/lib/blog";
+import {
+  identity,
+  summary,
+  experience,
+  research,
+  education,
+  skills,
+} from "@/lib/resume";
 
 /**
  * Generate .md versions of all blog posts for LLM consumption
@@ -69,8 +77,8 @@ ${post.content}
     console.log(`Generated: ${filePath}`);
   }
 
-  // Regenerate the article index inside llms.txt between markers (Simon-style),
-  // so agent-published posts are discoverable the moment they build.
+  // llms.txt is generated wholly from lib/resume.ts + the post index, so the
+  // bio can never drift from the site again (it used to be hand-written here).
   const publicDir = path.join(process.cwd(), "public");
   const llmsPath = path.join(publicDir, "llms.txt");
   const byCategory = new Map<string, typeof posts>();
@@ -79,7 +87,7 @@ ${post.content}
     list.push(post);
     byCategory.set(post.category, list);
   }
-  const articleLines = ["<!-- articles starts -->"];
+  const articleLines: string[] = [];
   for (const [category, categoryPosts] of byCategory) {
     articleLines.push(`**${category}:**`);
     for (const post of categoryPosts) {
@@ -89,16 +97,60 @@ ${post.content}
     }
     articleLines.push("");
   }
-  if (articleLines[articleLines.length - 1] === "") articleLines.pop();
-  articleLines.push("<!-- articles ends -->");
-  const llms = fs
-    .readFileSync(llmsPath, "utf-8")
-    .replace(
-      /<!-- articles starts -->[\s\S]*<!-- articles ends -->/,
-      articleLines.join("\n")
-    );
+  const llms = `# ${identity.name}
+
+> ${summary}
+
+Based in ${identity.location}. This file follows https://llmstxt.org/.
+
+## Experience
+
+${experience
+  .map(
+    (job) =>
+      `- **${job.title} at ${job.org}** (${job.period}, ${job.location}):\n${job.bullets.map((b) => `  - ${b}`).join("\n")}`
+  )
+  .join("\n")}
+
+## Research
+
+${research
+  .map((r) => `- **${r.title}** (${r.org}): ${r.bullets.join(" ")}`)
+  .join("\n")}
+
+## Education
+
+${education
+  .map(
+    (e) =>
+      `- **${e.school}**: ${e.degree} (${e.period}).${e.notes.length ? " " + e.notes.join(" ") : ""}`
+  )
+  .join("\n")}
+
+## Skills
+
+${skills.map((s) => `- **${s.group}**: ${s.items}`).join("\n")}
+
+## Blog
+
+Technical articles on AI, React, Next.js, TypeScript, and software development.
+All posts are available in LLM-friendly markdown: append \`.md\` to any blog post
+URL, or send \`Accept: text/markdown\`.
+
+### Articles
+
+${articleLines.join("\n").trimEnd()}
+
+## Contact
+
+- Email: ${identity.email}
+- Website: ${identity.site}
+- LinkedIn: ${identity.linkedin}
+- GitHub: ${identity.github}
+- X: ${identity.twitter}
+`;
   fs.writeFileSync(llmsPath, llms);
-  console.log(`Updated: public/llms.txt article index (${posts.length} posts)`);
+  console.log(`Generated: public/llms.txt (${posts.length} posts)`);
 
   // Homepage markdown for Accept: text/markdown negotiation — llms.txt is
   // already the maintained markdown overview of the site, so reuse it.

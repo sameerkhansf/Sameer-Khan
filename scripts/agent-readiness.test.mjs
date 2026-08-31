@@ -1,7 +1,11 @@
 // Agent-readiness checks. Run against a server:
 //   BASE_URL=https://samkhan.net npm run test:agents   (default: localhost:3000)
+// Runs under `tsx --test` so it can import the TypeScript career data source.
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import { extractText, getDocumentProxy } from "unpdf";
+import { identity, experience, education, skills } from "../lib/resume.ts";
 
 const BASE = (process.env.BASE_URL || "http://localhost:3000").replace(/\/$/, "");
 
@@ -26,12 +30,34 @@ test("homepage negotiates markdown via Accept: text/markdown", async () => {
 });
 
 test("blog post negotiates markdown via Accept: text/markdown", async () => {
-  const res = await fetch(`${BASE}/en-US/blog/building-this-portfolio/`, {
+  const res = await fetch(`${BASE}/blog/building-this-portfolio/`, {
     headers: { Accept: "text/markdown" },
   });
   assert.equal(res.status, 200);
   assert.match(res.headers.get("content-type") || "", /^text\/markdown/);
   assert.match(res.headers.get("vary") || "", /accept/i);
+});
+
+// WHATWG fetch follows redirects per spec (bounded at 20 hops, then a network
+// error): Response.url is the final URL after all redirects, and
+// Response.redirected marks that redirection happened. An empty or missing
+// Location leaves fetch on the 3xx response, failing the 200 assertion.
+test("every legacy locale root redirects to /", async () => {
+  for (const lang of ["en-US", "es", "fr", "de", "ja", "zh"]) {
+    for (const suffix of ["", "/"]) {
+      const res = await fetch(`${BASE}/${lang}${suffix}`);
+      assert.equal(res.status, 200, `/${lang}${suffix} ends at 200`);
+      assert.equal(new URL(res.url).pathname, "/", `/${lang}${suffix} lands on /`);
+      assert.ok(res.redirected, `/${lang}${suffix} actually redirected`);
+    }
+  }
+});
+
+test("legacy nested locale URLs redirect to their locale-free page", async () => {
+  const res = await fetch(`${BASE}/en-US/blog/building-this-portfolio/`);
+  assert.equal(res.status, 200);
+  assert.equal(new URL(res.url).pathname, "/blog/building-this-portfolio/");
+  assert.ok(res.redirected);
 });
 
 test("openapi.json is a valid OpenAPI 3.x document", async () => {
@@ -40,6 +66,42 @@ test("openapi.json is a valid OpenAPI 3.x document", async () => {
   const spec = await res.json();
   assert.match(spec.openapi, /^3\./);
   assert.ok(Object.keys(spec.paths).length >= 5, "spec should document endpoints");
+});
+
+test("openapi.json identity and routes match the career data source", async () => {
+  const res = await fetch(`${BASE}/openapi.json`);
+  const raw = await res.text();
+  assert.ok(
+    raw.includes(identity.title),
+    `openapi description should carry the current title "${identity.title}"`
+  );
+  assert.ok(!raw.includes("{lang}"), "no retired localized routes documented");
+  assert.ok(!raw.includes("Co-Founder, agentShop"), "no retired identity");
+});
+
+test("downloadable resume PDF stays in parity with lib/resume.ts", async () => {
+  const pdf = await getDocumentProxy(
+    new Uint8Array(await readFile("public/SameerKhan-Resume.pdf"))
+  );
+  const { text } = await extractText(pdf, { mergePages: true });
+  const flat = text.replace(/\s+/g, " ");
+  assert.ok(flat.includes(identity.title), `PDF carries "${identity.title}"`);
+  for (const job of experience) {
+    assert.ok(flat.includes(job.org), `PDF lists ${job.org}`);
+    assert.ok(flat.includes(job.period.replaceAll(" - ", " – ")) || flat.includes(job.period),
+      `PDF shows period for ${job.org} (${job.period})`);
+  }
+  for (const school of education) {
+    assert.ok(flat.includes(school.school), `PDF lists ${school.school}`);
+  }
+  assert.ok(
+    flat.includes("AWS (Certified Developer)"),
+    "PDF certification line matches"
+  );
+  assert.ok(
+    skills.every((s) => flat.includes(s.group)),
+    "PDF has every skills group"
+  );
 });
 
 test("/api/* returns structured JSON 404", async () => {
@@ -52,15 +114,23 @@ test("/api/* returns structured JSON 404", async () => {
 });
 
 test("homepage serves headings and 500+ chars without JavaScript", async () => {
-  const res = await fetch(`${BASE}/en-US/`);
+  const res = await fetch(`${BASE}/`);
   assert.equal(res.status, 200);
   const html = await res.text();
   assert.equal((html.match(/<h1[\s>]/g) || []).length, 1, "exactly one h1");
-  assert.ok((html.match(/<h2[\s>]/g) || []).length >= 3, "several h2s");
-  assert.ok((html.match(/<h3[\s>]/g) || []).length >= 2, "h3 depth under h2s");
+  assert.ok((html.match(/<h2[\s>]/g) || []).length >= 2, "several h2s");
   const text = html
     .replace(/<script[\s\S]*?<\/script>/g, "")
     .replace(/<[^>]+>/g, " ")
     .replace(/\s+/g, " ");
   assert.ok(text.length > 500, `visible text ${text.length} chars > 500`);
+});
+
+test("resume page serves the full document structure without JavaScript", async () => {
+  const res = await fetch(`${BASE}/resume/`);
+  assert.equal(res.status, 200);
+  const html = await res.text();
+  assert.equal((html.match(/<h1[\s>]/g) || []).length, 1, "exactly one h1");
+  assert.ok((html.match(/<h2[\s>]/g) || []).length >= 3, "several h2s");
+  assert.ok((html.match(/<h3[\s>]/g) || []).length >= 2, "h3 depth under h2s");
 });

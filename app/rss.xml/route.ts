@@ -11,7 +11,7 @@ export async function GET() {
   <channel>
     <title>Sameer Khan's Blog</title>
     <link>${siteUrl}</link>
-    <description>Technical articles on AI models, React, TypeScript, and software engineering by Sameer Khan, Full-Stack Software Engineer in San Francisco.</description>
+    <description>Technical articles on AI models, React, TypeScript, and software engineering by Sameer Khan, Forward Deployed / AI Engineer in San Francisco.</description>
     <language>en-US</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${siteUrl}/rss.xml" rel="self" type="application/rss+xml"/>
