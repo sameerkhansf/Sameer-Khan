@@ -5,7 +5,9 @@ description: |
   The human merge is the only approval.
 
 on:
-  schedule: daily
+  schedule:
+    - cron: "27 9 * * *"
+    - cron: "27 21 * * *"
   workflow_dispatch:
 
 permissions: read-all
