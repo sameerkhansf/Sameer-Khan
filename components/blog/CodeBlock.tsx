@@ -30,7 +30,8 @@ export default function CodeBlock({ children, className, ...props }: CodeBlockPr
     <div className="relative group my-6">
       <pre
         ref={preRef}
-        className={`relative overflow-x-auto rounded-xl bg-gray-900 dark:bg-gray-950 p-5 text-sm border border-gray-800 dark:border-gray-700 ${className || ""}`}
+        tabIndex={0}
+        className={`relative overflow-x-auto rounded-md bg-gray-900 dark:bg-gray-950 p-5 text-sm border border-gray-800 dark:border-gray-700 ${className || ""}`}
         {...props}
       >
         {children}

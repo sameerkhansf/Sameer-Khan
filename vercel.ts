@@ -43,15 +43,11 @@ export const config: VercelConfig = {
     { source: "/", headers: [{ key: "Vary", value: "Accept" }] },
     { source: "/index.md", headers: [{ key: "Vary", value: "Accept" }] },
     {
-      source: "/:lang(en-US|es|fr|de|ja|zh)/",
-      headers: [{ key: "Vary", value: "Accept" }],
-    },
-    {
-      source: "/:lang(en-US|es|fr|de|ja|zh)/blog/:slug/",
-      headers: [{ key: "Vary", value: "Accept" }],
-    },
-    {
       source: "/blog/:slug",
+      headers: [{ key: "Vary", value: "Accept" }],
+    },
+    {
+      source: "/blog/:slug/",
       headers: [{ key: "Vary", value: "Accept" }],
     },
   ],

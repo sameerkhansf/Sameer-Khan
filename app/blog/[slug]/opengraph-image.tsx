@@ -5,7 +5,7 @@ export const alt = "Blog post";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-type Props = { params: Promise<{ lang: string; slug: string }> };
+type Props = { params: Promise<{ slug: string }> };
 
 export default async function Image({ params }: Props) {
   const { slug } = await params;
@@ -18,15 +18,15 @@ export default async function Image({ params }: Props) {
     (
       <div
         style={{
-          background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
-          color: "white",
+          background: "#faf9f7",
+          color: "#1b1a18",
           width: "100%",
           height: "100%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 72,
-          fontFamily: "sans-serif",
+          fontFamily: "Georgia, serif",
         }}
       >
         <div
@@ -35,7 +35,9 @@ export default async function Image({ params }: Props) {
             justifyContent: "space-between",
             alignItems: "center",
             fontSize: 28,
-            color: "#94a3b8",
+            color: "#6b6a66",
+            borderBottom: "2px solid #1b1a18",
+            paddingBottom: 24,
           }}
         >
           <div style={{ display: "flex" }}>{category}</div>
@@ -58,10 +60,11 @@ export default async function Image({ params }: Props) {
             justifyContent: "space-between",
             alignItems: "center",
             fontSize: 30,
+            color: "#6b6a66",
           }}
         >
-          <div style={{ display: "flex", color: "#e2e8f0" }}>Sameer Khan</div>
-          <div style={{ display: "flex", color: "#60a5fa" }}>samkhan.net</div>
+          <div style={{ display: "flex" }}>Sameer Khan</div>
+          <div style={{ display: "flex" }}>samkhan.net</div>
         </div>
       </div>
     ),

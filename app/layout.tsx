@@ -1,41 +1,37 @@
 import "./globals.css";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import dynamic from "next/dynamic";
+import type { Metadata, Viewport } from "next";
+import { Charis_SIL } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
+import { identity, summary, skills, education } from "@/lib/resume";
 
-// Lazy load non-critical components for better performance
-const Confetti = dynamic(() => import("@/components/ui/Confetti"));
-const CommandPalette = dynamic(() => import("@/components/ui/CommandPalette"));
-
-const inter = Inter({
+// Charis SIL is the open, Google-Fonts-hosted descendant of Bitstream Charter —
+// the face the LaTeX résumé is set in.
+const charis = Charis_SIL({
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",
-  preload: true,
-  variable: "--font-inter",
+  variable: "--font-serif",
 });
 
-// Person Schema - Enhanced for AEO with comprehensive details
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   "@id": "https://samkhan.net/#person",
-  name: "Sameer Khan",
+  name: identity.name,
   givenName: "Sameer",
   familyName: "Khan",
-  url: "https://samkhan.net",
+  url: identity.site,
   image: {
     "@type": "ImageObject",
     url: "https://samkhan.net/profile.jpg",
     width: 400,
     height: 400,
   },
-  jobTitle: "Co-Founder at agentShop · Full-Stack Software Engineer",
-  description:
-    "Sameer Khan is the Co-Founder of agentShop, the commerce intelligence layer that turns AI conversations into consultative sales. Full-Stack Software Engineer based in San Francisco with a B.S. in Computer Science from Sonoma State University (Honors). Specializes in React, Next.js, TypeScript, Node.js, and AI/ML integration.",
-  // Location for local SEO
+  jobTitle: identity.title,
+  description: summary,
   workLocation: {
     "@type": "Place",
     address: {
@@ -45,270 +41,40 @@ const personSchema = {
       addressCountry: "US",
     },
   },
-  alumniOf: {
+  alumniOf: education.map((e) => ({
     "@type": "CollegeOrUniversity",
-    name: "Sonoma State University",
-    url: "https://www.sonoma.edu",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Rohnert Park",
-      addressRegion: "CA",
-      addressCountry: "US",
-    },
-  },
-  hasCredential: [
-    {
-      "@type": "EducationalOccupationalCredential",
-      name: "Bachelor of Science in Computer Science",
-      credentialCategory: "degree",
-      educationalLevel: "Bachelor's Degree",
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      name: "AWS Certified Cloud Practitioner",
-      credentialCategory: "certificate",
-    },
-  ],
-  knowsAbout: [
-    "JavaScript",
-    "TypeScript",
-    "React",
-    "Next.js",
-    "Node.js",
-    "Python",
-    "Java",
-    "C++",
-    "AWS",
-    "Docker",
-    "MongoDB",
-    "Git",
-    "Full Stack Development",
-    "AI/ML",
-    "Computer Vision",
-    "Web Development",
-    "LLM Integration",
-    "Prompt Engineering",
-    "Large Language Models",
-    "AI Commerce",
-    "AI Agents",
-    "E-Commerce AI Optimization",
-    "GPT-5",
-    "Claude",
-    "Mistral",
-    "DeepSeek",
-    "AI Coding Tools",
-  ],
+    name: e.school,
+  })),
+  knowsAbout: skills.flatMap((s) => s.items.split(", ")),
   knowsLanguage: ["English", "Urdu", "Hindi"],
-  sameAs: [
-    "https://github.com/sameerkhansf",
-    "https://linkedin.com/in/sameerkhansf",
-    "https://x.com/sameerkhan_sf",
-    "https://instagram.com/sam.khan007_",
-  ],
+  sameAs: [identity.github, identity.linkedin, identity.twitter],
 };
 
-// FAQ Schema moved to page.tsx (homepage only) to avoid duplicate FAQPage on blog posts
-
-// WebSite Schema for sitelinks search
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": "https://samkhan.net/#website",
-  url: "https://samkhan.net",
-  name: "Sameer Khan - Co-Founder, agentShop · Software Engineer",
-  description:
-    "Personal portfolio and resume of Sameer Khan, Co-Founder of agentShop and Full-Stack Software Engineer specializing in AI commerce, full-stack development, and AI/ML. Technical blog with comprehensive reviews of frontier AI models, React tutorials, and developer tools comparisons.",
+  url: identity.site,
+  name: `${identity.name}, ${identity.title}`,
+  description: summary,
   inLanguage: "en-US",
-  publisher: {
-    "@type": "Person",
-    "@id": "https://samkhan.net/#person",
-    name: "Sameer Khan",
-  },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: "https://samkhan.net/blog?q={search_term_string}",
-    },
-    "query-input": "required name=search_term_string",
-  },
+  publisher: { "@id": "https://samkhan.net/#person" },
 };
 
-// BreadcrumbList Schema for navigation structure
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://samkhan.net",
-    },
-  ],
-};
-
-// SiteNavigationElement Schema - helps Google understand site structure
-const navigationSchema = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  itemListElement: [
-    {
-      "@type": "SiteNavigationElement",
-      position: 1,
-      name: "Home",
-      description: "Sameer Khan's portfolio and personal website",
-      url: "https://samkhan.net",
-    },
-    {
-      "@type": "SiteNavigationElement",
-      position: 2,
-      name: "Blog",
-      description: "Technical articles on AI models, React, TypeScript, and software engineering",
-      url: "https://samkhan.net/blog",
-    },
-    {
-      "@type": "SiteNavigationElement",
-      position: 3,
-      name: "Resume",
-      description: "Sameer Khan's professional experience and skills",
-      url: "https://samkhan.net/resume",
-    },
-  ],
-};
-
-// Organization Schema - Critical for AI Visibility (SEMrush recommendation)
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://samkhan.net/#organization",
-  name: "Sameer Khan",
-  url: "https://samkhan.net",
-  logo: {
-    "@type": "ImageObject",
-    url: "https://samkhan.net/profile.jpg",
-    width: 400,
-    height: 400,
-  },
-  description: "Technical blog and portfolio of Sameer Khan, Co-Founder of agentShop and Full-Stack Software Engineer specializing in AI commerce, React, Next.js, TypeScript, and AI/ML. Comprehensive reviews of frontier AI models, React tutorials, and developer tools comparisons.",
-  founder: {
-    "@type": "Person",
-    "@id": "https://samkhan.net/#person",
-  },
-  foundingDate: "2024",
-  sameAs: [
-    "https://github.com/sameerkhansf",
-    "https://linkedin.com/in/sameerkhansf",
-    "https://x.com/sameerkhan_sf",
-  ],
-  contactPoint: {
-    "@type": "ContactPoint",
-    email: "khansam@sonoma.edu",
-    contactType: "customer service",
-  },
-};
-
-// Speakable Schema - For voice assistants (Google Assistant, Alexa, etc.)
-// Enhanced with both CSS selectors and XPath for maximum compatibility
-// Helps AI voice interfaces identify the most relevant content to read aloud
-const speakableSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": "https://samkhan.net/#speakable",
-  speakable: {
-    "@type": "SpeakableSpecification",
-    // CSS selectors only: Google's crawler was discovering the xpath strings
-    // as relative links and 404ing on them (GSC "Not found" report)
-    cssSelector: ["h1", "h2", ".quick-answer", "article p:first-of-type", "main h1", "main h2"],
-  },
-  url: "https://samkhan.net",
-};
-
-// ProfilePage Schema - Establishes author expertise (E-E-A-T signals)
-// Critical for AI systems to understand author credibility and topic authority
 const profilePageSchema = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
   "@id": "https://samkhan.net/#profilepage",
-  mainEntity: {
-    "@type": "Person",
-    "@id": "https://samkhan.net/#person",
-  },
-  dateCreated: "2024-01-01T00:00:00+00:00",
-  dateModified: new Date().toISOString(),
-  url: "https://samkhan.net",
-  name: "Sameer Khan - Software Engineer Profile",
-  description:
-    "Professional profile of Sameer Khan, Co-Founder of agentShop and Full-Stack Software Engineer specializing in AI commerce, React, Next.js, TypeScript, and AI/ML. Includes work experience, projects, certifications, and technical blog.",
+  mainEntity: { "@id": "https://samkhan.net/#person" },
+  url: identity.site,
+  name: `${identity.name}, ${identity.title}`,
+  description: summary,
 };
 
-// Projects Schema - SoftwareSourceCode for portfolio projects
-const projectsSchema = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      item: {
-        "@type": "SoftwareSourceCode",
-        name: "BioSoundSCape",
-        description:
-          "Research project focused on land cover classification using machine learning and computer vision techniques for environmental analysis.",
-        programmingLanguage: ["Python", "TensorFlow"],
-        codeRepository:
-          "https://github.com/sameerkhansf/BioSoundSCape_SSU_Computer_Science",
-        author: { "@id": "https://samkhan.net/#person" },
-        dateCreated: "2025-05-01T00:00:00+00:00",
-        applicationCategory: "Computer Vision",
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      item: {
-        "@type": "SoftwareSourceCode",
-        name: "DFA/NFA Builder",
-        description:
-          "Tool for creating and visualizing deterministic and non-deterministic finite automata, implementing core concepts from automata theory.",
-        programmingLanguage: ["Java"],
-        codeRepository:
-          "https://github.com/sameerkhansf/JFLAPAutomataBuilder",
-        author: { "@id": "https://samkhan.net/#person" },
-        dateCreated: "2024-12-01T00:00:00+00:00",
-        applicationCategory: "Automata Theory",
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      item: {
-        "@type": "SoftwareSourceCode",
-        name: "C++ Interpreter",
-        description:
-          "Interpreter implementation demonstrating programming language theory concepts including lexical analysis, parsing, and execution.",
-        programmingLanguage: ["C++"],
-        codeRepository: "https://github.com/sameerkhansf/Interpreter",
-        author: { "@id": "https://samkhan.net/#person" },
-        dateCreated: "2025-05-01T00:00:00+00:00",
-        applicationCategory: "Compilers",
-      },
-    },
-    {
-      "@type": "ListItem",
-      position: 4,
-      item: {
-        "@type": "WebApplication",
-        name: "Expense Tracker Application",
-        description:
-          "Full-stack web application for personal expense tracking with data visualization and expense categorization features.",
-        url: "https://expense-tracker-mocha-three.vercel.app",
-        applicationCategory: "FinanceApplication",
-        operatingSystem: "Web Browser",
-        author: { "@id": "https://samkhan.net/#person" },
-        dateCreated: "2024-12-01T00:00:00+00:00",
-      },
-    },
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#faf9f7" },
+    { media: "(prefers-color-scheme: dark)", color: "#151413" },
   ],
 };
 
@@ -316,62 +82,37 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://samkhan.net"),
   alternates: {
     canonical: "/",
-    languages: {
-      "en-US": "/en-US",
-      "es": "/es",
-      "de": "/de",
-      "fr": "/fr",
-      "ja": "/ja",
-      "zh": "/zh",
-    },
     types: {
       "application/rss+xml": "https://samkhan.net/rss.xml",
     },
   },
   title: {
-    default: "Sameer Khan | Co-Founder, agentShop | Full-Stack Software Engineer",
-    template: "%s | Sameer Khan",
+    default: `${identity.name} | ${identity.title}`,
+    template: `%s | ${identity.name}`,
   },
-  description:
-    "Sameer Khan is the Co-Founder of agentShop and a Full-Stack Software Engineer in San Francisco specializing in AI commerce, React, Next.js, TypeScript, and AI/ML. Technical blog with AI model reviews, React tutorials, and developer guides.",
-  keywords: [
-    "Sameer Khan",
-    "Software Engineer",
-    "Full Stack Developer",
-    "React Developer",
-    "Next.js Developer",
-    "TypeScript",
-    "AI/ML Engineer",
-    "San Francisco Developer",
-    "GPT-5 Review",
-    "Claude Opus Review",
-    "AI Model Reviews",
-    "React Tutorials",
-  ],
-  authors: [{ name: "Sameer Khan", url: "https://samkhan.net" }],
-  creator: "Sameer Khan",
+  description: summary,
+  authors: [{ name: identity.name, url: identity.site }],
+  creator: identity.name,
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://samkhan.net",
-    siteName: "Sameer Khan",
-    title: "Sameer Khan | Co-Founder, agentShop | Full-Stack Software Engineer",
-    description:
-      "Sameer Khan is the Co-Founder of agentShop and a Full-Stack Software Engineer in San Francisco specializing in AI commerce, React, Next.js, TypeScript, and AI/ML. Technical blog with AI model reviews and React tutorials.",
+    url: identity.site,
+    siteName: identity.name,
+    title: `${identity.name} | ${identity.title}`,
+    description: summary,
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Sameer Khan - Software Engineer",
+        alt: `${identity.name}, ${identity.title}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sameer Khan | Co-Founder, agentShop | Full-Stack Software Engineer",
-    description:
-      "Co-Founder of agentShop. Full-Stack Software Engineer in San Francisco. AI Commerce, React, Next.js, TypeScript, AI/ML. Writing about AI models and web development.",
+    title: `${identity.name} | ${identity.title}`,
+    description: summary,
     creator: "@sameerkhan_sf",
     images: ["/og-image.jpg"],
   },
@@ -394,31 +135,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${inter.className}`} suppressHydrationWarning>
+    <html lang="en" className={charis.variable} suppressHydrationWarning>
       <head>
-        {/* x-default is not a BCP 47 tag — cannot use metadata.alternates.languages */}
-        <link rel="alternate" hrefLang="x-default" href="https://samkhan.net/en-US/" />
-
-        {/* DNS Prefetch for external domains */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
-
-        {/* Preload LCP image for faster discovery */}
-        <link rel="preload" href="/panel-event.jpg" as="image" fetchPriority="high" />
         <link rel="manifest" href="/manifest.json" />
         {/* Bing Webmaster Tools verification - required for ChatGPT/AI visibility */}
         <meta name="msvalidate.01" content="0937F6DB8C8C03B8C8BFF19C2D4B47B1" />
-        <meta name="theme-color" content="#1a1a1a" />
-        {/* RSS Feed link */}
         <link rel="alternate" type="application/rss+xml" title="Sameer Khan's Blog" href="/rss.xml" />
-        {/* LLMs.txt links for AI discovery (AEO) - https://llmstxt.org/ */}
+        {/* LLMs.txt link for AI discovery - https://llmstxt.org/ */}
         <link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt" />
-        <link rel="alternate" type="text/plain" title="LLM Full Content" href="/llms-full.txt" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Sameer Khan" />
         <link rel="apple-touch-icon" href="/profile.jpg" />
         <script
           type="application/ld+json"
@@ -435,60 +161,21 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(projectsSchema).replace(/</g, "\\u003c"),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(navigationSchema).replace(/</g, "\\u003c"),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c"),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(speakableSchema).replace(/</g, "\\u003c"),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
             __html: JSON.stringify(profilePageSchema).replace(/</g, "\\u003c"),
           }}
         />
       </head>
-      <body className="antialiased tracking-tight">
-        {/* Skip to content link for accessibility - improves SEO */}
+      <body className="antialiased">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-md focus:outline-none"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-foreground focus:text-background"
         >
           Skip to content
         </a>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-        >
-          <Confetti />
-          <CommandPalette />
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}
           <Analytics />
         </ThemeProvider>
-        
-        {/* Google Analytics - Optimized with @next/third-parties */}
         <GoogleAnalytics gaId="G-RWXWZX4QQ2" />
       </body>
     </html>

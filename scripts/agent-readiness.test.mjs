@@ -26,7 +26,7 @@ test("homepage negotiates markdown via Accept: text/markdown", async () => {
 });
 
 test("blog post negotiates markdown via Accept: text/markdown", async () => {
-  const res = await fetch(`${BASE}/en-US/blog/building-this-portfolio/`, {
+  const res = await fetch(`${BASE}/blog/building-this-portfolio/`, {
     headers: { Accept: "text/markdown" },
   });
   assert.equal(res.status, 200);
@@ -52,15 +52,23 @@ test("/api/* returns structured JSON 404", async () => {
 });
 
 test("homepage serves headings and 500+ chars without JavaScript", async () => {
-  const res = await fetch(`${BASE}/en-US/`);
+  const res = await fetch(`${BASE}/`);
   assert.equal(res.status, 200);
   const html = await res.text();
   assert.equal((html.match(/<h1[\s>]/g) || []).length, 1, "exactly one h1");
-  assert.ok((html.match(/<h2[\s>]/g) || []).length >= 3, "several h2s");
-  assert.ok((html.match(/<h3[\s>]/g) || []).length >= 2, "h3 depth under h2s");
+  assert.ok((html.match(/<h2[\s>]/g) || []).length >= 2, "several h2s");
   const text = html
     .replace(/<script[\s\S]*?<\/script>/g, "")
     .replace(/<[^>]+>/g, " ")
     .replace(/\s+/g, " ");
   assert.ok(text.length > 500, `visible text ${text.length} chars > 500`);
+});
+
+test("resume page serves the full document structure without JavaScript", async () => {
+  const res = await fetch(`${BASE}/resume/`);
+  assert.equal(res.status, 200);
+  const html = await res.text();
+  assert.equal((html.match(/<h1[\s>]/g) || []).length, 1, "exactly one h1");
+  assert.ok((html.match(/<h2[\s>]/g) || []).length >= 3, "several h2s");
+  assert.ok((html.match(/<h3[\s>]/g) || []).length >= 2, "h3 depth under h2s");
 });

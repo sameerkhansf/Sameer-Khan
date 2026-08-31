@@ -9,7 +9,11 @@
       "url": "https://samkhan.net"
     }
   },
-  "servers": [{ "url": "https://samkhan.net" }],
+  "servers": [
+    {
+      "url": "https://samkhan.net"
+    }
+  ],
   "paths": {
     "/llms.txt": {
       "get": {
@@ -18,19 +22,13 @@
         "responses": {
           "200": {
             "description": "Markdown overview of the site with links to key content.",
-            "content": { "text/plain": { "schema": { "type": "string" } } }
-          }
-        }
-      }
-    },
-    "/llms-full.txt": {
-      "get": {
-        "operationId": "getLlmsFullTxt",
-        "summary": "Expanded llms.txt with full content inlined",
-        "responses": {
-          "200": {
-            "description": "Full markdown content of the site in one document.",
-            "content": { "text/plain": { "schema": { "type": "string" } } }
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -42,7 +40,13 @@
         "responses": {
           "200": {
             "description": "Markdown version of the homepage.",
-            "content": { "text/markdown": { "schema": { "type": "string" } } }
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -56,16 +60,26 @@
             "name": "slug",
             "in": "path",
             "required": true,
-            "schema": { "type": "string" },
+            "schema": {
+              "type": "string"
+            },
             "description": "Post slug. Enumerate slugs via /sitemap.xml, /rss.xml, or /llms.txt."
           }
         ],
         "responses": {
           "200": {
             "description": "Markdown source of the post with YAML frontmatter.",
-            "content": { "text/markdown": { "schema": { "type": "string" } } }
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
-          "404": { "description": "Unknown slug." }
+          "404": {
+            "description": "Unknown slug."
+          }
         }
       }
     },
@@ -76,7 +90,13 @@
         "responses": {
           "200": {
             "description": "RSS feed.",
-            "content": { "application/xml": { "schema": { "type": "string" } } }
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -88,7 +108,13 @@
         "responses": {
           "200": {
             "description": "Sitemap.",
-            "content": { "application/xml": { "schema": { "type": "string" } } }
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -100,7 +126,13 @@
         "responses": {
           "200": {
             "description": "OpenAPI 3.1 document.",
-            "content": { "application/json": { "schema": { "type": "object" } } }
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
           }
         }
       }
@@ -114,7 +146,9 @@
             "name": "path",
             "in": "path",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -122,7 +156,9 @@
             "description": "Structured JSON error.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Error" }
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
               }
             }
           }
@@ -134,15 +170,29 @@
     "schemas": {
       "Error": {
         "type": "object",
-        "required": ["error"],
+        "required": [
+          "error"
+        ],
         "properties": {
           "error": {
             "type": "object",
-            "required": ["code", "message"],
+            "required": [
+              "code",
+              "message"
+            ],
             "properties": {
-              "code": { "type": "string", "examples": ["not_found"] },
-              "message": { "type": "string" },
-              "hint": { "type": "string" }
+              "code": {
+                "type": "string",
+                "examples": [
+                  "not_found"
+                ]
+              },
+              "message": {
+                "type": "string"
+              },
+              "hint": {
+                "type": "string"
+              }
             }
           }
         }
