@@ -7,8 +7,11 @@ const nextConfig = {
     // Content was always English-only; preserve indexed URLs with 308s.
     return [
       {
-        source: "/:lang(en-US|es|fr|de|ja|zh)/:path*",
-        destination: "/:path*",
+        // :path+ (one or more segments) so bare locale roots fall through to
+        // the rule below; :path* also matches zero segments, which resolves
+        // the destination to an empty Location header.
+        source: "/:lang(en-US|es|fr|de|ja|zh)/:path+",
+        destination: "/:path+",
         permanent: true,
       },
       {

@@ -38,6 +38,42 @@ test("blog post negotiates markdown via Accept: text/markdown", async () => {
   assert.match(res.headers.get("vary") || "", /accept/i);
 });
 
+// Follow redirects by hand so each hop's Location can be asserted non-empty
+// and the chain stays bounded.
+async function followRedirects(url, maxHops = 3) {
+  let hops = 0;
+  let current = url;
+  for (;;) {
+    const res = await fetch(current, { redirect: "manual" });
+    if (res.status < 300 || res.status >= 400) return { res, hops, url: current };
+    const location = res.headers.get("location");
+    assert.ok(location, `redirect from ${current} must carry a Location`);
+    hops += 1;
+    assert.ok(hops <= maxHops, `redirect chain from ${url} exceeds ${maxHops} hops`);
+    current = new URL(location, current).href;
+  }
+}
+
+test("every legacy locale root redirects to / with a bounded chain", async () => {
+  for (const lang of ["en-US", "es", "fr", "de", "ja", "zh"]) {
+    for (const suffix of ["", "/"]) {
+      const { res, hops, url } = await followRedirects(`${BASE}/${lang}${suffix}`);
+      assert.equal(res.status, 200, `/${lang}${suffix} ends at 200`);
+      assert.equal(new URL(url).pathname, "/", `/${lang}${suffix} lands on /`);
+      assert.ok(hops >= 1, `/${lang}${suffix} actually redirected`);
+    }
+  }
+});
+
+test("legacy nested locale URLs redirect to their locale-free page", async () => {
+  const { res, hops, url } = await followRedirects(
+    `${BASE}/en-US/blog/building-this-portfolio/`
+  );
+  assert.equal(res.status, 200);
+  assert.equal(new URL(url).pathname, "/blog/building-this-portfolio/");
+  assert.ok(hops >= 1 && hops <= 3);
+});
+
 test("openapi.json is a valid OpenAPI 3.x document", async () => {
   const res = await fetch(`${BASE}/openapi.json`);
   assert.equal(res.status, 200);
