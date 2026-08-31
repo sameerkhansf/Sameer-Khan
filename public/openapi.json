@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "samkhan.net content API",
-    "description": "Machine-readable, read-only content endpoints for samkhan.net, the personal site of Sameer Khan (Co-Founder, agentShop). All endpoints are static GET resources. HTML pages (/, /{lang}/blog/{slug}/) also serve markdown via `Accept: text/markdown` content negotiation. There is no interactive API: every /api/* path returns a structured JSON 404.",
+    "description": "Machine-readable, read-only content endpoints for samkhan.net, the personal site of Sameer Khan (Forward Deployed / AI Engineer). All endpoints are static GET resources. HTML pages (/, /blog/{slug}/) also serve markdown via `Accept: text/markdown` content negotiation. There is no interactive API: every /api/* path returns a structured JSON 404.",
     "version": "1.0.0",
     "contact": {
       "name": "Sameer Khan",
@@ -54,7 +54,7 @@
     "/blog/{slug}.md": {
       "get": {
         "operationId": "getBlogPostMarkdown",
-        "summary": "Blog post as markdown (also served at /{lang}/blog/{slug}/ with Accept: text/markdown)",
+        "summary": "Blog post as markdown (also served at /blog/{slug}/ with Accept: text/markdown)",
         "parameters": [
           {
             "name": "slug",

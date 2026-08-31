@@ -1,7 +1,11 @@
 // Agent-readiness checks. Run against a server:
 //   BASE_URL=https://samkhan.net npm run test:agents   (default: localhost:3000)
+// Runs under `tsx --test` so it can import the TypeScript career data source.
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import { extractText, getDocumentProxy } from "unpdf";
+import { identity, experience, education, skills } from "../lib/resume.ts";
 
 const BASE = (process.env.BASE_URL || "http://localhost:3000").replace(/\/$/, "");
 
@@ -40,6 +44,42 @@ test("openapi.json is a valid OpenAPI 3.x document", async () => {
   const spec = await res.json();
   assert.match(spec.openapi, /^3\./);
   assert.ok(Object.keys(spec.paths).length >= 5, "spec should document endpoints");
+});
+
+test("openapi.json identity and routes match the career data source", async () => {
+  const res = await fetch(`${BASE}/openapi.json`);
+  const raw = await res.text();
+  assert.ok(
+    raw.includes(identity.title),
+    `openapi description should carry the current title "${identity.title}"`
+  );
+  assert.ok(!raw.includes("{lang}"), "no retired localized routes documented");
+  assert.ok(!raw.includes("Co-Founder, agentShop"), "no retired identity");
+});
+
+test("downloadable resume PDF stays in parity with lib/resume.ts", async () => {
+  const pdf = await getDocumentProxy(
+    new Uint8Array(await readFile("public/SameerKhan-Resume.pdf"))
+  );
+  const { text } = await extractText(pdf, { mergePages: true });
+  const flat = text.replace(/\s+/g, " ");
+  assert.ok(flat.includes(identity.title), `PDF carries "${identity.title}"`);
+  for (const job of experience) {
+    assert.ok(flat.includes(job.org), `PDF lists ${job.org}`);
+    assert.ok(flat.includes(job.period.replaceAll(" - ", " – ")) || flat.includes(job.period),
+      `PDF shows period for ${job.org} (${job.period})`);
+  }
+  for (const school of education) {
+    assert.ok(flat.includes(school.school), `PDF lists ${school.school}`);
+  }
+  assert.ok(
+    flat.includes("AWS (Certified Developer)"),
+    "PDF certification line matches"
+  );
+  assert.ok(
+    skills.every((s) => flat.includes(s.group)),
+    "PDF has every skills group"
+  );
 });
 
 test("/api/* returns structured JSON 404", async () => {
