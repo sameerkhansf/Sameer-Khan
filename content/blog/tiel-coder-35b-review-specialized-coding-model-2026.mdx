@@ -8,12 +8,10 @@ category: "AI"
 published: true
 ---
 
-# Tiel Coder 35B Review: Specialized Coding Model Beats Opus 4.6 on SWE-Bench Live
-
 ## Quick Answer
 
 | Model | Best For | SWE-Bench Live | Multi-Turn Score | Hardware (Quantized) | Price/Access |
-|-------|----------|----------------|------------------|----------------------|--------------|
+| ------- | ---------- | ---------------- | ------------------ | ---------------------- | -------------- |
 | Tiel Coder 35B | Agentic coding, long conversations | 12/25 (48%) | 67.2 | 22.4 GB (Q4_K_XL) | Free (local) |
 | Opus 4.6 Medium | Complex reasoning, refactoring | 12/25 (48%) | ~65 | API only | Usage-based |
 | Nail Qwen3.6-35B | Exam knowledge, hard reasoning | ~8/25 | ~60.5 | ~18 GB (Q4) | Free (local) |
@@ -29,6 +27,7 @@ Tiel Coder 35B is a specialized coding model based on Ornith-1.5-35B-A3B that ha
 ### SWE-Bench Live Results
 
 Tiel Coder 35B solves 12 out of 25 problems on SWE-bench Live (48%), matching the performance of Opus 4.6 medium. This represents:
+
 - 4 more fixes than the base Ornith-1.5 model
 - 3 more fixes than the Nail model
 - 4 more fixes than Sonnet 5 medium
@@ -37,6 +36,7 @@ Tiel Coder 35B solves 12 out of 25 problems on SWE-bench Live (48%), matching th
 ### Multi-turn Conversation Ability
 
 On Claw-Eval's multi-turn tasks, Tiel Coder scores 67.2 overall:
+
 - Base Ornith-1.5: 65.3
 - Nail model: 60.5
 - The model earns this score through better answer quality (+3.8 points vs base) despite asking fewer clarifying questions (-5.1 vs base)
@@ -45,6 +45,7 @@ On Claw-Eval's multi-turn tasks, Tiel Coder scores 67.2 overall:
 ### Knowledge and Reasoning Trade-offs
 
 On MMLU-Pro at 4-bit quantization:
+
 - Tiel Coder: 73.7
 - Nail model: 84.0 (10.3 points better)
 - This difference stems from the Sharp template optimizing for shorter, more direct answers beneficial for coding conversations rather than exam-style knowledge recall
@@ -61,7 +62,7 @@ On MMLU-Pro at 4-bit quantization:
 ### Quantization Options and Hardware Requirements
 
 | GGUF File | Size | Fits In | Notes |
-|-----------|------|---------|-------|
+| ----------- | ------ | --------- | ------- |
 | `Tiel-Coder-35B-A3B-UD-Q2_K_XL.gguf` | 12.3 GB | 16 GB | Last resort; struggles with agentic coding |
 | `Tiel-Coder-35B-A3B-UD-IQ3_XXS.gguf` | 13.2 GB | 16 GB | 16 GB pick - significantly better than Q2 |
 | `Tiel-Coder-35B-A3B-UD-Q3_K_XL.gguf` | 16.8 GB | 24 GB | 3-bit with context room |
@@ -73,6 +74,7 @@ On MMLU-Pro at 4-bit quantization:
 | `Tiel-Coder-35B-A3B-UD-Q8_K_XL.gguf` | 38.5 GB | 48 GB | Reference |
 
 **Key Hardware Insights:**
+
 - Context KV memory: <5 GB RAM for 262k context at 16-bit KV precision
 - Vision capability: Inherits Ornith's vision tower (separate 903 MB mmproj-BF16.gguf file)
 - Recommended approach: Ensure model + context KV fit in combined RAM+VRAM with sizable context (131k-262k tokens)
@@ -100,14 +102,16 @@ Sampling recommendations: `temperature 1.0`, `top_p 0.95`, `top_k 20`; for agent
 
 ## Use Case Recommendations
 
-### Choose Tiel Coder 35B if:
+### Choose Tiel Coder 35B if
+
 - Your primary workflow involves agentic coding or multi-step reasoning tasks
 - You value strong multi-turn conversation abilities for complex problem-solving
 - You want local model performance that matches Opus 4.6 medium on SWE-bench Live
 - You have 24+ GB of RAM/VRAM available for local inference
 - You prioritize coding performance over broad knowledge benchmarks
 
-### Consider These Alternatives:
+### Consider These Alternatives
+
 - **Nail Qwen3.6-35B-A3B-GGUF** if you need better exam-style knowledge and hard reasoning (10.3 points better on MMLU-Pro)
 - **Dirk Qwen3.8-27B-GGUF** if your priority is solving the most problems regardless of weight (solves 15/25 SWE-bench)
 - **Base Ornith-1.5-35B-A3B** if you need a model that asks more clarifying questions before acting on vague requests
@@ -115,15 +119,18 @@ Sampling recommendations: `temperature 1.0`, `top_p 0.95`, `top_k 20`; for agent
 
 ## Limitations and Trade-offs
 
-### Known Limitations:
+### Known Limitations
+
 - **Exam performance is the weak axis:** 10.3 points behind Nail on MMLU-Pro
 - **Reduced clarifying questions:** Asks 5.1 fewer clarifying questions than base model
 - **Benchmark variance:** SWE-bench Live results from one run per problem; MMLU-Pro from three seeds
 - **Language coverage:** Chinese and English only, inherited from base model
 - **MTP head:** This repository lacks the multi-token prediction head (available in separate MTP variant)
 
-### The Core Trade-off:
+### The Core Trade-off
+
 Tiel Coder exists to optimize for conversational coding ability rather than knowledge benchmark performance. The Sharp template and dynamic quantization prioritize:
+
 - Shorter, more direct answers beneficial for coding workflows
 - Better multi-turn conversation flow
 - Local accessibility matching frontier model performance on coding-specific benchmarks
@@ -135,4 +142,3 @@ Tiel Coder 35B represents a compelling option for developers seeking high-perfor
 For agentic coding, long conversations that need to stay useful, and workflows where you want Opus 4.6 medium performance without API costs or latency, Tiel Coder 35B is an excellent choice. For exam preparation, hard reasoning tasks, or when you need maximum problem-solving regardless of conversational quality, the Nail or Dirk models may be better suited.
 
 The model demonstrates how specialized quantization and template optimization can create locally-runnable models that punch above their weight class for specific developer workflows.
-
