@@ -60,6 +60,23 @@ safe-outputs:
     allowed-files:
       - "content/blog/**"
 
+steps:
+  - name: Prepare scouting inputs
+    run: |
+      mkdir -p /tmp/gh-aw/agent/scout
+      date -u +%F > /tmp/gh-aw/agent/scout/today.txt
+      gh pr list --label til --state open --json number,title,url > /tmp/gh-aw/agent/scout/open-til-prs.json
+      ls content/blog | sed 's/\.mdx$//' > /tmp/gh-aw/agent/scout/existing-slugs.txt
+      gh api graphql -f query='query($o:String!,$r:String!){repository(owner:$o,name:$r){discussions(first:5,orderBy:{field:CREATED_AT,direction:DESC}){nodes{title url createdAt body}}}}' \
+        -F o="${GITHUB_REPOSITORY_OWNER}" -F r="${GITHUB_REPOSITORY#*/}" \
+        --jq '[.data.repository.discussions.nodes[] | select(.title|startswith("[weekly-research]"))][0] // {} | "# \(.title // "none")\n\(.url // "")\n\(.createdAt // "")\n\n\(.body // "No weekly-research discussion found.")"' \
+        > /tmp/gh-aw/agent/scout/weekly-research.md
+      curl -sf "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=25" \
+        | jq '[.[] | {id, createdAt, likes, downloads, pipeline_tag}]' > /tmp/gh-aw/agent/scout/hf-trending.json \
+        || echo '[]' > /tmp/gh-aw/agent/scout/hf-trending.json
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 tools:
   cache-memory:
   web-fetch:
@@ -79,9 +96,21 @@ RUN CONTRACT — read first: every run MUST end with exactly one safe-output too
 
 You are the autonomous weekly writer for samkhan.net. No human capture note exists: you choose the topic yourself, then produce a post exactly as the /til pipeline does.
 
+## Prepared inputs (read these first — do not re-derive them)
+
+A deterministic step already gathered your scouting inputs under `/tmp/gh-aw/agent/scout/`:
+
+- `today.txt` — today's date (use it verbatim for the frontmatter `date`).
+- `open-til-prs.json` — open PRs labeled `til`. If this array is non-empty, call `noop` naming the PR and stop.
+- `existing-slugs.txt` — every existing post slug; your new slug must not appear here.
+- `weekly-research.md` — the latest weekly-research discussion (its "Post queue" section, if present, lists pre-vetted topic candidates).
+- `hf-trending.json` — the 25 currently trending Hugging Face models with creation dates: the fastest signal for newly released models worth a review.
+
+Read all five with a single `cat` each, then choose the topic. Never run shell searches for topic queues, `topics.md`, or repo file listings — everything scouting needs is in these files.
+
 ## Job
 
-1. **Pick one resource topic developers are deciding about.** This site is a developer resource — reviews, comparisons, and buyer's guides for AI models and developer tools (study the existing corpus: the Claude Opus review, the Cursor vs Copilot vs Claude Code comparison, the best-open-source-LLM guide). Valid topics: a newly released model or tool that needs a developer review; a category with 3+ competing options needing a comparison or best-of guide; a significant pricing or capability change that outdated an existing decision. Sources: your `topics.md` queue, the weekly-research "Post queue", and current releases via web fetch. Never this repository's own pipeline; skip ledger history; prefer topics the site has no coverage of.
+1. **Pick one resource topic developers are deciding about.** This site is a developer resource — reviews, comparisons, and buyer's guides for AI models and developer tools (study the existing corpus: the Claude Opus review, the Cursor vs Copilot vs Claude Code comparison, the best-open-source-LLM guide). Valid topics: a newly released model or tool that needs a developer review; a category with 3+ competing options needing a comparison or best-of guide; a significant pricing or capability change that outdated an existing decision. Sources: the prepared inputs above (weekly-research post queue, Hugging Face trending), plus web fetch of vendor release pages for the chosen candidate. Never this repository's own pipeline; skip ledger history; prefer topics the site has no coverage of.
 
 2. **Research like a reviews desk.** Fetch primary sources: official docs, pricing pages, changelogs, published benchmarks, vendor comparisons. Collect concrete numbers — context windows, benchmark scores, rate limits, price per million tokens, license terms — each with a source link. Where sources conflict, say so. NEVER claim personal testing you did not do ("I tested", "in my testing" are forbidden): this is spec-and-evidence analysis whose credibility is its citations.
 
