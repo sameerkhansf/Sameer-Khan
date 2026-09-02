@@ -4,6 +4,10 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      # One PR per week for all action bumps instead of one PR per action
+      github-actions:
+        patterns: ["*"]
     ignore:
       # gh-aw action pins must move with the gh-aw compiler: run `gh aw upgrade`
       - dependency-name: "github/gh-aw-actions/*"
@@ -12,3 +16,15 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 5
+    groups:
+      # Minor/patch bumps of dev tooling land together; majors stay separate
+      dev-dependencies:
+        dependency-type: "development"
+        update-types: ["minor", "patch"]
+    ignore:
+      # Types major must match the Node runtime major (CI and Vercel run Node 24)
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+      # eslint-config-next's plugins do not support ESLint 10 yet
+      - dependency-name: "eslint"
+        update-types: ["version-update:semver-major"]
