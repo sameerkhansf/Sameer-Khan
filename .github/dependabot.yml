@@ -4,6 +4,9 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    ignore:
+      # gh-aw action pins must move with the gh-aw compiler: run `gh aw upgrade`
+      - dependency-name: "github/gh-aw-actions/*"
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
