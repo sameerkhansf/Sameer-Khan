@@ -1,6 +1,87 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --font-mono:
+    ui-monospace, Cascadia Code, Source Code Pro, Menlo, Consolas,
+    DejaVu Sans Mono, monospace;
+}
+
+@theme inline {
+  --font-serif:
+    var(--font-charis), Charter, Bitstream Charter, Sitka Text, Cambria, serif;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility section-title {
+  /* LaTeX \section: bold small heading over a thin full-width rule */
+  @apply text-sm font-bold uppercase tracking-widest border-b border-foreground/80 pb-1 mb-4;
+}
+
+@utility entry-row {
+  /* LaTeX twocolentry: role left, date right; stacks on small screens */
+  @apply flex flex-col gap-x-4 gap-y-0.5 sm:flex-row sm:items-baseline sm:justify-between;
+}
+
+@utility meta {
+  @apply font-mono text-[0.8rem] tracking-tight text-muted-foreground;
+  font-variant-numeric: tabular-nums;
+}
+
+@utility link-quiet {
+  @apply underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground;
+}
 
 /* Warm monochrome, editorial. Ink on paper — no accent color anywhere;
    hierarchy is carried by size, weight, case, and thin rules. */
@@ -90,7 +171,7 @@
 
   a:focus-visible,
   button:focus-visible {
-    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background rounded-sm;
+    @apply outline-hidden ring-2 ring-ring ring-offset-2 ring-offset-background rounded-sm;
   }
 
   h1,
@@ -112,27 +193,6 @@
     button:active {
       transform: scale(0.97);
     }
-  }
-}
-
-@layer components {
-  /* LaTeX \section: bold small heading over a thin full-width rule */
-  .section-title {
-    @apply text-sm font-bold uppercase tracking-widest border-b border-foreground/80 pb-1 mb-4;
-  }
-
-  /* LaTeX twocolentry: role left, date right; stacks on small screens */
-  .entry-row {
-    @apply flex flex-col gap-x-4 gap-y-0.5 sm:flex-row sm:items-baseline sm:justify-between;
-  }
-
-  .meta {
-    @apply font-mono text-[0.8rem] tracking-tight text-muted-foreground;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .link-quiet {
-    @apply underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground;
   }
 }
 
