@@ -13,6 +13,7 @@
     "test:agents": "tsx --test scripts/agent-readiness.test.mjs",
     "generate-md": "npx tsx scripts/generate-markdown-files.ts",
     "validate:content": "remark-lint-frontmatter-validation \"content/blog/**/*.mdx\" --schema schemas/post.schema.json && markdownlint-cli2",
+    "fix-content": "markdownlint-cli2 --fix; npm run validate:content",
     "test:agents:ci": "start-server-and-test start http://localhost:3000 test:agents"
   },
   "dependencies": {
