@@ -47,6 +47,7 @@ URL, or send `Accept: text/markdown`.
 ### Articles
 
 **AI:**
+- [Qwen3.8-Flash-Next Review: Alibaba's Latest Multimodal Model for Vision and Text Tasks](https://samkhan.net/blog/qwen3-8-flash-next-review-2026): Review of Qwen3.8-Flash-Next, Alibaba's experimental 125B parameter model with 6B activated parameters, featuring hybrid attention, n-gram embeddings, and extensive benchmark results.
 - [DeepSeek-V4-Flash-Vision-Exp Review: A Multimodal Frontier Model](https://samkhan.net/blog/deepseek-v4-flash-vision-exp-review-2026): First look at DeepSeek's experimental multimodal model showing strong text agent capabilities and improved vision understanding, benchmarked against Opus 4.8.
 - [Tiel Coder 35B Review: Local Coding Model Matches Opus 4.6 Medium on SWE-Bench Live](https://samkhan.net/blog/tiel-coder-35b-review-specialized-coding-model-2026): A dynamically quantized MoE model that matches Opus 4.6 medium on coding benchmarks while excelling in multi-turn conversations for agentic workflows
 - [OpenAI Python SDK v3.6.0 Adds Compute Units to Usage Tracking](https://samkhan.net/blog/openai-python-sdk-v3-6-0-compute-units): The latest OpenAI Python SDK release v3.6.0 introduces compute_units tracking in API response usage, enabling developers to monitor computational resource consumption alongside token counts.

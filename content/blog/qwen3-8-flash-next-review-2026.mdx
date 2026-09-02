@@ -25,6 +25,7 @@ After analyzing the model card, technical report, and benchmark results, here's 
 - **Pipeline Tag:** image-text-to-text
 
 **Performance Highlights:**
+
 - **Agentic Coding (DeepSWE 1.1):** 58.7% (beats Qwen3.8-27B at 42.2%)
 - **SWE-Bench Pro:** 62.5% (competitive with Qwen3.8-27B at 61.7%)
 - **SWE-bench Multilingual:** 81.0% (strong multilingual coding performance)
@@ -42,15 +43,19 @@ After analyzing the model card, technical report, and benchmark results, here's 
 Qwen3.8-Flash-Next introduces several architectural innovations aimed at efficient parameter scaling:
 
 ### Hybrid Attention with QSA
+
 The model replaces traditional attention with Gated DeltaNet and Qwen Sparse Attention (QSA). QSA operates at the micro-block level rather than selecting individual tokens, significantly reducing long-context latency.
 
 ### Gated Residual
+
 Residual streams feature element-wise read gates and per-branch scalar write gates, providing finer-grained expressiveness across layers while maintaining training stability.
 
 ### N-gram Embedding
+
 Instead of traditional token embeddings or MoE for parameter scaling, the model uses n-gram embedding (bigrams/trigrams) at layer 2 with 20,000,000 parameters, offering efficient scaling for memory-constrained accelerators.
 
 ### Model Specifications
+
 - **Language Model Hidden Dimension:** 2560
 - **Token Embedding Vocabulary:** 248,320 (padded)
 - **N-gram Embedding:** 20,000,000 (bigrams/trigrams at layer 2)
@@ -61,27 +66,46 @@ Instead of traditional token embeddings or MoE for parameter scaling, the model 
 ## Benchmark Analysis
 
 ### Coding Performance
+
 Qwen3.8-Flash-Next shows strong coding capabilities across multiple benchmarks:
+
 - **DeepSWE 1.1 (Agentic coding):** 58.7% - significantly outperforms the base Qwen3.8-27B (42.2%)
 - **SWE-bench Pro:** 62.5% - comparable to Qwen3.8-27B (61.7%) and DeepSeek-V4-Flash-0731 (56.0%)
 - **SWE-bench Multilingual:** 81.0% - excellent multilingual coding performance
 - **NL2Repo-Bench (Repo-level code generation):** 48.1% - solid performance
 
 ### Agentic Tasks
+
 The model performs well on agentic workloads:
+
 - **CoWorkBench (Long-horizon office work):** 73.9%
 - **JobBench (Professional job tasks):** 55.7%
 - **Agents' Last Exam (Frontier agentic tasks):** 51.2% Score
 - **Toolathlon Verified (Real-world tool use):** 73.5% Pass@1
 
 ### General Capabilities
+
 Strong performance across general benchmarks:
+
 - **IFBench (Instruction following):** 81.3%
 - **GPQA Diamond (Scientific reasoning):** 91.7%
+
+### Vision Language
+
+The model card also reports multimodal results, which is what justifies the image-text-to-text pipeline tag:
+
+- **ClawEval-MM (Multimodal tool use):** 64.4% Pass@3 (Qwen3.8-27B: 57.4%)
+- **AndroidWorld (Mobile use):** 84.5% (Qwen3.8-27B: 81.9%)
+- **OSWorld 2.0 (Computer use):** 19.4% binary, 52.3% partial
+- **Vision2Web (Visual web development):** 64.0%
+- **RealWorldQA (Real-world perception):** 88.5%
+- **LVBench (Long video understanding):** 76.6%
+- **MathVision (Visual math):** 90.6% without code interpreter, 95.7% with
 
 ## Use Case Recommendations
 
 **Choose Qwen3.8-Flash-Next if:**
+
 - You need strong agentic coding performance (DeepSWE 1.1: 58.7%)
 - Multilingual software engineering is important (SWE-bench Multilingual: 81.0%)
 - Long-context processing up to 1M tokens is required
@@ -89,6 +113,7 @@ Strong performance across general benchmarks:
 - Real-world tool use capabilities are needed (Toolathlon: 73.5% Pass@1)
 
 **Consider alternatives if:**
+
 - You need a production-ready model with official tooling (consider Qwen3.8-Flash)
 - You require the highest possible coding benchmarks (specialized coding models may perform better)
 - You need extensive community support and ecosystem tools
