@@ -17,10 +17,11 @@ GLM-5.3-Flash and Qwen3.8-Flash-Next represent two approaches to efficient large
 **Key Numbers:**
 
 | Model | Total Parameters | Active Parameters | Context Length | Price (per M tokens) | Best For |
-|-------|------------------|-------------------|----------------|----------------------|----------|
+| ------- | ------------------ | ------------------- | ---------------- | ---------------------- | ---------- |
 | GLM-5.3-Flash | 320B | 18B | 300K tokens | ~$0.60/$3.00* | Multimodal agentic workflows |
 | Qwen3.8-Flash-Next | 125B | 6B + 51B n-gram | 262K tokens (1M with YaRN) | ~$0.30/$1.20* | Long-horizon reasoning & tool use |
-| *Estimated based on claims of "one-tenth the price" vs GPT-5.2's $15/$75 |
+
+\*Estimated based on claims of "one-tenth the price" vs GPT-5.2's $15/$75.
 
 **Bottom line:** GLM-5.3-Flash offers stronger multimodal capabilities and approaches Claude Opus 4.8 on agentic benchmarks, while Qwen3.8-Flash-Next provides superior long-context efficiency and lower estimated costs. Choose GLM-5.3-Flash for vision-language agentic tasks; choose Qwen3.8-Flash-Next for pure text reasoning with massive context windows.
 
@@ -94,19 +95,20 @@ Both models support local deployment via popular frameworks:
 **Qwen3.8-Flash-Next**: SGLang, vLLM, TokenSpeed, Transformers (per README)
 
 API access:
+
 - GLM-5.3-Flash: Available via Z.ai API Platform ([docs.z.ai/guides/llm/glm-5.3-flash](https://docs.z.ai/guides/llm/glm-5.3-flash))
 - Qwen3.8-Flash-Next: Official Qwen Cloud service ([qwencloud.com](https://www.qwencloud.com))
 
 ## Developer Recommendations
 
-### Choose GLM-5.3-Flash if:
+### Choose GLM-5.3-Flash if
 
 1. **Multimodal Agentic Workflows**: Your agents need to process images, video, or mixed-media inputs alongside text
 2. **Vision-Heavy Tasks**: Applications involving UI understanding, document analysis, or visual reasoning
 3. **Established Evaluation Need**: You want models with published scores on specialized agentic benchmarks (HLE, DeepSWE, etc.)
 4. **Controlled Reasoning**: You benefit from explicit `reasoning_effort` and `clear_thinking` parameters
 
-### Choose Qwen3.8-Flash-Next if:
+### Choose Qwen3.8-Flash-Next if
 
 1. **Extreme Context Requirements**: You need to process very long documents, codebases, or conversation histories (>200K tokens)
 2. **Pure Text Reasoning**: Your workloads are primarily text-based with minimal multimodal needs
@@ -120,10 +122,12 @@ API access:
 Both models recommend specific settings for different modes:
 
 **GLM-5.3-Flash**:
+
 - Benchmark/reproduction: `temperature=1.0`, `top_p=0.95`, `reasoning_effort=max`
 - Chat: Set `clear_thinking=true` for clearer reasoning separation
 
 **Qwen3.8-Flash-Next**:
+
 - Thinking mode: `temperature=1.0`, `top_p=0.95`, `top_k=20`, `presence_penalty=0.0`
 - Instruct mode: `temperature=0.7`, `top_p=0.80`, `top_k=20`, `presence_penalty=1.5`
 
