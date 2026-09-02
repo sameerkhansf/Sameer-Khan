@@ -47,6 +47,7 @@ URL, or send `Accept: text/markdown`.
 ### Articles
 
 **AI:**
+- [DeepSeek-V4-Flash-Vision-Exp Review: A Multimodal Frontier Model](https://samkhan.net/blog/deepseek-v4-flash-vision-exp-review-2026): First look at DeepSeek's experimental multimodal model showing strong text agent capabilities and improved vision understanding, benchmarked against Opus 4.8.
 - [Tiel Coder 35B Review: Local Coding Model Matches Opus 4.6 Medium on SWE-Bench Live](https://samkhan.net/blog/tiel-coder-35b-review-specialized-coding-model-2026): A dynamically quantized MoE model that matches Opus 4.6 medium on coding benchmarks while excelling in multi-turn conversations for agentic workflows
 - [OpenAI Python SDK v3.6.0 Adds Compute Units to Usage Tracking](https://samkhan.net/blog/openai-python-sdk-v3-6-0-compute-units): The latest OpenAI Python SDK release v3.6.0 introduces compute_units tracking in API response usage, enabling developers to monitor computational resource consumption alongside token counts.
 - [Grok 4.1 Review: xAI's Latest Model Tested](https://samkhan.net/blog/grok-4-1-review-2025): Complete review of Grok 4.1, xAI's latest language model. Benchmark performance, real-world testing, cost analysis, and comparison with GPT-5.2, Claude Opus 4.5, and other frontier models.

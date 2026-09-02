@@ -37,6 +37,7 @@ After analyzing benchmark data and model specifications, here's a detailed revie
 DeepSeek-V4-Flash-Vision-Exp is positioned as an experimental multimodal model that extends the text-focused DeepSeek-V4-Flash architecture with visual understanding capabilities. The model uses a mixture-of-experts (MoE) architecture with 6 experts per token and FP8 quantization for efficient inference.
 
 ### Architecture Specifications
+
 - **Model Type:** DeepseekV4ForCausalLM
 - **Expert Precision:** FP4
 - **Experts per Token:** 6
@@ -46,6 +47,7 @@ DeepSeek-V4-Flash-Vision-Exp is positioned as an experimental multimodal model t
 - **Library:** Transformers compatible
 
 ### Text Agent Capabilities
+
 The model maintains strong performance on text-only agent tasks, showing improvements over its predecessor DeepSeek-V4-Flash-0731:
 
 | Benchmark | DeepSeek-V4-Flash-Vision-Exp | DeepSeek-V4-Flash-0731 | Opus-4.8 |
@@ -61,6 +63,7 @@ The model maintains strong performance on text-only agent tasks, showing improve
 *Notes: Text agent benchmarks evaluated with DeepSeek Harness in minimal mode, max reasoning effort, temperature=1.0, top_p=0.95.*
 
 ### Multimodal Agent Capabilities
+
 The vision-exp variant shows notable gains in multimodal understanding:
 
 | Benchmark | DeepSeek-V4-Flash-Vision-Exp | DeepSeek-V4-Flash-0731 | Opus-4.8 |
@@ -75,15 +78,19 @@ The vision-exp variant shows notable gains in multimodal understanding:
 ## Implementation Details
 
 ### Prompt Formats
+
 The model supports both OpenAI-style JSON content blocks and compact `<image>path</image>` TXT notation for vision inputs. Both formats encode to identical prompts and token IDs.
 
 ### Deployment Options
+
 - **vLLM:** Supported with specialized configurations including dspark speculative sampling
 - **SGLang:** Compatible with DSPARK speculative algorithm
 - **Raw PyTorch:** Minimal inference implementation provided in the repository
 
 ### Hardware Requirements
+
 With 304.6B parameters and mixed precision storage:
+
 - BF16: ~1.95B params
 - F32: ~37.8M params  
 - F8_E4M3: ~6.30B params
@@ -95,15 +102,20 @@ The I8 (int8) dominance suggests aggressive quantization for deployment efficien
 ## Developer Experience
 
 ### Integration
+
 The model follows standard Hugging Face patterns with transformers library compatibility. Tokenizer uses special tokens:
+
 - BOS: `<｜begin▁of▁sentence｜>`
 - EOS/PAD: `<｜end▁of▁sentence｜>`
 
 ### Testing & Evaluation
+
 DeepSeek provides evaluation scripts for the benchmarks mentioned above, allowing developers to verify performance on their specific hardware configurations.
 
 ### Limitations
+
 As an experimental model:
+
 - Not positioned as a production-ready release
 - Multimodal capabilities still trail Opus-4.8 on some metrics
 - Limited documentation beyond model card and basic inference examples
@@ -112,12 +124,14 @@ As an experimental model:
 ## Use Case Recommendations
 
 **Choose DeepSeek-V4-Flash-Vision-Exp if:**
+
 - You need a permissively licensed (MIT) multimodal model for research
 - Text agent performance is primary requirement with vision as secondary capability
 - You can leverage FP8 quantization for efficient inference
 - You want to experiment with MoE architectures at scale
 
 **Consider Alternatives if:**
+
 - Production deployment requiring battle-tested stability is needed
 - Top-tier multimodal performance (surpassing Opus-4.8) is critical
 - Strict latency requirements exist for real-time vision applications
