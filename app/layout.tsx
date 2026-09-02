@@ -13,7 +13,7 @@ const charis = Charis_SIL({
   style: ["normal", "italic"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-serif",
+  variable: "--font-charis",
 });
 
 const personSchema = {
