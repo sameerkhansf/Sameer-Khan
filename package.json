@@ -12,7 +12,7 @@
     "typecheck": "tsc --noEmit",
     "test:agents": "tsx --test scripts/agent-readiness.test.mjs",
     "generate-md": "npx tsx scripts/generate-markdown-files.ts",
-    "validate:content": "remark-lint-frontmatter-validation \"content/blog/**/*.mdx\" --schema schemas/post.schema.json && markdownlint-cli2 && node scripts/check-mdx.mjs",
+    "validate:content": "remark-lint-frontmatter-validation \"content/blog/**/*.mdx\" --schema schemas/post.schema.json && markdownlint-cli2 && eslint content/blog",
     "fix-content": "markdownlint-cli2 --fix; npm run validate:content",
     "test:agents:ci": "start-server-and-test start http://localhost:3000 test:agents"
   },
@@ -36,7 +36,6 @@
     "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
-    "@mdx-js/mdx": "^3.1.1",
     "@tailwindcss/postcss": "^4.3.3",
     "@tailwindcss/typography": "^0.5.20",
     "@types/negotiator": "^0.6.5",
@@ -46,6 +45,7 @@
     "@vercel/config": "^0.7.0",
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.3.4",
+    "eslint-plugin-mdx": "^3.8.1",
     "markdownlint-cli2": "^0.23.2",
     "postcss": "^8.5.26",
     "remark-lint-frontmatter-validation": "^1.0.4",

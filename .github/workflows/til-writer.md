@@ -56,7 +56,7 @@ steps:
 
 tools:
   web-fetch:
-  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "npm", "npx"]
+  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "npm"]
   edit:
   github:
     toolsets: [default]
@@ -80,11 +80,11 @@ The capture note is: "${{ steps.sanitized.outputs.text }}"
 
 3. **Verify.** Every factual claim in the draft must trace to a source you actually fetched, or to a command you actually ran in this repository. Never write "I tested X" unless you ran it here. Prefer exact version numbers, dates, and quoted behavior over generalities.
 
-4. **Write the draft.** Create one new file in `content/blog/` named `<kebab-case-slug>.mdx`, matching the existing posts' format exactly — YAML frontmatter with `title`, `description`, `date` (today, as a QUOTED string like `date: "2026-08-26"` — an unquoted date fails validation), `author: "Sameer Khan"`, `tags` (inline list, 3–6 items), `category` (one of the existing categories: AI, Developer Tools, Web Development, Projects), `published: true` — merging the PR IS the publish approval. CI validates the PR with `npm run validate:content` (frontmatter schema + markdownlint); step 6 has you run the same check yourself before opening the PR. Study 2–3 existing posts first for MDX conventions, then follow this measured TIL register (derived from analyzing all 579 posts in simonw/til):
+4. **Write the draft.** Create one new file in `content/blog/` named `<kebab-case-slug>.mdx`, matching the existing posts' format exactly — YAML frontmatter with `title`, `description`, `date` (today, as a QUOTED string like `date: "2026-08-26"` — an unquoted date fails validation), `author: "Sameer Khan"`, `tags` (inline list, 3–6 items), `category` (one of the existing categories: AI, Developer Tools, Web Development, Projects), `published: true` — merging the PR IS the publish approval. CI validates the PR with `npm run validate:content` (frontmatter schema + markdownlint + MDX compile); step 6 has you run the same check yourself before opening the PR. Study 2–3 existing posts first for MDX conventions, then follow this measured TIL register (derived from analyzing all 579 posts in simonw/til):
    - **Title**: gerund-led sentence case, ~7 words, naming the task — "Running X inside Y", "Fixing X when Y". Never "How to…", never clickbait, no first-person in titles.
    - **Opening**: first sentence states the concrete first-person trigger — what you were doing and what forced the learning ("I needed…", "I noticed…", "For X I found…") — with a link to the real project or issue. The first paragraph doubles as the summary; no throat-clearing.
    - **Length**: target the 150–900 word range, median ~320. Go longer (up to ~1,500) only when the material genuinely demands a deep-dive.
-   - **Body**: prose interleaved with at least one fenced code block containing real commands and real output (88% of Simon's posts have code). 3–5 external links to primary sources. H2 subheads only if the post runs long. End with the working final version or a pointer to it.
+   - **Body**: prose interleaved with at least one fenced code block containing real commands and real output (88% of Simon's posts have code). 3–5 external links to primary sources. H2 subheads only if the post runs long. End with the working final version or a pointer to it. A `<` followed by a letter or digit in prose (`<50ms`, `<model>`) is JSX to MDX and fails the compile (so is a bare `{`) — write `under 50ms`, escape it as `\<50ms` / `\{`, or put it in backticks.
    - **Never**: "In today's fast-paced world" intros, unsupported superlatives, invented anecdotes, "what is X" boilerplate, emoji anywhere (headings, tables, lists — use "Yes"/"No" in comparison tables, plain words everywhere else).
 
 5. **Evidence bundle.** Write a JSON evidence file to cache-memory named after the slug: source URLs with access dates, versions of any tools referenced, commands run with outputs, and the list of factual claims mapped to sources. Repeat the evidence summary in the PR description — that is its permanent record.

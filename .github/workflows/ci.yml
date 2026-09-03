@@ -24,7 +24,7 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run typecheck
-      - name: Validate content (frontmatter schema + markdownlint)
+      - name: Validate content (frontmatter schema + markdownlint + MDX compile)
         run: npm run validate:content
       - name: Check links in posts
         uses: lycheeverse/lychee-action@v2.9.0
