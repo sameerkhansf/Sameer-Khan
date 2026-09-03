@@ -29,7 +29,7 @@ jobs:
       - name: Check links in posts
         uses: lycheeverse/lychee-action@v2.9.0
         with:
-          args: --no-progress --max-retries 4 --retry-wait-time 3 --accept 200..=206,403,429 'content/blog/**/*.mdx'
+          args: --no-progress --max-retries 4 --retry-wait-time 3 --accept 200..=206,403,429 --root-dir ${{ github.workspace }}/content --fallback-extensions mdx 'content/blog/**/*.mdx'
           fail: true
       - name: Build (MDX compile gate)
         run: npm run build
