@@ -21,6 +21,29 @@ const nextConfig = {
       },
     ];
   },
+  async headers() {
+    // The markdown twins under public/ (index.md, blog/<slug>.md) are alternate
+    // formats of the HTML pages, not pages of their own. Google's documented
+    // signal for non-HTML duplicates is the rel="canonical" Link header:
+    // https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls
+    return [
+      {
+        source: "/index.md",
+        headers: [
+          { key: "Link", value: '<https://samkhan.net/>; rel="canonical"' },
+        ],
+      },
+      {
+        source: "/blog/:slug.md",
+        headers: [
+          {
+            key: "Link",
+            value: '<https://samkhan.net/blog/:slug/>; rel="canonical"',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -47,6 +47,7 @@ URL, or send `Accept: text/markdown`.
 ### Articles
 
 **AI:**
+- [GLM-5.3-Flash vs Qwen3.8-Flash-Next: Comparing Leading Efficient LLMs for Agentic Workflows](https://samkhan.net/blog/glm-5-3-flash-vs-qwen3-8-flash-next-comparison-2026): Head-to-head comparison of Z.ai's GLM-5.3-Flash and Qwen's Qwen3.8-Flash-Next, two Mixture-of-Experts models optimized for cost-effective agentic AI and long-context processing.
 - [Qwen3.8-Flash-Next Review: Alibaba's Latest Multimodal Model for Vision and Text Tasks](https://samkhan.net/blog/qwen3-8-flash-next-review-2026): Review of Qwen3.8-Flash-Next, Alibaba's experimental 125B parameter model with 6B activated parameters, featuring hybrid attention, n-gram embeddings, and extensive benchmark results.
 - [DeepSeek-V4-Flash-Vision-Exp Review: A Multimodal Frontier Model](https://samkhan.net/blog/deepseek-v4-flash-vision-exp-review-2026): First look at DeepSeek's experimental multimodal model showing strong text agent capabilities and improved vision understanding, benchmarked against Opus 4.8.
 - [Tiel Coder 35B Review: Local Coding Model Matches Opus 4.6 Medium on SWE-Bench Live](https://samkhan.net/blog/tiel-coder-35b-review-specialized-coding-model-2026): A dynamically quantized MoE model that matches Opus 4.6 medium on coding benchmarks while excelling in multi-turn conversations for agentic workflows
