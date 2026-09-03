@@ -84,7 +84,7 @@ steps:
 tools:
   cache-memory:
   web-fetch:
-  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "curl", "npm run fix-content"]
+  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "curl", "npm", "npx"]
   edit:
   github:
     toolsets: [default]
@@ -108,7 +108,7 @@ A deterministic step already gathered your scouting inputs under `/tmp/gh-aw/age
 - `open-til-prs.json` — open PRs labeled `til`. If this array is non-empty, call `noop` naming the PR and stop.
 - `rejected-til-topics.json` — closed-without-merge til PRs: topics a human already rejected. Never re-propose a topic matching any of these titles.
 - `existing-slugs.txt` — every existing post slug; your new slug must not appear here.
-- `weekly-research.md` — the latest weekly-research discussion (its "Post queue" section, if present, lists pre-vetted topic candidates).
+- `weekly-research.md` — the latest weekly-research discussion (its "Post queue" section, if present, lists topic candidates that must still pass the rules below).
 - `hf-trending.json` — the 25 currently trending Hugging Face models with creation dates: the fastest signal for newly released models worth a review.
 
 Read all six with a single `cat` each, then choose the topic. Never run shell searches for topic queues, `topics.md`, or repo file listings — everything scouting needs is in these files.
