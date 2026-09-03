@@ -56,7 +56,7 @@ steps:
 
 tools:
   web-fetch:
-  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "npm run fix-content"]
+  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "npm", "npx"]
   edit:
   github:
     toolsets: [default]
