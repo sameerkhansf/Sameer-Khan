@@ -15,15 +15,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       : new Date();
 
   const staticPages: MetadataRoute.Sitemap = [
+    // Google only trusts <lastmod> when it is verifiably accurate, so no
+    // build-time `new Date()`: the home and blog index change when a post
+    // does, and the resume has no tracked date, so it carries none.
+    // https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
     {
       url: `${baseUrl}/`,
-      lastModified: new Date(),
+      lastModified: latestPostDate,
       changeFrequency: "monthly",
       priority: 1.0,
     },
     {
       url: `${baseUrl}/resume/`,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
     },
@@ -32,12 +35,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: latestPostDate,
       changeFrequency: "weekly",
       priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/rss.xml`,
-      lastModified: latestPostDate,
-      changeFrequency: "weekly",
-      priority: 0.5,
     },
   ];
 
