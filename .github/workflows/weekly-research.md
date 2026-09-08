@@ -70,6 +70,8 @@ source: githubnext/agentics/workflows/weekly-research.md@ae8d551f07c7ed7619f8c58
 
 # Weekly Research
 
+RUN CONTRACT — read first: every run MUST end with exactly one safe-output tool call — `create_discussion` (the goal), or `noop` explaining what you investigated and why there was nothing worth reporting, or `report_incomplete` with the blocking reason. Ending the session without one of these three calls is a failed run. Do not stop after researching; carry the findings all the way through to the `create_discussion` call.
+
 ## Job Description
 
 Do a deep research investigation in ${{ github.repository }} repository, and the related industry in general.
@@ -88,7 +90,7 @@ Create a new GitHub discussion with title starting with "[weekly-research]" cont
 - Market opportunities
 - Business analysis
 - Enjoyable anecdotes
-- A final section titled "## Post queue": 5-7 concrete, narrow, TIL-able topic candidates (each one task with verifiable commands/results, one line each, no broad surveys) — external/industry topics only — never this repository's own workflows or automation; this section is consumed by the daily writer workflow
+- A final section titled "## Post queue": 5-7 concrete, narrow, TIL-able topic candidates (each one task with verifiable commands/results, one line each, no broad surveys) — external/industry topics only — never this repository's own workflows or automation; this section is for your own reference and the human's — nothing consumes it automatically
 
 Only a new discussion should be created, no existing discussions should be adjusted.
 
@@ -96,3 +98,7 @@ At the end of the report list write a collapsed section with the following:
 - All search queries (web, issues, pulls, content) you used
 - All bash commands you executed
 - All MCP tools you used
+
+## Before you finish
+
+You are an autonomous agent: keep going until the report is complete before ending your turn. Whatever happened above, your last action MUST be exactly one safe-output tool call: `create_discussion` (report written), `noop` (nothing worth reporting), or `report_incomplete` (blocked). Ending with a plain text message instead of a tool call is a failed run — if you notice yourself summarizing findings or announcing a plan as prose, that is the signal to make the tool call now.
