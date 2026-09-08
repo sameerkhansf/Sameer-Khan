@@ -60,6 +60,8 @@ safe-outputs:
     title-prefix: "[til] "
     labels: [til, automated]
     draft: false
+    reviewers: sameerkhansf
+    expires: 7d
     allowed-files:
       - "content/blog/**"
 
