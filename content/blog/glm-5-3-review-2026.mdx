@@ -2,6 +2,7 @@
 title: "GLM-5.3 Review: Z.ai's New Open Weights Model for Coding and Agentic Workflows"
 description: "Comprehensive review of GLM-5.3, Z.ai's latest open weights Mixture-of-Experts model showing strong performance on coding benchmarks and cybersecurity tasks."
 date: "2026-09-03"
+updated: "2026-09-08"
 author: "Sameer Khan"
 tags: ["AI", "GLM", "Z.ai", "LLM", "Developer Tools", "Agentic AI"]
 category: "AI"
@@ -29,7 +30,7 @@ GLM-5.3 was released by Z.ai in August 2026 as the latest iteration in their GLM
 | AutomationBench (v1.0.6) | **48.2** | 26.2 | 43.2 | 39.8 | 41.0 | 45.8 |
 | HLE w/ Tools | 62.5 | 54.7 | 60.0 | 56.2 | 57.9 | **64.5** |
 
-**Context Length:** 300K tokens (with context management strategy)  
+**Context Length:** 1M tokens (`max_position_embeddings` = 1,048,576 in [config.json](https://huggingface.co/zai-org/GLM-5.3/blob/main/config.json))  
 **Reasoning Effort:** Configurable (low, high, max) - defaults to max  
 **License:** Other (GLM-5.3 license)  
 **Deployment:** Compatible with SGLang, vLLM, TokenSpeed, Transformers, KTransformers, Unsloth, and Ascend NPU platforms
@@ -102,7 +103,7 @@ As an open weights model, GLM-5.3 can be run locally at no licensing cost (beyon
 ### Limitations
 
 - The GLM-5.3 license contains restrictions that may affect certain use cases
-- Context length of 300K requires careful management for optimal performance
+- Long-context runs need careful management: Z.ai's own evaluations cap context per benchmark (300K for HLE, 400K for DeepSWE and Terminal-Bench 3.0, 1M for NL2Repo and ALE) rather than using the full window
 - Some benchmarks show trailing performance compared to GPT-5.6 Sol
 - Limited public API availability information in primary sources
 
@@ -135,3 +136,7 @@ For developers focused on coding agents, automation workflows, or cybersecurity 
 
 - GLM-5.3 model card and README: [GLM-5.3 model card and README](https://huggingface.co/zai-org/GLM-5.3) (accessed 2026-09-03)
 - GLM-5.3 API metadata: [GLM-5.3 API metadata](https://huggingface.co/api/models/zai-org/GLM-5.3) (accessed 2026-09-03)
+
+---
+
+*Correction (2026-09-08): the original version listed the context length as 300K tokens. That figure is the evaluation context used for the HLE benchmark in the model card's footnotes, not the model's window; `config.json` gives `max_position_embeddings` = 1,048,576.*
