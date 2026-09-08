@@ -60,6 +60,8 @@ safe-outputs:
     title-prefix: "[til] "
     labels: [til, automated]
     draft: false
+    reviewers: sameerkhansf
+    expires: 7d
     allowed-files:
       - "content/blog/**"
 
@@ -71,6 +73,14 @@ steps:
       mkdir -p /tmp/gh-aw/agent/scout
       date -u +%F > /tmp/gh-aw/agent/scout/today.txt
       gh pr list --label til --state open --json number,title,url > /tmp/gh-aw/agent/scout/open-til-prs.json
+      if [ "$(jq 'length' /tmp/gh-aw/agent/scout/open-til-prs.json)" -gt 0 ]; then
+        echo "BLOCKED" > /tmp/gh-aw/agent/scout/gate.txt
+        jq -r '.[] | "open til PR #\(.number): \(.title)"' \
+          /tmp/gh-aw/agent/scout/open-til-prs.json >> /tmp/gh-aw/agent/scout/gate.txt
+      else
+        echo "CLEAR" > /tmp/gh-aw/agent/scout/gate.txt
+      fi
+      cat /tmp/gh-aw/agent/scout/gate.txt
       gh pr list --label til --state closed --limit 30 --json number,title,mergedAt \
         --jq '[.[] | select(.mergedAt == null) | {number, title}]' > /tmp/gh-aw/agent/scout/rejected-til-topics.json
       ls content/blog | sed 's/\.mdx$//' > /tmp/gh-aw/agent/scout/existing-slugs.txt
@@ -104,8 +114,9 @@ You are the autonomous weekly writer for samkhan.net. No human capture note exis
 A deterministic step already gathered your scouting inputs under `/tmp/gh-aw/agent/scout/`:
 
 - `today.txt` — today's date (use it verbatim for the frontmatter `date`).
-- `open-til-prs.json` — open PRs labeled `til`. If this array is non-empty, call `noop` naming the PR and stop.
-- `rejected-til-topics.json` — closed-without-merge til PRs: topics a human already rejected. Never re-propose a topic matching any of these titles.
+- `gate.txt` — **the only authority on whether you may write this run.** Read it before anything else. First line `CLEAR` means no til PR is open: write the post. First line `BLOCKED` means one is open, and the lines under it name it: call `noop` quoting those lines and stop. Never decide this from any other file — `rejected-til-topics.json` lists CLOSED PRs and saying one of them is open is a false report that wastes the run.
+- `open-til-prs.json` — the raw list behind `gate.txt`, for detail only. `gate.txt` already decided.
+- `rejected-til-topics.json` — til PRs that were **closed without merging**. Every entry here is closed, never open. Its only use: never re-propose a topic matching one of these titles.
 - `existing-slugs.txt` — every existing post slug; your new slug must not appear here.
 - `hf-trending.json` — the 25 currently trending Hugging Face models with creation dates: the fastest signal for newly released models worth a review.
 
