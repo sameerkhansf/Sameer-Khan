@@ -99,7 +99,14 @@ tools:
     toolsets: [default]
 timeout-minutes: 60
 
-max-turns: 120
+# max-turns is ALSO the AWF api-proxy's hard per-run LLM invocation cap, and that
+# budget is pooled across harness retry attempts (github/gh-aw#52836, #45827).
+# Run 34261048698: attempt 1 spent 93 invocations then hit a transient
+# "Upstream error from Nvidia: Service temporarily overloaded"; the harness
+# restarted the session and attempt 2 died on
+# "429 Maximum LLM invocations exceeded (120 / 120)". Budget one full pass plus
+# a retry, not one pass.
+max-turns: 250
 
 ---
 
