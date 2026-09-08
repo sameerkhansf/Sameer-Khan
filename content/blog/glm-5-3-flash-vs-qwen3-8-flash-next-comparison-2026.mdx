@@ -19,7 +19,7 @@ GLM-5.3-Flash and Qwen3.8-Flash-Next represent two approaches to efficient large
 
 | Model | Total Parameters | Active Parameters | Context Length | Price (per M tokens) | Best For |
 | ------- | ------------------ | ------------------- | ---------------- | ---------------------- | ---------- |
-| GLM-5.3-Flash | 320B | 18B | 300K tokens | $0.15 in / $0.50 out* | Multimodal agentic workflows |
+| GLM-5.3-Flash | 320B | 18B | 1M tokens | $0.15 in / $0.50 out* | Multimodal agentic workflows |
 | Qwen3.8-Flash-Next | 125B | 6B + 51B n-gram | 262K tokens (1M with YaRN) | No official listing† | Long-horizon reasoning & tool use |
 
 \*List price from the [Z.ai pricing page](https://docs.z.ai/guides/overview/pricing) (cached input $0.03). A 50% launch discount ran through 2026-09-09.
@@ -144,7 +144,7 @@ Both models recommend specific settings for different modes:
 
 ### Context Management
 
-- GLM-5.3-Flash uses explicit context management strategies for its 300K token evaluations
+- GLM-5.3-Flash's window is 1M tokens (`max_position_embeddings` = 1,048,576); the 300K figure in its benchmark footnotes is the evaluation context for HLE, not the model limit
 - Qwen3.8-Flash-Next natively supports 262K tokens and recommends YaRN for extension beyond that
 - Both require careful output length allocation for agentic workflows (separate reasoning vs. final response limits)
 
