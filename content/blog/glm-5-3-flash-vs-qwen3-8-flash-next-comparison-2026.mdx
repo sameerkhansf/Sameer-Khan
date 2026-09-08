@@ -2,6 +2,7 @@
 title: "GLM-5.3-Flash vs Qwen3.8-Flash-Next: Comparing Leading Efficient LLMs for Agentic Workflows"
 description: "Head-to-head comparison of Z.ai's GLM-5.3-Flash and Qwen's Qwen3.8-Flash-Next, two Mixture-of-Experts models optimized for cost-effective agentic AI and long-context processing."
 date: "2026-09-02"
+updated: "2026-09-08"
 author: "Sameer Khan"
 tags: ["AI", "LLM", "GLM", "Qwen", "Developer Tools", "Agentic AI"]
 category: "AI"
@@ -12,18 +13,20 @@ GLM-5.3-Flash and Qwen3.8-Flash-Next represent two approaches to efficient large
 
 ## Quick Summary
 
-**GLM-5.3-Flash** (Z.ai) and **Qwen3.8-Flash-Next** (QwenLM) are both Mixture-of-Experts models designed for efficient inference. GLM-5.3-Flash uses 320B total parameters with only 18B active, while Qwen3.8-Flash-Next uses 125B total with 6B activated parameters plus extensive n-gram embeddings. Both claim strong performance on coding and agentic benchmarks at significantly lower costs than dense models like GPT-5.2 or Claude Opus 4.8.
+**GLM-5.3-Flash** (Z.ai) and **Qwen3.8-Flash-Next** (QwenLM) are both Mixture-of-Experts models designed for efficient inference. GLM-5.3-Flash uses 320B total parameters with only 18B active, while Qwen3.8-Flash-Next uses 125B total with 6B activated parameters plus extensive n-gram embeddings. Both claim strong performance on coding and agentic benchmarks at significantly lower costs than dense frontier models.
 
 **Key Numbers:**
 
 | Model | Total Parameters | Active Parameters | Context Length | Price (per M tokens) | Best For |
 | ------- | ------------------ | ------------------- | ---------------- | ---------------------- | ---------- |
-| GLM-5.3-Flash | 320B | 18B | 300K tokens | ~$0.60/$3.00* | Multimodal agentic workflows |
-| Qwen3.8-Flash-Next | 125B | 6B + 51B n-gram | 262K tokens (1M with YaRN) | ~$0.30/$1.20* | Long-horizon reasoning & tool use |
+| GLM-5.3-Flash | 320B | 18B | 300K tokens | $0.15 in / $0.50 out* | Multimodal agentic workflows |
+| Qwen3.8-Flash-Next | 125B | 6B + 51B n-gram | 262K tokens (1M with YaRN) | No official listing† | Long-horizon reasoning & tool use |
 
-\*Estimated based on claims of "one-tenth the price" vs GPT-5.2's $15/$75.
+\*List price from the [Z.ai pricing page](https://docs.z.ai/guides/overview/pricing) (cached input $0.03). A 50% launch discount ran through 2026-09-09.
 
-**Bottom line:** GLM-5.3-Flash offers stronger multimodal capabilities and approaches Claude Opus 4.8 on agentic benchmarks, while Qwen3.8-Flash-Next provides superior long-context efficiency and lower estimated costs. Choose GLM-5.3-Flash for vision-language agentic tasks; choose Qwen3.8-Flash-Next for pure text reasoning with massive context windows.
+†Qwen3.8-Flash-Next ships as open weights and is not listed on [Qwen Cloud](https://www.qwencloud.com/), which sells the separate `qwen3.8-flash` model. Self-hosting cost depends on your own hardware.
+
+**Bottom line:** GLM-5.3-Flash offers stronger multimodal capabilities and approaches Claude Opus 4.8 on agentic benchmarks, while Qwen3.8-Flash-Next provides superior long-context efficiency but publishes no hosted price. Choose GLM-5.3-Flash for vision-language agentic tasks; choose Qwen3.8-Flash-Next for pure text reasoning with massive context windows.
 
 ## Architecture Comparison
 
@@ -67,7 +70,7 @@ From the model's footnotes, evaluated with temperature=1.0, top_p=0.95:
 - **GDPval-AA v2**: General AI capability assessment by Artificial Analysis
 - **BabyVision**: Multimodal vision benchmark, 164K context, 1.5K pixel min image size
 
-The model states it "approaches Claude Opus 4.8 on coding and agentic benchmarks" while being "one-tenth the price" of comparable dense models.
+The [model card](https://huggingface.co/zai-org/GLM-5.3-Flash) states it "outperforms GLM-5.2 across benchmarks and real-world workloads at one-tenth the price, while approaching Claude Opus 4.8 on coding and agentic benchmarks." The price comparison is against GLM-5.2, Z.ai's own previous generation — not against Claude Opus.
 
 ### Qwen3.8-Flash-Next Benchmark Focus
 
@@ -84,8 +87,16 @@ Both models target similar use cases but with different optimization priorities:
 
 ### Pricing Claims
 
-- **GLM-5.3-Flash**: Explicitly states "one-tenth the price" of GLM-5.2 across benchmarks. Assuming GLM-5.2 pricing similar to GPT-5.2 (~$15/$75 per M tokens), this suggests ~$1.50/$7.50 or lower.
-- **Qwen3.8-Flash-Next**: No explicit pricing, but architectural choices (6B active + n-gram offloading) suggest aggressive cost optimization. The Qwen Cloud API likely offers competitive rates.
+Z.ai publishes list prices per 1M tokens ([pricing page](https://docs.z.ai/guides/overview/pricing)):
+
+| Model | Input | Cached input | Output |
+| ------- | ------- | -------------- | -------- |
+| GLM-5.3-Flash | $0.15 | $0.03 | $0.50 |
+| GLM-5.2 | $1.40 | $0.26 | $4.40 |
+
+That confirms the model card's claim literally: GLM-5.3-Flash is about one-tenth of GLM-5.2 on both input ($0.15 vs $1.40) and output ($0.50 vs $4.40). The claim is a generational price cut within the GLM line, not a comparison against any other vendor's model.
+
+Qwen3.8-Flash-Next has no published per-token price. It ships as open weights, and Qwen Cloud lists the separate `qwen3.8-flash` model rather than Flash-Next, so the only cost model available today is self-hosting. Its architecture (6B active parameters plus n-gram embedding offload) is built for cheap inference, but that is a design claim, not a price.
 
 ### Deployment Options
 
@@ -144,3 +155,7 @@ GLM-5.3-Flash and Qwen3.8-Flash-Next represent converging trends in efficient LL
 For developers building AI agents in late 2026, both offer paths to deploy sophisticated workflows at a fraction of the cost of dense frontier models. The choice ultimately depends on whether your agents need to see and interact with multimedia (GLM-5.3-Flash) or primarily reason over vast amounts of text (Qwen3.8-Flash-Next).
 
 *Evidence gathered from model READMEs, technical reports, and benchmark footnotes accessed September 2, 2026.*
+
+---
+
+*Correction (2026-09-08): the original version priced GLM-5.3-Flash at ~$0.60/$3.00 per 1M tokens, extrapolated from reading the model card's "one-tenth the price" claim as a comparison against GPT-5.2. The claim is against GLM-5.2, and Z.ai publishes real list prices — $0.15 input / $0.50 output. The pricing table and cost section have been corrected against the [Z.ai pricing page](https://docs.z.ai/guides/overview/pricing), and the invented estimate for Qwen3.8-Flash-Next has been removed.*

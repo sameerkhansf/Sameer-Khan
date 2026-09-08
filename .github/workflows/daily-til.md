@@ -25,6 +25,8 @@ network:
     - mistral.ai
     - deepseek.com
     - huggingface.co
+    - z.ai
+    - qwencloud.com
 
 models:
   default-ai-credits-pricing:
@@ -57,6 +59,7 @@ safe-outputs:
   create-pull-request:
     title-prefix: "[til] "
     labels: [til, automated]
+    draft: false
     allowed-files:
       - "content/blog/**"
 
@@ -120,7 +123,8 @@ Read all five with a single `cat` each, then choose the topic. Never run shell s
    - **Title**: like the corpus — "X Review: <specific angle>", "X vs Y vs Z: <what's compared> (2026)", "Best X for Y (2026)". Specific and factual, no clickbait.
    - **Description**: one-sentence summary of the verdict/scope, 40-320 chars.
    - **Body**: markdown tables for comparisons (the corpus uses them heavily) — every table cell padded with one space on each side of every pipe, like `| Model | Price |` (compact `|Model|Price|` fails lint); fenced code blocks with a language wherever commands or config appear; citations ONLY as `[label](https://...)` — never `[[url]]` wiki-links and never bare URLs, including in source tables; a blank line before and after every heading and every list; file ends with a newline; a `<` followed by a letter or digit in prose (`<50ms`, `<model>`) is JSX to MDX and fails the compile (so is a bare `{`) — write `under 50ms`, escape it as `\<50ms` / `\{`, or put it in backticks.
-   - **Sources must be reachable**: only domains on this workflow's network allowlist can be fetched (github.com, huggingface.co, openai.com, anthropic.com, ai.google.dev, blog.google, mistral.ai, deepseek.com, python.org and their subdomains). Prefer candidates whose primary sources live there; if a candidate's key sources are blocked by the firewall, pick a different candidate rather than writing from memory.
+   - **Sources must be reachable**: only domains on this workflow's network allowlist can be fetched (github.com, huggingface.co, openai.com, anthropic.com, ai.google.dev, blog.google, mistral.ai, deepseek.com, z.ai, qwencloud.com, python.org and their subdomains). Prefer candidates whose primary sources live there; if a candidate's key sources are blocked by the firewall, pick a different candidate rather than writing from memory.
+   - **Prices come from the vendor's price sheet, never from arithmetic.** A relative claim ("one-tenth the price", "half the cost") is worthless without its baseline: read the sentence and name what it is cheaper *than* — vendors almost always mean their own previous model, not a competitor. Then fetch the vendor's pricing page (`docs.z.ai/guides/overview/pricing`, `qwencloud.com/models/<model>`, `openai.com/api/pricing`, `anthropic.com/pricing`) and quote the listed per-token numbers with that link. If no price is published, the cell reads "no official listing" — never multiply or divide some other model's price to produce a dollar figure, and never present a derived number as a price.
    - **Never**: fabricated testing claims, "In today's fast-paced world" intros, unsupported superlatives, uncited numbers, emoji anywhere (headings, tables, lists — use "Yes"/"No" in comparison tables, plain words everywhere else).
    - **Every contender must be real and fetched**: each row of a comparison table names a specific product you fetched a primary source for this run, with that source linked in the row or the section about it. Never invent placeholder contenders ("Generic X Server", "X Toolkit") to fill a table. If you cannot source at least three real contenders, write a single-product review of the one you can source instead of a comparison.
    - **The post body is the article only**: the evidence summary, verification checklist, and any mention of this pipeline, its scout inputs, ledger, or internal file paths go in the PR description — never in the MDX.
@@ -142,6 +146,7 @@ Research budget: fetch primary sources deliberately — at most ~15 fetches per 
 ## Practical rules (edge cases)
 
 - **One pending post at a time.** Before anything else, check for an open pull request labeled `til`. If one exists, call `noop` naming it — never stack unreviewed posts. The human merges at their own pace.
+- **One post per model family per fortnight.** Slug uniqueness does not catch duplicate coverage: check `existing-slugs.txt` for the model *family* of every candidate, not just its exact name. If any post in the last 14 days already covers that family (GLM-5.x, Qwen3.x, Claude, GPT-5.x, DeepSeek, Llama), the family is spent — pick a different one, or `noop` saying so. A second angle on a model the site just covered is a duplicate.
 - **Slugs are permanent identity.** The new file's slug must not collide with any existing file in `content/blog/`; if your natural slug exists, the topic is a duplicate — pick another topic. Never rename existing files; a rename breaks URLs and requires a redirect, which is a human decision.
 - **Updates are not duplicates.** If new information materially changes a published post's conclusions, do not write a near-duplicate post; call `noop` recommending an update to the existing post (updates happen only via explicit human /til capture, which sets the `updated` frontmatter date).
 - **Same-day bursts are fine; forced posts are not.** A reasoned `noop` on a dry day is correct behavior — an unforced record is the entire value of a TIL site.
