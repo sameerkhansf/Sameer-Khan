@@ -1,0 +1,95 @@
+---
+title: "Nex-N2.5-mini Review: A Compact Agentic Model for Computer Use and Web Tasks"
+description: "Evaluating Nex-AGI's smallest agentic model for lightweight workflows, computer use, and web browsing tasks - free, open-source, and capable for experimentation."
+date: "2026-09-09"
+author: "Sameer Khan"
+tags: ["AI", "Agentic Workflows", "Open Source", "Computer Use"]
+category: "AI"
+published: true
+---
+
+## Quick Answer Table
+
+| Model | Best For | Price (per 1M tokens) | Pick If |
+| ------- | ---------- | ---------------------- | --------- |
+| Nex-N2.5-mini | Lightweight agentic tasks, computer use | Free (OpenRouter) | You need a free, open-source model for basic agentic workflows |
+| Nex-N2.5-Pro | Balanced performance, multimodal | TBD | You need stronger agentic capabilities with vision |
+| Nex-N2.5-Max | Complex reasoning, trillion-parameter scale | TBD | You need maximum performance for research/productivity |
+| Claude Opus 5 | Top-tier agentic performance | $15 input / $75 output | You need the best available agentic performance |
+| GPT-5.6 Sol | General purpose with strong agentic | TBD | You need a versatile model with good agentic skills |
+
+## Overview
+
+Nex-N2.5-mini is the smallest member of the Nex-N2.5 family of agentic models released by Nex-AGI on September 8, 2026. Designed for lightweight agentic workflows, it focuses on computer use, web browsing, and visually grounded tasks while maintaining strong performance in coding benchmarks.
+
+## Key Specifications
+
+- **Release Date**: September 8, 2026
+- **Parameters**: Not specified in available sources
+- **Architecture**: Text-generation model (based on pipeline_tag)
+- **License**: Apache 2.0
+- **Context Length**: Not specified in README
+- **Access**:
+  - Hugging Face: [https://huggingface.co/nex-agi/Nex-N2.5-mini](https://huggingface.co/nex-agi/Nex-N2.5-mini)
+  - OpenRouter (free tier): [https://openrouter.ai/nex-agi/nex-n2.5-mini](https://openrouter.ai/nex-agi/nex-n2.5-mini)
+  - Docker: nexagi/sglang:v0.5.18-nex-patch
+
+## Performance Analysis
+
+### Coding Benchmarks
+
+Nex-N2.5-mini shows solid coding performance, though it trails the larger variants and top competitors:
+
+- Terminal-Bench 2.1: 73.4% (vs 89.1% for Claude Opus 5)
+- SWE-Bench Pro: 43.8% (vs 79.2% for Claude Opus 5)
+- DeepSWE v1.1: 36.1% (vs 73.7% for Claude Opus 5)
+
+### Agentic Workflows
+
+The model demonstrates capable agentic performance for its size:
+
+- AutomationBench v1.0.6: 32.3% (vs 50.3% for Claude Opus 5)
+- Toolathlon Verified: 54.6% (vs 76.5% for Claude Opus 5 and Kimi-K3)
+- Job Bench: 28.5% (vs 65.7% for Claude Opus 5)
+- BrowseComp: 83.4% (strong web browsing capability)
+
+### Computer Use
+
+Strong performance in computer use tasks:
+
+- OSWorld-Verified: 71.2% (vs 86.1% for Qwen3.8-Max)
+- WebArena-Verified: 63.4% (vs 71.6% for Kimi-K3)
+- Vision2Web: 52.9% (vs 79.8% for GPT-5.6 Sol)
+
+## Pricing and Accessibility
+
+- **OpenRouter**: Available for free usage (rate limits may apply)
+- **Hugging Face**: Weights available under Apache 2.0 license
+- **Self-hosted**: Docker image provided (nexagi/sglang:v0.5.18-nex-patch)
+- **No official per-token pricing published** - free access suggests community/research focus
+
+## Use Case Recommendations
+
+Choose Nex-N2.5-mini if:
+
+- You need a free, open-source agentic model
+- Your use case involves light computer use or web automation
+- You're experimenting with agentic workflows and want zero-cost entry
+- You prefer self-hosting with Docker for data privacy
+
+Consider alternatives if:
+
+- You need maximum agentic performance (consider Claude Opus 5 or Nex-N2.5-Max)
+- You require strong multimodal vision capabilities
+- You have high-volume production needs (free tier may have limits)
+
+## Verdict
+
+The Nex-N2.5-mini represents a solid entry point into the Nex-N2.5 agentic family, offering capable performance for lightweight agentic tasks at zero cost. While it doesn't match the top-tier performance of Claude Opus 5 or the larger Nex-N2.5 variants, its free availability and strong showing in computer use benchmarks (particularly BrowseComp at 83.4%) make it an attractive option for developers exploring agentic workflows without financial commitment. The Apache 2.0 license and Docker deployment option further enhance its appeal for experimentation and privacy-sensitive applications.
+
+## Sources
+
+- Model card: [https://huggingface.co/nex-agi/Nex-N2.5-mini](https://huggingface.co/nex-agi/Nex-N2.5-mini)
+- README: [https://huggingface.co/nex-agi/Nex-N2.5-mini/resolve/main/README.md](https://huggingface.co/nex-agi/Nex-N2.5-mini/resolve/main/README.md)
+- Benchmark data: Extracted from model card tables
+- OpenRouter listing: [https://openrouter.ai/nex-agi/nex-n2.5-mini](https://openrouter.ai/nex-agi/nex-n2.5-mini)
