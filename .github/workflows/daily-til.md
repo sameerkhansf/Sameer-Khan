@@ -5,9 +5,8 @@ description: |
   Auto-merges once the required `check` and `fact-check` pass.
 
 on:
-  schedule:
-    - cron: "27 9 * * *"
-    - cron: "27 21 * * *"
+  # gh-aw fuzzy schedule: twice daily, minute scattered to avoid load spikes.
+  schedule: every 12h
   workflow_dispatch:
   # One pending post at a time: skip the whole run (no model calls) while a til PR is open.
   skip-if-match: 'is:pr is:open label:til'
