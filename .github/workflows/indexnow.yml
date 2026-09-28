@@ -4,6 +4,9 @@ on:
     - cron: "0 2 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   indexnow:
     runs-on: ubuntu-latest
@@ -13,3 +16,8 @@ jobs:
         with:
           sitemap-location: "https://samkhan.net/sitemap.xml"
           key: ${{ secrets.INDEXNOW_KEY }}
+          # lastmod is the post date at 00:00 UTC and this runs the next morning,
+          # so the default 1-day window never contained a new post (none since 09-02).
+          since: 2
+          since-unit: day
+          failure-strategy: error

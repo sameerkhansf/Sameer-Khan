@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import matter from "gray-matter";
 import { getAllPosts } from "@/lib/blog";
 import {
   identity,
@@ -32,19 +33,23 @@ async function generateMarkdownFiles() {
     const post = getPostBySlug(postMeta.slug);
     if (!post) continue;
 
-    // Format markdown with frontmatter and content
-    const markdown = `---
-title: "${post.title.replace(/"/g, '\\"')}"
-description: "${post.description.replace(/"/g, '\\"')}"
-date: "${post.date}"
-${post.updated ? `updated: "${post.updated}"` : ""}
-author: "${post.author}"
-tags: ${JSON.stringify(post.tags)}
-category: "${post.category}"
-${post.image ? `image: "${post.image}"` : ""}
-${post.imageAlt ? `imageAlt: "${post.imageAlt}"` : ""}
----
-
+    // Frontmatter is serialized by gray-matter (js-yaml), not string-built:
+    // a title with a backslash or newline can't break the YAML.
+    const frontmatter = Object.fromEntries(
+      Object.entries({
+        title: post.title,
+        description: post.description,
+        date: post.date,
+        updated: post.updated,
+        author: post.author,
+        tags: post.tags,
+        category: post.category,
+        image: post.image,
+        imageAlt: post.imageAlt,
+      }).filter(([, value]) => value !== undefined && value !== "")
+    );
+    const markdown = matter.stringify(
+      `
 # ${post.title}
 
 ${post.description}
@@ -69,7 +74,9 @@ ${post.updated && post.updated !== post.date
 ---
 
 ${post.content}
-`;
+`,
+      frontmatter
+    );
 
     // Write markdown file
     const filePath = path.join(publicBlogDir, `${post.slug}.md`);
@@ -161,6 +168,10 @@ ${articleLines.join("\n").trimEnd()}
 }
 
 // Run if called directly
-generateMarkdownFiles().catch(console.error);
+// A failure must fail `prebuild`, not ship stale twins.
+generateMarkdownFiles().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
 
 export { generateMarkdownFiles };

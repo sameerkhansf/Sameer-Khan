@@ -5,6 +5,9 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
 # Superseded runs for older commits on the same ref are canceled.
 concurrency:
   group: ci-${{ github.ref }}
@@ -16,8 +19,8 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v7.0.1
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24
           cache: npm
@@ -27,7 +30,7 @@ jobs:
       - name: Validate content (frontmatter schema + markdownlint + MDX compile)
         run: npm run validate:content
       - name: Check links in posts
-        uses: lycheeverse/lychee-action@v2.9.0
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           args: --no-progress --max-retries 4 --retry-wait-time 3 --accept 200..=206,403,429 --root-dir ${{ github.workspace }}/content --fallback-extensions mdx 'content/blog/**/*.mdx'
           fail: true
@@ -47,7 +50,7 @@ jobs:
       pull-requests: write
     steps:
       - id: metadata
-        uses: dependabot/fetch-metadata@v3.1.0
+        uses: dependabot/fetch-metadata@25dd0e34f4fe68f24cc83900b1fe3fe149efef98 # v3.1.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - if: steps.metadata.outputs.update-type != 'version-update:semver-major'
