@@ -44,7 +44,10 @@ engine:
   args: ["--allow-all-urls"]
   env:
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
-    COPILOT_MODEL: "nvidia/nemotron-3-super-120b-a12b:free"
+    # Measured on the same known-bad post (PRs #105, #111): super-120b caught
+    # 1 of 8 documented errors, ultra-550b 4 of 8. qwen3.8-27b and inkling runs
+    # died on quota/auth (#109, #110), so they are unmeasured.
+    COPILOT_MODEL: "nvidia/nemotron-3-ultra-550b-a55b:free"
     COPILOT_PROVIDER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
 
 sandbox:
