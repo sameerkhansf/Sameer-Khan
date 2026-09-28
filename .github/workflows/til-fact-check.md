@@ -91,6 +91,7 @@ steps:
       while read -r f; do [ -f "$GITHUB_WORKSPACE/$f" ] && grep -oE '\]\(https?://[^) ]+' "$GITHUB_WORKSPACE/$f" | cut -c3-; done < posts.txt | sort -u > urls.txt
       sed -nE 's#^https://huggingface\.co/([^/]+/[^/?#]+)/?$#\1#p' urls.txt | while read -r m; do
         echo "https://huggingface.co/$m/raw/main/README.md"; echo "https://huggingface.co/$m/raw/main/config.json"
+        echo "https://huggingface.co/$m/raw/main/LICENSE"
       done >> urls.txt
       n=0
       sort -u urls.txt | head -60 | while read -r u; do
@@ -143,6 +144,10 @@ Every source the post links is already downloaded: `/tmp/gh-aw/agent/factcheck/s
    - "Not specified" claims: wrong if the source does publish it.
    - Links: every `UNREACHABLE` entry in the index is a failed claim.
    - A post that links no primary source at all fails: its claims are unsupported by definition.
+   - Licenses: read the model's `LICENSE` file (prefetched for Hugging Face models) and check every statement about commercial use, attribution, or "permissive" against its text. A card's license *name* is not its terms (#116 called a non-commercial license commercial-friendly).
+   - Hedging does not excuse a number: "~", "about", "estimated", "reportedly", or a footnote saying figures are estimates still needs a fetched source stating that figure. Unsourced estimates are unsupported (#116 shipped an invented "~3.5B" for DALL-E 3).
+   - Every row of a comparison table must trace to a fetched source for that product. A row with no source is an unsupported claim.
+   - "No official listing" / "not published" is verified only if you fetched the vendor's own page and it lacks the figure. "No source contradicts it" is never verification.
    - Every path listed in `/tmp/gh-aw/agent/factcheck/bad-slugs.txt` is a failed claim ("slug must be lowercase letters, digits, and hyphens").
 3. A claim is **wrong** if the source contradicts it and **unsupported** if you cannot find it in a fetched source. Descriptions of what a benchmark measures, or advice, need a source too.
 
