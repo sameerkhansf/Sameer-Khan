@@ -14,21 +14,16 @@ on:
 permissions: read-all
 
 network:
+  # Research reads any public page via Copilot's web-fetch, which gh-aw documents
+  # is not bound by this list (github/gh-aw#63474); a per-vendor domain list only
+  # blocked shell curl and leaked into threat detection's allowlist. Per the gh-aw
+  # network guide, research needing wide access documents the rationale (here)
+  # and is monitored with `gh aw audit <run-id>`. openrouter.ai = BYOK provider.
   allowed:
     - defaults
     - github
     - python
     - openrouter.ai
-    - openai.com
-    - anthropic.com
-    - blog.google
-    - ai.google.dev
-    - mistral.ai
-    - deepseek.com
-    - huggingface.co
-    - z.ai
-    - qwencloud.com
-    - arxiv.org
 
 models:
   default-ai-credits-pricing:
@@ -106,7 +101,7 @@ steps:
 tools:
   cache-memory:
   web-fetch:
-  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "curl", "npm"]
+  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "npm"]
   edit:
   github:
     toolsets: [default]
@@ -154,7 +149,7 @@ Read all five with a single `cat` each, then choose the topic. Never run shell s
    - **Title**: like the corpus — "X Review: <specific angle>", "X vs Y vs Z: <what's compared> (2026)", "Best X for Y (2026)". Specific and factual, no clickbait.
    - **Description**: one-sentence summary of the verdict/scope, 40-320 chars.
    - **Body**: markdown tables for comparisons (the corpus uses them heavily) — every table cell padded with one space on each side of every pipe, like `| Model | Price |` (compact `|Model|Price|` fails lint); fenced code blocks with a language wherever commands or config appear; citations ONLY as `[label](https://...)` — never `[[url]]` wiki-links and never bare URLs, including in source tables; a blank line before and after every heading and every list; file ends with a newline; a `<` followed by a letter or digit in prose (`<50ms`, `<model>`) is JSX to MDX and fails the compile (so is a bare `{`) — write `under 50ms`, escape it as `\<50ms` / `\{`, or put it in backticks.
-   - **Sources must be reachable**: only domains on this workflow's network allowlist can be fetched (github.com, huggingface.co, openai.com, anthropic.com, ai.google.dev, blog.google, mistral.ai, deepseek.com, z.ai, qwencloud.com, arxiv.org and their subdomains). Prefer candidates whose primary sources live there; if a candidate's key sources are blocked by the firewall, pick a different candidate rather than writing from memory.
+   - **Sources must be fetched, never remembered**: read every source with `web-fetch` (the shell has no network access). Any public page is reachable; read raw specs directly (`https://huggingface.co/<org>/<model>/raw/main/config.json`). If a candidate's key source cannot be fetched after two attempts, pick a different candidate rather than writing from memory.
    - **Open every paper you cite and read its title before citing it.** An `arxiv:` tag on a model card is not a promise that the paper describes that model — cards routinely tag a predecessor's report, or an unrelated lab paper. Never infer a paper's subject from its ID, its position in the tag list, or its date. Fetch `https://arxiv.org/abs/<id>` and read the actual title: if it does not name this model and version, it is not this model's technical report. Say "no technical report is linked from the model card" rather than promote the closest-looking tag. Both previous failures came from guessing: PR #77 cited arXiv 2310.10688 as TimesFM 3.0's reference when it is the 2023 original TimesFM paper, and PR #85 cited arXiv 2506.07900 as MiniCPM5-2B's technical report when its title is "MiniCPM4: Ultra-Efficient LLMs on End Devices" — that card's other tag, 2602.09003, is a data-management paper, so neither was a match and picking "the newer one" would also have been wrong.
    - **Prices come from the vendor's price sheet, never from arithmetic.** A relative claim ("one-tenth the price", "half the cost") is worthless without its baseline: read the sentence and name what it is cheaper *than* — vendors almost always mean their own previous model, not a competitor. Then fetch the vendor's pricing page (`docs.z.ai/guides/overview/pricing`, `qwencloud.com/models/<model>`, `openai.com/api/pricing`, `anthropic.com/pricing`) and quote the listed per-token numbers with that link. If no price is published, the cell reads "no official listing" — never multiply or divide some other model's price to produce a dollar figure, and never present a derived number as a price.
    - **Never**: fabricated testing claims, "In today's fast-paced world" intros, unsupported superlatives, uncited numbers, emoji anywhere (headings, tables, lists — use "Yes"/"No" in comparison tables, plain words everywhere else).
@@ -186,7 +181,7 @@ Research budget: fetch primary sources deliberately — at most ~15 fetches per 
 ## Failure handling
 
 - Do not repeatedly retry blocked or failing network access. If two fetch attempts to an allowed source fail (permissions, firewall, auth, tooling), immediately call `report_incomplete` with the exact blocking reason.
-- Never hunt for workaround endpoints, mirrors, scrapers, or search engines after a network-policy failure — the domain allowlist is policy, not an obstacle.
+- All web access goes through `web-fetch`; never try to reach the web from the shell.
 - Never ride out the clock: report the blocker the moment it is known.
 
 ## Hard rules

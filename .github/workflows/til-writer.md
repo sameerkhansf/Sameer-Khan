@@ -14,21 +14,16 @@ on:
 permissions: read-all
 
 network:
+  # Research reads any public page via Copilot's web-fetch, which gh-aw documents
+  # is not bound by this list (github/gh-aw#63474); a per-vendor domain list only
+  # blocked shell curl and leaked into threat detection's allowlist. Per the gh-aw
+  # network guide, research needing wide access documents the rationale (here)
+  # and is monitored with `gh aw audit <run-id>`. openrouter.ai = BYOK provider.
   allowed:
     - defaults
     - github
     - python
     - openrouter.ai
-    - openai.com
-    - anthropic.com
-    - blog.google
-    - ai.google.dev
-    - mistral.ai
-    - deepseek.com
-    - huggingface.co
-    - z.ai
-    - qwencloud.com
-    - arxiv.org
 
 models:
   default-ai-credits-pricing:

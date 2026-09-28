@@ -17,21 +17,16 @@ permissions: read-all
 inlined-imports: true
 
 network:
+  # Research reads any public page via Copilot's web-fetch, which gh-aw documents
+  # is not bound by this list (github/gh-aw#63474); a per-vendor domain list only
+  # blocked shell curl and leaked into threat detection's allowlist. Per the gh-aw
+  # network guide, research needing wide access documents the rationale (here)
+  # and is monitored with `gh aw audit <run-id>`. openrouter.ai = BYOK provider.
   allowed:
     - defaults
     - github
     - python
     - openrouter.ai
-    - openai.com
-    - anthropic.com
-    - blog.google
-    - ai.google.dev
-    - mistral.ai
-    - deepseek.com
-    - huggingface.co
-    - z.ai
-    - qwencloud.com
-    - arxiv.org
 
 models:
   default-ai-credits-pricing:
@@ -67,6 +62,9 @@ safe-outputs:
         COPILOT_PROVIDER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
   # No `target`: the check attaches to the triggering event's head SHA, i.e. the
   # commit the agent actually read, never a newer unverified head.
+  # No noop: the only way to finish is a check run. Run 36404700177 answered a
+  # non-TIL PR with noop, so the required check never appeared and #114 blocked.
+  noop: false
   create-check-run:
     name: fact-check
 
@@ -96,6 +94,7 @@ steps:
       while read -r f; do [ -f "$GITHUB_WORKSPACE/$f" ] && grep -oE '\]\(https?://[^) ]+' "$GITHUB_WORKSPACE/$f" | cut -c3-; done < posts.txt | sort -u > urls.txt
       sed -nE 's#^https://huggingface\.co/([^/]+/[^/?#]+)/?$#\1#p' urls.txt | while read -r m; do
         echo "https://huggingface.co/$m/raw/main/README.md"; echo "https://huggingface.co/$m/raw/main/config.json"
+        echo "https://huggingface.co/$m/raw/main/LICENSE"
       done >> urls.txt
       n=0
       sort -u urls.txt | head -60 | while read -r u; do
@@ -103,6 +102,13 @@ steps:
         if curl -sfL --max-time 20 "$u" -o "sources/$n.txt"; then echo "sources/$n.txt $u" >> sources/index.txt
         else echo "UNREACHABLE $u" >> sources/index.txt; fi
       done
+      # Price claims: OpenRouter's models API is the per-token price sheet for
+      # every model it lists (run 36399583797 could not verify prices without it).
+      if curl -sfL --max-time 30 https://openrouter.ai/api/v1/models \
+        | jq '[.data[] | {id, name, pricing: {prompt: .pricing.prompt, completion: .pricing.completion}, context_length}]' \
+        > sources/openrouter-models.json; then
+        echo "sources/openrouter-models.json https://openrouter.ai/api/v1/models" >> sources/index.txt
+      else echo "UNREACHABLE https://openrouter.ai/api/v1/models" >> sources/index.txt; fi
       cat sources/index.txt
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -113,8 +119,9 @@ tools:
   bash: ["cat", "ls", "head", "tail", "wc", "grep", "jq"]
   github:
     toolsets: [default]
-timeout-minutes: 45
-max-turns: 250
+# max-turns is also the AWF per-run LLM invocation cap (github/gh-aw#52836);
+# gh-aw's default is 500. A strict 20+ claim check hit 250/250 (run 36401129945).
+timeout-minutes: 60
 
 ---
 
@@ -130,17 +137,21 @@ Read `/tmp/gh-aw/agent/factcheck/gate.txt` first. If it says `NOT_TIL`, immediat
 
 `/tmp/gh-aw/agent/factcheck/posts.txt` lists the post files in this PR. For each, `cat` it and verify it.
 
-Every source the post links is already downloaded: `/tmp/gh-aw/agent/factcheck/sources/index.txt` maps each local file to its URL (Hugging Face model links also have their raw `README.md` and `config.json`), and marks `UNREACHABLE` links. Read these files with `cat` / `grep` / `jq`; never re-fetch a URL that is in the index. Use `web-fetch` only for a primary source the post does not link (for example a pricing page or an arXiv abstract), once per URL. You are the only check between this post and publication: it auto-merges the moment you pass it. Be strict.
+Every source the post links is already downloaded: `/tmp/gh-aw/agent/factcheck/sources/index.txt` maps each local file to its URL (Hugging Face model links also have their raw `README.md` and `config.json`), and marks `UNREACHABLE` links. Read these files with `cat` / `grep` / `jq`; never re-fetch a URL that is in the index. Your budget is tool calls, not claims: check many claims per call — one `grep -n -E 'claim1|claim2|claim3' <file>` per source file, never one call per claim. Use `web-fetch` only for a primary source the post does not link (for example a pricing page or an arXiv abstract), once per URL. You are the only check between this post and publication: it auto-merges the moment you pass it. Be strict.
 
 1. List every checkable claim: numbers (parameters, context length, benchmark scores, prices, dates, sizes), specs (license, architecture, modality, organization), citations (paper titles and IDs), and every "X is not published / not specified" statement.
 2. Verify each against a primary source you fetch in this run:
    - Model specs: `https://huggingface.co/<org>/<model>/raw/main/config.json` (for example `max_position_embeddings` is the context window) and the model card. A model card's pipeline tag is not a spec.
    - Benchmark tables: fetch the card and compare cell by cell; confirm each number comes from the column of the model the post names.
-   - Prices: the vendor's pricing page or `https://openrouter.ai/api/v1/models`. A price derived by arithmetic is wrong.
+   - Prices: `sources/openrouter-models.json` (OpenRouter's price sheet; `pricing.prompt`/`completion` are USD per token, so multiply by 1,000,000 for per-1M prices) or the vendor's own pricing page via `web-fetch`. A price derived by other arithmetic is wrong.
    - Papers: `https://arxiv.org/abs/<id>`; the title must name this model and version.
    - "Not specified" claims: wrong if the source does publish it.
    - Links: every `UNREACHABLE` entry in the index is a failed claim.
    - A post that links no primary source at all fails: its claims are unsupported by definition.
+   - Licenses: read the model's `LICENSE` file (prefetched for Hugging Face models) and check every statement about commercial use, attribution, or "permissive" against its text. A card's license *name* is not its terms (#116 called a non-commercial license commercial-friendly).
+   - Hedging does not excuse a number: "~", "about", "estimated", "reportedly", or a footnote saying figures are estimates still needs a fetched source stating that figure. Unsourced estimates are unsupported (#116 shipped an invented "~3.5B" for DALL-E 3).
+   - Every row of a comparison table must trace to a fetched source for that product. A row with no source is an unsupported claim.
+   - "No official listing" / "not published" is verified only if you fetched the vendor's own page and it lacks the figure. "No source contradicts it" is never verification.
    - Every path listed in `/tmp/gh-aw/agent/factcheck/bad-slugs.txt` is a failed claim ("slug must be lowercase letters, digits, and hyphens").
 3. A claim is **wrong** if the source contradicts it and **unsupported** if you cannot find it in a fetched source. Descriptions of what a benchmark measures, or advice, need a source too.
 
