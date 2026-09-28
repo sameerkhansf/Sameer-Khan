@@ -39,7 +39,8 @@ and sitemap.
 
 ## License
 
-MIT. Content in `content/blog/` © Sameer Khan.
+Code: [MIT](LICENSE). Posts in `content/`: © Sameer Khan, licensed under
+[CC BY 4.0](content/LICENSE).
 
 **Sameer Khan** — [samkhan.net](https://samkhan.net) ·
 [GitHub](https://github.com/sameerkhansf) ·
