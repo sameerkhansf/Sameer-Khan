@@ -61,6 +61,10 @@ safe-outputs:
         COPILOT_MODEL: "nvidia/nemotron-3-super-120b-a12b:free"
         COPILOT_PROVIDER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
   create-pull-request:
+    # PAT, not GITHUB_TOKEN: GitHub docs say GITHUB_TOKEN events never start
+    # workflows, so a bot-enabled auto-merge left main without push CI/CodeQL/
+    # Scorecard. Scoped to this one output only.
+    github-token: ${{ secrets.GH_AW_CI_TRIGGER_TOKEN }}
     title-prefix: "[til] "
     labels: [til, automated]
     draft: false
