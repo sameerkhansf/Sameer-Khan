@@ -3,8 +3,8 @@ description: |
   TIL factory writer. Triggered by the '/til' command on an issue containing a
   topic, URL, repo, or rough note. Researches the topic with web fetch and
   repository inspection, verifies claims against primary sources, then opens a
-  pull request adding a draft MDX post to content/blog/. A human merges;
-  normal CI and Vercel preview handle everything deterministic.
+  pull request adding an MDX post to content/blog/. It auto-merges once CI
+  and the fact-check workflow pass.
 
 on:
   slash_command:
@@ -16,7 +16,19 @@ permissions: read-all
 network:
   allowed:
     - defaults
+    - github
+    - python
     - openrouter.ai
+    - openai.com
+    - anthropic.com
+    - blog.google
+    - ai.google.dev
+    - mistral.ai
+    - deepseek.com
+    - huggingface.co
+    - z.ai
+    - qwencloud.com
+    - arxiv.org
 
 models:
   default-ai-credits-pricing:
@@ -38,6 +50,7 @@ sandbox:
 
 safe-outputs:
   threat-detection:
+    continue-on-error: false
     engine:
       id: copilot
       env:
@@ -47,6 +60,9 @@ safe-outputs:
   create-pull-request:
     title-prefix: "[til] "
     labels: [til, automated]
+    draft: false
+    auto-merge: squash
+    expires: 2d
     allowed-files:
       - "content/blog/**"
 
@@ -80,16 +96,16 @@ The capture note is: "${{ steps.sanitized.outputs.text }}"
 
 3. **Verify.** Every factual claim in the draft must trace to a source you actually fetched, or to a command you actually ran in this repository. Never write "I tested X" unless you ran it here. Prefer exact version numbers, dates, and quoted behavior over generalities.
 
-4. **Write the draft.** Create one new file in `content/blog/` named `<kebab-case-slug>.mdx`, matching the existing posts' format exactly — YAML frontmatter with `title`, `description`, `date` (today, as a QUOTED string like `date: "2026-08-26"` — an unquoted date fails validation), `author: "Sameer Khan"`, `tags` (inline list, 3–6 items), `category` (one of the existing categories: AI, Developer Tools, Web Development, Projects), `published: true` — merging the PR IS the publish approval. CI validates the PR with `npm run validate:content` (frontmatter schema + markdownlint + MDX compile); step 6 has you run the same check yourself before opening the PR. Study 2–3 existing posts first for MDX conventions, then follow this measured TIL register (derived from analyzing all 579 posts in simonw/til):
+4. **Write the draft.** Create one new file in `content/blog/` named `<kebab-case-slug>.mdx`, matching the existing posts' format exactly — YAML frontmatter with `title`, `description`, `date` (today, as a QUOTED string like `date: "2026-08-26"` — an unquoted date fails validation), `author: "Sameer Khan"`, `tags` (inline list, 3–6 items), `category` (one of the existing categories: AI, Developer Tools, Web Development, Projects), `published: true` — the PR auto-merges once CI and the `fact-check` workflow pass, with no human review. CI validates the PR with `npm run validate:content` (frontmatter schema + markdownlint + MDX compile); step 6 has you run the same check yourself before opening the PR. Study 2–3 existing posts first for MDX conventions, then follow this measured TIL register (derived from analyzing all 579 posts in simonw/til):
    - **Title**: gerund-led sentence case, ~7 words, naming the task — "Running X inside Y", "Fixing X when Y". Never "How to…", never clickbait, no first-person in titles.
-   - **Opening**: first sentence states the concrete first-person trigger — what you were doing and what forced the learning ("I needed…", "I noticed…", "For X I found…") — with a link to the real project or issue. The first paragraph doubles as the summary; no throat-clearing.
+   - **Opening**: first sentence states the concrete trigger from the capture note — what forced the learning; write it in first person only when the capture note itself says what Sameer was doing, never invent one — with a link to the real project or issue. The first paragraph doubles as the summary; no throat-clearing.
    - **Length**: target the 150–900 word range, median ~320. Go longer (up to ~1,500) only when the material genuinely demands a deep-dive.
    - **Body**: prose interleaved with at least one fenced code block containing real commands and real output (88% of Simon's posts have code). 3–5 external links to primary sources. H2 subheads only if the post runs long. End with the working final version or a pointer to it. A `<` followed by a letter or digit in prose (`<50ms`, `<model>`) is JSX to MDX and fails the compile (so is a bare `{`) — write `under 50ms`, escape it as `\<50ms` / `\{`, or put it in backticks.
    - **Never**: "In today's fast-paced world" intros, unsupported superlatives, invented anecdotes, "what is X" boilerplate, emoji anywhere (headings, tables, lists — use "Yes"/"No" in comparison tables, plain words everywhere else).
 
 5. **Evidence bundle.** Write a JSON evidence file to cache-memory named after the slug: source URLs with access dates, versions of any tools referenced, commands run with outputs, and the list of factual claims mapped to sources. Repeat the evidence summary in the PR description — that is its permanent record.
 
-6. **Lint gate, then open the PR.** **Lint gate (MANDATORY, before the PR call).** Run `npm run fix-content`. It auto-fixes formatting, then prints every remaining error as `file:line:col rule message` (a table row with the wrong number of cells, an unquoted frontmatter value, a missing field, and so on). Fix each reported line in the file and run it again until it prints no errors. CI runs the identical check and rejects the PR otherwise, so never call `create_pull_request` while it still reports an error. This step is MANDATORY and is the entire point of the run: you MUST finish by calling the `create_pull_request` safe-output tool with the new MDX file. Call it with exactly these arguments: `title`, `body`, and `branch` (use `til/<slug>`). Do NOT pass `temporary_id` — if you include it, it must match `^aw_[A-Za-z0-9_]{3,12}$` (e.g. `aw_til1`) or the whole PR is rejected by validation. A run that researches but never calls `create_pull_request` is a failed run — if you truly cannot produce the post, call `report_incomplete` with the reason instead of ending silently. The PR description must contain: the angle chosen and why, the evidence summary (sources with dates), and a checklist of claims verified. Set `published: true` in frontmatter: the human merge is the publish decision.
+6. **Lint gate, then open the PR.** **Lint gate (MANDATORY, before the PR call).** Run `npm run fix-content`. It auto-fixes formatting, then prints every remaining error as `file:line:col rule message` (a table row with the wrong number of cells, an unquoted frontmatter value, a missing field, and so on). Fix each reported line in the file and run it again until it prints no errors. CI runs the identical check and rejects the PR otherwise, so never call `create_pull_request` while it still reports an error. This step is MANDATORY and is the entire point of the run: you MUST finish by calling the `create_pull_request` safe-output tool with the new MDX file. Call it with exactly these arguments: `title`, `body`, and `branch` (use `til/<slug>`). Do NOT pass `temporary_id` — if you include it, it must match `^aw_[A-Za-z0-9_]{3,12}$` (e.g. `aw_til1`) or the whole PR is rejected by validation. A run that researches but never calls `create_pull_request` is a failed run — if you truly cannot produce the post, call `report_incomplete` with the reason instead of ending silently. The PR description must contain: the angle chosen and why, the evidence summary (sources with dates), and a checklist of claims verified. Set `published: true` in frontmatter: CI plus fact-check passing is the publish decision.
 
 ## Hard rules
 
