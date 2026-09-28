@@ -2,13 +2,14 @@
 description: |
   Autonomous daily TIL: scouts a topic from Hugging Face trending and
   primary-source vendor news, then opens a post PR.
-  The human merge is the only approval.
+  Auto-merges once the required `check` and `fact-check` pass.
 
 on:
-  schedule:
-    - cron: "27 9 * * *"
-    - cron: "27 21 * * *"
+  # gh-aw fuzzy schedule: twice daily, minute scattered to avoid load spikes.
+  schedule: every 12h
   workflow_dispatch:
+  # One pending post at a time: skip the whole run (no model calls) while a til PR is open.
+  skip-if-match: 'is:pr is:open label:til'
 
 permissions: read-all
 
@@ -27,6 +28,7 @@ network:
     - huggingface.co
     - z.ai
     - qwencloud.com
+    - arxiv.org
 
 models:
   default-ai-credits-pricing:
@@ -50,6 +52,8 @@ sandbox:
 
 safe-outputs:
   threat-detection:
+    # Default true lets a flagged or failed detection still open the PR (PR #92); with auto-merge that ships it.
+    continue-on-error: false
     engine:
       id: copilot
       env:
@@ -57,13 +61,17 @@ safe-outputs:
         COPILOT_MODEL: "nvidia/nemotron-3-super-120b-a12b:free"
         COPILOT_PROVIDER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
   create-pull-request:
+    # PAT, not GITHUB_TOKEN: GitHub docs say GITHUB_TOKEN events never start
+    # workflows, so a bot-enabled auto-merge left main without push CI/CodeQL/
+    # Scorecard. Scoped to this one output only.
+    github-token: ${{ secrets.GH_AW_CI_TRIGGER_TOKEN }}
     title-prefix: "[til] "
     labels: [til, automated]
     draft: false
-    reviewers: sameerkhansf
-    expires: 7d
+    auto-merge: squash
+    expires: 2d
     allowed-files:
-      - "content/blog/**"
+      - "content/blog/*.mdx"
 
 steps:
   - name: Install content linters (same toolchain as CI)
@@ -81,8 +89,13 @@ steps:
         echo "CLEAR" > /tmp/gh-aw/agent/scout/gate.txt
       fi
       cat /tmp/gh-aw/agent/scout/gate.txt
-      gh pr list --label til --state closed --limit 30 --json number,title,mergedAt \
-        --jq '[.[] | select(.mergedAt == null) | {number, title}]' > /tmp/gh-aw/agent/scout/rejected-til-topics.json
+      # Rejected = closed unmerged by a human. PRs the maintenance job closed on
+      # expiry (its own "automatically closed because it expired" comment) are
+      # not rejections, so their topics stay eligible (#92, #101).
+      gh pr list --label til --state closed --limit 30 --json number,title,mergedAt,comments \
+        --jq '[.[] | select(.mergedAt == null)
+                   | select([.comments[].body | test("automatically closed because it expired")] | any | not)
+                   | {number, title}]' > /tmp/gh-aw/agent/scout/rejected-til-topics.json
       ls content/blog | sed 's/\.mdx$//' > /tmp/gh-aw/agent/scout/existing-slugs.txt
       curl -sf "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=25" \
         | jq '[.[] | {id, createdAt, likes, downloads, pipeline_tag}]' > /tmp/gh-aw/agent/scout/hf-trending.json \
@@ -114,7 +127,7 @@ max-turns: 250
 
 RUN CONTRACT — read first: every run MUST end with exactly one safe-output tool call — `create_pull_request` (the goal), or `noop` with the candidate topics you considered and why each was rejected, or `report_incomplete` with the blocking reason. Ending the session without one of these three calls is a failed run. Do not stop after scouting; carry the chosen topic all the way through writing and the PR call.
 
-You are the autonomous weekly writer for samkhan.net. No human capture note exists: you choose the topic yourself, then produce a post exactly as the /til pipeline does.
+You are the autonomous writer for samkhan.net. No human capture note exists: you choose the topic yourself, then produce a post exactly as the /til pipeline does.
 
 ## Prepared inputs (read these first — do not re-derive them)
 
@@ -137,11 +150,11 @@ Read all five with a single `cat` each, then choose the topic. Never run shell s
 
 3. **Outline first, then write** (the pattern NVIDIA AI-Q and the Cerebras research cookbook both use): draft the Quick Answer table and the H2 section outline with the key cited numbers slotted in BEFORE writing any prose; then expand each section from the outline. Structure like the site's own reviews: Quick Answer table up front (options x best-for x price x pick), H2 per contender or criterion, a spec/benchmark table with cited numbers, use-case recommendations ("choose X if..."), and a clear verdict. Length 800-2000 words like the corpus. Every number carries its source link; recommendations follow from the cited evidence.
 
-4. **Write the draft.** Create one new file in `content/blog/` named `<kebab-case-slug>.mdx`, matching the existing posts' format exactly — YAML frontmatter with `title`, `description`, `date` — and QUOTE the `title`, `description`, and `date` values with double quotes (like `date: "2026-08-26"`, `title: "X Review: The Angle"`): titles almost always contain a colon, and an unquoted colon or date fails YAML validation and CI — `author: "Sameer Khan"`, `tags` (inline list, 3–6 items), `category` (one of the existing categories: AI, Developer Tools, Web Development, Projects), `published: true` — merging the PR IS the publish approval. CI validates the PR with `npm run validate:content` (frontmatter schema + markdownlint + MDX compile); step 6 has you run the same check yourself before opening the PR. Study 2-3 existing review posts first and match their conventions exactly:
+4. **Write the draft.** Create one new file in `content/blog/` named `<kebab-case-slug>.mdx` — lowercase letters, digits, and hyphens only, never a dot (version `2.1` becomes `2-1`, like the existing `qwen3-8-flash-next-review-2026`), because a dotted slug breaks the site's markdown negotiation and fails the fact-check gate — matching the existing posts' format exactly — YAML frontmatter with `title`, `description`, `date` — and QUOTE the `title`, `description`, and `date` values with double quotes (like `date: "2026-08-26"`, `title: "X Review: The Angle"`): titles almost always contain a colon, and an unquoted colon or date fails YAML validation and CI — `author: "Sameer Khan"`, `tags` (inline list, 3–6 items), `category` (one of the existing categories: AI, Developer Tools, Web Development, Projects), `published: true` — the PR auto-merges when CI and the `fact-check` workflow (which re-verifies every claim against its source) both pass, so this post goes live with no human review; the accuracy rules below are the only gate. CI validates the PR with `npm run validate:content` (frontmatter schema + markdownlint + MDX compile); step 6 has you run the same check yourself before opening the PR. Study 2-3 existing review posts first and match their conventions exactly:
    - **Title**: like the corpus — "X Review: <specific angle>", "X vs Y vs Z: <what's compared> (2026)", "Best X for Y (2026)". Specific and factual, no clickbait.
    - **Description**: one-sentence summary of the verdict/scope, 40-320 chars.
    - **Body**: markdown tables for comparisons (the corpus uses them heavily) — every table cell padded with one space on each side of every pipe, like `| Model | Price |` (compact `|Model|Price|` fails lint); fenced code blocks with a language wherever commands or config appear; citations ONLY as `[label](https://...)` — never `[[url]]` wiki-links and never bare URLs, including in source tables; a blank line before and after every heading and every list; file ends with a newline; a `<` followed by a letter or digit in prose (`<50ms`, `<model>`) is JSX to MDX and fails the compile (so is a bare `{`) — write `under 50ms`, escape it as `\<50ms` / `\{`, or put it in backticks.
-   - **Sources must be reachable**: only domains on this workflow's network allowlist can be fetched (github.com, huggingface.co, openai.com, anthropic.com, ai.google.dev, blog.google, mistral.ai, deepseek.com, z.ai, qwencloud.com, python.org and their subdomains). Prefer candidates whose primary sources live there; if a candidate's key sources are blocked by the firewall, pick a different candidate rather than writing from memory.
+   - **Sources must be reachable**: only domains on this workflow's network allowlist can be fetched (github.com, huggingface.co, openai.com, anthropic.com, ai.google.dev, blog.google, mistral.ai, deepseek.com, z.ai, qwencloud.com, arxiv.org and their subdomains). Prefer candidates whose primary sources live there; if a candidate's key sources are blocked by the firewall, pick a different candidate rather than writing from memory.
    - **Open every paper you cite and read its title before citing it.** An `arxiv:` tag on a model card is not a promise that the paper describes that model — cards routinely tag a predecessor's report, or an unrelated lab paper. Never infer a paper's subject from its ID, its position in the tag list, or its date. Fetch `https://arxiv.org/abs/<id>` and read the actual title: if it does not name this model and version, it is not this model's technical report. Say "no technical report is linked from the model card" rather than promote the closest-looking tag. Both previous failures came from guessing: PR #77 cited arXiv 2310.10688 as TimesFM 3.0's reference when it is the 2023 original TimesFM paper, and PR #85 cited arXiv 2506.07900 as MiniCPM5-2B's technical report when its title is "MiniCPM4: Ultra-Efficient LLMs on End Devices" — that card's other tag, 2602.09003, is a data-management paper, so neither was a match and picking "the newer one" would also have been wrong.
    - **Prices come from the vendor's price sheet, never from arithmetic.** A relative claim ("one-tenth the price", "half the cost") is worthless without its baseline: read the sentence and name what it is cheaper *than* — vendors almost always mean their own previous model, not a competitor. Then fetch the vendor's pricing page (`docs.z.ai/guides/overview/pricing`, `qwencloud.com/models/<model>`, `openai.com/api/pricing`, `anthropic.com/pricing`) and quote the listed per-token numbers with that link. If no price is published, the cell reads "no official listing" — never multiply or divide some other model's price to produce a dollar figure, and never present a derived number as a price.
    - **Never**: fabricated testing claims, "In today's fast-paced world" intros, unsupported superlatives, uncited numbers, emoji anywhere (headings, tables, lists — use "Yes"/"No" in comparison tables, plain words everywhere else).
@@ -150,7 +163,7 @@ Read all five with a single `cat` each, then choose the topic. Never run shell s
 
 5. **Evidence bundle.** Write a JSON evidence file to cache-memory named after the slug: source URLs with access dates, versions of any tools referenced, commands run with outputs, and the list of factual claims mapped to sources. Repeat the evidence summary in the PR description — that is its permanent record.
 
-6. **Lint gate, citation preflight, then open the PR.** **Lint gate (MANDATORY, before the PR call).** Run `npm run fix-content`. It auto-fixes formatting, then prints every remaining error as `file:line:col rule message` (a table row with the wrong number of cells, an unquoted frontmatter value, a missing field, and so on). Fix each reported line in the file and run it again until it prints no errors. CI runs the identical check and rejects the PR otherwise, so never call `create_pull_request` while it still reports an error. Before calling the tool, run this check on your draft (NVIDIA ships the same preflight for this model family — Nemotron intermittently drops citations after correct research): for every number and factual claim, ask "is this from a source I fetched this run, or from memory?" — anything from memory gets a fetched source or gets cut; every table row's numbers carry links; a post with no source links is unpublishable. Then open the PR. This step is MANDATORY and is the entire point of the run: you MUST finish by calling the `create_pull_request` safe-output tool with the new MDX file. Do NOT run `git branch`, `git commit`, or `git push` — you cannot push and do not need to: simply leave the new MDX file saved in the working tree and call `create_pull_request`; the framework captures your file changes, creates the branch, pushes, and opens the PR itself. A failed `git push` is never a reason to give up or call `noop`. Call the tool with exactly these arguments: `title` (the post's human-readable title — never the slug or branch name), `body`, and `branch` (use `til/<slug>`). Do NOT pass `temporary_id` — if you include it, it must match `^aw_[A-Za-z0-9_]{3,12}$` (e.g. `aw_til1`) or the whole PR is rejected by validation. A run that researches but never calls `create_pull_request` is a failed run — if you truly cannot produce the post, call `report_incomplete` with the reason instead of ending silently. The PR description must contain: the angle chosen and why, the evidence summary (sources with dates), and a checklist of claims verified. Set `published: true` in frontmatter: the human merge is the publish decision.
+6. **Lint gate, citation preflight, then open the PR.** **Lint gate (MANDATORY, before the PR call).** Run `npm run fix-content`. It auto-fixes formatting, then prints every remaining error as `file:line:col rule message` (a table row with the wrong number of cells, an unquoted frontmatter value, a missing field, and so on). Fix each reported line in the file and run it again until it prints no errors. CI runs the identical check and rejects the PR otherwise, so never call `create_pull_request` while it still reports an error. Before calling the tool, run this check on your draft (NVIDIA ships the same preflight for this model family — Nemotron intermittently drops citations after correct research): for every number and factual claim, ask "is this from a source I fetched this run, or from memory?" — anything from memory gets a fetched source or gets cut; every table row's numbers carry links; a post with no source links is unpublishable. Then open the PR. This step is MANDATORY and is the entire point of the run: you MUST finish by calling the `create_pull_request` safe-output tool with the new MDX file. Do NOT run `git branch`, `git commit`, or `git push` — you cannot push and do not need to: simply leave the new MDX file saved in the working tree and call `create_pull_request`; the framework captures your file changes, creates the branch, pushes, and opens the PR itself. A failed `git push` is never a reason to give up or call `noop`. Call the tool with exactly these arguments: `title` (the post's human-readable title — never the slug or branch name), `body`, and `branch` (use `til/<slug>`). Do NOT pass `temporary_id` — if you include it, it must match `^aw_[A-Za-z0-9_]{3,12}$` (e.g. `aw_til1`) or the whole PR is rejected by validation. A run that researches but never calls `create_pull_request` is a failed run — if you truly cannot produce the post, call `report_incomplete` with the reason instead of ending silently. The PR description must contain: the angle chosen and why, the evidence summary (sources with dates), and a checklist of claims verified. Set `published: true` in frontmatter: CI plus fact-check passing is the publish decision.
 
 ## Progress ledger (survives context compaction)
 
@@ -164,7 +177,7 @@ Research budget: fetch primary sources deliberately — at most ~15 fetches per 
 
 ## Practical rules (edge cases)
 
-- **One pending post at a time.** Before anything else, check for an open pull request labeled `til`. If one exists, call `noop` naming it — never stack unreviewed posts. The human merges at their own pace.
+- **One pending post at a time.** Before anything else, check for an open pull request labeled `til`. If one exists, call `noop` naming it — never stack pending posts. The open PR auto-merges once CI and fact-check pass, or expires in 2 days if either fails.
 - **One post per model family per fortnight.** Slug uniqueness does not catch duplicate coverage: check `existing-slugs.txt` for the model *family* of every candidate, not just its exact name. If any post in the last 14 days already covers that family (GLM-5.x, Qwen3.x, Claude, GPT-5.x, DeepSeek, Llama), the family is spent — pick a different one, or `noop` saying so. A second angle on a model the site just covered is a duplicate.
 - **Slugs are permanent identity.** The new file's slug must not collide with any existing file in `content/blog/`; if your natural slug exists, the topic is a duplicate — pick another topic. Never rename existing files; a rename breaks URLs and requires a redirect, which is a human decision.
 - **Updates are not duplicates.** If new information materially changes a published post's conclusions, do not write a near-duplicate post; call `noop` recommending an update to the existing post (updates happen only via explicit human /til capture, which sets the `updated` frontmatter date).
