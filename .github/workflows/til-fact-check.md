@@ -62,6 +62,9 @@ safe-outputs:
         COPILOT_PROVIDER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
   # No `target`: the check attaches to the triggering event's head SHA, i.e. the
   # commit the agent actually read, never a newer unverified head.
+  # No noop: the only way to finish is a check run. Run 36404700177 answered a
+  # non-TIL PR with noop, so the required check never appeared and #114 blocked.
+  noop: false
   create-check-run:
     name: fact-check
 
