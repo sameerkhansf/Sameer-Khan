@@ -98,6 +98,13 @@ steps:
         if curl -sfL --max-time 20 "$u" -o "sources/$n.txt"; then echo "sources/$n.txt $u" >> sources/index.txt
         else echo "UNREACHABLE $u" >> sources/index.txt; fi
       done
+      # Price claims: OpenRouter's models API is the per-token price sheet for
+      # every model it lists (run 36399583797 could not verify prices without it).
+      if curl -sfL --max-time 30 https://openrouter.ai/api/v1/models \
+        | jq '[.data[] | {id, name, pricing: {prompt: .pricing.prompt, completion: .pricing.completion}, context_length}]' \
+        > sources/openrouter-models.json; then
+        echo "sources/openrouter-models.json https://openrouter.ai/api/v1/models" >> sources/index.txt
+      else echo "UNREACHABLE https://openrouter.ai/api/v1/models" >> sources/index.txt; fi
       cat sources/index.txt
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -130,7 +137,7 @@ Every source the post links is already downloaded: `/tmp/gh-aw/agent/factcheck/s
 2. Verify each against a primary source you fetch in this run:
    - Model specs: `https://huggingface.co/<org>/<model>/raw/main/config.json` (for example `max_position_embeddings` is the context window) and the model card. A model card's pipeline tag is not a spec.
    - Benchmark tables: fetch the card and compare cell by cell; confirm each number comes from the column of the model the post names.
-   - Prices: the vendor's pricing page or `https://openrouter.ai/api/v1/models`. A price derived by arithmetic is wrong.
+   - Prices: `sources/openrouter-models.json` (OpenRouter's price sheet; `pricing.prompt`/`completion` are USD per token, so multiply by 1,000,000 for per-1M prices) or the vendor's own pricing page via `firecrawl_scrape`. A price derived by other arithmetic is wrong.
    - Papers: `firecrawl_research_inspect_paper` with the arXiv ID; the title must name this model and version.
    - "Not specified" claims: wrong if the source does publish it.
    - Links: every `UNREACHABLE` entry in the index is a failed claim.
