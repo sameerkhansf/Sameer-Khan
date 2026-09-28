@@ -116,8 +116,9 @@ tools:
   bash: ["cat", "ls", "head", "tail", "wc", "grep", "jq"]
   github:
     toolsets: [default]
-timeout-minutes: 45
-max-turns: 250
+# max-turns is also the AWF per-run LLM invocation cap (github/gh-aw#52836);
+# gh-aw's default is 500. A strict 20+ claim check hit 250/250 (run 36401129945).
+timeout-minutes: 60
 
 ---
 
@@ -133,7 +134,7 @@ Read `/tmp/gh-aw/agent/factcheck/gate.txt` first. If it says `NOT_TIL`, immediat
 
 `/tmp/gh-aw/agent/factcheck/posts.txt` lists the post files in this PR. For each, `cat` it and verify it.
 
-Every source the post links is already downloaded: `/tmp/gh-aw/agent/factcheck/sources/index.txt` maps each local file to its URL (Hugging Face model links also have their raw `README.md` and `config.json`), and marks `UNREACHABLE` links. Read these files with `cat` / `grep` / `jq`; never re-fetch a URL that is in the index. Use `web-fetch` only for a primary source the post does not link (for example a pricing page or an arXiv abstract), once per URL. You are the only check between this post and publication: it auto-merges the moment you pass it. Be strict.
+Every source the post links is already downloaded: `/tmp/gh-aw/agent/factcheck/sources/index.txt` maps each local file to its URL (Hugging Face model links also have their raw `README.md` and `config.json`), and marks `UNREACHABLE` links. Read these files with `cat` / `grep` / `jq`; never re-fetch a URL that is in the index. Your budget is tool calls, not claims: check many claims per call — one `grep -n -E 'claim1|claim2|claim3' <file>` per source file, never one call per claim. Use `web-fetch` only for a primary source the post does not link (for example a pricing page or an arXiv abstract), once per URL. You are the only check between this post and publication: it auto-merges the moment you pass it. Be strict.
 
 1. List every checkable claim: numbers (parameters, context length, benchmark scores, prices, dates, sizes), specs (license, architecture, modality, organization), citations (paper titles and IDs), and every "X is not published / not specified" statement.
 2. Verify each against a primary source you fetch in this run:
