@@ -6,6 +6,7 @@ author: "Sameer Khan"
 tags: ["AI", "Qwen", "Alibaba", "LLM", "Multimodal", "Developer Tools"]
 category: "AI"
 published: true
+updated: "2026-09-28"
 ---
 
 Qwen3.8-Flash-Next released in August 2026, representing Alibaba's latest experimental model under a new architecture that will underpin Qwen4. With claims of efficient parameter scaling through hybrid attention and n-gram embeddings, how does it perform for developers?
@@ -18,7 +19,7 @@ After analyzing the model card, technical report, and benchmark results, here's 
 
 **Key Numbers:**
 
-- **Total Parameters:** 125B (6B activated + 51B n-gram embedding + 4B MTP)
+- **Total Parameters:** 125B with 6B activated, plus 51B n-gram embedding and 4B MTP ([model card](https://huggingface.co/Qwen/Qwen3.8-Flash-Next))
 - **Context Length:** 262,144 natively, extensible up to 1,000,000 tokens
 - **Architecture:** Hybrid Attention with QSA, Gated Residual, N-gram Embedding
 - **Vision Encoder:** Integrated for image-text-to-text tasks
@@ -52,7 +53,7 @@ Residual streams feature element-wise read gates and per-branch scalar write gat
 
 ### N-gram Embedding
 
-Instead of traditional token embeddings or MoE for parameter scaling, the model uses n-gram embedding (bigrams/trigrams) at layer 2 with 20,000,000 parameters, offering efficient scaling for memory-constrained accelerators.
+Instead of traditional token embeddings or MoE for parameter scaling, the model uses n-gram embedding (bigrams/trigrams) at layer 2 with an n-gram vocabulary of 20,000,000 entries (`ngram_vocab_size_base` in the [config](https://huggingface.co/Qwen/Qwen3.8-Flash-Next/blob/main/config.json); the n-gram embedding itself is 51B parameters), offering efficient scaling for memory-constrained accelerators.
 
 ### Model Specifications
 
@@ -69,7 +70,7 @@ Instead of traditional token embeddings or MoE for parameter scaling, the model 
 
 Qwen3.8-Flash-Next shows strong coding capabilities across multiple benchmarks:
 
-- **DeepSWE 1.1 (Agentic coding):** 58.7% - significantly outperforms the base Qwen3.8-27B (42.2%)
+- **DeepSWE 1.1 (Agentic coding):** 58.7% - significantly outperforms Qwen3.8-27B (42.2%), a separate model the [model card](https://huggingface.co/Qwen/Qwen3.8-Flash-Next) uses as a comparison baseline
 - **SWE-bench Pro:** 62.5% - comparable to Qwen3.8-27B (61.7%) and DeepSeek-V4-Flash-0731 (56.0%)
 - **SWE-bench Multilingual:** 81.0% - excellent multilingual coding performance
 - **NL2Repo-Bench (Repo-level code generation):** 48.1% - solid performance
