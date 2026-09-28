@@ -13,22 +13,17 @@ on:
 
 permissions: read-all
 
+imports:
+  - shared/mcp/firecrawl.md
+
 network:
+  # Web research goes through the Firecrawl MCP (shared/mcp/firecrawl.md);
+  # the compiler allowlists only its host. Per-vendor domains were removed:
+  # web-fetch was never bound by this list (gh-aw #63474).
   allowed:
     - defaults
     - github
     - python
-    - openrouter.ai
-    - openai.com
-    - anthropic.com
-    - blog.google
-    - ai.google.dev
-    - mistral.ai
-    - deepseek.com
-    - huggingface.co
-    - z.ai
-    - qwencloud.com
-    - arxiv.org
 
 models:
   default-ai-credits-pricing:
@@ -105,8 +100,7 @@ steps:
 
 tools:
   cache-memory:
-  web-fetch:
-  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "curl", "npm"]
+  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "npm"]
   edit:
   github:
     toolsets: [default]
@@ -144,7 +138,7 @@ Read all five with a single `cat` each, then choose the topic. Never run shell s
 
 ## Job
 
-1. **Pick one resource topic developers are deciding about.** This site is a developer resource — reviews, comparisons, and buyer's guides for AI models and developer tools (study the existing corpus: the Claude Opus review, the Cursor vs Copilot vs Claude Code comparison, the best-open-source-LLM guide). Valid topics: a newly released model or tool that needs a developer review; a category with 3+ competing options needing a comparison or best-of guide; a significant pricing or capability change that outdated an existing decision. Sources: the prepared inputs above (Hugging Face trending), plus web fetch of vendor release pages for the chosen candidate. Never this repository's own pipeline; skip ledger history; prefer topics the site has no coverage of.
+1. **Pick one resource topic developers are deciding about.** This site is a developer resource — reviews, comparisons, and buyer's guides for AI models and developer tools (study the existing corpus: the Claude Opus review, the Cursor vs Copilot vs Claude Code comparison, the best-open-source-LLM guide). Valid topics: a newly released model or tool that needs a developer review; a category with 3+ competing options needing a comparison or best-of guide; a significant pricing or capability change that outdated an existing decision. Sources: the prepared inputs above (Hugging Face trending), plus `firecrawl_search` to find and `firecrawl_scrape` to read vendor release pages for the chosen candidate. Never this repository's own pipeline; skip ledger history; prefer topics the site has no coverage of.
 
 2. **Research like a reviews desk.** Fetch primary sources: official docs, pricing pages, changelogs, published benchmarks, vendor comparisons. Collect concrete numbers — context windows, benchmark scores, rate limits, price per million tokens, license terms — each with a source link. Where sources conflict, say so. NEVER claim personal testing you did not do ("I tested", "in my testing" are forbidden): this is spec-and-evidence analysis whose credibility is its citations.
 
@@ -154,8 +148,8 @@ Read all five with a single `cat` each, then choose the topic. Never run shell s
    - **Title**: like the corpus — "X Review: <specific angle>", "X vs Y vs Z: <what's compared> (2026)", "Best X for Y (2026)". Specific and factual, no clickbait.
    - **Description**: one-sentence summary of the verdict/scope, 40-320 chars.
    - **Body**: markdown tables for comparisons (the corpus uses them heavily) — every table cell padded with one space on each side of every pipe, like `| Model | Price |` (compact `|Model|Price|` fails lint); fenced code blocks with a language wherever commands or config appear; citations ONLY as `[label](https://...)` — never `[[url]]` wiki-links and never bare URLs, including in source tables; a blank line before and after every heading and every list; file ends with a newline; a `<` followed by a letter or digit in prose (`<50ms`, `<model>`) is JSX to MDX and fails the compile (so is a bare `{`) — write `under 50ms`, escape it as `\<50ms` / `\{`, or put it in backticks.
-   - **Sources must be reachable**: only domains on this workflow's network allowlist can be fetched (github.com, huggingface.co, openai.com, anthropic.com, ai.google.dev, blog.google, mistral.ai, deepseek.com, z.ai, qwencloud.com, arxiv.org and their subdomains). Prefer candidates whose primary sources live there; if a candidate's key sources are blocked by the firewall, pick a different candidate rather than writing from memory.
-   - **Open every paper you cite and read its title before citing it.** An `arxiv:` tag on a model card is not a promise that the paper describes that model — cards routinely tag a predecessor's report, or an unrelated lab paper. Never infer a paper's subject from its ID, its position in the tag list, or its date. Fetch `https://arxiv.org/abs/<id>` and read the actual title: if it does not name this model and version, it is not this model's technical report. Say "no technical report is linked from the model card" rather than promote the closest-looking tag. Both previous failures came from guessing: PR #77 cited arXiv 2310.10688 as TimesFM 3.0's reference when it is the 2023 original TimesFM paper, and PR #85 cited arXiv 2506.07900 as MiniCPM5-2B's technical report when its title is "MiniCPM4: Ultra-Efficient LLMs on End Devices" — that card's other tag, 2602.09003, is a data-management paper, so neither was a match and picking "the newer one" would also have been wrong.
+   - **Sources must be fetched, never remembered**: all web access goes through the Firecrawl tools. Read any public page with `firecrawl_scrape` (markdown), find pages with `firecrawl_search`, and read raw specs directly (`https://huggingface.co/<org>/<model>/raw/main/config.json`). If a candidate's key source cannot be scraped after two attempts, pick a different candidate rather than writing from memory.
+   - **Open every paper you cite and read its title before citing it.** An `arxiv:` tag on a model card is not a promise that the paper describes that model — cards routinely tag a predecessor's report, or an unrelated lab paper. Never infer a paper's subject from its ID, its position in the tag list, or its date. Call `firecrawl_research_inspect_paper` with the arXiv ID (or `firecrawl_scrape` `https://arxiv.org/abs/<id>`) and read the actual title: if it does not name this model and version, it is not this model's technical report. Say "no technical report is linked from the model card" rather than promote the closest-looking tag. Both previous failures came from guessing: PR #77 cited arXiv 2310.10688 as TimesFM 3.0's reference when it is the 2023 original TimesFM paper, and PR #85 cited arXiv 2506.07900 as MiniCPM5-2B's technical report when its title is "MiniCPM4: Ultra-Efficient LLMs on End Devices" — that card's other tag, 2602.09003, is a data-management paper, so neither was a match and picking "the newer one" would also have been wrong.
    - **Prices come from the vendor's price sheet, never from arithmetic.** A relative claim ("one-tenth the price", "half the cost") is worthless without its baseline: read the sentence and name what it is cheaper *than* — vendors almost always mean their own previous model, not a competitor. Then fetch the vendor's pricing page (`docs.z.ai/guides/overview/pricing`, `qwencloud.com/models/<model>`, `openai.com/api/pricing`, `anthropic.com/pricing`) and quote the listed per-token numbers with that link. If no price is published, the cell reads "no official listing" — never multiply or divide some other model's price to produce a dollar figure, and never present a derived number as a price.
    - **Never**: fabricated testing claims, "In today's fast-paced world" intros, unsupported superlatives, uncited numbers, emoji anywhere (headings, tables, lists — use "Yes"/"No" in comparison tables, plain words everywhere else).
    - **Every contender must be real and fetched**: each row of a comparison table names a specific product you fetched a primary source for this run, with that source linked in the row or the section about it. Never invent placeholder contenders ("Generic X Server", "X Toolkit") to fill a table. If you cannot source at least three real contenders, write a single-product review of the one you can source instead of a comparison.
@@ -186,7 +180,7 @@ Research budget: fetch primary sources deliberately — at most ~15 fetches per 
 ## Failure handling
 
 - Do not repeatedly retry blocked or failing network access. If two fetch attempts to an allowed source fail (permissions, firewall, auth, tooling), immediately call `report_incomplete` with the exact blocking reason.
-- Never hunt for workaround endpoints, mirrors, scrapers, or search engines after a network-policy failure — the domain allowlist is policy, not an obstacle.
+- All web access goes through the Firecrawl tools; never try to reach the web any other way (the shell has no network tool, and the firewall is policy, not an obstacle).
 - Never ride out the clock: report the blocker the moment it is known.
 
 ## Hard rules

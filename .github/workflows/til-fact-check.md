@@ -14,24 +14,19 @@ on:
 
 permissions: read-all
 
+imports:
+  - shared/mcp/firecrawl.md
+
 inlined-imports: true
 
 network:
+  # Web research goes through the Firecrawl MCP (shared/mcp/firecrawl.md);
+  # the compiler allowlists only its host. Per-vendor domains were removed:
+  # web-fetch was never bound by this list (gh-aw #63474).
   allowed:
     - defaults
     - github
     - python
-    - openrouter.ai
-    - openai.com
-    - anthropic.com
-    - blog.google
-    - ai.google.dev
-    - mistral.ai
-    - deepseek.com
-    - huggingface.co
-    - z.ai
-    - qwencloud.com
-    - arxiv.org
 
 models:
   default-ai-credits-pricing:
@@ -109,7 +104,6 @@ steps:
       PR: ${{ github.event.pull_request.number }}
 
 tools:
-  web-fetch:
   bash: ["cat", "ls", "head", "tail", "wc", "grep", "jq"]
   github:
     toolsets: [default]
@@ -130,14 +124,14 @@ Read `/tmp/gh-aw/agent/factcheck/gate.txt` first. If it says `NOT_TIL`, immediat
 
 `/tmp/gh-aw/agent/factcheck/posts.txt` lists the post files in this PR. For each, `cat` it and verify it.
 
-Every source the post links is already downloaded: `/tmp/gh-aw/agent/factcheck/sources/index.txt` maps each local file to its URL (Hugging Face model links also have their raw `README.md` and `config.json`), and marks `UNREACHABLE` links. Read these files with `cat` / `grep` / `jq`; never re-fetch a URL that is in the index. Use `web-fetch` only for a primary source the post does not link (for example a pricing page or an arXiv abstract), once per URL. You are the only check between this post and publication: it auto-merges the moment you pass it. Be strict.
+Every source the post links is already downloaded: `/tmp/gh-aw/agent/factcheck/sources/index.txt` maps each local file to its URL (Hugging Face model links also have their raw `README.md` and `config.json`), and marks `UNREACHABLE` links. Read these files with `cat` / `grep` / `jq`; never re-fetch a URL that is in the index. Use `firecrawl_scrape` only for a primary source the post does not link (for example a pricing page or an arXiv abstract), once per URL. You are the only check between this post and publication: it auto-merges the moment you pass it. Be strict.
 
 1. List every checkable claim: numbers (parameters, context length, benchmark scores, prices, dates, sizes), specs (license, architecture, modality, organization), citations (paper titles and IDs), and every "X is not published / not specified" statement.
 2. Verify each against a primary source you fetch in this run:
    - Model specs: `https://huggingface.co/<org>/<model>/raw/main/config.json` (for example `max_position_embeddings` is the context window) and the model card. A model card's pipeline tag is not a spec.
    - Benchmark tables: fetch the card and compare cell by cell; confirm each number comes from the column of the model the post names.
    - Prices: the vendor's pricing page or `https://openrouter.ai/api/v1/models`. A price derived by arithmetic is wrong.
-   - Papers: `https://arxiv.org/abs/<id>`; the title must name this model and version.
+   - Papers: `firecrawl_research_inspect_paper` with the arXiv ID; the title must name this model and version.
    - "Not specified" claims: wrong if the source does publish it.
    - Links: every `UNREACHABLE` entry in the index is a failed claim.
    - A post that links no primary source at all fails: its claims are unsupported by definition.
