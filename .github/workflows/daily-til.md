@@ -68,7 +68,7 @@ safe-outputs:
     auto-merge: squash
     expires: 2d
     allowed-files:
-      - "content/blog/**"
+      - "content/blog/*.mdx"
 
 steps:
   - name: Install content linters (same toolchain as CI)
@@ -86,8 +86,13 @@ steps:
         echo "CLEAR" > /tmp/gh-aw/agent/scout/gate.txt
       fi
       cat /tmp/gh-aw/agent/scout/gate.txt
-      gh pr list --label til --state closed --limit 30 --json number,title,mergedAt \
-        --jq '[.[] | select(.mergedAt == null) | {number, title}]' > /tmp/gh-aw/agent/scout/rejected-til-topics.json
+      # Rejected = closed unmerged by a human. PRs the maintenance job closed on
+      # expiry (its own "automatically closed because it expired" comment) are
+      # not rejections, so their topics stay eligible (#92, #101).
+      gh pr list --label til --state closed --limit 30 --json number,title,mergedAt,comments \
+        --jq '[.[] | select(.mergedAt == null)
+                   | select([.comments[].body | test("automatically closed because it expired")] | any | not)
+                   | {number, title}]' > /tmp/gh-aw/agent/scout/rejected-til-topics.json
       ls content/blog | sed 's/\.mdx$//' > /tmp/gh-aw/agent/scout/existing-slugs.txt
       curl -sf "https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=25" \
         | jq '[.[] | {id, createdAt, likes, downloads, pipeline_tag}]' > /tmp/gh-aw/agent/scout/hf-trending.json \
@@ -142,7 +147,7 @@ Read all five with a single `cat` each, then choose the topic. Never run shell s
 
 3. **Outline first, then write** (the pattern NVIDIA AI-Q and the Cerebras research cookbook both use): draft the Quick Answer table and the H2 section outline with the key cited numbers slotted in BEFORE writing any prose; then expand each section from the outline. Structure like the site's own reviews: Quick Answer table up front (options x best-for x price x pick), H2 per contender or criterion, a spec/benchmark table with cited numbers, use-case recommendations ("choose X if..."), and a clear verdict. Length 800-2000 words like the corpus. Every number carries its source link; recommendations follow from the cited evidence.
 
-4. **Write the draft.** Create one new file in `content/blog/` named `<kebab-case-slug>.mdx`, matching the existing posts' format exactly — YAML frontmatter with `title`, `description`, `date` — and QUOTE the `title`, `description`, and `date` values with double quotes (like `date: "2026-08-26"`, `title: "X Review: The Angle"`): titles almost always contain a colon, and an unquoted colon or date fails YAML validation and CI — `author: "Sameer Khan"`, `tags` (inline list, 3–6 items), `category` (one of the existing categories: AI, Developer Tools, Web Development, Projects), `published: true` — the PR auto-merges when CI and the `fact-check` workflow (which re-verifies every claim against its source) both pass, so this post goes live with no human review; the accuracy rules below are the only gate. CI validates the PR with `npm run validate:content` (frontmatter schema + markdownlint + MDX compile); step 6 has you run the same check yourself before opening the PR. Study 2-3 existing review posts first and match their conventions exactly:
+4. **Write the draft.** Create one new file in `content/blog/` named `<kebab-case-slug>.mdx` — lowercase letters, digits, and hyphens only, never a dot (version `2.1` becomes `2-1`, like the existing `qwen3-8-flash-next-review-2026`), because a dotted slug breaks the site's markdown negotiation and fails the fact-check gate — matching the existing posts' format exactly — YAML frontmatter with `title`, `description`, `date` — and QUOTE the `title`, `description`, and `date` values with double quotes (like `date: "2026-08-26"`, `title: "X Review: The Angle"`): titles almost always contain a colon, and an unquoted colon or date fails YAML validation and CI — `author: "Sameer Khan"`, `tags` (inline list, 3–6 items), `category` (one of the existing categories: AI, Developer Tools, Web Development, Projects), `published: true` — the PR auto-merges when CI and the `fact-check` workflow (which re-verifies every claim against its source) both pass, so this post goes live with no human review; the accuracy rules below are the only gate. CI validates the PR with `npm run validate:content` (frontmatter schema + markdownlint + MDX compile); step 6 has you run the same check yourself before opening the PR. Study 2-3 existing review posts first and match their conventions exactly:
    - **Title**: like the corpus — "X Review: <specific angle>", "X vs Y vs Z: <what's compared> (2026)", "Best X for Y (2026)". Specific and factual, no clickbait.
    - **Description**: one-sentence summary of the verdict/scope, 40-320 chars.
    - **Body**: markdown tables for comparisons (the corpus uses them heavily) — every table cell padded with one space on each side of every pipe, like `| Model | Price |` (compact `|Model|Price|` fails lint); fenced code blocks with a language wherever commands or config appear; citations ONLY as `[label](https://...)` — never `[[url]]` wiki-links and never bare URLs, including in source tables; a blank line before and after every heading and every list; file ends with a newline; a `<` followed by a letter or digit in prose (`<50ms`, `<model>`) is JSX to MDX and fails the compile (so is a bare `{`) — write `under 50ms`, escape it as `\<50ms` / `\{`, or put it in backticks.

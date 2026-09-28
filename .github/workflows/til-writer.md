@@ -64,7 +64,7 @@ safe-outputs:
     auto-merge: squash
     expires: 2d
     allowed-files:
-      - "content/blog/**"
+      - "content/blog/*.mdx"
 
 steps:
   - name: Install content linters (same toolchain as CI)
@@ -96,7 +96,7 @@ The capture note is: "${{ steps.sanitized.outputs.text }}"
 
 3. **Verify.** Every factual claim in the draft must trace to a source you actually fetched, or to a command you actually ran in this repository. Never write "I tested X" unless you ran it here. Prefer exact version numbers, dates, and quoted behavior over generalities.
 
-4. **Write the draft.** Create one new file in `content/blog/` named `<kebab-case-slug>.mdx`, matching the existing posts' format exactly — YAML frontmatter with `title`, `description`, `date` (today, as a QUOTED string like `date: "2026-08-26"` — an unquoted date fails validation), `author: "Sameer Khan"`, `tags` (inline list, 3–6 items), `category` (one of the existing categories: AI, Developer Tools, Web Development, Projects), `published: true` — the PR auto-merges once CI and the `fact-check` workflow pass, with no human review. CI validates the PR with `npm run validate:content` (frontmatter schema + markdownlint + MDX compile); step 6 has you run the same check yourself before opening the PR. Study 2–3 existing posts first for MDX conventions, then follow this measured TIL register (derived from analyzing all 579 posts in simonw/til):
+4. **Write the draft.** Create one new file in `content/blog/` named `<kebab-case-slug>.mdx` — lowercase letters, digits, and hyphens only, never a dot (version `2.1` becomes `2-1`), because a dotted slug breaks the site's markdown negotiation and fails the fact-check gate — matching the existing posts' format exactly — YAML frontmatter with `title`, `description`, `date` (today, as a QUOTED string like `date: "2026-08-26"` — an unquoted date fails validation), `author: "Sameer Khan"`, `tags` (inline list, 3–6 items), `category` (one of the existing categories: AI, Developer Tools, Web Development, Projects), `published: true` — the PR auto-merges once CI and the `fact-check` workflow pass, with no human review. CI validates the PR with `npm run validate:content` (frontmatter schema + markdownlint + MDX compile); step 6 has you run the same check yourself before opening the PR. Study 2–3 existing posts first for MDX conventions, then follow this measured TIL register (derived from analyzing all 579 posts in simonw/til):
    - **Title**: gerund-led sentence case, ~7 words, naming the task — "Running X inside Y", "Fixing X when Y". Never "How to…", never clickbait, no first-person in titles.
    - **Opening**: first sentence states the concrete trigger from the capture note — what forced the learning; write it in first person only when the capture note itself says what Sameer was doing, never invent one — with a link to the real project or issue. The first paragraph doubles as the summary; no throat-clearing.
    - **Length**: target the 150–900 word range, median ~320. Go longer (up to ~1,500) only when the material genuinely demands a deep-dive.

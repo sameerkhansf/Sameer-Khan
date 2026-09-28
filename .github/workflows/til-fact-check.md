@@ -80,6 +80,10 @@ steps:
       else
         echo "NOT_TIL" > /tmp/gh-aw/agent/factcheck/gate.txt
       fi
+      # proxy.js negotiates markdown only for /blog/[\w-]+ slugs; a dotted
+      # slug (#101: qwen-image-2.1-...) would silently lose its markdown twin.
+      grep -vE '^content/blog/[a-z0-9-]+\.mdx$' /tmp/gh-aw/agent/factcheck/posts.txt \
+        > /tmp/gh-aw/agent/factcheck/bad-slugs.txt || true
       cat /tmp/gh-aw/agent/factcheck/gate.txt /tmp/gh-aw/agent/factcheck/posts.txt
       # DeterministicOps: fetch every cited source once, so the agent reads files
       # instead of re-fetching (run 36388743650 burned 250/250 invocations on
@@ -134,6 +138,7 @@ Every source the post links is already downloaded: `/tmp/gh-aw/agent/factcheck/s
    - "Not specified" claims: wrong if the source does publish it.
    - Links: every `UNREACHABLE` entry in the index is a failed claim.
    - A post that links no primary source at all fails: its claims are unsupported by definition.
+   - Every path listed in `/tmp/gh-aw/agent/factcheck/bad-slugs.txt` is a failed claim ("slug must be lowercase letters, digits, and hyphens").
 3. A claim is **wrong** if the source contradicts it and **unsupported** if you cannot find it in a fetched source. Descriptions of what a benchmark measures, or advice, need a source too.
 
 ## Verdict
