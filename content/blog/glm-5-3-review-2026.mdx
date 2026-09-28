@@ -2,7 +2,7 @@
 title: "GLM-5.3 Review: Z.ai's New Open Weights Model for Coding and Agentic Workflows"
 description: "Comprehensive review of GLM-5.3, Z.ai's latest open weights Mixture-of-Experts model showing strong performance on coding benchmarks and cybersecurity tasks."
 date: "2026-09-03"
-updated: "2026-09-08"
+updated: "2026-09-28"
 author: "Sameer Khan"
 tags: ["AI", "GLM", "Z.ai", "LLM", "Developer Tools", "Agentic AI"]
 category: "AI"
@@ -49,7 +49,7 @@ The model supports deployment through multiple frameworks:
 - Unsloth
 - Specialized support for Ascend NPU platforms
 
-A notable feature is the controllable `reasoning_effort` parameter that accepts `low`, `high`, and `max` levels, defaulting to `max` if not specified. For chat applications, the `clear_thinking` parameter can be set to `true` to control whether the model displays its reasoning process.
+A notable feature is the controllable `reasoning_effort` parameter that accepts `low`, `high`, and `max` levels, defaulting to `max` if not specified. In the chat template, `clear_thinking` defaults to `false`; the [model card](https://huggingface.co/zai-org/GLM-5.3) says to pass `clear_thinking=true` explicitly for chat scenarios.
 
 ## Performance Analysis
 
@@ -70,7 +70,7 @@ One of GLM-5.3's most notable advances is in agentic and cybersecurity tasks:
 
 - CyberGym score of 84.5 (SOTA for vulnerability discovery)
 - ExploitGym results of 105/130 (2h/6h), more than doubling GLM-5.2's performance
-- AutomationBench leadership at 48.2%
+- AutomationBench leadership at 48.2
 - Toolathlon Verified score of 73.0
 
 These results suggest that GLM-5.3 develops emergent capabilities for complex agent workflows and security-related tasks as scale increases in post-training.
@@ -89,23 +89,17 @@ The model shows competitive performance on general reasoning tasks, though it tr
 
 ### Deployment Options
 
-GLM-5.3 offers flexibility in deployment:
-
-- For maximum throughput: vLLM or SGLang with FP8 quantization
-- For low-latency applications: TokenSpeed or Unsloth optimizations
-- For ease of use: Standard Hugging Face Transformers
-- For specialized hardware: Ascend NPU support
+The [model card](https://huggingface.co/zai-org/GLM-5.3) lists SGLang, vLLM, TokenSpeed, Transformers, KTransformers, and Unsloth for local serving, each with a linked guide. For the Ascend NPU platform, it lists vLLM-Ascend, xLLM, and SGLang.
 
 ### Cost and Accessibility
 
-As an open weights model, GLM-5.3 can be run locally at no licensing cost (beyond infrastructure). API pricing from Z.ai or third-party providers would determine actual usage costs, though specific pricing wasn't available in the primary sources consulted.
+As an open weights model, GLM-5.3 can be run locally at no licensing cost (beyond infrastructure). Z.ai's [pricing page](https://docs.z.ai/guides/overview/pricing) lists the GLM-5.3 API at $1.40 per 1M input tokens, $0.26 per 1M cached input tokens, and $4.40 per 1M output tokens.
 
 ### Limitations
 
 - The GLM-5.3 license contains restrictions that may affect certain use cases
 - Long-context runs need careful management: Z.ai's own evaluations cap context per benchmark (300K for HLE, 400K for DeepSWE and Terminal-Bench 3.0, 1M for NL2Repo and ALE) rather than using the full window
 - Some benchmarks show trailing performance compared to GPT-5.6 Sol
-- Limited public API availability information in primary sources
 
 ## Use Case Recommendations
 
@@ -136,6 +130,7 @@ For developers focused on coding agents, automation workflows, or cybersecurity 
 
 - GLM-5.3 model card and README: [GLM-5.3 model card and README](https://huggingface.co/zai-org/GLM-5.3) (accessed 2026-09-03)
 - GLM-5.3 API metadata: [GLM-5.3 API metadata](https://huggingface.co/api/models/zai-org/GLM-5.3) (accessed 2026-09-03)
+- Z.ai API pricing: [Z.ai pricing](https://docs.z.ai/guides/overview/pricing) (accessed 2026-09-28)
 
 ---
 

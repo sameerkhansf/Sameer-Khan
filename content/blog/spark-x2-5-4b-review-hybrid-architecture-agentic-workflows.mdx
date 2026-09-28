@@ -6,6 +6,7 @@ author: "Sameer Khan"
 tags: ["AI", "Developer Tools", "Agentic Workflows"]
 category: "AI"
 published: true
+updated: "2026-09-28"
 ---
 
 ## Quick Answer Table
@@ -27,7 +28,7 @@ Spark-X2.5-4B is a 4-billion parameter model developed by SparkLLM with the foll
 - **Architecture**: Hybrid attention combining one full-attention layer with three sliding-window attention layers
 - **Context Window**: Native support for up to 1M tokens
 - **Training Data**: Approximately 20 trillion tokens from diverse sources including web pages, books, code, and encyclopedic materials
-- **Post-training**: Supervised fine-tuning followed by large-scale reinforcement learning and MOPD (Mixture of Posterior Distillation) techniques
+- **Post-training**: Supervised fine-tuning followed by large-scale reinforcement learning and MOPD techniques
 - **Hardware Compatibility**: Supports NVIDIA, Huawei, Hygon, HOUMO.AI platforms
 - **Software Compatibility**: Compatible with vLLM, SGLang, llama.cpp, MLX, Ollama, and LM Studio
 - **Languages**: Support for more than 200 languages
@@ -46,20 +47,20 @@ This architecture addresses a key bottleneck in agentic workflows where models n
 
 Spark-X2.5-4B demonstrates strong performance across various agentic benchmarks:
 
-| Benchmark | Spark-X2.5-4B | Qwen3.5-4B* | Gemma4-E2B* | Notes |
-| ----------- | --------------- | ------------- | ------------- | ------- |
-| BFCL-V4 | 65.1 | 50.3 | 37.4 | Function calling and agent behavior |
-| τ²-bench | 75.1 | 79.9* | 42.2* | Tool use and planning |
-| τ³-bench | **30.4** | 6.7 | 8.8 | Complex reasoning chains |
-| MCP-Atlas | **54.6** | 40.8* | 12.6 | Agent trajectory prediction |
-| MCP-Mark | **14.2** | 12.5 | – | Agent marker detection |
-| Workspace Bench | **31.2** | 21.3 | – | Multi-step workspace tasks |
-| VitaBench2.0 | **25.2** | 18.2 | 4.8 | Visual agent tasks |
-| BrowseComp | **40.9** | 14.3 | 3.7 | Web browsing and information gathering |
+| Benchmark | Spark-X2.5-4B | Qwen3.5-4B* | Gemma4-E2B* |
+| ----------- | --------------- | ------------- | ------------- |
+| BFCL-V4 | 65.1 | 50.3* | 30.2 |
+| τ²-bench | 75.1 | 79.9* | 24.5* |
+| τ³-bench | **30.4** | 6.7 | 8.8 |
+| MCP-Atlas | **54.6** | 40.8* | 12.6 |
+| MCP-Mark | **14.2** | 12.5 | – |
+| Workspace Bench | **31.2** | 21.3 | – |
+| VitaBench2.0 | **25.2** | 18.2 | 4.4 |
+| BrowseComp | **40.9** | 14.3 | 3.7 |
 
-*Qwen3.5-4B and Gemma4-E2B scores marked with asterisk are from publicly released model cards/papers.
+*All scores are from the [Spark-X2.5-4B model card](https://huggingface.co/XHToken/Spark-X2.5-4B); an asterisk marks results the card reports from publicly released model cards/papers.
 
-Key strengths emerge in complex reasoning (τ³-bench), agent trajectory prediction (MCP-Atlas), and web browsing tasks (BrowseComp), where Spark-X2.5-4B significantly outperforms comparable models.
+Key strengths emerge on τ³-bench, MCP-Atlas, and BrowseComp, where Spark-X2.5-4B significantly outperforms comparable models.
 
 ## Coding Performance
 
@@ -67,18 +68,18 @@ For developer workflows, coding ability is crucial. Spark-X2.5-4B shows competit
 
 | Benchmark | Spark-X2.5-4B | Qwen3.5-4B* | Gemma4-E2B* |
 | ----------- | --------------- | ------------- | ------------- |
-| SWE-Bench Pro | **44.4** | 29.4* | 4.0* |
-| SWE-Bench Verified | 41.6 | 38.8* | 14.0* |
-| SWE-Bench Multilingual | **53.3** | 27.7* | – |
-| SciCode | 34.7 | 24.0* | **39.8** |
+| SWE-Bench Pro | **44.4** | 29.4* | – |
+| SWE-Bench Verified | 41.6 | 38.8* | – |
+| SWE-Bench Multilingual | **53.3** | 27.7 | – |
+| SciCode | **34.7** | 24.0 | 20.5 |
 
-Spark-X2.5-4B leads in SWE-Bench Pro and Multilingual variants, indicating strong real-world software engineering capabilities. The model's integration with agent harnesses like Codex, Claude Code, OpenClaw, and Hermes contributes to these results.
+Per the [model card](https://huggingface.co/XHToken/Spark-X2.5-4B), Spark-X2.5-4B leads this comparison in SWE-Bench Pro, SWE-Bench Multilingual, and SciCode, indicating strong real-world software engineering capabilities. The model's integration with agent harnesses like Codex, Claude Code, OpenClaw, and Hermes contributes to these results.
 
 ## Deployment Considerations
 
 Practical deployment factors for Spark-X2.5-4B include:
 
-**Inference Efficiency**: The hybrid architecture provides superior TTFT (Time to First Token) and TOPT (Total Output Processing Time) compared to similarly sized models across multiple hardware platforms.
+**Inference Efficiency**: The hybrid architecture provides superior TTFT (Time to First Token) and TOPT compared to similarly sized models across multiple hardware platforms.
 
 **Framework Support**: Compatible with major inference frameworks:
 
@@ -103,11 +104,11 @@ Consider alternatives if:
 
 - Extreme resource constraints favor smaller models like Gemma4-E2B
 - Simpler agent tasks don't require the full capabilities of the hybrid architecture
-- Official pricing and licensing terms are critical decision factors (currently not publicly listed)
+- Official hosted pricing is a critical decision factor (none is publicly listed; the weights are [Apache 2.0](https://huggingface.co/XHToken/Spark-X2.5-4B/blob/main/LICENSE) licensed)
 
 ## Conclusion
 
-Spark-X2.5-4B represents a thoughtful approach to optimizing language models for agentic workflows. Its hybrid attention architecture successfully balances the competing demands of performance, inference efficiency, and context handling. Benchmark results show particular strength in complex reasoning chains (τ³-bench), agent trajectory prediction (MCP-Atlas), and web browsing tasks (BrowseComp), making it a compelling option for developers building sophisticated AI agents.
+Spark-X2.5-4B represents a thoughtful approach to optimizing language models for agentic workflows. Its hybrid attention architecture successfully balances the competing demands of performance, inference efficiency, and context handling. Benchmark results show particular strength on τ³-bench, MCP-Atlas, and BrowseComp, making it a compelling option for developers building sophisticated AI agents.
 
 While the lack of official pricing information requires direct inquiry for production planning, the model's technical merits—including strong coding performance, broad hardware/software compatibility, and multilingual support—warrant consideration for agentic workflow development. The integration with popular agent harnesses and support for standard deployment frameworks reduces integration complexity for teams adopting this model.
 

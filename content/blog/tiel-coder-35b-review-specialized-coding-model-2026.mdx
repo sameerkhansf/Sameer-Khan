@@ -6,6 +6,7 @@ author: "Sameer Khan"
 tags: ["AI", "Developer Tools", "Language Models"]
 category: "AI"
 published: true
+updated: "2026-09-28"
 ---
 
 ## Quick Answer
@@ -13,10 +14,10 @@ published: true
 | Model | Best For | SWE-Bench Live | Multi-Turn Score | Hardware (Quantized) | Price/Access |
 | ------- | ---------- | ---------------- | ------------------ | ---------------------- | -------------- |
 | Tiel Coder 35B | Agentic coding, long conversations | 12/25 (48%) | 67.2 | 22.4 GB (Q4_K_XL) | Free (local) |
-| Opus 4.6 Medium | Complex reasoning, refactoring | 12/25 (48%) | Not measured | API only | Usage-based |
-| Nail Qwen3.6-35B | Exam knowledge, hard reasoning | 9/25 (36%) | 60.5 | ~18 GB (Q4) | Free (local) |
-| Dirk Qwen3.8-27B | Most fixes regardless of weight | 15/25 (60%) | Lower | ~27 GB | Free (local) |
-| Stock Qwen3.6-35B-A3B | Baseline comparison | 8/25 (32%) | Not measured | ~18 GB | Free (local) |
+| Opus 4.6 Medium | – | 12/25 (48%) | Not measured | API only | Usage-based |
+| Nail Qwen3.6-35B | Exam knowledge, hard reasoning | 9/25 (36%) | 60.5 | [22.4 GB (Q4_K_XL)](https://huggingface.co/peculiar-ragdoll/Nail-Qwen3.6-35B-A3B-GGUF/tree/main) | Free (local) |
+| Dirk Qwen3.8-27B | Most fixes regardless of weight | 15/25 (60%) | – | [17.6 GB (Q4_K_XL)](https://huggingface.co/peculiar-ragdoll/Dirk-Qwen3.8-27B-GGUF/tree/main) | Free (local) |
+| Stock Qwen3.6-35B-A3B | Baseline comparison | 8/25 (32%) | Not measured | [22.4 GB (UD-Q4_K_XL)](https://huggingface.co/unsloth/Qwen3.6-35B-A3B-GGUF/tree/main) | Free (local) |
 
 ## Introduction
 
@@ -50,7 +51,7 @@ On MMLU-Pro at 4-bit quantization:
 
 - Tiel Coder: 73.7
 - Nail model: 84.0 (10.3 points better)
-- This difference stems from the Sharp template optimizing for shorter, more direct answers beneficial for coding conversations rather than exam-style knowledge recall
+- Most of this gap is inherited from the base: per the [model card](https://huggingface.co/peculiar-ragdoll/Tiel-Coder-35B-A3B-GGUF), Ornith-1.5 scores 78.0 where stock Qwen3.6-35B-A3B scores 85.3, and the quantization is not the cause. The remaining 4.3 points come from the Sharp template buying shorter answers
 
 ## Technical Specifications
 

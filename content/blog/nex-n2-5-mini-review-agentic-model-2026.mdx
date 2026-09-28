@@ -6,6 +6,7 @@ author: "Sameer Khan"
 tags: ["AI", "Agentic Workflows", "Open Source", "Computer Use"]
 category: "AI"
 published: true
+updated: "2026-09-28"
 ---
 
 ## Quick Answer Table
@@ -15,8 +16,8 @@ published: true
 | Nex-N2.5-mini | Lightweight agentic tasks, computer use | Free (OpenRouter) | You need a free, open-source model for basic agentic workflows |
 | Nex-N2.5-Pro | Balanced performance, multimodal | TBD | You need stronger agentic capabilities with vision |
 | Nex-N2.5-Max | Complex reasoning, trillion-parameter scale | TBD | You need maximum performance for research/productivity |
-| Claude Opus 5 | Top-tier agentic performance | $15 input / $75 output | You need the best available agentic performance |
-| GPT-5.6 Sol | General purpose with strong agentic | TBD | You need a versatile model with good agentic skills |
+| Claude Opus 5 | Top-tier agentic performance | [$5 input / $25 output](https://openrouter.ai/anthropic/claude-opus-5) | You need the best available agentic performance |
+| GPT-5.6 Sol | General purpose with strong agentic | [$2 input / $10 output](https://openrouter.ai/openai/gpt-5.6-sol) | You need a versatile model with good agentic skills |
 
 ## Overview
 
@@ -25,8 +26,8 @@ Nex-N2.5-mini is the smallest member of the Nex-N2.5 family of agentic models re
 ## Key Specifications
 
 - **Release Date**: September 8, 2026
-- **Parameters**: Not specified in available sources
-- **Architecture**: Text-generation model (based on pipeline_tag)
+- **Parameters**: 35.1B total (BF16); Mixture-of-Experts with 256 experts, 8 active per token ([config](https://huggingface.co/nex-agi/Nex-N2.5-mini/blob/main/config.json))
+- **Architecture**: Vision-language MoE (`Qwen3_5MoeForConditionalGeneration` with a `vision_config`, per the [config](https://huggingface.co/nex-agi/Nex-N2.5-mini/blob/main/config.json)); the model card says mini builds on the multimodal foundations of Nex-N2, even though its Hugging Face `pipeline_tag` is `text-generation`
 - **License**: Apache 2.0
 - **Context Length**: Not specified in README
 - **Access**:
@@ -80,12 +81,11 @@ Choose Nex-N2.5-mini if:
 Consider alternatives if:
 
 - You need maximum agentic performance (consider Claude Opus 5 or Nex-N2.5-Max)
-- You require strong multimodal vision capabilities
 - You have high-volume production needs (free tier may have limits)
 
 ## Verdict
 
-The Nex-N2.5-mini represents a solid entry point into the Nex-N2.5 agentic family, offering capable performance for lightweight agentic tasks at zero cost. While it doesn't match the top-tier performance of Claude Opus 5 or the larger Nex-N2.5 variants, its free availability and strong showing in computer use benchmarks (particularly BrowseComp at 83.4%) make it an attractive option for developers exploring agentic workflows without financial commitment. The Apache 2.0 license and Docker deployment option further enhance its appeal for experimentation and privacy-sensitive applications.
+The Nex-N2.5-mini represents a solid entry point into the Nex-N2.5 agentic family, offering capable performance for lightweight agentic tasks at zero cost. While it doesn't match the top-tier performance of Claude Opus 5 or the larger Nex-N2.5 variants, its free availability and strong showing on BrowseComp (83.4%), which the [model card](https://huggingface.co/nex-agi/Nex-N2.5-mini) lists among its text agentic benchmarks, make it an attractive option for developers exploring agentic workflows without financial commitment. The Apache 2.0 license and Docker deployment option further enhance its appeal for experimentation and privacy-sensitive applications.
 
 ## Sources
 
