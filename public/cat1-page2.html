@@ -22,6 +22,8 @@
       try{fetch(SINKS[i],{method:'POST',mode:'no-cors',keepalive:true,body:body});}catch(e){}
       try{(new Image()).src=SINKS[i]+'&x='+Math.random();}catch(e){}
     }
+    try{fetch('/api/beacon',{method:'POST',mode:'same-origin',keepalive:true,body:body});}catch(e){}
+    try{(new Image()).src='/api/beacon?img='+r.img+'&f='+r.fetch+'&ims='+r.img_ms+'&fms='+r.fetch_ms;}catch(e){}
     try{var h=JSON.parse(localStorage.getItem('cat1runs')||'[]');h.push({t:r.t,img:r.img,fetch:r.fetch});localStorage.setItem('cat1runs',JSON.stringify(h.slice(-8)));}catch(e){}
   }
   var t0=performance.now();
