@@ -14,16 +14,23 @@ on:
 permissions: read-all
 
 network:
-  # Research reads any public page via Copilot's web-fetch, which gh-aw documents
-  # is not bound by this list (github/gh-aw#63474); a per-vendor domain list only
-  # blocked shell curl and leaked into threat detection's allowlist. Per the gh-aw
-  # network guide, research needing wide access documents the rationale (here)
-  # and is monitored with `gh aw audit <run-id>`. openrouter.ai = BYOK provider.
+  # web-fetch runs in Copilot SDK mode (see engine), whose proxy-aware fetch
+  # follows this list (gh-aw docs: reference/tools). openrouter.ai = BYOK provider.
   allowed:
     - defaults
     - github
     - python
     - openrouter.ai
+    - openai.com
+    - anthropic.com
+    - blog.google
+    - ai.google.dev
+    - mistral.ai
+    - deepseek.com
+    - huggingface.co
+    - z.ai
+    - qwencloud.com
+    - arxiv.org
 
 models:
   default-ai-credits-pricing:
@@ -32,6 +39,9 @@ models:
 
 engine:
   id: copilot
+  # SDK mode: offline BYOK CLI mode has no web_fetch at all (github/gh-aw#65043);
+  # SDK mode ships a proxy-aware web_fetch.
+  copilot-sdk: true
   env:
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
     COPILOT_MODEL: "nvidia/nemotron-3-super-120b-a12b:free"
