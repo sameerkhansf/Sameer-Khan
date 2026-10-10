@@ -14,8 +14,8 @@ on:
 permissions: read-all
 
 network:
-  # web-fetch runs in Copilot SDK mode (see engine), whose proxy-aware fetch
-  # follows this list (gh-aw docs: reference/tools). openrouter.ai = BYOK provider.
+  # Research fetches with shell curl; AWF's Squid proxy enforces this list.
+  # openrouter.ai = BYOK provider.
   allowed:
     - defaults
     - github
@@ -39,9 +39,9 @@ models:
 
 engine:
   id: copilot
-  # SDK mode: offline BYOK CLI mode has no web_fetch at all (github/gh-aw#65043);
-  # SDK mode ships a proxy-aware web_fetch.
-  copilot-sdk: true
+  # Offline BYOK mode has no web_fetch (github/gh-aw#65043); AWF's documented
+  # route is shell curl with URL permission. Squid still enforces network.allowed.
+  args: ["--allow-all-urls"]
   max-continuations: 8
   env:
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
@@ -109,8 +109,7 @@ steps:
 
 tools:
   cache-memory:
-  web-fetch:
-  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "npm"]
+  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "npm", "curl"]
   edit:
   github:
     toolsets: [default]
@@ -158,7 +157,7 @@ Read all five with a single `cat` each, then choose the topic. Never run shell s
    - **Title**: like the corpus — "X Review: <specific angle>", "X vs Y vs Z: <what's compared> (2026)", "Best X for Y (2026)". Specific and factual, no clickbait.
    - **Description**: one-sentence summary of the verdict/scope, 40-320 chars.
    - **Body**: markdown tables for comparisons (the corpus uses them heavily) — every table cell padded with one space on each side of every pipe, like `| Model | Price |` (compact `|Model|Price|` fails lint); fenced code blocks with a language wherever commands or config appear; citations ONLY as `[label](https://...)` — never `[[url]]` wiki-links and never bare URLs, including in source tables; a blank line before and after every heading and every list; file ends with a newline; a `<` followed by a letter or digit in prose (`<50ms`, `<model>`) is JSX to MDX and fails the compile (so is a bare `{`) — write `under 50ms`, escape it as `\<50ms` / `\{`, or put it in backticks.
-   - **Sources must be fetched, never remembered**: read every source with the `web_fetch` tool (it is a tool call, not a shell command; the shell has no network access). Only this workflow's network allowlist is reachable (github.com, huggingface.co, openai.com, anthropic.com, ai.google.dev, blog.google, mistral.ai, deepseek.com, z.ai, qwencloud.com, arxiv.org, openrouter.ai and their subdomains): prefer candidates whose primary sources live there. Read raw specs directly (`https://huggingface.co/<org>/<model>/raw/main/config.json`). If a candidate's key source cannot be fetched after two attempts, pick a different candidate rather than writing from memory.
+   - **Sources must be fetched, never remembered**: read every source with `curl -sL <url>` (pipe through `head`/`grep` to keep output small). Only this workflow's network allowlist is reachable (github.com, huggingface.co, openai.com, anthropic.com, ai.google.dev, blog.google, mistral.ai, deepseek.com, z.ai, qwencloud.com, arxiv.org, openrouter.ai and their subdomains): prefer candidates whose primary sources live there. Read raw specs directly (`https://huggingface.co/<org>/<model>/raw/main/config.json`). If a candidate's key source cannot be fetched after two attempts, pick a different candidate rather than writing from memory.
    - **Open every paper you cite and read its title before citing it.** An `arxiv:` tag on a model card is not a promise that the paper describes that model — cards routinely tag a predecessor's report, or an unrelated lab paper. Never infer a paper's subject from its ID, its position in the tag list, or its date. Fetch `https://arxiv.org/abs/<id>` and read the actual title: if it does not name this model and version, it is not this model's technical report. Say "no technical report is linked from the model card" rather than promote the closest-looking tag. Both previous failures came from guessing: PR #77 cited arXiv 2310.10688 as TimesFM 3.0's reference when it is the 2023 original TimesFM paper, and PR #85 cited arXiv 2506.07900 as MiniCPM5-2B's technical report when its title is "MiniCPM4: Ultra-Efficient LLMs on End Devices" — that card's other tag, 2602.09003, is a data-management paper, so neither was a match and picking "the newer one" would also have been wrong.
    - **Prices come from the vendor's price sheet, never from arithmetic.** A relative claim ("one-tenth the price", "half the cost") is worthless without its baseline: read the sentence and name what it is cheaper *than* — vendors almost always mean their own previous model, not a competitor. Then fetch the vendor's pricing page (`docs.z.ai/guides/overview/pricing`, `qwencloud.com/models/<model>`, `openai.com/api/pricing`, `anthropic.com/pricing`) and quote the listed per-token numbers with that link. If no price is published, the cell reads "no official listing" — never multiply or divide some other model's price to produce a dollar figure, and never present a derived number as a price.
    - **Never**: fabricated testing claims, "In today's fast-paced world" intros, unsupported superlatives, uncited numbers, emoji anywhere (headings, tables, lists — use "Yes"/"No" in comparison tables, plain words everywhere else).
@@ -190,7 +189,7 @@ Research budget: fetch primary sources deliberately — at most ~15 fetches per 
 ## Failure handling
 
 - Do not repeatedly retry blocked or failing network access. If two fetch attempts to an allowed source fail (permissions, firewall, auth, tooling), immediately call `report_incomplete` with the exact blocking reason.
-- All web access goes through the `web_fetch` tool; never try to reach the web from the shell. The domain allowlist is policy, not an obstacle: never hunt for mirrors or workaround endpoints.
+- All web access is `curl` to allowlisted domains. The domain allowlist is policy, not an obstacle: never hunt for mirrors or workaround endpoints.
 - Never ride out the clock: report the blocker the moment it is known.
 
 ## Hard rules

@@ -17,8 +17,8 @@ permissions: read-all
 inlined-imports: true
 
 network:
-  # web-fetch runs in Copilot SDK mode (see engine), whose proxy-aware fetch
-  # follows this list (gh-aw docs: reference/tools). openrouter.ai = BYOK provider.
+  # Research fetches with shell curl; AWF's Squid proxy enforces this list.
+  # openrouter.ai = BYOK provider.
   allowed:
     - defaults
     - github
@@ -42,9 +42,9 @@ models:
 
 engine:
   id: copilot
-  # SDK mode: offline BYOK CLI mode has no web_fetch at all (github/gh-aw#65043);
-  # SDK mode ships a proxy-aware web_fetch.
-  copilot-sdk: true
+  # Offline BYOK mode has no web_fetch (github/gh-aw#65043); AWF's documented
+  # route is shell curl with URL permission. Squid still enforces network.allowed.
+  args: ["--allow-all-urls"]
   max-continuations: 8
   env:
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
@@ -124,8 +124,7 @@ steps:
       PR: ${{ github.event.pull_request.number }}
 
 tools:
-  web-fetch:
-  bash: ["cat", "ls", "head", "tail", "wc", "grep", "jq"]
+  bash: ["cat", "ls", "head", "tail", "wc", "grep", "jq", "curl"]
   github:
     toolsets: [default]
 # max-turns is also the AWF per-run LLM invocation cap (github/gh-aw#52836);
@@ -146,13 +145,13 @@ Read `/tmp/gh-aw/agent/factcheck/gate.txt` first. If it says `NOT_TIL`, immediat
 
 `/tmp/gh-aw/agent/factcheck/posts.txt` lists the post files in this PR. For each, `cat` it and verify it.
 
-Every source the post links is already downloaded: `/tmp/gh-aw/agent/factcheck/sources/index.txt` maps each local file to its URL (Hugging Face model links also have their raw `README.md` and `config.json`), and marks `UNREACHABLE` links. Read these files with `cat` / `grep` / `jq`; never re-fetch a URL that is in the index. Your budget is tool calls, not claims: check many claims per call — one `grep -n -E 'claim1|claim2|claim3' <file>` per source file, never one call per claim. Use the `web_fetch` tool only for a primary source the post does not link (for example a pricing page or an arXiv abstract), once per URL. You are the only check between this post and publication: it auto-merges the moment you pass it. Be strict.
+Every source the post links is already downloaded: `/tmp/gh-aw/agent/factcheck/sources/index.txt` maps each local file to its URL (Hugging Face model links also have their raw `README.md` and `config.json`), and marks `UNREACHABLE` links. Read these files with `cat` / `grep` / `jq`; never re-fetch a URL that is in the index. Your budget is tool calls, not claims: check many claims per call — one `grep -n -E 'claim1|claim2|claim3' <file>` per source file, never one call per claim. Use `curl -sL` only for a primary source the post does not link (for example a pricing page or an arXiv abstract), once per URL. You are the only check between this post and publication: it auto-merges the moment you pass it. Be strict.
 
 1. List every checkable claim: numbers (parameters, context length, benchmark scores, prices, dates, sizes), specs (license, architecture, modality, organization), citations (paper titles and IDs), and every "X is not published / not specified" statement.
 2. Verify each against a primary source you fetch in this run:
    - Model specs: `https://huggingface.co/<org>/<model>/raw/main/config.json` (for example `max_position_embeddings` is the context window) and the model card. A model card's pipeline tag is not a spec.
    - Benchmark tables: fetch the card and compare cell by cell; confirm each number comes from the column of the model the post names.
-   - Prices: `sources/openrouter-models.json` (OpenRouter's price sheet; `pricing.prompt`/`completion` are USD per token, so multiply by 1,000,000 for per-1M prices) or the vendor's own pricing page via the `web_fetch` tool. A price derived by other arithmetic is wrong.
+   - Prices: `sources/openrouter-models.json` (OpenRouter's price sheet; `pricing.prompt`/`completion` are USD per token, so multiply by 1,000,000 for per-1M prices) or the vendor's own pricing page via `curl -sL`. A price derived by other arithmetic is wrong.
    - Papers: `https://arxiv.org/abs/<id>`; the title must name this model and version.
    - "Not specified" claims: wrong if the source does publish it.
    - Links: every `UNREACHABLE` entry in the index is a failed claim.

@@ -34,7 +34,6 @@ safe-outputs:
   add-comment:
 
 tools:
-  web-fetch:
   bash: true
   github:
     toolsets: [default, discussions]
@@ -44,9 +43,9 @@ timeout-minutes: 20
 
 engine:
   id: copilot
-  # SDK mode: offline BYOK CLI mode has no web_fetch at all (github/gh-aw#65043);
-  # SDK mode ships a proxy-aware web_fetch.
-  copilot-sdk: true
+  # Offline BYOK mode has no web_fetch (github/gh-aw#65043); AWF's documented
+  # route is shell curl with URL permission. Squid still enforces network.allowed.
+  args: ["--allow-all-urls"]
   env:
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
     COPILOT_MODEL: "nvidia/nemotron-3.5-lightning:free"
