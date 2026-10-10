@@ -110,7 +110,7 @@ steps:
 
 tools:
   cache-memory:
-  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "npm", "curl", "jq"]
+  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "npm", "curl", "jq", "sed", "awk", "tr", "cut", "sort", "uniq"]
   edit:
   github:
     toolsets: [default]
