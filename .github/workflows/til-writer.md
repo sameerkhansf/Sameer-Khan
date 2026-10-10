@@ -9,6 +9,10 @@ description: |
 on:
   slash_command:
     name: til
+    # No pull_request / review-comment events: they only ever produce skipped
+    # runs on the PR head, and gh-aw's API-created `fact-check` check run can land
+    # in a skipped suite, which the ruleset then reports as "expected" (#150).
+    events: [issues, issue_comment, pull_request_comment, discussion, discussion_comment]
   reaction: "eyes"
 
 permissions: read-all
