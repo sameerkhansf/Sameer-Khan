@@ -1,7 +1,7 @@
 ---
 description: |
   Interactive question-answering research agent triggered by the 'repo-ask' command.
-  Leverages web search, repository inspection, and bash commands to research and answer
+  Leverages repository inspection and bash commands to research and answer
   questions about the codebase. Provides accurate, concise responses by adding comments
   to the triggering issue or PR. Useful for deep repository analysis and documentation
   queries.
@@ -43,9 +43,6 @@ timeout-minutes: 20
 
 engine:
   id: copilot
-  # Offline BYOK mode has no web_fetch (github/gh-aw#65043); AWF's documented
-  # route is shell curl with URL permission. Squid still enforces network.allowed.
-  args: ["--allow-all-urls"]
   env:
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
     COPILOT_MODEL: "nvidia/nemotron-3.5-lightning:free"

@@ -28,6 +28,7 @@ network:
     - mistral.ai
     - deepseek.com
     - huggingface.co
+    - hf.co # HF resolve/ downloads redirect to *.hf.co
     - z.ai
     - qwencloud.com
     - arxiv.org
@@ -109,7 +110,7 @@ steps:
 
 tools:
   cache-memory:
-  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "npm", "curl"]
+  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "npm", "curl", "jq"]
   edit:
   github:
     toolsets: [default]

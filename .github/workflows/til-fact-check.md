@@ -31,6 +31,7 @@ network:
     - mistral.ai
     - deepseek.com
     - huggingface.co
+    - hf.co # HF resolve/ downloads redirect to *.hf.co
     - z.ai
     - qwencloud.com
     - arxiv.org

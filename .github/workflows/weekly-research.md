@@ -25,6 +25,7 @@ network:
     - mistral.ai
     - deepseek.com
     - huggingface.co
+    - hf.co # HF resolve/ downloads redirect to *.hf.co
 
 models:
   default-ai-credits-pricing:
