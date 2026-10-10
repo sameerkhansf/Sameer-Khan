@@ -10,7 +10,17 @@ on:
   pull_request:
     # labeled: a PR that gains `til` after a NOT_TIL pass must be re-verified.
     types: [opened, synchronize, reopened, labeled]
+    names: [til]
   bots: ["dependabot[bot]"]
+
+# Dependabot adds labels right after `opened`. gh-aw's label filter is a job
+# `if:`, so those runs still join the PR's cancel-in-progress group and would
+# cancel the real run, then skip: no check, PR blocked. Non-til label events get
+# their own group. gh-aw v0.91 also refuses bot checkouts on `labeled` (only
+# opened/synchronize are exempt), so they must not be the surviving run.
+concurrency:
+  group: "gh-aw-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}${{ (github.event.action == 'labeled' && github.event.label.name != 'til') && format('-{0}', github.run_id) || '' }}"
+  cancel-in-progress: true
 
 permissions: read-all
 
