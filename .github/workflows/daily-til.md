@@ -190,6 +190,7 @@ Research budget: fetch primary sources deliberately — at most ~15 fetches per 
 
 - Do not repeatedly retry blocked or failing network access. If two fetch attempts to an allowed source fail (permissions, firewall, auth, tooling), immediately call `report_incomplete` with the exact blocking reason.
 - All web access is `curl` to allowlisted domains. The domain allowlist is policy, not an obstacle: never hunt for mirrors or workaround endpoints.
+- A shell command answered with "Permission denied" is blocked by policy and will be denied every time: never run it, or a variant of it, again. Use an allowed command (`jq` for JSON, `grep`/`head` for text) or move on.
 - Never ride out the clock: report the blocker the moment it is known.
 
 ## Hard rules

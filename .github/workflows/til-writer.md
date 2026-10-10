@@ -117,6 +117,7 @@ The capture note is: "${{ steps.sanitized.outputs.text }}"
 
 ## Hard rules
 
+- A shell command answered with "Permission denied" is blocked by policy and will be denied every time: never run it, or a variant of it, again. Use an allowed command (`jq` for JSON, `grep`/`head` for text) or move on.
 - Do not write about this repository's publishing pipeline, gh-aw workflows, or agent automation unless the capture note explicitly and unambiguously asks for that topic — it is otherwise exhausted.
 - When a post follows up on ground an existing post covers, link to the earlier post instead of re-explaining its material.
 - Never edit existing posts. Only add new files under the allowed paths.

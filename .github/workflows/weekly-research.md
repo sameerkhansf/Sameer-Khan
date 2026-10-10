@@ -44,7 +44,7 @@ safe-outputs:
     category: "ideas"
 
 tools:
-  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "curl"]
+  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "curl", "jq"]
   github:
     toolsets: [all]
     min-integrity: none # This workflow is allowed to examine and comment on any issues or PRs
@@ -80,6 +80,9 @@ Do a deep research investigation in ${{ github.repository }} repository, and the
 
 - Read selections of the latest code, issues and PRs for this repo.
 - Read latest trends and news from the software industry on the Web.
+
+Tools: read web pages with `curl -sL <url> | head -c 20000`; only this workflow's network allowlist is reachable (github.com, huggingface.co, openai.com, anthropic.com, ai.google.dev, blog.google, mistral.ai, deepseek.com, openrouter.ai and their subdomains), so pick sources there and never hunt for mirrors. Use the GitHub MCP tools for repo data and `jq` for JSON; there is no Python, `sed`, or `awk`.
+- A shell command answered with "Permission denied" is blocked by policy and will be denied every time: never run it, or a variant of it, again. Use an allowed command (`jq` for JSON, `grep`/`head` for text) or move on.
 
 Exclusion for all sections: this repository's own publishing pipeline, gh-aw workflows, and agent automation are not research subjects — cover the outside world.
 

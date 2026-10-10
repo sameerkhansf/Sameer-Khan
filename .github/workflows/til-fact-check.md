@@ -163,6 +163,10 @@ Every source the post links is already downloaded: `/tmp/gh-aw/agent/factcheck/s
    - Every path listed in `/tmp/gh-aw/agent/factcheck/bad-slugs.txt` is a failed claim ("slug must be lowercase letters, digits, and hyphens").
 3. A claim is **wrong** if the source contradicts it and **unsupported** if you cannot find it in a fetched source. Descriptions of what a benchmark measures, or advice, need a source too.
 
+## Tool rules
+
+- A shell command answered with "Permission denied" is blocked by policy and will be denied every time: never run it, or a variant of it, again. Use an allowed command (`jq` for JSON, `grep`/`head` for text) or move on.
+
 ## Verdict
 
 - `conclusion: success` only if every checkable claim is verified correct.
