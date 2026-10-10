@@ -81,7 +81,7 @@ steps:
     run: npm ci
 
 tools:
-  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "npm", "curl", "jq", "tr", "cut", "sort", "uniq"]
+  bash: ["cat", "ls", "grep", "head", "tail", "wc", "date", "npm run fix-content", "npm run validate:content", "curl", "jq", "tr", "cut", "sort", "uniq"]
   edit:
   github:
     toolsets: [default]
