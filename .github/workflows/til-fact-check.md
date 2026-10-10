@@ -125,7 +125,7 @@ steps:
       PR: ${{ github.event.pull_request.number }}
 
 tools:
-  bash: ["cat", "ls", "head", "tail", "wc", "grep", "jq", "curl", "sed", "awk", "tr", "cut", "sort", "uniq"]
+  bash: ["cat", "ls", "head", "tail", "wc", "grep", "jq", "curl", "tr", "cut", "sort", "uniq"]
   github:
     toolsets: [default]
 # max-turns is also the AWF per-run LLM invocation cap (github/gh-aw#52836);
