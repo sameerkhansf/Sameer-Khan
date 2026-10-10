@@ -1,7 +1,7 @@
 ---
 description: |
   Interactive question-answering research agent triggered by the 'repo-ask' command.
-  Leverages web search, repository inspection, and bash commands to research and answer
+  Leverages repository inspection and bash commands to research and answer
   questions about the codebase. Provides accurate, concise responses by adding comments
   to the triggering issue or PR. Useful for deep repository analysis and documentation
   queries.
@@ -34,7 +34,6 @@ safe-outputs:
   add-comment:
 
 tools:
-  web-fetch:
   bash: true
   github:
     toolsets: [default, discussions]

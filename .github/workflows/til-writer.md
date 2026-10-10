@@ -1,7 +1,7 @@
 ---
 description: |
   TIL factory writer. Triggered by the '/til' command on an issue containing a
-  topic, URL, repo, or rough note. Researches the topic with web fetch and
+  topic, URL, repo, or rough note. Researches the topic with curl and
   repository inspection, verifies claims against primary sources, then opens a
   pull request adding an MDX post to content/blog/. It auto-merges once CI
   and the fact-check workflow pass.
@@ -14,16 +14,24 @@ on:
 permissions: read-all
 
 network:
-  # Research reads any public page via Copilot's web-fetch, which gh-aw documents
-  # is not bound by this list (github/gh-aw#63474); a per-vendor domain list only
-  # blocked shell curl and leaked into threat detection's allowlist. Per the gh-aw
-  # network guide, research needing wide access documents the rationale (here)
-  # and is monitored with `gh aw audit <run-id>`. openrouter.ai = BYOK provider.
+  # Research fetches with shell curl; AWF's Squid proxy enforces this list.
+  # openrouter.ai = BYOK provider.
   allowed:
     - defaults
     - github
     - python
     - openrouter.ai
+    - openai.com
+    - anthropic.com
+    - blog.google
+    - ai.google.dev
+    - mistral.ai
+    - deepseek.com
+    - huggingface.co
+    - hf.co # HF resolve/ downloads redirect to *.hf.co
+    - z.ai
+    - qwencloud.com
+    - arxiv.org
 
 models:
   default-ai-credits-pricing:
@@ -32,6 +40,9 @@ models:
 
 engine:
   id: copilot
+  # Offline BYOK mode has no web_fetch (github/gh-aw#65043); AWF's documented
+  # route is shell curl with URL permission. Squid still enforces network.allowed.
+  args: ["--allow-all-urls"]
   env:
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
     COPILOT_MODEL: "nvidia/nemotron-3-super-120b-a12b:free"
@@ -70,8 +81,7 @@ steps:
     run: npm ci
 
 tools:
-  web-fetch:
-  bash: ["cat", "ls", "find", "grep", "head", "tail", "wc", "date", "npm"]
+  bash: ["cat", "ls", "grep", "head", "tail", "wc", "date", "npm run fix-content", "npm run validate:content", "curl", "jq", "tr", "cut", "sort", "uniq"]
   edit:
   github:
     toolsets: [default]
@@ -91,7 +101,7 @@ The capture note is: "${{ steps.sanitized.outputs.text }}"
 
 1. **Scout.** Read the capture note and the issue body. List existing posts in `content/blog/` and check for overlap. If the topic substantially duplicates an existing post, stop and do not open a PR — the reaction on the comment is enough; explain in the PR description only if you proceed with a materially different angle.
 
-2. **Research.** Use web fetch to read the primary sources named in the capture (docs, repos, changelogs, announcements). Prefer official documentation over secondary commentary. Record every URL you consult and the date accessed.
+2. **Research.** Use `curl -sL <url>` to read the primary sources named in the capture (docs, repos, changelogs, announcements). Prefer official documentation over secondary commentary. Record every URL you consult and the date accessed.
 
 3. **Verify.** Every factual claim in the draft must trace to a source you actually fetched, or to a command you actually ran in this repository. Never write "I tested X" unless you ran it here. Prefer exact version numbers, dates, and quoted behavior over generalities.
 
@@ -108,6 +118,7 @@ The capture note is: "${{ steps.sanitized.outputs.text }}"
 
 ## Hard rules
 
+- A shell command answered with "Permission denied" is blocked by policy and will be denied every time: never run it, or a variant of it, again. Use an allowed command (`jq` for JSON, `grep`/`head` for text) or move on.
 - Do not write about this repository's publishing pipeline, gh-aw workflows, or agent automation unless the capture note explicitly and unambiguously asks for that topic — it is otherwise exhausted.
 - When a post follows up on ground an existing post covers, link to the earlier post instead of re-explaining its material.
 - Never edit existing posts. Only add new files under the allowed paths.
