@@ -58,6 +58,10 @@ engine:
   args: ["--allow-all-urls"]
   max-continuations: 8
   env:
+    # Copilot CLI skips .github/hooks in prompt mode (-p) unless this is set
+    # (docs: cli-command-reference). Loop guard only (no LOOP_GUARD_BUDGET): run
+    # 38209306247 re-ran one grep 221 times on #157 and never reached a verdict.
+    GITHUB_COPILOT_PROMPT_MODE_REPO_HOOKS: "true"
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
     # Measured on the same known-bad post (PRs #105, #111): super-120b caught
     # 1 of 8 documented errors, ultra-550b 4 of 8. qwen3.8-27b and inkling runs
