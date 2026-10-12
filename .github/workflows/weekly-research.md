@@ -62,10 +62,6 @@ engine:
   # route is shell curl with URL permission. Squid still enforces network.allowed.
   args: ["--allow-all-urls"]
   env:
-    # .github/hooks/loop-guard.sh: past this many tool calls only finishing
-    # steps run (write, lint, safeoutputs), so the run ends with an outcome
-    # instead of dying at the 500-invocation max-turns cap.
-    LOOP_GUARD_BUDGET: "400"
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
     COPILOT_MODEL: "nvidia/nemotron-3-super-120b-a12b:free"
     COPILOT_PROVIDER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
