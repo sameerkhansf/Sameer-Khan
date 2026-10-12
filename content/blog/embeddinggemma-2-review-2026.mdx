@@ -1,0 +1,255 @@
+---
+title: "EmbeddingGemma 2 Review: Google's Multimodal Embedding Model for On-Device AI"
+description: "Review of EmbeddingGemma 2, Google DeepMind's 740M parameter multimodal embedding model unifying text, image, video, and audio in a 768-dimensional space with MRL support for efficient on-device deployment."
+date: "2026-10-12"
+author: "Sameer Khan"
+tags: ["AI", "Embeddings", "Google", "Gemma", "Multimodal", "On-Device AI"]
+category: "AI"
+published: true
+---
+
+EmbeddingGemma 2 is Google DeepMind's open multimodal embedding model released in 2026, mapping text (including code), images, video, and audio into a single unified 768-dimensional vector space. At 740M total parameters with a 270M text backbone and modular vision (170M) and audio (300M) encoders, it targets on-device deployment on consumer hardware like mobile devices and laptops.
+
+## Quick Summary
+
+**EmbeddingGemma 2** is a 740M parameter multimodal embedding model from Google DeepMind that unifies four modalities in a shared 768-dimensional space.
+
+**Key Numbers:**
+
+| Specification | Value |
+| --------------- | ------- |
+| **Total Parameters** | 740M |
+| **Text Backbone** | 270M (130M transformer + 140M embedder) |
+| **Vision Encoder** | 170M |
+| **Audio Encoder** | 300M |
+| **Output Dimension** | 768 (native) |
+| **MRL Dimensions** | 128, 256, 512, 768 |
+| **Context Window** | 8,192 tokens |
+| **Languages** | 100+ |
+| **License** | Apache 2.0 |
+| **Pipeline Tag** | feature-extraction |
+
+**Performance Highlights (768d):**
+
+- **MTEB Multilingual v2:** 61.36 Mean(Task)
+- **MTEB Code v1:** 78.68 NDCG@10 (~14% improvement over v1)
+- **MIEB Lite:** 64.64 Mean(TaskType)
+- **MMEB v2 Image:** 57.28 Hit@1
+- **MMEB v2 VisDoc:** 67.84 NDCG@5
+- **MMEB v2 Video:** 50.67 Hit@1
+- **MSEB Retrieval:** 69.54 MRR@10
+- **MAEB:** 49.39 Mean(Task)
+
+**Bottom line:** EmbeddingGemma 2 delivers strong multimodal embedding quality in a compact package suitable for on-device deployment, with native MRL support enabling up to 6x storage reduction with minimal quality loss down to 256 dimensions.
+
+## Model Architecture
+
+EmbeddingGemma 2 combines a text backbone with modular vision and audio encoders, all projecting into a shared 768-dimensional space.
+
+### Text Backbone (270M parameters)
+
+The text component consists of a 130M parameter transformer and a 140M parameter embedder, based on the EmbeddingGemma2Text architecture:
+
+- **Layers:** 24
+- **Model Dimension:** 512
+- **Hidden Dimension:** 2048
+- **Sliding Window:** 1024 tokens (5:1 local:global attention ratio)
+- **Vocabulary Size:** 262,144
+- **Attention Heads:** 4 (GQA/MQA with 2 KV heads local, 1 global)
+- **Activation:** Gated FFN with GELU
+- **Pooling:** Mean Pooling
+- **Projection:** 512→768
+
+The text config shows alternating sliding attention and full attention layers, with specific layers (5, 11, 17, 23) using larger head dimensions (512) and single KV heads.
+
+### Vision Encoder (170M parameters)
+
+Based on Gemma4 Vision architecture:
+
+- **Layers:** 16
+- **Hidden Size:** 768
+- **Attention Heads:** 12
+- **Patch Size:** 16
+- **Pooling Kernel:** 3
+- **Default Output Length:** 280 soft tokens per image
+- **Max Position Embeddings:** 131,072
+- **RoPE:** Axial with theta=100
+
+### Audio Encoder (300M parameters)
+
+Based on Gemma4 Audio architecture:
+
+- **Layers:** 12
+- **Hidden Size:** 1024
+- **Attention Heads:** 8
+- **Conv Kernel Size:** 5
+- **Subsampling Channels:** [128, 32]
+- **Output Projection:** 1536
+- **Attention Chunk Size:** 12
+- **Context Left/Right:** 13/0
+
+### Modality Tokens
+
+The model uses special tokens for modality boundaries:
+
+- **BOI (Begin Image):** 255,999
+- **EOI (End Image):** 258,882
+- **BOA (Begin Audio):** 256,000
+- **EOA (End Audio):** 258,883
+- **Image Token:** 258,880
+- **Audio Token:** 258,881
+- **Video Token:** 258,884
+
+## Benchmark Analysis
+
+### Text and Code Embeddings
+
+EmbeddingGemma 2 shows competitive text embedding performance with notable code improvements:
+
+| Benchmark | Metric | EmbeddingGemma 2 | EmbeddingGemma 1 |
+| --------- | ------ | ---------------- | ---------------- |
+| MTEB Multilingual v2 | Mean(Task) | 61.36 | 61.15 |
+| MTEB English v2 | Mean(Task) | 68.46 | — |
+| MTEB Code v1 | NDCG@10 | 78.68 | 68.76 |
+
+The ~14% improvement on code tasks (78.68 vs 68.76 NDCG@10) is a significant gain for developer-focused retrieval and code search applications.
+
+### Multimodal Benchmarks
+
+| Modality | Benchmark | Metric | Score |
+| -------- | --------- | ------ | ----- |
+| Image | MIEB Lite | Mean(TaskType) | 64.64 |
+| Image | MMEB v2 Image | Hit@1 | 57.28 |
+| Image | MMEB v2 VisDoc | NDCG@5 | 67.84 |
+| Video | MMEB v2 Video | Hit@1 | 50.67 |
+| Audio | MSEB Retrieval | MRR@10 | 69.54 |
+| Audio | MAEB | Mean(Task) | 49.39 |
+
+The model achieves strong visual document retrieval (67.84 NDCG@5) and audio retrieval (69.54 MRR@10), with video understanding at 50.67 Hit@1.
+
+### MRL Truncation Performance
+
+A key feature is Matryoshka Representation Learning (MRL), allowing truncation to lower dimensions with graceful quality degradation:
+
+| Output Dim | Compression | MTEB Multi | MTEB Eng | MTEB Code | MIEB | MMEB Overall | MSEB | MAEB |
+| ---------- | ----------- | ---------- | -------- | --------- | ---- | ------------ | ---- | ---- |
+| 768d (Full) | 1:1 | 61.36 | 68.46 | 78.68 | 64.64 | 59.01 | 69.54 | 49.39 |
+| 512d | 1:1.5 | 61.17 | 68.41 | 77.24 | 64.32 | 58.38 | 69.18 | 49.21 |
+| 256d | 1:3 | 60.41 | 67.78 | 76.18 | 63.13 | 56.24 | 66.76 | 48.91 |
+| 128d | 1:6 | 57.89 | 65.68 | 71.41 | 59.06 | 45.65 | 56.71 | 46.92 |
+
+Quality remains close to lossless down to 256 dimensions (3x compression). At 128d (6x compression), multimodal quality degrades substantially — the model card recommends validating 128d against your workload before adoption.
+
+## Practical Usage
+
+### Task Instruction Prefixes
+
+EmbeddingGemma 2 uses task-specific prefixes for text inputs to optimize embedding quality. Prefixes apply to text only; images, video, and audio are passed without prefixes.
+
+**Asymmetric Tasks (retrieval):** Different prefixes for queries vs documents
+**Symmetric Tasks (classification, similarity):** Same prefix for all inputs
+
+| Use Case | Prompt Name | Query Instruction | Document Instruction |
+| -------- | ----------- | ----------------- | -------------------- |
+| Web/Document Search | SearchQuery | `task: search result \| query: {query}` | `title: {title} \| text: {content}` |
+| Question Answering | QuestionAnswering | `task: question answering \| query: {question}` | `title: {title} \| text: {passage}` |
+| Fact Checking | FactChecking | `task: fact checking \| query: {claim}` | `title: {title} \| text: {evidence}` |
+| Code Search | CodeRetrieval | `task: code retrieval \| query: {query}` | `title: {title or filename} \| text: {code}` |
+| Classification | Classification | `task: classification \| query: {content}` | N/A |
+| Clustering | Clustering | `task: clustering \| query: {content}` | N/A |
+| Similarity | SentenceSimilarity | `task: sentence similarity \| query: {content}` | N/A |
+
+Documents with titles should be formatted as `title: {title} \| text: {content}`. Use `title: none` when no title exists.
+
+### Selective Encoder Loading
+
+To reduce memory for single-modality use cases, disable unused encoders via `config_kwargs`:
+
+| Active Modalities | `config_kwargs` | Effective Size |
+| ----------------- | --------------- | -------------- |
+| Text only | `{"vision_config": None, "audio_config": None}` | 270M |
+| Text + Image | `{"audio_config": None}` | 440M |
+| Text + Audio | `{"vision_config": None}` | 570M |
+| Full Multimodal | `{}` | 740M |
+
+### MRL Truncation at Runtime
+
+Use `truncate_dim` and `normalize_embeddings` in `model.encode()`:
+
+```python
+query_emb = model.encode(
+    query,
+    truncate_dim=256,  # or 512, 128
+    normalize_embeddings=True,
+)
+```
+
+**Critical:** Always re-normalize after truncation. Slicing a unit-length vector does not preserve unit length, and skipping normalization silently degrades ranking quality.
+
+### Numerical Precision
+
+Run inference in `bfloat16` or `float32`. **Do not use `float16`** — the model's activation range exceeds float16's dynamic range, causing NaN or silently degraded embeddings.
+
+```python
+import torch
+dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float32
+
+model = SentenceTransformer(
+    "google/embeddinggemma-2",
+    model_kwargs={"torch_dtype": dtype}
+)
+```
+
+### Input Limits
+
+| Modality | Max Input (approx) |
+| -------- | ------------------ |
+| Text | 8,192 tokens |
+| Images | ~114 images (lower vision token budget) |
+| Video | ~114 frames at 1 FPS default |
+| Audio | ~327 seconds at 25 tokens/sec |
+
+Interleaved inputs share the same token budget. Video defaults to 1 FPS sampling; audio should be mono at 16 kHz.
+
+## API and Pricing
+
+EmbeddingGemma 2 is an open-weight model under Apache 2.0 license — no API pricing applies for self-hosted deployment. The model is available on Hugging Face at `google/embeddinggemma-2` and can be run locally via SentenceTransformers or Transformers.
+
+Google's Gemini Embedding API (a separate, proprietary service) charges $0.15 per 1M tokens for embeddings, but this is a different model family. As of this review, EmbeddingGemma 2 has no official hosted API pricing — it is distributed as open weights for local/on-device inference.
+
+## Use Case Recommendations
+
+**Choose EmbeddingGemma 2 if:**
+
+- You need a single embedding model for text, images, video, and audio
+- On-device or edge deployment is required (270M–740M parameter range)
+- Vector storage efficiency matters (MRL supports 6x compression at 128d)
+- Multilingual (100+ languages) and code retrieval are priorities
+- You want Apache 2.0 licensing for commercial use
+- Low-latency semantic search/RAG on consumer hardware is the target
+
+**Consider alternatives if:**
+
+- You need the absolute highest text-only embedding quality (larger models like BGE-M3, E5-Mistral, or proprietary APIs lead MTEB)
+- You require a managed API with SLA (no official hosted endpoint exists)
+- Your workload is purely text — smaller text-only models may be more efficient
+- You need 128d embeddings for multimodal tasks (quality drops significantly at 128d)
+- You require float16 inference (not supported; use bfloat16 or float32)
+
+## Conclusion
+
+EmbeddingGemma 2 fills a valuable niche: a compact, Apache 2.0-licensed multimodal embedding model that runs on consumer hardware while delivering competitive quality across text, code, image, video, and audio. Its MRL support enables practical storage/compute trade-offs, and selective encoder loading lets developers pay only for the modalities they use.
+
+The ~14% code retrieval improvement over its predecessor and strong visual document retrieval (67.84 NDCG@5) make it particularly relevant for developer tooling and multimodal RAG applications. The 8K context window handles minutes of audio/video, and the 100+ language coverage supports global deployments.
+
+For teams building on-device search, cross-modal retrieval, or edge AI applications, EmbeddingGemma 2 is a compelling open-weight option. For cloud-scale text-only embedding workloads, larger specialized models or managed APIs may still be preferable.
+
+## Sources
+
+- EmbeddingGemma 2 Model Card: [https://huggingface.co/google/embeddinggemma-2](https://huggingface.co/google/embeddinggemma-2) (accessed 2026-10-12)
+- EmbeddingGemma 2 README: [https://huggingface.co/google/embeddinggemma-2/raw/main/README.md](https://huggingface.co/google/embeddinggemma-2/raw/main/README.md) (accessed 2026-10-12)
+- EmbeddingGemma 2 Config: [https://huggingface.co/google/embeddinggemma-2/raw/main/config.json](https://huggingface.co/google/embeddinggemma-2/raw/main/config.json) (accessed 2026-10-12)
+- Launch Blog: [https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2](https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2) (accessed 2026-10-12)
+- Google AI for Developers Documentation: [https://ai.google.dev/gemma/docs/embeddinggemma](https://ai.google.dev/gemma/docs/embeddinggemma) (accessed 2026-10-12)
+- Google AI Pricing (Gemini Embedding API, separate model): [https://ai.google.dev/pricing](https://ai.google.dev/pricing) (accessed 2026-10-12)
+- OpenRouter Models (no listing for EmbeddingGemma 2): [https://openrouter.ai/models](https://openrouter.ai/models) (accessed 2026-10-12)
