@@ -126,6 +126,17 @@ steps:
         if curl -sfL --max-time 20 "$u" -o "sources/$n.txt"; then echo "sources/$n.txt $u" >> sources/index.txt
         else echo "UNREACHABLE $u" >> sources/index.txt; fi
       done
+      # HTML pages become plain text: run 38212265711 re-grepped the raw 1 MB
+      # blog.google page (10 KB of text) until 429. Trusted setup context.
+      for f in sources/[0-9]*.txt; do
+        grep -qiE '<html|<!doctype html' "$f" || continue
+        python3 -I -c 'import sys, re, html
+      t = open(sys.argv[1], encoding="utf-8", errors="replace").read()
+      t = re.sub(r"(?is)<(script|style|noscript|svg|head)\b.*?</\1>", " ", t)
+      t = html.unescape(re.sub(r"(?s)<[^>]+>", " ", t))
+      t = re.sub(r"\s*\n\s*", "\n", re.sub(r"[ \t\r\f\v]+", " ", t))
+      open(sys.argv[1], "w").write(t.strip() + "\n")' "$f"
+      done
       # Price claims: OpenRouter's models API is the per-token price sheet for
       # every model it lists (run 36399583797 could not verify prices without it).
       if curl -sfL --max-time 30 https://openrouter.ai/api/v1/models \
@@ -160,7 +171,7 @@ Read `/tmp/gh-aw/agent/factcheck/gate.txt` first. If it says `NOT_TIL`, immediat
 
 `/tmp/gh-aw/agent/factcheck/posts.txt` lists the post files in this PR. For each, `cat` it and verify it.
 
-Every source the post links is already downloaded: `/tmp/gh-aw/agent/factcheck/sources/index.txt` maps each local file to its URL (Hugging Face model links also have their raw `README.md` and `config.json`), and marks `UNREACHABLE` links. Read these files with `cat` / `grep` / `jq`; never re-fetch a URL that is in the index. Your budget is tool calls, not claims: check many claims per call — one `grep -n -E 'claim1|claim2|claim3' <file>` per source file, never one call per claim. Use `curl -sL` only for a primary source the post does not link (for example a pricing page or an arXiv abstract), once per URL. You are the only check between this post and publication: it auto-merges the moment you pass it. Be strict.
+Every source the post links is already downloaded, and HTML pages are already converted to plain text (one `cat` reads a whole page; never grep a page repeatedly): `/tmp/gh-aw/agent/factcheck/sources/index.txt` maps each local file to its URL (Hugging Face model links also have their raw `README.md` and `config.json`), and marks `UNREACHABLE` links. Read these files with `cat` / `grep` / `jq`; never re-fetch a URL that is in the index. Your budget is tool calls, not claims: check many claims per call — one `grep -n -E 'claim1|claim2|claim3' <file>` per source file, never one call per claim. Use `curl -sL` only for a primary source the post does not link (for example a pricing page or an arXiv abstract), once per URL. You are the only check between this post and publication: it auto-merges the moment you pass it. Be strict.
 
 1. List every checkable claim: numbers (parameters, context length, benchmark scores, prices, dates, sizes), specs (license, architecture, modality, organization), citations (paper titles and IDs), and every "X is not published / not specified" statement.
 2. Verify each against a primary source you fetch in this run:
