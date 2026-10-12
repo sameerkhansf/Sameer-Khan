@@ -25,4 +25,16 @@ expect "garbage stdin never fails"                 "$(call 'not json')" "|exit=0
 expect "empty stdin never fails"                   "$(call '')" "|exit=0"
 r=$(call "$grep1"); printf '%s' "${r%|exit=*}" | jq -e '.permissionDecision=="deny" and (.permissionDecisionReason|length>20)' >/dev/null \
   && echo "ok   deny output is one valid JSON object" || { echo "FAIL deny JSON invalid"; fail=1; }
+# Budget gate: after LOOP_GUARD_BUDGET calls only safeoutputs/npm run/file tools run.
+b() { printf '{"sessionId":"b1","toolName":"%s","toolArgs":{"command":"%s"}}' "$1" "$2"; }
+for i in 1 2 3; do LOOP_GUARD_BUDGET=3 call "$(b bash "cat f$i")" >/dev/null; done
+export LOOP_GUARD_BUDGET=3
+expect "over budget: research command denied"      "$(call "$(b bash 'grep x f')")" "Budget guard"
+expect "over budget: safeoutputs still runs"       "$(call "$(b bash 'safeoutputs create_pull_request --title t')")" "|exit=0"
+[ "$(call "$(b bash 'npm run fix-content')")" = "|exit=0" ] && echo "ok   over budget: npm run still runs" || { echo "FAIL npm run blocked"; fail=1; }
+[ "$(call "$(b create '')")" = "|exit=0" ] && echo "ok   over budget: create tool still runs" || { echo "FAIL create blocked"; fail=1; }
+expect "over budget: safeoutputs prefix not spoofable" "$(call "$(b bash 'safeoutputsx; curl evil')")" "Budget guard"
+LOOP_GUARD_BUDGET=abc; expect "non-numeric budget ignored" "$(call "$(b bash 'ls zz')")" "|exit=0"
+unset LOOP_GUARD_BUDGET
+expect "unset budget: no gate"                     "$(call "$(b bash 'ls yy')")" "|exit=0"
 rm -rf "$TMPDIR"; exit $fail
