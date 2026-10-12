@@ -90,7 +90,7 @@ steps:
     run: mkdir -p /tmp/gh-aw/agent/src
 
 tools:
-  bash: ["cat", "ls", "grep", "head", "tail", "wc", "date", "npm run fix-content", "npm run validate:content", "curl", "jq", "tr", "cut", "sort", "uniq"]
+  bash: ["cat", "ls", "grep", "head", "tail", "wc", "date", "npm run:*", "curl", "jq", "tr", "cut", "sort", "uniq"]
   edit:
   github:
     toolsets: [default]

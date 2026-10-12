@@ -32,6 +32,9 @@ export LOOP_GUARD_BUDGET=3
 expect "over budget: research command denied"      "$(call "$(b bash 'grep x f')")" "Budget guard"
 expect "over budget: safeoutputs still runs"       "$(call "$(b bash 'safeoutputs create_pull_request --title t')")" "|exit=0"
 [ "$(call "$(b bash 'npm run fix-content')")" = "|exit=0" ] && echo "ok   over budget: npm run still runs" || { echo "FAIL npm run blocked"; fail=1; }
+[ "$(call "$(b bash 'git commit -m x')")" = "|exit=0" ] && echo "ok   over budget: git commit still runs" || { echo "FAIL git commit blocked"; fail=1; }
+[ "$(call "$(b bash 'git status')")" = "|exit=0" ] && echo "ok   over budget: git status still runs" || { echo "FAIL git status blocked"; fail=1; }
+expect "over budget: git push denied" "$(call "$(b bash 'git push origin x')")" "Budget guard"
 [ "$(call "$(b create '')")" = "|exit=0" ] && echo "ok   over budget: create tool still runs" || { echo "FAIL create blocked"; fail=1; }
 expect "over budget: safeoutputs prefix not spoofable" "$(call "$(b bash 'safeoutputsx; curl evil')")" "Budget guard"
 LOOP_GUARD_BUDGET=abc; expect "non-numeric budget ignored" "$(call "$(b bash 'ls zz')")" "|exit=0"
