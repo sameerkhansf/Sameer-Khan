@@ -53,7 +53,9 @@ engine:
     # instead of dying at the 250-invocation max-turns cap.
     LOOP_GUARD_BUDGET: "60"
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
-    COPILOT_MODEL: "nvidia/nemotron-3-super-120b-a12b:free"
+    # Same NVIDIA NIM free provider (40 rpm). 9 runs on -super-120b ignored
+    # prompt rules and hook denials; test the 550B sibling on the narrowed job.
+    COPILOT_MODEL: "nvidia/nemotron-3-ultra-550b-a55b:free"
     COPILOT_PROVIDER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
 
 sandbox:
