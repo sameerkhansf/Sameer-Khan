@@ -48,6 +48,9 @@ engine:
   # route is shell curl with URL permission. Squid still enforces network.allowed.
   args: ["--allow-all-urls"]
   env:
+    # Copilot CLI skips .github/hooks in prompt mode (-p) unless this is set
+    # (docs: cli-command-reference, GITHUB_COPILOT_PROMPT_MODE_REPO_HOOKS).
+    GITHUB_COPILOT_PROMPT_MODE_REPO_HOOKS: "true"
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
     COPILOT_MODEL: "nvidia/nemotron-3-super-120b-a12b:free"
     COPILOT_PROVIDER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
@@ -83,9 +86,11 @@ safe-outputs:
 steps:
   - name: Install content linters (same toolchain as CI)
     run: npm ci
+  - name: Prepare source cache
+    run: mkdir -p /tmp/gh-aw/agent/src
 
 tools:
-  bash: ["cat", "ls", "grep", "head", "tail", "wc", "date", "npm run fix-content", "npm run validate:content", "curl", "jq", "tr", "cut", "sort", "uniq"]
+  bash: ["cat", "ls", "grep", "head", "tail", "wc", "date", "npm run:*", "curl", "jq", "tr", "cut", "sort", "uniq"]
   edit:
   github:
     toolsets: [default]
@@ -105,7 +110,7 @@ The capture note is: "${{ steps.sanitized.outputs.text }}"
 
 1. **Scout.** Read the capture note and the issue body. List existing posts in `content/blog/` and check for overlap. If the topic substantially duplicates an existing post, stop and do not open a PR — the reaction on the comment is enough; explain in the PR description only if you proceed with a materially different angle.
 
-2. **Research.** Download each source exactly once with `curl -sL --max-time 30 --create-dirs -o /tmp/gh-aw/agent/src/<short-name>.txt <url>` and read the saved file with `grep`/`head` (never re-`curl` a URL — each shell call spends one `max-turns` invocation) to read the primary sources named in the capture (docs, repos, changelogs, announcements). Prefer official documentation over secondary commentary. Record every URL you consult and the date accessed.
+2. **Research.** Download each source exactly once with `curl -sL --max-time 30 -o /tmp/gh-aw/agent/src/<short-name>.txt <url>` and read the saved file with `grep`/`head` (never re-`curl` a URL — each shell call spends one `max-turns` invocation;the directory already exists (a setup step creates it): never run `mkdir`, `touch`, `rm`, or write tests — they are not allowed and every denied call wastes an invocation.) to read the primary sources named in the capture (docs, repos, changelogs, announcements). Prefer official documentation over secondary commentary. Record every URL you consult and the date accessed.
 
 3. **Verify.** Every factual claim in the draft must trace to a source you actually fetched, or to a command you actually ran in this repository. Never write "I tested X" unless you ran it here. Prefer exact version numbers, dates, and quoted behavior over generalities.
 
