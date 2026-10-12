@@ -45,6 +45,9 @@ engine:
   args: ["--allow-all-urls"]
   max-continuations: 8
   env:
+    # Copilot CLI skips .github/hooks in prompt mode (-p) unless this is set
+    # (docs: cli-command-reference, GITHUB_COPILOT_PROMPT_MODE_REPO_HOOKS).
+    GITHUB_COPILOT_PROMPT_MODE_REPO_HOOKS: "true"
     # .github/hooks/loop-guard.sh: past this many tool calls only finishing
     # steps run (write, lint, safeoutputs), so the run ends with an outcome
     # instead of dying at the 250-invocation max-turns cap.

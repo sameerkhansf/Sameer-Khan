@@ -48,6 +48,9 @@ engine:
   # route is shell curl with URL permission. Squid still enforces network.allowed.
   args: ["--allow-all-urls"]
   env:
+    # Copilot CLI skips .github/hooks in prompt mode (-p) unless this is set
+    # (docs: cli-command-reference, GITHUB_COPILOT_PROMPT_MODE_REPO_HOOKS).
+    GITHUB_COPILOT_PROMPT_MODE_REPO_HOOKS: "true"
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
     COPILOT_MODEL: "nvidia/nemotron-3-super-120b-a12b:free"
     COPILOT_PROVIDER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
