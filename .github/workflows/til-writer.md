@@ -105,7 +105,7 @@ The capture note is: "${{ steps.sanitized.outputs.text }}"
 
 1. **Scout.** Read the capture note and the issue body. List existing posts in `content/blog/` and check for overlap. If the topic substantially duplicates an existing post, stop and do not open a PR — the reaction on the comment is enough; explain in the PR description only if you proceed with a materially different angle.
 
-2. **Research.** Use `curl -sL <url>` to read the primary sources named in the capture (docs, repos, changelogs, announcements). Prefer official documentation over secondary commentary. Record every URL you consult and the date accessed.
+2. **Research.** Download each source exactly once with `curl -sL --max-time 30 --create-dirs -o /tmp/gh-aw/agent/src/<short-name>.txt <url>` and read the saved file with `grep`/`head` (never re-`curl` a URL — each shell call spends one `max-turns` invocation) to read the primary sources named in the capture (docs, repos, changelogs, announcements). Prefer official documentation over secondary commentary. Record every URL you consult and the date accessed.
 
 3. **Verify.** Every factual claim in the draft must trace to a source you actually fetched, or to a command you actually ran in this repository. Never write "I tested X" unless you ran it here. Prefer exact version numbers, dates, and quoted behavior over generalities.
 
