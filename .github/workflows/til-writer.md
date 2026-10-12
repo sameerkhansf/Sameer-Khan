@@ -83,6 +83,8 @@ safe-outputs:
 steps:
   - name: Install content linters (same toolchain as CI)
     run: npm ci
+  - name: Prepare source cache
+    run: mkdir -p /tmp/gh-aw/agent/src
 
 tools:
   bash: ["cat", "ls", "grep", "head", "tail", "wc", "date", "npm run fix-content", "npm run validate:content", "curl", "jq", "tr", "cut", "sort", "uniq"]
@@ -105,7 +107,7 @@ The capture note is: "${{ steps.sanitized.outputs.text }}"
 
 1. **Scout.** Read the capture note and the issue body. List existing posts in `content/blog/` and check for overlap. If the topic substantially duplicates an existing post, stop and do not open a PR — the reaction on the comment is enough; explain in the PR description only if you proceed with a materially different angle.
 
-2. **Research.** Download each source exactly once with `curl -sL --max-time 30 --create-dirs -o /tmp/gh-aw/agent/src/<short-name>.txt <url>` and read the saved file with `grep`/`head` (never re-`curl` a URL — each shell call spends one `max-turns` invocation) to read the primary sources named in the capture (docs, repos, changelogs, announcements). Prefer official documentation over secondary commentary. Record every URL you consult and the date accessed.
+2. **Research.** Download each source exactly once with `curl -sL --max-time 30 -o /tmp/gh-aw/agent/src/<short-name>.txt <url>` and read the saved file with `grep`/`head` (never re-`curl` a URL — each shell call spends one `max-turns` invocation;the directory already exists (a setup step creates it): never run `mkdir`, `touch`, `rm`, or write tests — they are not allowed and every denied call wastes an invocation.) to read the primary sources named in the capture (docs, repos, changelogs, announcements). Prefer official documentation over secondary commentary. Record every URL you consult and the date accessed.
 
 3. **Verify.** Every factual claim in the draft must trace to a source you actually fetched, or to a command you actually ran in this repository. Never write "I tested X" unless you ran it here. Prefer exact version numbers, dates, and quoted behavior over generalities.
 
