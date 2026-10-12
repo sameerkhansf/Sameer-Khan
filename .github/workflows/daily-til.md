@@ -51,7 +51,7 @@ engine:
     # .github/hooks/loop-guard.sh: past this many tool calls only finishing
     # steps run (write, lint, safeoutputs), so the run ends with an outcome
     # instead of dying at the 250-invocation max-turns cap.
-    LOOP_GUARD_BUDGET: "190"
+    LOOP_GUARD_BUDGET: "60"
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
     COPILOT_MODEL: "nvidia/nemotron-3-super-120b-a12b:free"
     COPILOT_PROVIDER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
@@ -132,6 +132,35 @@ steps:
         echo "openrouter-models.json https://openrouter.ai/api/v1/models" >> index.txt
       else echo "UNREACHABLE https://openrouter.ai/api/v1/models" >> index.txt; fi
       wc -l index.txt
+      # Workflow, not agent: choose the topic here so the model never runs dedup
+      # greps (runs 38199570665 and 38200927483 burned 168 and 226 calls on them).
+      # First trending model with a fetched README that has no post of its own,
+      # is not a rejected topic, and whose family (name up to the first "-",
+      # e.g. qwen3) has no post dated within the last 14 days.
+      cutoff=$(date -u -d '14 days ago' +%F)
+      echo '{}' > /tmp/gh-aw/agent/scout/topic.json
+      for m in $(jq -r '.[].id' /tmp/gh-aw/agent/scout/hf-trending.json); do
+        base="$(echo "$m" | tr '/' '_')"
+        [ -s "${base}__README.md.txt" ] || continue
+        name=$(echo "${m#*/}" | tr 'A-Z.' 'a-z-' | tr -c 'a-z0-9\n' '-')
+        grep -q -- "$name" /tmp/gh-aw/agent/scout/existing-slugs.txt && continue
+        jq -e --arg n "${m#*/}" 'any(.[].title; ascii_downcase | contains($n | ascii_downcase))' \
+          /tmp/gh-aw/agent/scout/rejected-til-topics.json > /dev/null && continue
+        recent=""
+        for f in "$GITHUB_WORKSPACE"/content/blog/*"${name%%-*}"*.mdx; do
+          [ -f "$f" ] || continue
+          d=$(grep -m1 '^date:' "$f" | tr -dc '0-9-')
+          if [[ "$d" > "$cutoff" ]]; then recent="$f"; fi
+        done
+        [ -n "$recent" ] && continue
+        jq -n --arg id "$m" --arg dir /tmp/gh-aw/agent/src --arg b "$base" \
+          '{id: $id, url: "https://huggingface.co/\($id)",
+            readme: "\($dir)/\($b)__README.md.txt", readme_url: "https://huggingface.co/\($id)/raw/main/README.md",
+            config: "\($dir)/\($b)__config.json.txt", config_url: "https://huggingface.co/\($id)/raw/main/config.json"}' \
+          > /tmp/gh-aw/agent/scout/topic.json
+        break
+      done
+      cat /tmp/gh-aw/agent/scout/topic.json
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -172,13 +201,15 @@ A deterministic step already gathered your scouting inputs under `/tmp/gh-aw/age
 - `hf-trending.json` — the 25 currently trending Hugging Face models with creation dates: the fastest signal for newly released models worth a review.
 - `/tmp/gh-aw/agent/src/index.txt` — already downloaded for you: every trending model's raw `README.md` and `config.json` (one line per file: local file name, then its source URL; `UNREACHABLE` marks a failed download), plus `openrouter-models.json`, OpenRouter's per-token price sheet (`pricing.prompt`/`completion` are USD per token, so multiply by 1,000,000 for per-1M prices). These are your primary sources: cite the URL from the index.
 
-Read all six with a single `cat` each (for the source files, `grep -n -E 'term1|term2|term3' <file>` many terms per call), then choose the topic. Never run shell searches for topic queues, `topics.md`, or repo file listings — everything scouting needs is in these files.
+- `topic.json` — **your topic, already chosen by the setup step**: one trending model (`id`, `url`) with the local paths and source URLs of its README and config. Code already checked it against existing posts, rejected topics, and the 14-day family rule. `{}` means nothing qualifies today.
+
+Read `gate.txt` and `topic.json` with one `cat` each. Never re-check slugs, model families, or rejected topics, and never search for topic queues or repo file listings — the setup step decided all of that.
 
 ## Job
 
-1. **Pick one resource topic developers are deciding about.** This site is a developer resource — reviews, comparisons, and buyer's guides for AI models and developer tools (study the existing corpus: the Claude Opus review, the Cursor vs Copilot vs Claude Code comparison, the best-open-source-LLM guide). Valid topics: a newly released model or tool that needs a developer review; a category with 3+ competing options needing a comparison or best-of guide; a significant pricing or capability change that outdated an existing decision. Sources: the prepared inputs above (Hugging Face trending), plus web fetch of vendor release pages for the chosen candidate. Never this repository's own pipeline; skip ledger history; prefer topics the site has no coverage of.
+1. **Your topic is `topic.json`.** Write a single-product developer review of that model. If `topic.json` is `{}`, call `noop` with "no uncovered trending model today" and stop. Do not pick a different model, and do not write a comparison.
 
-2. **Research like a reviews desk.** Fetch primary sources: official docs, pricing pages, changelogs, published benchmarks, vendor comparisons. Collect concrete numbers — context windows, benchmark scores, rate limits, price per million tokens, license terms — each with a source link. Where sources conflict, say so. NEVER claim personal testing you did not do ("I tested", "in my testing" are forbidden): this is spec-and-evidence analysis whose credibility is its citations.
+2. **Read the sources once.** `cat` the topic's README file and config file ONE time each and work from that output — never `grep` them again for individual facts (repeated greps are what exhausted every failed run). For the price, run ONE `jq` on `/tmp/gh-aw/agent/src/openrouter-models.json` for the model `id`; if it is absent, the price cell reads "no official listing". At most 3 further `curl -sfL -o` fetches for a vendor page the README links; a failed fetch is dropped, never retried. Cite each fact with the source URL from `topic.json`. Where sources conflict, say so. NEVER claim personal testing you did not do ("I tested", "in my testing" are forbidden).
 
 3. **Outline first, then write** (the pattern NVIDIA AI-Q and the Cerebras research cookbook both use): draft the Quick Answer table and the H2 section outline with the key cited numbers slotted in BEFORE writing any prose; then expand each section from the outline. Structure like the site's own reviews: Quick Answer table up front (options x best-for x price x pick), H2 per contender or criterion, a spec/benchmark table with cited numbers, use-case recommendations ("choose X if..."), and a clear verdict. Length 800-2000 words like the corpus. Every number carries its source link; recommendations follow from the cited evidence.
 
@@ -210,7 +241,7 @@ Research budget: the trending models' cards are pre-fetched; at most ~10 additio
 ## Practical rules (edge cases)
 
 - **One pending post at a time.** Before anything else, check for an open pull request labeled `til`. If one exists, call `noop` naming it — never stack pending posts. The open PR auto-merges once CI and fact-check pass, or expires in 2 days if either fails.
-- **One post per model family per fortnight.** Slug uniqueness does not catch duplicate coverage: check `existing-slugs.txt` for the model *family* of every candidate, not just its exact name. If any post in the last 14 days already covers that family (GLM-5.x, Qwen3.x, Claude, GPT-5.x, DeepSeek, Llama), the family is spent — pick a different one, or `noop` saying so. A second angle on a model the site just covered is a duplicate.
+- **One post per model family per fortnight** is enforced by the setup step that writes `topic.json`; do not re-check it.
 - **Slugs are permanent identity.** The new file's slug must not collide with any existing file in `content/blog/`; if your natural slug exists, the topic is a duplicate — pick another topic. Never rename existing files; a rename breaks URLs and requires a redirect, which is a human decision.
 - **Updates are not duplicates.** If new information materially changes a published post's conclusions, do not write a near-duplicate post; call `noop` recommending an update to the existing post (updates happen only via explicit human /til capture, which sets the `updated` frontmatter date).
 - **Same-day bursts are fine; forced posts are not.** A reasoned `noop` on a dry day is correct behavior — an unforced record is the entire value of a TIL site.
