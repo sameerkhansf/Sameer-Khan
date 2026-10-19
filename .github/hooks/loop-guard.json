@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "type": "command",
+        "bash": "bash .github/hooks/loop-guard.sh",
+        "timeoutSec": 10
+      }
+    ]
+  }
+}

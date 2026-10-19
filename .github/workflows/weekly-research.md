@@ -50,6 +50,10 @@ tools:
     toolsets: [all]
     min-integrity: none # This workflow is allowed to examine and comment on any issues or PRs
 
+steps:
+  - name: Prepare source cache
+    run: mkdir -p /tmp/gh-aw/agent/src
+
 timeout-minutes: 30
 
 engine:
@@ -58,6 +62,13 @@ engine:
   # route is shell curl with URL permission. Squid still enforces network.allowed.
   args: ["--allow-all-urls"]
   env:
+    # Copilot CLI skips .github/hooks in prompt mode (-p) unless this is set
+    # (docs: cli-command-reference, GITHUB_COPILOT_PROMPT_MODE_REPO_HOOKS).
+    GITHUB_COPILOT_PROMPT_MODE_REPO_HOOKS: "true"
+    # .github/hooks/loop-guard.sh: past this many tool calls only finishing
+    # steps run (write, lint, safeoutputs), so the run ends with an outcome
+    # instead of dying at the 500-invocation max-turns cap.
+    LOOP_GUARD_BUDGET: "400"
     COPILOT_PROVIDER_BASE_URL: https://openrouter.ai/api/v1
     COPILOT_MODEL: "nvidia/nemotron-3-super-120b-a12b:free"
     COPILOT_PROVIDER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
@@ -82,7 +93,7 @@ Do a deep research investigation in ${{ github.repository }} repository, and the
 - Read selections of the latest code, issues and PRs for this repo.
 - Read latest trends and news from the software industry on the Web.
 
-Tools: download each web page exactly once with `curl -sfL --max-time 30 --create-dirs -o /tmp/gh-aw/agent/src/<short-name>.txt <url>`, then read the saved file with `grep`/`head`/`tail` as often as you need — never pipe `curl` into another command and never `curl` a URL twice (each shell call spends one `max-turns` invocation; re-fetching one page exhausted the budget in failed runs). If a fetch fails (non-zero exit, usually a domain outside the allowlist), drop that source and move on — do not retry it. Only this workflow's network allowlist is reachable (github.com, huggingface.co, openai.com, anthropic.com, ai.google.dev, blog.google, mistral.ai, deepseek.com, openrouter.ai and their subdomains), so pick sources there and never hunt for mirrors. Use the GitHub MCP tools for repo data (not curl to api.github.com) and `jq` for JSON; text tools are `grep`, `tr`, `cut`, `head`, `tail`, `sort`, `uniq`, `wc` — there is no Python, `sed`, or `awk`.
+Tools: download each web page exactly once with `curl -sfL --max-time 30 -o /tmp/gh-aw/agent/src/<short-name>.txt <url>`, then read the saved file with `grep`/`head`/`tail` as often as you need — never pipe `curl` into another command and never `curl` a URL twice (each shell call spends one `max-turns` invocation; re-fetching one page exhausted the budget in failed runs). If a fetch fails (non-zero exit, usually a domain outside the allowlist), drop that source and move on — do not retry it. The directory already exists (a setup step creates it): never run `mkdir`, `touch`, `rm`, or write tests — they are not allowed and every denied call wastes an invocation. Only this workflow's network allowlist is reachable (github.com, huggingface.co, openai.com, anthropic.com, ai.google.dev, blog.google, mistral.ai, deepseek.com, openrouter.ai and their subdomains), so pick sources there and never hunt for mirrors. Use the GitHub MCP tools for repo data (not curl to api.github.com) and `jq` for JSON; text tools are `grep`, `tr`, `cut`, `head`, `tail`, `sort`, `uniq`, `wc` — there is no Python, `sed`, or `awk`.
 - A shell command answered with "Permission denied" is blocked by policy and will be denied every time: never run it, or a variant of it, again. Use an allowed command (`jq` for JSON, `grep`/`head` for text) or move on.
 
 Exclusion for all sections: this repository's own publishing pipeline, gh-aw workflows, and agent automation are not research subjects — cover the outside world.
